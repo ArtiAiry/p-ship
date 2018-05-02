@@ -9,9 +9,10 @@
 namespace app\controllers;
 
 
-use app\models\LoginForm;
+
 use Yii;
 use yii\web\Controller;
+use app\models\form\LoginForm;
 
 class AuthController extends Controller
 {

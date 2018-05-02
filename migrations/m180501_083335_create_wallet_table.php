@@ -19,7 +19,7 @@ class m180501_083335_create_wallet_table extends Migration
             'paypal_eur' => $this->string(255)->defaultValue(null),
             'sberbank_rub' => $this->string(255)->defaultValue(null),
             'user_id' => $this->integer()->defaultValue(null),
-            'isMain'=> "TINYINT (1) default 1",
+            'isMain'=> "TINYINT (1) default NULL",
             'isRemoved'=> "TINYINT (1) default 1",
         ]);
         $this->createIndex(

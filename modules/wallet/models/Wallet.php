@@ -1,6 +1,6 @@
 <?php
 
-namespace app\modules\profile\models;
+namespace app\modules\wallet\models;
 
 use app\models\User;
 use Yii;
@@ -23,9 +23,11 @@ use Yii;
  */
 class Wallet extends \yii\db\ActiveRecord
 {
-    /**
-     * @inheritdoc
-     */
+
+    const REMOVE = 0;
+    const ACTIVE = 1;
+
+
     public static function tableName()
     {
         return 'wallet';
@@ -69,4 +71,30 @@ class Wallet extends \yii\db\ActiveRecord
     {
         return $this->hasOne(User::className(), ['id' => 'user_id']);
     }
+
+
+    public function isRemoved()
+    {
+        return $this->isRemoved;
+    }
+    public function remove()
+    {
+        $this->isRemoved = self::REMOVE;
+        return $this->save(false);
+    }
+    public function isActive()
+    {
+        return $this->isActive;
+    }
+    public function activate()
+    {
+        $this->isActive = self::ACTIVE;
+        return $this->save(false);
+    }
+    public function disactivate()
+    {
+        $this->isActive = self::REMOVE;
+        return $this->save(false);
+    }
+
 }

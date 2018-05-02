@@ -4,13 +4,13 @@ use yii\helpers\Html;
 use yii\widgets\DetailView;
 
 /* @var $this yii\web\View */
-/* @var $model app\models\Profile */
+/* @var $model app\modules\wallet\models\Wallet */
 
-$this->title = $model->user->username;
-$this->params['breadcrumbs'][] = ['label' => 'Profiles', 'url' => ['index']];
+$this->title = $model->id;
+$this->params['breadcrumbs'][] = ['label' => 'Wallets', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="profile-view">
+<div class="wallet-view">
 
     <h1><?= Html::encode($this->title) ?></h1>
 
@@ -29,15 +29,15 @@ $this->params['breadcrumbs'][] = $this->title;
         'model' => $model,
         'attributes' => [
             'id',
-            'user.username',
-            'user.email',
-            'skype',
-            'phone',
-            'country',
-            'city',
-            'age',
-            'gender',
-            'dob',
+            'payout_type_id',
+            'yandex_money',
+            'qiwi',
+            'webmoney_wmr',
+            'paypal_eur',
+            'sberbank_rub',
+            'user_id',
+            'isMain',
+            'isRemoved',
         ],
     ]) ?>
 

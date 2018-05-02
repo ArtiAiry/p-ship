@@ -45,12 +45,12 @@ AppAsset::register($this);
                     <?php if(Yii::$app->user->isGuest):?>
                         <!--                        <li><a href="--><?//=  Url::toRoute(['site/login'])?><!--">Login</a></li>-->
 
-                        <li><a href="<?= Url::toRoute(['auth/login'])?>">Login</a></li>
-                        <li><a href="<?= Url::toRoute(['signup/index'])?>">Register</a></li>
+                        <li><a href="<?= Url::toRoute(['/auth/login'])?>">Login</a></li>
+                        <li><a href="<?= Url::toRoute(['/signup/index'])?>">Register</a></li>
                     <?php else: ?>
                         <li><a href="<?= Yii::$app->homeUrl?>">Home</a></li>
-                        <li><a href="<?= Url::toRoute(['site/about'])?>">About</a></li>
-                        <li><a href="<?=  Url::toRoute(['site/contact'])?>">Contact</a></li>
+                        <li><a href="<?= Url::toRoute(['/site/about'])?>">About</a></li>
+                        <li><a href="<?=  Url::toRoute(['/site/contact'])?>">Contact</a></li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                 Tools
@@ -64,8 +64,8 @@ AppAsset::register($this);
 <!--                            </ul>-->
 
                         </li>
-                        <li> <a href="<?= Url::toRoute(['profile/view','id'=>Yii::$app->user->identity->id]);?>" title="View" aria-label="View"><span class="glyphicon glyphicon-eye-open"></span></a></li>
-                        <li><a href="<?= Url::toRoute(['auth/logout'])?>">Logout(<?=Yii::$app->user->identity->username?>)</a></li>
+                        <li> <a href="<?= Url::toRoute(['/profile/view','id'=>Yii::$app->user->identity->id]);?>" title="View" aria-label="View"><span class="glyphicon glyphicon-eye-open"></span></a></li>
+                        <li><a href="<?= Url::toRoute(['/auth/logout'])?>">Logout(<?=Yii::$app->user->identity->username?>)</a></li>
                     <?php endif; ?>
                 </ul>
             </div>

@@ -52,6 +52,15 @@ $config = [
             'showScriptName' => false,
             'rules' => [
                 '<alias:index|about|contact|category>' => 'site/<alias>',
+
+                //wallet
+                '<module:wallet>/<action:\w+>/<id:\d+>' => '<module>/wallet/<action>',
+                '<module:wallet>/<action:\w+>' => '<module>/wallet/<action>',
+
+                //profile
+                '<module:profile>/<action:\w+>/<id:\d+>' => '<module>/profile/<action>',
+                '<module:profile>/<action:\w+>' => '<module>/profile/<action>',
+
             ],
         ],
 

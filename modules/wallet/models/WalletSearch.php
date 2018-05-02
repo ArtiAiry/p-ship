@@ -1,16 +1,16 @@
 <?php
 
-namespace app\models;
+namespace app\modules\wallet\models;
 
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use app\models\Profile;
+use app\modules\wallet\models\Wallet;
 
 /**
- * ProfileSearch represents the model behind the search form of `app\models\Profile`.
+ * WalletSearch represents the model behind the search form of `app\modules\wallet\models\Wallet`.
  */
-class ProfileSearch extends Profile
+class WalletSearch extends Wallet
 {
     /**
      * @inheritdoc
@@ -18,8 +18,8 @@ class ProfileSearch extends Profile
     public function rules()
     {
         return [
-            [['id', 'user_id', 'phone', 'age'], 'integer'],
-            [['skype', 'country', 'city', 'gender', 'dob'], 'safe'],
+            [['id', 'payout_type_id', 'user_id', 'isMain', 'isRemoved'], 'integer'],
+            [['yandex_money', 'qiwi', 'webmoney_wmr', 'paypal_eur', 'sberbank_rub'], 'safe'],
         ];
     }
 
@@ -41,7 +41,7 @@ class ProfileSearch extends Profile
      */
     public function search($params)
     {
-        $query = Profile::find();
+        $query = Wallet::find();
 
         // add conditions that should always apply here
 
@@ -60,16 +60,17 @@ class ProfileSearch extends Profile
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
+            'payout_type_id' => $this->payout_type_id,
             'user_id' => $this->user_id,
-            'phone' => $this->phone,
-            'age' => $this->age,
-            'dob' => $this->dob,
+            'isMain' => $this->isMain,
+            'isRemoved' => $this->isRemoved,
         ]);
 
-        $query->andFilterWhere(['like', 'skype', $this->skype])
-            ->andFilterWhere(['like', 'country', $this->country])
-            ->andFilterWhere(['like', 'city', $this->city])
-            ->andFilterWhere(['like', 'gender', $this->gender]);
+        $query->andFilterWhere(['like', 'yandex_money', $this->yandex_money])
+            ->andFilterWhere(['like', 'qiwi', $this->qiwi])
+            ->andFilterWhere(['like', 'webmoney_wmr', $this->webmoney_wmr])
+            ->andFilterWhere(['like', 'paypal_eur', $this->paypal_eur])
+            ->andFilterWhere(['like', 'sberbank_rub', $this->sberbank_rub]);
 
         return $dataProvider;
     }

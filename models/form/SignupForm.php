@@ -6,31 +6,47 @@
  * Time: 16:56
  */
 
-namespace app\models;
+namespace app\models\form;
 
 
+use app\models\User;
+use app\modules\profile\models\Profile;
+use app\modules\wallet\models\Wallet;
 use yii\base\Model;
 
 class SignupForm extends Model
 {
     public $username;
     public $email;
-    public $password;
+    public $password_hash;
     public $repeat_password;
 
     public function rules()
     {
         return [
-            [['username','email','password','repeat_password'],'required'],
+            [['username','email','password_hash','repeat_password'],'required'],
             [['username'], 'string', 'min'=> 4, 'max'=> 255],
             [['email'], 'unique', 'targetClass'=>'app\models\User', 'targetAttribute'=>'email', 'message'=>"This email has been already token."],
+            [['username'], 'unique', 'targetClass'=>'app\models\User', 'targetAttribute'=>'username', 'message'=>"This username has been already token."],
             [['email'], 'email'],
             [['email'], 'trim'],
             ['email', 'string', 'max' => 255],
-            ['repeat_password', 'compare', 'compareAttribute'=>'password', 'message'=>"Passwords don't match."],
+            ['repeat_password', 'compare', 'compareAttribute'=>'password_hash', 'message'=>"Passwords don't match."],
 
         ];
     }
+
+    public function attributeLabels()
+    {
+        return [
+            'id' => 'ID',
+            'username' => 'Username',
+            'email' => 'Email',
+            'password_hash' => 'Password',
+            'repeat_password' => 'Repeat password',
+        ];
+    }
+
 
     public function signup()
     {
@@ -40,7 +56,8 @@ class SignupForm extends Model
 
             $user->username = $this->username;
             $user->email = $this->email;
-            $user->setPassword($this->password);
+            $user->setPassword($this->password_hash);
+            $user->generateAuthKey();
             $user->save();
 
             $profile = new Profile();
@@ -48,6 +65,13 @@ class SignupForm extends Model
             $profile->user_id = $user->id;
 
             $user->link('profile', $profile);
+
+            $wallet = new Wallet();
+
+            $wallet->user_id = $user->id;
+
+            $user->link('wallet', $wallet);
+
 
             $db = \Yii::$app->db;
             $transaction = $db->beginTransaction();

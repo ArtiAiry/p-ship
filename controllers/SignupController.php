@@ -7,9 +7,10 @@
  */
 
 namespace app\controllers;
-use app\models\SignupForm;
+
 use Yii;
 use yii\web\Controller;
+use app\models\form\SignupForm;
 
 class SignupController extends Controller
 {
@@ -21,9 +22,13 @@ class SignupController extends Controller
         {
             $model->load(Yii::$app->request->post());
 
-            if($model->signup())
+            if($user = $model->signup())
             {
-                return $this->redirect(['auth/login']);
+                if (Yii::$app->getUser()->login($user)) {
+                    return $this->goHome();
+                } else {
+                    return $this->redirect(['auth/login']);
+                }
             }
         }
         return $this->render('register', [

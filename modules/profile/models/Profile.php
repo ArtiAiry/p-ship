@@ -4,6 +4,7 @@ namespace app\modules\profile\models;
 
 use app\models\User;
 use Yii;
+use yii\db\ActiveRecord;
 
 /**
  * This is the model class for table "profile".
@@ -20,7 +21,7 @@ use Yii;
  *
  * @property User $user
  */
-class Profile extends \yii\db\ActiveRecord
+class Profile extends ActiveRecord
 {
     /**
      * @inheritdoc
@@ -64,9 +65,45 @@ class Profile extends \yii\db\ActiveRecord
         ];
     }
 
-    /**
-     * @return \yii\db\ActiveQuery
-     */
+    public function profileRegister()
+
+    {
+        if($this->validate())
+        {
+            $user = new User();
+
+            $user->username = $this->username;
+            $user->email = $this->email;
+            $user->setPassword($this->password);
+            $user->save();
+
+            $profile = new Profile();
+
+            $profile->user_id = $user->id;
+            $profile->first_name = $this->first_name;
+            $profile->last_name = $this->last_name;
+            $profile->skype = $this->skype;
+            $profile->phone = $this->phone;
+            $profile->telegram = $this->telegram;
+            $profile->whatsapp = $this->whatsapp;
+
+            $user->link('profile', $profile);
+
+            $db = \Yii::$app->db;
+            $transaction = $db->beginTransaction();
+            if ($user->create() && $profile->save()) {
+
+                $transaction->commit();
+            } else {
+                $transaction->rollback();
+            }
+            return $user->create() ? $user : null;
+
+        }
+        return null;
+    }
+
+
     public function getUser()
     {
         return $this->hasOne(User::className(), ['id' => 'user_id']);

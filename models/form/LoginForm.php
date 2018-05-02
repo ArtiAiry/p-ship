@@ -1,10 +1,8 @@
 <?php
-
-namespace app\models;
-
+namespace app\models\form;
+use app\models\User;
 use Yii;
 use yii\base\Model;
-
 /**
  * LoginForm is the model behind the login form.
  *
@@ -13,14 +11,12 @@ use yii\base\Model;
  */
 class LoginForm extends Model
 {
-
-    public $password;
+    public $login;
     public $email;
+    public $username;
+    public $password_hash;
     public $rememberMe = true;
-
     private $_user = false;
-
-
     /**
      * @return array the validation rules.
      */
@@ -28,15 +24,22 @@ class LoginForm extends Model
     {
         return [
             // email and password are both required
-            [['email', 'password'], 'required'],
-            [['email'], 'email'],
+            [['login', 'password_hash'], 'required'],
             // rememberMe must be a boolean value
             ['rememberMe', 'boolean'],
             // password is validated by validatePassword()
-            ['password', 'validatePassword'],
+            ['password_hash', 'validatePassword'],
         ];
     }
 
+    public function attributeLabels()
+    {
+        return [
+            'login' => 'Login',
+            'password_hash' => 'Password',
+
+        ];
+    }
     /**
      * Validates the password.
      * This method serves as the inline validation for password.
@@ -48,15 +51,13 @@ class LoginForm extends Model
     {
         if (!$this->hasErrors()) {
             $user = $this->getUser();
-
-            if (!$user || !$user->validatePassword($this->password)) {
+            if (!$user || !$user->validatePassword($this->password_hash)) {
                 $this->addError($attribute, 'Incorrect email or password.');
             }
         }
     }
-
     /**
-     * Logs in a user using the provided username and password.
+     * Logs in a user using the provided email and password.
      * @return bool whether the user is logged in successfully
      */
     public function login()
@@ -66,18 +67,16 @@ class LoginForm extends Model
         }
         return false;
     }
-
     /**
-     * Finds user by [[email]]
+     * Finds user by [[both email and username]]
      *
      * @return User|null
      */
     public function getUser()
     {
         if ($this->_user === false) {
-            $this->_user = User::findByEmail($this->email);
+            $this->_user = User::findByEmailOrUsername($this->login);
         }
-
         return $this->_user;
     }
 }
