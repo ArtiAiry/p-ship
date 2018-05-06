@@ -21,13 +21,18 @@ class PublicAsset extends AssetBundle
     public $baseUrl = '@web';
     public $css = [
         'css/style.css',
+        'css/materialdesignicons.min.css',
+        'css/simple-line-icons.css'
     ];
     public $js = [
         'js/chart.js',
-        'js/dashboard.js',
+
         'js/maps.js',
         'js/misc.js',
-        'js/off-canvas.js'
+        'js/off-canvas.js',
+        'js/bootstrap.min.js',
+        'js/popper.min.js',
+        'js/dashboard.js',
     ];
     public $depends = [
         'yii\web\YiiAsset',

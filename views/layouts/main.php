@@ -18,6 +18,7 @@ PublicAsset::register($this);
         <meta charset="<?= Yii::$app->charset ?>">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
         <?= Html::csrfMetaTags() ?>
@@ -32,6 +33,7 @@ PublicAsset::register($this);
             <?= $this->render('//parts/navbar')?>
 
             <div class="container-fluid page-body-wrapper">
+
                 <?= $this->render('//parts/sidebar')?>
             <div class="main-panel">
                 <div class="content-wrapper">
