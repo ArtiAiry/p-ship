@@ -16,6 +16,8 @@ class SignupController extends Controller
 {
     public function actionIndex()
     {
+        $this->layout = false;
+
         $model = new SignupForm();
 //        var_dump(Yii::$app->request->post());
         if(Yii::$app->request->post())

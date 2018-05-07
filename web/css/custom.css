@@ -1,0 +1,80 @@
+.form-group.row.field-signupform-username.required {
+
+    background: transparent;
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+    border-radius: 0;
+    padding-left: 0.5rem;
+    padding-right: 0.6475rem;
+    font-size: 0.9375rem;
+
+}
+
+.form-group.row.field-signupform-email.required {
+
+    background: transparent;
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+    border-radius: 0;
+    padding-left: 0.5rem;
+    padding-right: 0.6475rem;
+    font-size: 0.9375rem;
+
+}
+
+.form-group.row.field-signupform-password_hash.required {
+
+    background: transparent;
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+    border-radius: 0;
+    padding-left: 0.5rem;
+    padding-right: 0.6475rem;
+    font-size: 0.9375rem;
+
+}
+
+.form-group.row.field-signupform-repeat_password {
+
+    background: transparent;
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+    border-radius: 0;
+    padding-left: 0.5rem;
+    padding-right: 0.6475rem;
+    font-size: 0.9375rem;
+
+}
+.form-group.row.field-signupform-username.required.has-danger div.custom-error  {
+    padding-top: 10px;
+}
+
+.form-group.row.field-loginform-login.required {
+
+    background: transparent;
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+    border-radius: 0;
+    padding-left: 0.5rem;
+    padding-right: 0.6475rem;
+    font-size: 0.9375rem;
+
+}
+
+.form-group.row.field-loginform-password_hash.required {
+
+    background: transparent;
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+    border-radius: 0;
+    padding-left: 0.5rem;
+    padding-right: 0.6475rem;
+    font-size: 0.9375rem;
+    
+}

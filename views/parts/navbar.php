@@ -14,8 +14,8 @@ Use yii\helpers\Url;
 
 <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
     <div class="text-center navbar-brand-wrapper d-flex align-items-top justify-content-center">
-        <a class="navbar-brand brand-logo" href="<?=Yii::$app->homeUrl ?>"><img src="images/logo.svg" alt="logo"/></a>
-        <a class="navbar-brand brand-logo-mini" href="<?=Yii::$app->homeUrl ?>"><img src="images/logo-mini.svg" alt="logo"/></a>
+        <a class="navbar-brand brand-logo" href="<?=Yii::$app->homeUrl ?>"><img src="/images/logo.svg" alt="logo"/></a>
+        <a class="navbar-brand brand-logo-mini" href="<?=Yii::$app->homeUrl ?>"><img src="/images/logo-mini.svg" alt="logo"/></a>
     </div>
     <div class="navbar-menu-wrapper d-flex align-items-center">
         <ul class="navbar-nav navbar-nav-left header-links d-none d-md-flex">
@@ -99,7 +99,7 @@ Use yii\helpers\Url;
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item preview-item">
                         <div class="preview-thumbnail">
-                            <img src="images/faces/face4.jpg" alt="image" class="profile-pic">
+                            <img src="/images/faces/face4.jpg" alt="image" class="profile-pic">
                         </div>
                         <div class="preview-item-content flex-grow">
                             <h6 class="preview-subject ellipsis font-weight-medium">David Grey
@@ -113,7 +113,7 @@ Use yii\helpers\Url;
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item preview-item">
                         <div class="preview-thumbnail">
-                            <img src="images/faces/face2.jpg" alt="image" class="profile-pic">
+                            <img src="/images/faces/face2.jpg" alt="image" class="profile-pic">
                         </div>
                         <div class="preview-item-content flex-grow">
                             <h6 class="preview-subject ellipsis font-weight-medium">Tim Cook
@@ -127,7 +127,7 @@ Use yii\helpers\Url;
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item preview-item">
                         <div class="preview-thumbnail">
-                            <img src="images/faces/face3.jpg" alt="image" class="profile-pic">
+                            <img src="/images/faces/face3.jpg" alt="image" class="profile-pic">
                         </div>
                         <div class="preview-item-content flex-grow">
                             <h6 class="preview-subject ellipsis font-weight-medium"> Johnson
@@ -142,7 +142,7 @@ Use yii\helpers\Url;
             </li>
             <li class="nav-item d-none d-lg-block">
                 <a class="nav-link" href="#">
-                    <img class="img-xs rounded-circle" src="images/faces/face4.jpg" alt="">
+                    <img class="img-xs rounded-circle" src="/images/faces/face4.jpg" alt="">
                 </a>
             </li>
         </ul>

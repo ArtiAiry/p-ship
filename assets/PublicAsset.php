@@ -20,11 +20,15 @@ class PublicAsset extends AssetBundle
     public $basePath = '@webroot';
     public $baseUrl = '@web';
     public $css = [
-        'css/style.css',
+
         'css/materialdesignicons.min.css',
-        'css/simple-line-icons.css'
+        'css/simple-line-icons.css',
+        'css/style.css',
+        'css/custom.css',
     ];
     public $js = [
+//        'js/jquery-3.3.1.js',
+
         'js/chart.js',
 
         'js/maps.js',
@@ -33,6 +37,8 @@ class PublicAsset extends AssetBundle
         'js/bootstrap.min.js',
         'js/popper.min.js',
         'js/dashboard.js',
+
+
     ];
     public $depends = [
         'yii\web\YiiAsset',

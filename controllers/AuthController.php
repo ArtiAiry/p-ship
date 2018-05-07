@@ -21,10 +21,9 @@ class AuthController extends Controller
         if (!Yii::$app->user->isGuest) {
             return $this->goHome();
         }
+        $this->layout = false;
 
         $model = new LoginForm();
-
-
 
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
 

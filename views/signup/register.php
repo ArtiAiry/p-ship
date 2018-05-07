@@ -4,50 +4,103 @@
 /* @var $form yii\bootstrap\ActiveForm */
 /* @var $model app\models\form\SignupForm */
 
+use app\assets\PublicAsset;
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
 
+PublicAsset::register($this);
+
 $this->title = 'Sign Up';
 $this->params['breadcrumbs'][] = $this->title;
+
+
+$this->title = 'Sign Up';
 ?>
 
 
-<div class="leave-comment mr0"><!--leave comment-->
-    <div class="row">
-        <div class="col-md-12 col-md-offset-2">
-            <div class="site-signup">
-                <h1><?= Html::encode($this->title) ?></h1>
 
-                <p>Please fill out the following fields to login:</p>
+<?php $this->beginPage() ?>
+<!DOCTYPE html>
+<html lang="<?= Yii::$app->language ?>">
 
-                <?php $form = ActiveForm::begin([
-                    'id' => 'signup-form',
-                    'layout' => 'horizontal',
-                    'fieldConfig' => [
-                        'template' => "{label}\n<div class=\"col-lg-3\">{input}</div>\n<div class=\"col-lg-8\">{error}</div>",
-                        'labelOptions' => ['class' => 'col-lg-1 control-label'],
-                    ],
-                ]); ?>
+<head>
+    <!-- Required meta tags -->
+    <meta charset="<?= Yii::$app->charset ?>">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <?= Html::csrfMetaTags() ?>
+    <title><?= Html::encode($this->title) ?></title>
+    <?php $this->head() ?>
+</head>
 
-                <?= $form->field($model, 'username')->textInput(['autofocus' => true]) ?>
+<body>
+<?php $this->beginBody() ?>
+<div class="container-scroller">
+    <div class="container-fluid page-body-wrapper full-page-wrapper">
+        <div class="content-wrapper d-flex align-items-center auth register-full-bg">
+            <div class="row w-100">
+                <div class="col-lg-4 mx-auto">
+                    <div class="auth-form-light text-left p-5">
+                        <h2>Register</h2>
+                        <h4 class="font-weight-light">Hello! let's get started</h4>
 
-                <?= $form->field($model, 'email')->textInput() ?>
+                                <?php $form = ActiveForm::begin([
+                                                    'id' => 'signup-form',
+                                                    'layout' => 'horizontal',
+                                                    'options' => [
+                                                            'class' => 'pt-4',
+                                                    ],
+                                                    'fieldConfig' => [
+                                                        'template' => "{label}\n{input}\n<div class=\"custom-error\">{error}</div>",
+                                                        'labelOptions' => ['class' => '','for'=>''],
+                                                    ],
+                                                ]); ?>
 
-                <?= $form->field($model, 'password_hash')->passwordInput() ?>
+                                <div class="form-group">
+                                    <?= $form->field($model, 'username')->textInput(['autofocus' => true,'class'=>'form-control', 'placeholder'=>'Username']) ?>
+                                </div>
 
-                <?= $form->field($model, 'repeat_password')->passwordInput() ?>
-
-                <div class="form-group">
-                    <div class="col-lg-offset-1 col-lg-11">
-                        <?= Html::submitButton('Submit', ['class' => 'btn btn-primary', 'name' => 'login-button']) ?>
+                                <div class="form-group">
+                                    <?= $form->field($model, 'email')->textInput(['class'=>'form-control', 'placeholder'=>'Email']) ?>
+                                </div>
+                                <div class="form-group">
+                                    <?= $form->field($model, 'password_hash')->passwordInput(['class'=>'form-control','placeholder'=>'Password']) ?>
+                                </div>
+                                <div class="form-group">
+                                    <?= $form->field($model, 'repeat_password')->passwordInput(['placeholder'=>'Confirm password']) ?>
+                                </div>
+                                <div class="mt-5">
+                                    <?= Html::submitButton('Register', ['class' => 'btn btn-block btn-primary btn-lg font-weight-medium', 'name' => 'login-button']) ?>
+                                </div>
+                                <div class="mt-2 w-75 mx-auto">
+                                    <div class="form-check form-check-flat">
+                                        <label class="form-check-label">
+                                            <input type="checkbox" class="form-check-input">
+                                            I accept terms and conditions
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="mt-2 text-center">
+                                    <a href="<?= \yii\helpers\Url::to(['/auth/login']) ?>" class="auth-link text-black">Already have an account? <span class="font-weight-medium">Sign in</span></a>
+                                </div>
                     </div>
                 </div>
-
                 <?php ActiveForm::end(); ?>
-
-
             </div>
         </div>
+
+        <!-- content-wrapper ends -->
     </div>
+    <!-- page-body-wrapper ends -->
 </div>
+
+<!-- container-scroller -->
+<!-- plugins:js -->
+
+<?php $this->endBody() ?>
+</body>
+
+</html>
+<?php $this->endPage() ?>
+
+
 
