@@ -37,12 +37,10 @@ class ProfileController extends Controller
      */
     public function actionIndex()
     {
-        $searchModel = new ProfileSearch();
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
-        return $this->render('index', [
-            'searchModel' => $searchModel,
-            'dataProvider' => $dataProvider,
+        $profiles = Profile::find()->orderBy('id asc')->all();
+        return $this->render('index',[
+            'profiles' => $profiles,
         ]);
     }
 

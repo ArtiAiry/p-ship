@@ -34,10 +34,12 @@ class PublicAsset extends AssetBundle
         'js/maps.js',
         'js/misc.js',
         'js/off-canvas.js',
-        'js/bootstrap.min.js',
+        'js/popper.js',
         'js/popper.min.js',
-        'js/dashboard.js',
+        'js/bootstrap.min.js',
 
+        'js/dashboard.js',
+        'js/custom.js'
 
     ];
     public $depends = [

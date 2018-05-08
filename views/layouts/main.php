@@ -2,13 +2,12 @@
 /* @var $this \yii\web\View */
 /* @var $content string */
 /* @var $profile /app/models/Profile */
+
 use app\assets\PublicAsset;
 use app\widgets\Alert;
 use app\widgets\CustomBreadcrumbs;
 use yii\helpers\Html;
-use yii\widgets\Breadcrumbs;
-use app\assets\AppAsset;
-use yii\helpers\Url;
+
 PublicAsset::register($this);
 ?>
 <?php $this->beginPage() ?>
