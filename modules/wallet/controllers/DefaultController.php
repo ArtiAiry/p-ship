@@ -2,6 +2,7 @@
 
 namespace app\modules\wallet\controllers;
 
+use app\modules\wallet\models\Wallet;
 use yii\web\Controller;
 
 /**
@@ -15,6 +16,10 @@ class DefaultController extends Controller
      */
     public function actionIndex()
     {
-        return $this->render('index');
+
+        $wallets = Wallet::find()->orderBy('id asc')->all();
+        return $this->render('index',[
+            'wallets' => $wallets,
+        ]);
     }
 }

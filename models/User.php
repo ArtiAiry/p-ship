@@ -191,4 +191,13 @@ class User extends ActiveRecord implements IdentityInterface
         return $this->status;
     }
 
+    public function getStatusName()
+    {
+        if($this->status == self::STATUS_ACTIVE){
+            return 'Active';
+        }else{
+            return 'Deleted';
+        }
+    }
+
 }

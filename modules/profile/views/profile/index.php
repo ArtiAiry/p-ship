@@ -18,7 +18,7 @@ use yii\helpers\Url;
         <div class="card-body">
             <h1>Profiles</h1>
          <div class="table-responsive">
-        <table class="table table-hover table-bordered">
+        <table id="example" class="table table-hover table-bordered">
             <thead>
             <tr>
                 <td>ID</td>
@@ -39,7 +39,7 @@ use yii\helpers\Url;
                             <td><?= $profile->first_name . " " . $profile->last_name ?></td>
                             <td><?= $profile->user->email ?></td>
                             <td><?= $profile->telegram ?></td>
-                            <td><?= $profile->user->status ?></td>
+                            <td><?= $profile->user->getStatusName() ?></td>
                             <td><?= $profile->whatsapp ?></td>
 <!--                        <td>--><?//= $profile->user->getRole() ?><!--</td>-->
                             <td>

@@ -21,25 +21,41 @@ class PublicAsset extends AssetBundle
     public $baseUrl = '@web';
     public $css = [
 
+
+
         'css/materialdesignicons.min.css',
         'css/simple-line-icons.css',
+
+        'css/datatables.css',
+        'css/buttons.bootstrap4.min.css',
+
+
+
         'css/style.css',
         'css/custom.css',
+
+        'css/owl.carousel.css',
+        'css/owl.theme.default.css',
     ];
     public $js = [
 //        'js/jquery-3.3.1.js',
 
         'js/chart.js',
-
         'js/maps.js',
         'js/misc.js',
         'js/off-canvas.js',
         'js/popper.js',
         'js/popper.min.js',
         'js/bootstrap.min.js',
+        'js/datatables.js',
+        'js/buttons.bootstrap4.min.js',
 
+
+        'js/owl.carousel.js',
         'js/dashboard.js',
-        'js/custom.js'
+        'js/custom.js',
+
+
 
     ];
     public $depends = [
