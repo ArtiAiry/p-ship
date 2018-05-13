@@ -19,8 +19,8 @@ $model = new User();
                 </div>
             </div>
         </li>
-        <li class="nav-item"><a class="nav-link" href="<?= Url::to(['profile/index']); ?>"><img class="menu-icon" src="/images/menu_icons/01.png" alt="menu icon"><span class="menu-title">Profiles</span></a></li>
-        <li class="nav-item"><a class="nav-link" href="pages/widgets.html"><img class="menu-icon" src="/images/menu_icons/02.png" alt="menu icon"><span class="menu-title">Widgets</span></a></li>
+        <li class="nav-item"><a class="nav-link" href="<?= Url::to(['/profile/index']); ?>"><img class="menu-icon" src="/images/menu_icons/01.png" alt="menu icon"><span class="menu-title">Profiles</span></a></li>
+        <li class="nav-item"><a class="nav-link" href="<?= Url::to(['/wallet/default/index']); ?>"><img class="menu-icon" src="/images/menu_icons/02.png" alt="menu icon"><span class="menu-title">Wallets (demo)</span></a></li>
         <li class="nav-item"><a class="nav-link" href="pages/ui-features/buttons.html"><img class="menu-icon" src="/images/menu_icons/03.png" alt="menu icon"><span class="menu-title">Buttons</span></a></li>
         <li class="nav-item"><a class="nav-link" href="pages/forms/basic_elements.html"><img class="menu-icon" src="/images/menu_icons/04.png" alt="menu icon"><span class="menu-title">Form</span></a></li>
         <li class="nav-item"><a class="nav-link" href="pages/charts/chartjs.html"><img class="menu-icon" src="/images/menu_icons/05.png" alt="menu icon"><span class="menu-title">Charts</span></a></li>
@@ -43,5 +43,5 @@ $model = new User();
     </ul>
 </nav>
 
-<!--<a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>-->
+
 

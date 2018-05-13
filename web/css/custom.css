@@ -193,12 +193,12 @@ li#example_next a.page-link
 
 
 @media (max-width: 575px) {
-    .card-deck {
-        -webkit-column-count: 1;
-        column-count: 1
-    }
+    /*.card-deck {*/
+        /*-webkit-column-count: 1;*/
+        /*column-count: 1*/
+    /*}*/
 
-    a.btn.btn-primary {
+    ul.list-group > li.list-group-item > a.btn.btn-primary {
         margin-bottom: 5px;
     }
 }
@@ -206,22 +206,22 @@ li#example_next a.page-link
 
 
 @media (min-width: 576px) {
-    .card-deck {
-        -webkit-column-count: 2;
-        column-count: 2
-    }
+    /*.card-deck {*/
+        /*-webkit-column-count: 2;*/
+        /*column-count: 2*/
+    /*}*/
 
-    a.btn.btn-primary {
+    ul.list-group > li.list-group-item > a.btn.btn-primary {
         margin-bottom: 5px;
     }
 }
 
 @media (min-width: 768px) {
-    .card-deck {
-        -webkit-column-count: 3;
-        column-count: 3
-    }
-    a.btn.btn-primary {
+    /*.card-deck {*/
+        /*-webkit-column-count: 3;*/
+        /*column-count: 3*/
+    /*}*/
+    ul.list-group > li.list-group-item > a.btn.btn-primary {
         margin-bottom: 5px;
     }
 }
@@ -257,4 +257,23 @@ li#example_next a.page-link
 .zoom img{
     transition: all 0.3s;
 }
+
+.owl-theme .owl-dots .owl-dot.active span, .owl-theme .owl-dots .owl-dot:hover span {
+    background:#4c4c4c
+}
+
+.owl-theme .owl-nav [class*='owl-'] {
+    background:#4c4c4c;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    padding-left: 14px;
+    padding-right: 14px;
+
+}
+
+.owl-theme .owl-nav [class*='owl-']:hover {
+    background: #c1c1c1;
+    color: #FFF;
+    text-decoration: none; }
+
 

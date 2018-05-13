@@ -31,11 +31,13 @@ class PublicAsset extends AssetBundle
 
 
 
-        'css/style.css',
-        'css/custom.css',
 
         'css/owl.carousel.css',
         'css/owl.theme.default.css',
+
+
+        'css/style.css',
+        'css/custom.css',
     ];
     public $js = [
 //        'js/jquery-3.3.1.js',

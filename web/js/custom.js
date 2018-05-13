@@ -60,7 +60,10 @@ $(document).ready(function(){
 $('.owl-carousel').owlCarousel({
     loop:true,
     margin:10,
+
     responsiveClass:true,
+    navElement: 'btn-btn primary btn-lg',
+    navText:['previous', 'next'],
     responsive:{
         0:{
             items:1,
@@ -73,7 +76,10 @@ $('.owl-carousel').owlCarousel({
         1300:{
             items:4,
             nav:true,
-            loop:false
+            loop:false,
+
+            // mouseDrag:true
+            // autoplay:true
         }
     }
 })
