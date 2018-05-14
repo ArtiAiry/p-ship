@@ -3,6 +3,7 @@
 namespace app\modules\wallet\models;
 
 use app\models\User;
+use app\modules\payout\models\PayoutType;
 use Yii;
 
 /**
@@ -70,6 +71,11 @@ class Wallet extends \yii\db\ActiveRecord
     public function getUser()
     {
         return $this->hasOne(User::className(), ['id' => 'user_id']);
+    }
+
+    public function getPayoutType()
+    {
+        return $this->hasOne(PayoutType::className(), ['id' => 'payout_type_id']);
     }
 
 

@@ -121,6 +121,36 @@ class ProfileController extends Controller
         ]);
     }
 
+
+    public function actionEdit($id)
+    {
+
+        $user = User::findOne($id);
+        $profile = Profile::findOne($id);
+
+        if (!isset($user, $profile)) {
+            throw new NotFoundHttpException("Профиль пользователя не найден.");
+        }
+
+        if ($user->load(Yii::$app->request->post()) && $profile->load(Yii::$app->request->post())) {
+            $isValid = $user->validate();
+            $isValid = $profile->validate() && $isValid;
+            if ($isValid) {
+                $user->save(false);
+                $profile->save(false);
+                return $this->redirect(['view', 'id' => $id]);
+            }
+        }
+
+
+
+        return $this->render('update', [
+
+            'user' => $user,
+            'profile' => $profile,
+        ]);
+    }
+
     /**
      * Deletes an existing Profile model.
      * If deletion is successful, the browser will be redirected to the 'index' page.

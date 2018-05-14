@@ -22,13 +22,13 @@ Use yii\helpers\Url;
 <!--        <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>-->
         <ul class="navbar-nav navbar-nav-right">
             <li class="nav-item d-lg-block">
-                <a class="nav-link" data-toggle="tooltip" data-placement="top"  title="Settings" href="<?= Url::toRoute(['/profile/view','id'=>Yii::$app->user->id]);?>">
-                    <i class="mdi mdi-settings"></i>
+                <a class="nav-link" href="<?= Url::toRoute(['/profile/update','id'=>Yii::$app->user->id]);?>">
+                    <i class="mdi mdi-settings" data-toggle="tooltip" data-placement="top"  title="Settings"></i>
                 </a>
             </li>
             <li class="nav-item d-lg-block">
-                <a class="nav-link" data-toggle="tooltip" data-placement="top"  title="Logout" href="<?= Url::to(['/auth/logout']) ?>">
-                    <i class="mdi mdi-exit-to-app"></i>
+                <a class="nav-link" href="<?= Url::to(['/auth/logout']) ?>">
+                    <i class="mdi mdi-exit-to-app"  data-toggle="tooltip" data-placement="top"  title="Logout"></i>
                 </a>
             </li>
         </ul>

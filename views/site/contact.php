@@ -2,7 +2,7 @@
 
 /* @var $this yii\web\View */
 /* @var $form yii\bootstrap\ActiveForm */
-/* @var $model app\models\ContactForm */
+/* @var $model app\models\form\ContactForm */
 
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
@@ -11,7 +11,7 @@ use yii\captcha\Captcha;
 $this->title = 'Contact';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="site-contact">
+ <div class="card-body">
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
@@ -19,7 +19,7 @@ $this->params['breadcrumbs'][] = $this->title;
     </p>
 
     <div class="row">
-        <div class="col-lg-5">
+        <div class="col-lg-12">
 
             <?php $form = ActiveForm::begin(['id' => 'contact-form']); ?>
 
@@ -32,7 +32,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 <?= $form->field($model, 'body')->textarea(['rows' => 6]) ?>
 
                 <?= $form->field($model, 'verifyCode')->widget(Captcha::className(), [
-                    'template' => '<div class="row"><div class="col-lg-3">{image}</div><div class="col-lg-6">{input}</div></div>',
+                    'template' => '<div class="row"><div class="col-lg-3">{image}</div><div class="col-lg-9">{input}</div></div>',
                 ]) ?>
 
                 <div class="form-group">
@@ -43,5 +43,5 @@ $this->params['breadcrumbs'][] = $this->title;
 
         </div>
     </div>
-
+    </div>
 </div>

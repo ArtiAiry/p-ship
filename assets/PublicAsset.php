@@ -38,6 +38,7 @@ class PublicAsset extends AssetBundle
 
         'css/style.css',
         'css/custom.css',
+
     ];
     public $js = [
 //        'js/jquery-3.3.1.js',
@@ -56,6 +57,7 @@ class PublicAsset extends AssetBundle
         'js/owl.carousel.js',
         'js/dashboard.js',
         'js/custom.js',
+        'js/modal/modal.js',
 
 
 

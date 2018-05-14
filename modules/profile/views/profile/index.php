@@ -4,15 +4,7 @@ use yii\helpers\Url;
 ?>
 
 
-<div class="card">
-
-    <?php
-    //    var_dump($profiles);
-    //    $authManager = Yii::$app->authManager;
-    //
-    //    var_dump($authManager->getUserIdsByRole('client'));
-    $serialColumn = 1;
-    ?>
+<div class="card fade-out">
 
     <?php if(!empty($profiles)): ?>
         <div class="card-body">
@@ -38,7 +30,7 @@ use yii\helpers\Url;
                             <td><?= $profile->id ?></td>
                             <td><?= $profile->first_name . " " . $profile->last_name ?></td>
                             <td><?= $profile->user->email ?></td>
-                            <td><?= $profile->telegram ?></td>
+                            <td><label class="badge badge-primary"><?= $profile->telegram ?></label></td>
                             <td><?= $profile->user->getStatusName() ?></td>
                             <td><?= $profile->whatsapp ?></td>
 <!--                        <td>--><?//= $profile->user->getRole() ?><!--</td>-->

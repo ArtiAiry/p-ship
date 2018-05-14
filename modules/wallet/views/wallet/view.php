@@ -10,7 +10,8 @@ $this->title = $model->id;
 $this->params['breadcrumbs'][] = ['label' => 'Wallets', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="wallet-view">
+<div class="card">
+    <div class="card-body">
 
     <h1><?= Html::encode($this->title) ?></h1>
 
@@ -40,5 +41,5 @@ $this->params['breadcrumbs'][] = $this->title;
             'isRemoved',
         ],
     ]) ?>
-
+    </div>
 </div>

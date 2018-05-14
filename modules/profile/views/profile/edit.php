@@ -5,7 +5,7 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $profile app\modules\profile\models\Profile */
 
-$this->title = 'Update Profile:' . ' ' . $profile->user->username;;
+$this->title = 'Edit Profile:' . ' ' . $profile->user->username;;
 $this->params['breadcrumbs'][] = ['label' => 'Profiles', 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $profile->id, 'url' => ['view', 'id' => $profile->id]];
 $this->params['breadcrumbs'][] = 'Update';
@@ -67,12 +67,12 @@ $this->params['breadcrumbs'][] = 'Update';
         <div class="card lg-8">
             <div class="card-body">
 
-            <h1><?= Html::encode($this->title) ?></h1>
+                <h1><?= Html::encode($this->title) ?></h1>
 
-            <?= $this->render('_form', [
-                'user' => $user,
-                'profile' => $profile,
-            ]) ?>
+                <?= $this->render('_form', [
+                    'user' => $user,
+                    'profile' => $profile,
+                ]) ?>
 
             </div>
         </div>

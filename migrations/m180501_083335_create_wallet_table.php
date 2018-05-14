@@ -18,15 +18,24 @@ class m180501_083335_create_wallet_table extends Migration
             'webmoney_wmr' => $this->string(255)->defaultValue(null),
             'paypal_eur' => $this->string(255)->defaultValue(null),
             'sberbank_rub' => $this->string(255)->defaultValue(null),
+            'pb_uah' => $this->string(255)->defaultValue(null),
             'user_id' => $this->integer()->defaultValue(null),
             'isMain'=> "TINYINT (1) default NULL",
             'isRemoved'=> "TINYINT (1) default 1",
         ]);
+
+        $this->createIndex(
+            'idx-wallet-payout_type_id',
+            'wallet',
+            'payout_type_id'
+        );
+
         $this->createIndex(
             'idx-wallet-user_id',
             'wallet',
             'user_id'
         );
+
         $this->addForeignKey(
             'fk-wallet-user',
             'wallet',
@@ -36,6 +45,17 @@ class m180501_083335_create_wallet_table extends Migration
             'CASCADE',
             'CASCADE'
         );
+
+        $this->addForeignKey(
+            'fk-wallet-payout_type',
+            'wallet',
+            'payout_type_id',
+            'payout_type',
+            'id',
+            'CASCADE',
+            'CASCADE'
+        );
+
     }
     public function down()
     {

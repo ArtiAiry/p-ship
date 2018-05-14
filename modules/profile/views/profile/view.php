@@ -10,7 +10,8 @@ $this->title = $model->user->username;
 $this->params['breadcrumbs'][] = ['label' => 'Profiles', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="profile-view">
+<div class="card">
+    <div class="card-body">
 
     <h1><?= Html::encode($this->title) ?></h1>
 
@@ -37,5 +38,5 @@ $this->params['breadcrumbs'][] = $this->title;
             'whatsapp',
         ],
     ]) ?>
-
+    </div>
 </div>

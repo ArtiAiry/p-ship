@@ -2,7 +2,7 @@
 
 $params = require __DIR__ . '/params.php';
 $db = require __DIR__ . '/db.php';
-
+Yii::setAlias('@tests', dirname(__DIR__) . '/tests');
 $config = [
     'id' => 'basic',
     'basePath' => dirname(__DIR__),
@@ -24,6 +24,7 @@ $config = [
             'identityClass' => 'app\models\User',
             'enableAutoLogin' => true,
         ],
+
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
@@ -72,6 +73,9 @@ $config = [
         'profile' => [
             'class' => 'app\modules\profile\Module',
         ],
+        'payout' => [
+            'class' => 'app\modules\payout\Module',
+        ],
     ],
     'params' => $params,
 ];
@@ -88,8 +92,11 @@ if (YII_ENV_DEV) {
     $config['bootstrap'][] = 'gii';
     $config['modules']['gii'] = [
         'class' => 'yii\gii\Module',
-        // uncomment the following to add your IP if you are not connecting from localhost.
-        //'allowedIPs' => ['127.0.0.1', '::1'],
+        'generators' => [
+            'fixture' => [
+                'class' => 'elisdn\gii\fixture\Generator',
+            ],
+        ],
     ];
 }
 

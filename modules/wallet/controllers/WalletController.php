@@ -35,12 +35,10 @@ class WalletController extends Controller
      */
     public function actionIndex()
     {
-        $searchModel = new WalletSearch();
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
-        return $this->render('index', [
-            'searchModel' => $searchModel,
-            'dataProvider' => $dataProvider,
+        $wallets = Wallet::find()->orderBy('id asc')->all();
+        return $this->render('index',[
+            'wallets' => $wallets,
         ]);
     }
 

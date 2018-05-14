@@ -274,6 +274,14 @@ li#example_next a.page-link
 .owl-theme .owl-nav [class*='owl-']:hover {
     background: #c1c1c1;
     color: #FFF;
-    text-decoration: none; }
+    text-decoration: none;
+}
 
+.modal-content {
+    background: #ffffff;
+}
+
+.card.fade-out {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
 

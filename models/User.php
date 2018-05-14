@@ -194,9 +194,9 @@ class User extends ActiveRecord implements IdentityInterface
     public function getStatusName()
     {
         if($this->status == self::STATUS_ACTIVE){
-            return 'Active';
+            return "<label class='badge badge-success'>Active</label>";
         }else{
-            return 'Deleted';
+            return "<label class='badge badge-success'>Deleted</label>";
         }
     }
 

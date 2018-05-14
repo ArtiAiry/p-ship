@@ -1,10 +1,21 @@
 <?php
 use app\models\User;
+use yii\bootstrap\Html;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Url;
 
 $model = new User();
 /* @var $model app\models\User */
+?>
+
+<?php
+digitv\bootstrap\widgets\Modal::begin([
+    'header'=>'<h4>'. "Contact Us" .'</h4>',
+    'id'=>'modal',
+    'size'=>'modal-md',
+]);
+echo "<div id='modalContent' class='card'></div>";
+digitv\bootstrap\widgets\Modal::end();
 ?>
 
 <nav class="sidebar sidebar-offcanvas" id="sidebar">
@@ -15,7 +26,7 @@ $model = new User();
                 <div class="profile-name">
                     <p class="name"><?=Yii::$app->user->identity->username ?></p>
                     <p class="designation">Manager</p>
-                    <div class="badge badge-teal mx-auto mt-3">Online</div>
+                    <button value="<?= Url::to(['/contact']) ?>" class="badge badge-teal mx-auto mt-3" id="modalButton" data-toggle="tooltip" data-placement="bottom"  title="Ask Manager">Online</button>
                 </div>
             </div>
         </li>
@@ -42,6 +53,9 @@ $model = new User();
         <li class="nav-item purchase-button"><a class="nav-link" href="https://www.bootstrapdash.com/product/star-admin-pro/" target="_blank">Get full version</a></li>
     </ul>
 </nav>
+
+
+
 
 
 
