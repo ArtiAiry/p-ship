@@ -62,20 +62,22 @@ $('.owl-carousel').owlCarousel({
     margin:10,
 
     responsiveClass:true,
+    nav: true,
     navElement: 'btn-btn primary btn-lg',
+    // dotsContainer: '#custom-dot',
     navText:['previous', 'next'],
     responsive:{
         0:{
             items:1,
-            nav:true
+            // nav:true
         },
         750:{
             items:3,
-            nav:false
+            // nav:false
         },
         1300:{
             items:4,
-            nav:true,
+            // nav:true,
             loop:false,
 
             // mouseDrag:true
@@ -84,3 +86,16 @@ $('.owl-carousel').owlCarousel({
     }
 })
 
+
+var owl = $('.owl-carousel');
+owl.owlCarousel();
+// Go to the next item
+$('.nxtBtn').click(function() {
+    owl.trigger('next.owl.carousel');
+})
+// Go to the previous item
+$('.prvBtn').click(function() {
+    // With optional speed parameter
+    // Parameters has to be in square bracket '[]'
+    owl.trigger('prev.owl.carousel', [300]);
+})

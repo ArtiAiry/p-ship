@@ -62,6 +62,10 @@ $config = [
                 '<module:profile>/<action:\w+>/<id:\d+>' => '<module>/profile/<action>',
                 '<module:profile>/<action:\w+>' => '<module>/profile/<action>',
 
+                //product
+                '<module:product>/<action:\w+>/<id:\d+>' => '<module>/product/<action>',
+                '<module:product>/<action:\w+>' => '<module>/product/<action>',
+
             ],
         ],
 
@@ -75,6 +79,9 @@ $config = [
         ],
         'payout' => [
             'class' => 'app\modules\payout\Module',
+        ],
+        'product' => [
+            'class' => 'app\modules\product\Module',
         ],
     ],
     'params' => $params,

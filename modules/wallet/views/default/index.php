@@ -2,7 +2,7 @@
 
 ?>
 <div class="card-deck">
-    <div class="owl-carousel owl-theme " id="carusel1">
+    <div class="owl-carousel owl-theme" id="carusel1">
         <?php foreach($wallets as $wallet):?>
             <div class="item">
              <div class="card custom">
@@ -25,11 +25,21 @@
                                     <a href="#" class="btn btn-primary">Banner link</a>
                                 </li>
                             </ul>
+
                      </div>
                 </div>
             </div>
-    <?php endforeach; ?>
-     </div>
- </div>
 
+    <?php endforeach; ?>
+
+     </div>
+
+<!--    <div class="owl-controls">-->
+<!--        <div class="owl-nav">-->
+<!--            <button  id="who-are-we" class="prvBtn btn-btn primary btn-lg"><i class="fa fa-leaf"></i></button>-->
+<!--            <button id="who-are-we"  class="nxtBtn btn-btn primary btn-lg"><i class="fa fa-leaf"></i></button>-->
+<!--        </div>-->
+<!--    </div>-->
+
+    </div>
 
