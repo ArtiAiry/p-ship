@@ -14,6 +14,8 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
 
+    <?= $form->field($model, 'description')->textInput(['maxlength' => true]) ?>
+
     <?= $form->field($model, 'cpl_price')->textInput() ?>
 
     <?= $form->field($model, 'cps_price')->textInput() ?>
@@ -21,8 +23,6 @@ use yii\widgets\ActiveForm;
     <?= $form->field($model, 'banner_url')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'logo_url')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'created_at')->textInput() ?>
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>

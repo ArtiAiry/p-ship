@@ -12,7 +12,7 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'payout_type_id')->textInput() ?>
+    <?= $form->field($model, 'wallet_type_id')->textInput() ?>
 
     <?= $form->field($model, 'yandex_money')->textInput(['maxlength' => true]) ?>
 
@@ -24,11 +24,9 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'sberbank_rub')->textInput(['maxlength' => true]) ?>
 
+    <?= $form->field($model, 'pb_uah')->textInput(['maxlength' => true]) ?>
+
     <?= $form->field($model, 'user_id')->textInput() ?>
-
-    <?= $form->field($model, 'isMain')->textInput() ?>
-
-    <?= $form->field($model, 'isRemoved')->textInput() ?>
 
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>

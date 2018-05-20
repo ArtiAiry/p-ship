@@ -5,26 +5,42 @@ use yii\grid\GridView;
 use yii\helpers\Url;
 
 /* @var $this yii\web\View */
-/* @var $searchModel app\modules\wallet\models\WalletSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
 $this->title = 'Wallets';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="card">
 
+<?php
+digitv\bootstrap\widgets\Modal::begin([
+    'header'=>'<h4>'. "Add Wallet" .'</h4>',
+    'id'=>'modal1',
+    'size'=>'modal-md',
+]);
+echo "<div id='modalContent1' class='card'></div>";
+digitv\bootstrap\widgets\Modal::end();
+?>
+
+<div class="card">
+    <div class="card-body">
+        <h1>Wallets
+
+            <button value="<?= Url::to(['create']) ?>" class="btn btn-outline-primary" id="modalButton1" data-toggle="tooltip" data-placement="bottom"  title="Add Wallet">
+                Create
+            </button>
+        </h1>
     <?php if(!empty($wallets)): ?>
-        <div class="card-body">
-            <h1>Wallets</h1>
             <div class="table-responsive">
                 <table id="example" class="table table-hover table-bordered">
                     <thead>
                     <tr>
                         <td>ID</td>
-                        <td>Payout Type</td>
+                        <td>Main Wallet</td>
+                        <td>Username</td>
                         <td>Yandex Money</td>
                         <td>Qiwi</td>
-                        <td>Webmoney wmr</td>
+                        <td>Webmoney WMR</td>
+                        <td>Sberbank RUB</td>
                         <td>Privat</td>
 <!--                        <td>Whatsapp</td>-->
                         <!--                <td>Role</td>-->
@@ -36,10 +52,12 @@ $this->params['breadcrumbs'][] = $this->title;
                         <!--                --><?php //if($profile->user->getRole() == 'teacher'): ?>
                         <tr>
                             <td><?= $wallet->id ?></td>
-                            <td><?= $wallet->payoutType->name ?></td>
+                            <td><?= $wallet->walletType->name ?></td>
+                            <td><?= $wallet->user->username ?></td>
                             <td><?= $wallet->yandex_money ?></td>
                             <td><?= $wallet->qiwi ?></td>
                             <td><?= $wallet->webmoney_wmr ?></td>
+                            <td><?= $wallet->sberbank_rub ?></td>
                             <td><?= $wallet->pb_uah ?></td>
 <!--                            <td>--><?//= $profile->whatsapp ?><!--</td>-->
                             <!--                        <td>--><?//= $profile->user->getRole() ?><!--</td>-->

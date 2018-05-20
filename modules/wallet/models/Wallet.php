@@ -10,14 +10,14 @@ use Yii;
  * This is the model class for table "wallet".
  *
  * @property int $id
- * @property int $payout_type_id
+ * @property int $wallet_type_id
  * @property string $yandex_money
  * @property string $qiwi
  * @property string $webmoney_wmr
  * @property string $paypal_eur
  * @property string $sberbank_rub
+ * @property string $pb_uah
  * @property int $user_id
- * @property int $isMain
  * @property int $isRemoved
  *
  * @property User $user
@@ -40,7 +40,7 @@ class Wallet extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['payout_type_id', 'user_id', 'isMain', 'isRemoved'], 'integer'],
+            [['wallet_type_id', 'user_id', 'isRemoved'], 'integer'],
             [['yandex_money', 'qiwi', 'webmoney_wmr', 'paypal_eur', 'sberbank_rub'], 'string', 'max' => 255],
             [['user_id'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['user_id' => 'id']],
         ];
@@ -53,14 +53,13 @@ class Wallet extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'payout_type_id' => 'Payout Type ID',
+            'wallet_type_id' => 'Main Wallet',
             'yandex_money' => 'Yandex Money',
             'qiwi' => 'Qiwi',
             'webmoney_wmr' => 'Webmoney Wmr',
             'paypal_eur' => 'Paypal Eur',
             'sberbank_rub' => 'Sberbank Rub',
-            'user_id' => 'User ID',
-            'isMain' => 'Is Main',
+            'pb_uah' => 'Privat UAH',
             'isRemoved' => 'Is Removed',
         ];
     }
@@ -73,11 +72,10 @@ class Wallet extends \yii\db\ActiveRecord
         return $this->hasOne(User::className(), ['id' => 'user_id']);
     }
 
-    public function getPayoutType()
+    public function getWalletType()
     {
-        return $this->hasOne(PayoutType::className(), ['id' => 'payout_type_id']);
+        return $this->hasOne(WalletType::className(), ['id' => 'wallet_type_id']);
     }
-
 
     public function isRemoved()
     {
@@ -88,19 +86,6 @@ class Wallet extends \yii\db\ActiveRecord
         $this->isRemoved = self::REMOVE;
         return $this->save(false);
     }
-    public function isActive()
-    {
-        return $this->isActive;
-    }
-    public function activate()
-    {
-        $this->isActive = self::ACTIVE;
-        return $this->save(false);
-    }
-    public function disactivate()
-    {
-        $this->isActive = self::REMOVE;
-        return $this->save(false);
-    }
+
 
 }

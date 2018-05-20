@@ -12,7 +12,6 @@ class m180501_083335_create_wallet_table extends Migration
     {
         $this->createTable('{{%wallet}}', [
             'id' => 'pk',
-            'payout_type_id' => $this->integer()->defaultValue(null),
             'yandex_money' => $this->string(255)->defaultValue(null),
             'qiwi' => $this->string(255)->defaultValue(null),
             'webmoney_wmr' => $this->string(255)->defaultValue(null),
@@ -20,14 +19,14 @@ class m180501_083335_create_wallet_table extends Migration
             'sberbank_rub' => $this->string(255)->defaultValue(null),
             'pb_uah' => $this->string(255)->defaultValue(null),
             'user_id' => $this->integer()->defaultValue(null),
-            'isMain'=> "TINYINT (1) default NULL",
+            'wallet_type_id' => $this->integer()->defaultValue(null),
             'isRemoved'=> "TINYINT (1) default 1",
         ]);
 
         $this->createIndex(
-            'idx-wallet-payout_type_id',
+            'idx-wallet-wallet_type_id',
             'wallet',
-            'payout_type_id'
+            'wallet_type_id'
         );
 
         $this->createIndex(
@@ -47,10 +46,10 @@ class m180501_083335_create_wallet_table extends Migration
         );
 
         $this->addForeignKey(
-            'fk-wallet-payout_type',
+            'fk-wallet-wallet_type',
             'wallet',
-            'payout_type_id',
-            'payout_type',
+            'wallet_type_id',
+            'wallet_type',
             'id',
             'CASCADE',
             'CASCADE'

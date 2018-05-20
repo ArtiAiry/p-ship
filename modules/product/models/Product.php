@@ -9,6 +9,7 @@ use Yii;
  *
  * @property integer $id
  * @property string $name
+ * @property string $description
  * @property integer $cpl_price
  * @property integer $cps_price
  * @property string $banner_url
@@ -33,7 +34,7 @@ class Product extends \yii\db\ActiveRecord
         return [
             [['cpl_price', 'cps_price'], 'integer'],
             [['created_at'], 'safe'],
-            [['name', 'banner_url', 'logo_url'], 'string', 'max' => 255],
+            [['name', 'banner_url', 'logo_url', 'description'], 'string', 'max' => 255],
         ];
     }
 
@@ -45,6 +46,7 @@ class Product extends \yii\db\ActiveRecord
         return [
             'id' => 'ID',
             'name' => 'Name',
+            'description' => 'Description',
             'cpl_price' => 'Cpl Price',
             'cps_price' => 'Cps Price',
             'banner_url' => 'Banner Url',

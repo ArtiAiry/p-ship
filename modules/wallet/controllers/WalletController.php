@@ -4,7 +4,6 @@ namespace app\modules\wallet\controllers;
 
 use Yii;
 use app\modules\wallet\models\Wallet;
-use app\modules\wallet\models\WalletSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -64,9 +63,11 @@ class WalletController extends Controller
         $model = new Wallet();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+            Yii::$app->session->setFlash('success', 'Product created.');
+            return $this->redirect(['index']);
+
         } else {
-            return $this->render('create', [
+            return $this->renderAjax('create', [
                 'model' => $model,
             ]);
         }
