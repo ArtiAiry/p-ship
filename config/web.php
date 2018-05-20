@@ -66,6 +66,10 @@ $config = [
                 '<module:product>/<action:\w+>/<id:\d+>' => '<module>/product/<action>',
                 '<module:product>/<action:\w+>' => '<module>/product/<action>',
 
+                //source
+                '<module:source>/<action:\w+>/<id:\d+>' => '<module>/source/<action>',
+                '<module:source>/<action:\w+>' => '<module>/source/<action>',
+
             ],
         ],
 
@@ -83,6 +87,9 @@ $config = [
         'product' => [
             'class' => 'app\modules\product\Module',
         ],
+        'source' => [
+                'class' => 'app\modules\source\Module',
+       ],
     ],
     'params' => $params,
 ];

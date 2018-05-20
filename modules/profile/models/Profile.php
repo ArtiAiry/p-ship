@@ -23,6 +23,9 @@ use yii\db\ActiveRecord;
  */
 class Profile extends ActiveRecord
 {
+
+    const REMOVE = 0;
+
     /**
      * @inheritdoc
      */
@@ -107,5 +110,12 @@ class Profile extends ActiveRecord
     public function getUser()
     {
         return $this->hasOne(User::className(), ['id' => 'user_id']);
+    }
+
+    public function removeProfile()
+    {
+        $this->isRemoved = self::REMOVE;
+        $this->user->status = self::REMOVE;
+        return $this->save(false);
     }
 }

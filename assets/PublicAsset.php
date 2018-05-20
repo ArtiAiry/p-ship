@@ -58,6 +58,7 @@ class PublicAsset extends AssetBundle
         'js/dashboard.js',
         'js/custom.js',
         'js/modal/modal.js',
+        'js/modal/modal1.js',
 
 
 

@@ -10,29 +10,42 @@ use yii\grid\GridView;
 $this->title = 'Products';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="product-index">
+<div class="card-deck">
+    <div class="owl-carousel owl-theme" id="carusel1">
+        <?php foreach($products as $product):?>
+            <div class="item">
+                <div class="card custom">
+                    <div class="zoom">
+                        <img class="card-img-top" src="<?= $product->logo_url ?>" alt="Card image cap">
+                    </div>
+                    <div class="card-body">
 
-    <h1><?= Html::encode($this->title) ?></h1>
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
+                        <h3 class="card-title">
+                             <?= $product->name ?>
+                        </h3>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">CPL price:  <?= $product->cpl_price ?></li>
+                            <li class="list-group-item">CPS price: <?= $product->cps_price ?></li>
+                            <li class="list-group-item">
+                                <a href="#" class="btn btn-primary">Create Source</a>
+                                <a href="<?= $product->banner_url ?>" class="btn btn-primary" download="banners.rar">Banner link</a>
+                            </li>
+                        </ul>
 
-    <p>
-        <?= Html::a('Create Product', ['create'], ['class' => 'btn btn-success']) ?>
-    </p>
-    <?= GridView::widget([
-        'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
-        'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
+                    </div>
+                </div>
+            </div>
 
-            'id',
-            'name',
-            'cpl_price',
-            'cps_price',
-            'banner_url:url',
-            // 'logo_url:url',
-            // 'created_at',
+        <?php endforeach; ?>
 
-            ['class' => 'yii\grid\ActionColumn'],
-        ],
-    ]); ?>
+    </div>
+
+
+    <!--    <div class="owl-controls">-->
+    <!--        <div class="owl-nav">-->
+    <!--            <button  id="who-are-we" class="prvBtn btn-btn primary btn-lg"><i class="fa fa-leaf"></i></button>-->
+    <!--            <button id="who-are-we"  class="nxtBtn btn-btn primary btn-lg"><i class="fa fa-leaf"></i></button>-->
+    <!--        </div>-->
+    <!--    </div>-->
+
 </div>
