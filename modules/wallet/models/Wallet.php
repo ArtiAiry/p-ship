@@ -40,7 +40,7 @@ class Wallet extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['wallet_type_id', 'user_id', 'isRemoved'], 'integer'],
+            [['wallet_type_id', 'user_id'], 'integer'],
             [['yandex_money', 'qiwi', 'webmoney_wmr', 'paypal_eur', 'sberbank_rub'], 'string', 'max' => 255],
             [['user_id'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['user_id' => 'id']],
         ];
@@ -60,7 +60,6 @@ class Wallet extends \yii\db\ActiveRecord
             'paypal_eur' => 'Paypal Eur',
             'sberbank_rub' => 'Sberbank Rub',
             'pb_uah' => 'Privat UAH',
-            'isRemoved' => 'Is Removed',
         ];
     }
 
@@ -85,6 +84,24 @@ class Wallet extends \yii\db\ActiveRecord
     {
         $this->isRemoved = self::REMOVE;
         return $this->save(false);
+    }
+
+    public function getMainWallet() {
+
+        if ($this->wallet_type_id == 1){
+            return '<span class="badge badge-warning" data-toggle="tooltip" data-placement="bottom"  title=' . $this->yandex_money . '>' . $this->walletType->name . "</span>";
+        } elseif ($this->wallet_type_id == 2){
+            return '<span class="badge badge-success" data-toggle="tooltip" data-placement="bottom"  title=' . $this->qiwi . '>' . $this->walletType->name . "</span>";
+        } elseif ($this->wallet_type_id == 3){
+            return '<span class="badge badge-pill badge-dark" data-toggle="tooltip" data-placement="bottom"  title=' . $this->webmoney_wmr . '>' . $this->walletType->name . '</span>';
+        } elseif ($this->wallet_type_id == 4){
+            return '<span class="badge badge-primary" data-toggle="tooltip" data-placement="bottom"  title=' . $this->paypal_eur . '>' . $this->walletType->name . '</span>';
+        } elseif ($this->wallet_type_id == 5){
+            return '<span class="badge badge-info" data-toggle="tooltip" data-placement="bottom"  title=' . $this->sberbank_rub . '>' . $this->walletType->name . '</span>';
+        } else {
+            return '<span class="badge badge-success" data-toggle="tooltip" data-placement="bottom"  title=' . $this->pb_uah . '>' . $this->walletType->name . '</span>';
+        }
+
     }
 
 

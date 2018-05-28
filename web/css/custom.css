@@ -201,6 +201,10 @@ li#example_next a.page-link
     ul.list-group > li.list-group-item > a.btn.btn-primary {
         margin-bottom: 5px;
     }
+
+    ul.list-group > li.list-group-item > button.btn.btn-primary {
+        margin-bottom: 5px;
+    }
 }
 
 
@@ -214,6 +218,10 @@ li#example_next a.page-link
     ul.list-group > li.list-group-item > a.btn.btn-primary {
         margin-bottom: 5px;
     }
+
+    ul.list-group > li.list-group-item > button.btn.btn-primary {
+        margin-bottom: 5px;
+    }
 }
 
 @media (min-width: 768px) {
@@ -224,12 +232,20 @@ li#example_next a.page-link
     ul.list-group > li.list-group-item > a.btn.btn-primary {
         margin-bottom: 5px;
     }
+
+    ul.list-group > li.list-group-item > button.btn.btn-primary {
+        margin-bottom: 5px;
+    }
 }
 
 @media (min-width: 1116px) {
     .card-deck {
         -webkit-column-count: 4;
         column-count: 4
+    }
+
+    ul.list-group > li.list-group-item > button.btn.btn-primary {
+        margin-bottom: 5px;
     }
 }
 

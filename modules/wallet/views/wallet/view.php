@@ -30,15 +30,12 @@ $this->params['breadcrumbs'][] = $this->title;
         'model' => $model,
         'attributes' => [
             'id',
-            'payout_type_id',
             'yandex_money',
             'qiwi',
             'webmoney_wmr',
             'paypal_eur',
             'sberbank_rub',
-            'user_id',
-            'isMain',
-            'isRemoved',
+            'user.username',
         ],
     ]) ?>
     </div>

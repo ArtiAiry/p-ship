@@ -19,7 +19,18 @@ digitv\bootstrap\widgets\Modal::begin([
 echo "<div id='modalContent1' class='card'></div>";
 digitv\bootstrap\widgets\Modal::end();
 ?>
-<h1 class="h-center"><?= $this->title ?>
+
+<?php
+digitv\bootstrap\widgets\Modal::begin([
+    'header'=>'<h4>'. "Add Source" .'</h4>',
+    'id'=>'modal2',
+    'size'=>'modal-md',
+]);
+echo "<div id='modalContent2' class='card'></div>";
+digitv\bootstrap\widgets\Modal::end();
+?>
+
+<h1 class="h-center"><?= Html::encode($this->title)?>
     <button value="<?= Url::to(['create']) ?>" class="btn btn-outline-primary" id="modalButton1" data-toggle="tooltip" data-placement="bottom"  title="Add Product">
         Create
     </button>
@@ -44,7 +55,7 @@ digitv\bootstrap\widgets\Modal::end();
                             <li class="list-group-item">CPL price:  <?= $product->cpl_price ?></li>
                             <li class="list-group-item">CPS price: <?= $product->cps_price ?></li>
                             <li class="list-group-item">
-                                <a href="#" class="btn btn-primary">Create Source</a>
+                                <button value="<?= Url::to(['/source/add'])?>" id="modalButton2" class="btn btn-primary">Create Source</button>
                                 <a href="<?= $product->banner_url ?>" class="btn btn-primary" download="banners.rar">Banner link</a>
                             </li>
                         </ul>

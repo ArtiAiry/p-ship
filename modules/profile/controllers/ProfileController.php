@@ -52,7 +52,7 @@ class ProfileController extends Controller
     public function actionView($id)
     {
 
-        return $this->render('view', [
+        return $this->renderAjax('view', [
             'model' => $this->findModel($id),
         ]);
     }
@@ -75,7 +75,7 @@ class ProfileController extends Controller
                 if ($profile->profileRegister()) {
                     return $this->redirect(['view', 'id' => $profile->id]);
                 }
-                echo "suck the dick, 'cause we young now";
+                echo "cause we young now";
             }
         }
         return $this->render('create', [

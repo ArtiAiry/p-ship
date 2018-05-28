@@ -3,22 +3,17 @@
 return [
     [
         'id' => 1,
-        'name' => 'Bank',
+        'name' => 'Status 1',
         'isRemoved' => 1,
     ],
     [
         'id' => 2,
-        'name' => 'Yandex',
+        'name' => 'Status 2',
         'isRemoved' => 1,
     ],
     [
         'id' => 3,
-        'name' => 'WM',
-        'isRemoved' => 1,
-    ],
-    [
-        'id' => 4,
-        'name' => 'Privat',
+        'name' => 'Status 3',
         'isRemoved' => 1,
     ],
 ];

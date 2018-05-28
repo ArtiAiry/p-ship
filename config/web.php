@@ -70,6 +70,14 @@ $config = [
                 '<module:source>/<action:\w+>/<id:\d+>' => '<module>/source/<action>',
                 '<module:source>/<action:\w+>' => '<module>/source/<action>',
 
+                //status
+                '<module:leads>/<action:\w+>/<id:\d+>' => '<module>/leads/<action>',
+                '<module:leads>/<action:\w+>' => '<module>/leads/<action>',
+
+                //payout
+                '<module:payout>/<action:\w+>/<id:\d+>' => '<module>/payout/<action>',
+                '<module:payout>/<action:\w+>' => '<module>/payout/<action>',
+
             ],
         ],
 
@@ -90,6 +98,9 @@ $config = [
         'source' => [
                 'class' => 'app\modules\source\Module',
        ],
+        'leads' => [
+            'class' => 'app\modules\leads\Module',
+        ],
     ],
     'params' => $params,
 ];

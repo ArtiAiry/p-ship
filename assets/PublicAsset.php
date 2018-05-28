@@ -59,8 +59,10 @@ class PublicAsset extends AssetBundle
         'js/custom.js',
         'js/modal/modal.js',
         'js/modal/modal1.js',
+        'js/modal/modal2.js',
 
-
+        'js/modal/modalView.js',
+        'js/modal/modalUpdate.js',
 
     ];
     public $depends = [

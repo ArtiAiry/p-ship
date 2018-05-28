@@ -87,9 +87,17 @@ class ProductController extends Controller
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
-            return $this->render('update', [
+            if (Yii::$app->request->isAjax) {
+
+            return $this->renderAjax('update', [
                 'model' => $model,
             ]);
+
+            } else {
+                return $this->render('update', [
+                    'model' => $model,
+                ]);
+            }
         }
     }
 

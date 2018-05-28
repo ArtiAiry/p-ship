@@ -19,7 +19,7 @@ class m180520_113524_create_payout_table extends Migration
             'payout_sum' => $this->integer(),
             'payout_currency' => $this->integer(),
             'payout_sum_rub' => $this->integer(),
-            'status' => $this->integer(),
+            'payout_status_id' => $this->integer()->defaultValue(1),
             'comment' => $this->string(255)->defaultValue(null),
             'created_at' => "timestamp NOT NULL DEFAULT current_timestamp",
             'isRemoved'=> "TINYINT (1) default 1",
@@ -38,6 +38,12 @@ class m180520_113524_create_payout_table extends Migration
             'user_id'
         );
 
+        $this->createIndex(
+            'idx-payout-payout_status_id',
+            'payout',
+            'payout_status_id'
+        );
+
         $this->addForeignKey(
             'fk-payout-wallet_type',
             'payout',
@@ -54,6 +60,16 @@ class m180520_113524_create_payout_table extends Migration
             'payout',
             'user_id',
             'user',
+            'id',
+            'CASCADE',
+            'CASCADE'
+        );
+
+        $this->addForeignKey(
+            'fk-payout-payout_status',
+            'payout',
+            'payout_status_id',
+            'payout_status',
             'id',
             'CASCADE',
             'CASCADE'

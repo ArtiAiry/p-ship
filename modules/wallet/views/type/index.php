@@ -1,5 +1,6 @@
 <?php
 
+use digitv\bootstrap\widgets\Modal;
 use yii\helpers\Html;
 use yii\helpers\Url;
 
@@ -10,13 +11,13 @@ $this->title = 'Wallet Types';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <?php
-digitv\bootstrap\widgets\Modal::begin([
+Modal::begin([
     'header'=>'<h4>'. "Add Wallet Type" .'</h4>',
     'id'=>'modal1',
     'size'=>'modal-md',
 ]);
 echo "<div id='modalContent1' class='card'></div>";
-digitv\bootstrap\widgets\Modal::end();
+Modal::end();
 ?>
 
 <div class="card fade-out">
@@ -45,9 +46,9 @@ digitv\bootstrap\widgets\Modal::end();
                             <td><?= $type->id ?></td>
                             <td><?= $type->name ?></td>
                             <td>
-                                <a href="<?= Url::toRoute(['/source/monetization/view','id'=>$type->id]);?>" title="View" aria-label="View"><span class="fa fa-eye"></span></a>
-                                <a href="<?= Url::toRoute(['/source/monetization/update','id'=>$type->id]);?>" title="Update" aria-label="Update"><span class="fa fa-pencil"></span></a>
-                                <a href="<?= Url::toRoute(['/source/monetization/delete','id'=>$type->id]);?>" title="Delete" aria-label="Delete" data-confirm="Are you sure you want to delete this item?" data-method="post"><span class="fa fa-trash"></span></a>
+                                <button value="<?= Url::toRoute(['/wallet/type/view','id'=>$type->id]);?>" data-toggle="tooltip" title="View" aria-label="View" class="btn btn-outline-dark btn-rounded btn-xs view-modal-click"><span class="fa fa-eye"></span></button>
+                                <a href="<?= Url::toRoute(['/wallet/type/update','id'=>$type->id]);?>" data-toggle="tooltip"  title="Update" aria-label="Update" class="btn btn-outline-dark btn-rounded btn-xs update-modal-click"><span class="fa fa-pencil" ></span></a>
+                                <a href="<?= Url::toRoute(['/wallet/type/delete','id'=>$type->id]);?>" data-toggle="tooltip"  title="Delete" aria-label="Delete" data-confirm="Are you sure you want to delete this item?" class="btn btn-outline-dark btn-rounded btn-xs" data-method="post"><span class="fa fa-trash"></span></a>
                             </td>
                         </tr>
                     <?php endforeach; ?>
@@ -58,3 +59,13 @@ digitv\bootstrap\widgets\Modal::end();
     <?php endif;?>
     </div>
 </div>
+
+<?php
+Modal::begin([
+    'header' => '<h4>'. "View Wallet" .'</h4>',
+    'id' => 'view-modal',
+    'size' => 'modal-md',
+]);
+echo "<div id='viewModalContent'></div>";
+Modal::end();
+?>

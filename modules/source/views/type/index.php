@@ -45,9 +45,9 @@ digitv\bootstrap\widgets\Modal::end();
                             <td><?= $type->id ?></td>
                             <td><?= $type->name ?></td>
                             <td>
-                                <a href="<?= Url::toRoute(['/source/monetization/view','id'=>$type->id]);?>" title="View" aria-label="View"><span class="fa fa-eye"></span></a>
-                                <a href="<?= Url::toRoute(['/source/monetization/update','id'=>$type->id]);?>" title="Update" aria-label="Update"><span class="fa fa-pencil"></span></a>
-                                <a href="<?= Url::toRoute(['/source/monetization/delete','id'=>$type->id]);?>" title="Delete" aria-label="Delete" data-confirm="Are you sure you want to delete this item?" data-method="post"><span class="fa fa-trash"></span></a>
+                                <a href="<?= Url::toRoute(['/source/type/view','id'=>$type->id]);?>" title="View" aria-label="View"><span class="fa fa-eye"></span></a>
+                                <a href="<?= Url::toRoute(['/source/type/update','id'=>$type->id]);?>" title="Update" aria-label="Update"><span class="fa fa-pencil"></span></a>
+                                <a href="<?= Url::toRoute(['/source/type/delete','id'=>$type->id]);?>" title="Delete" aria-label="Delete" data-confirm="Are you sure you want to delete this item?" data-method="post"><span class="fa fa-trash"></span></a>
                             </td>
                         </tr>
                     <?php endforeach; ?>

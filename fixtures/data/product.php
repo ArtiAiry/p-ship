@@ -3,13 +3,14 @@
 return [
     [
         'id' => 1,
-        'name' => 'Englsih',
+        'name' => 'all',
         'description' => 'Description for 4 product.',
         'cpl_price' => 3500,
         'cps_price' => 4500,
         'banner_url' => '/upload/Desktop.rar',
         'logo_url' => '/images/partnership-product.png',
         'created_at' => '2018-05-17 12:30:44',
+        'isRemoved' => 1,
     ],
     [
         'id' => 2,
@@ -20,6 +21,7 @@ return [
         'banner_url' => '/upload/Desktop.rar',
         'logo_url' => '/images/partnership-product.png',
         'created_at' => '2018-05-17 12:31:58',
+        'isRemoved' => 1,
     ],
     [
         'id' => 3,
@@ -30,6 +32,7 @@ return [
         'banner_url' => '/upload/Desktop.rar',
         'logo_url' => '/images/partnership-product.png',
         'created_at' => '2018-05-17 12:35:58',
+        'isRemoved' => 1,
     ],
     [
         'id' => 4,
@@ -40,5 +43,17 @@ return [
         'banner_url' => '/upload/Desktop.rar',
         'logo_url' => '/images/partnership-product.png',
         'created_at' => '2018-05-17 12:40:58',
+        'isRemoved' => 1,
+    ],
+    [
+        'id' => 5,
+        'name' => 'English',
+        'description' => 'Description for 5 product.',
+        'cpl_price' => 13000,
+        'cps_price' => 10000,
+        'banner_url' => '/upload/Desktop.rar',
+        'logo_url' => '/images/partnership-product.png',
+        'created_at' => '2018-05-17 12:45:58',
+        'isRemoved' => 1,
     ],
 ];

@@ -43,7 +43,7 @@ return [
         'qiwi' => null,
         'webmoney_wmr' => null,
         'paypal_eur' => null,
-        'sberbank_rub' => null,
+        'sberbank_rub' => 3212394036423,
         'pb_uah' => 5168792321345,
         'user_id' => 4,
         'wallet_type_id' => 5,
@@ -51,7 +51,6 @@ return [
     ],
     [
         'id' => 5,
-        'wallet_type_id' => 5,
         'yandex_money' => null,
         'qiwi' => null,
         'webmoney_wmr' => null,
@@ -59,6 +58,7 @@ return [
         'sberbank_rub' => null,
         'pb_uah' => 5168792321345,
         'user_id' => 5,
+        'wallet_type_id' => 6,
         'isRemoved' => 1,
     ],
 ];

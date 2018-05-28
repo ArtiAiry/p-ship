@@ -1,5 +1,6 @@
 <?php
 
+use digitv\bootstrap\widgets\Modal;
 use yii\helpers\Html;
 use yii\grid\GridView;
 use yii\helpers\Url;
@@ -21,7 +22,7 @@ echo "<div id='modalContent1' class='card'></div>";
 digitv\bootstrap\widgets\Modal::end();
 ?>
 
-<div class="card">
+<div class="card fade-out">
     <div class="card-body">
         <h1>Wallets
 
@@ -35,6 +36,7 @@ digitv\bootstrap\widgets\Modal::end();
                     <thead>
                     <tr>
                         <td>ID</td>
+<!--                        <td>Main Wallet 1</td>-->
                         <td>Main Wallet</td>
                         <td>Username</td>
                         <td>Yandex Money</td>
@@ -52,7 +54,8 @@ digitv\bootstrap\widgets\Modal::end();
                         <!--                --><?php //if($profile->user->getRole() == 'teacher'): ?>
                         <tr>
                             <td><?= $wallet->id ?></td>
-                            <td><?= $wallet->walletType->name ?></td>
+                            <td><?= $wallet->getMainWallet(); ?></td>
+<!--                            <td>--><?//= $wallet->walletType->name ?><!--</td>-->
                             <td><?= $wallet->user->username ?></td>
                             <td><?= $wallet->yandex_money ?></td>
                             <td><?= $wallet->qiwi ?></td>
@@ -62,9 +65,9 @@ digitv\bootstrap\widgets\Modal::end();
 <!--                            <td>--><?//= $profile->whatsapp ?><!--</td>-->
                             <!--                        <td>--><?//= $profile->user->getRole() ?><!--</td>-->
                             <td>
-                                <a href="<?= Url::toRoute(['/wallet/view','id'=>$wallet->id]);?>" title="View" aria-label="View"><span class="fa fa-eye"></span></a>
-                                <a href="<?= Url::toRoute(['/wallet/update','id'=>$wallet->id]);?>" title="Update" aria-label="Update"><span class="fa fa-pencil"></span></a>
-                                <a href="<?= Url::toRoute(['/wallet/delete','id'=>$wallet->id]);?>" title="Delete" aria-label="Delete" data-confirm="Are you sure you want to delete this item?" data-method="post"><span class="fa fa-trash"></span></a>
+                                <button value="<?= Url::toRoute(['/wallet/view','id'=>$wallet->id]);?>" data-toggle="tooltip" title="View" aria-label="View" class="btn btn-outline-dark btn-rounded btn-xs view-modal-click"><span class="fa fa-eye"></span></button>
+                                <a href="<?= Url::toRoute(['/wallet/update','id'=>$wallet->id]);?>" data-toggle="tooltip"  title="Update" aria-label="Update" class="btn btn-outline-dark btn-rounded btn-xs update-modal-click"><span class="fa fa-pencil" ></span></a>
+                                <a href="<?= Url::toRoute(['/wallet/delete','id'=>$wallet->id]);?>" data-toggle="tooltip"  title="Delete" aria-label="Delete" data-confirm="Are you sure you want to delete this item?" class="btn btn-outline-dark btn-rounded btn-xs" data-method="post"><span class="fa fa-trash"></span></a>
                             </td>
                         </tr>
                         <!--                --><?php //endif; ?>
@@ -77,3 +80,13 @@ digitv\bootstrap\widgets\Modal::end();
 
 
 </div>
+
+<?php
+Modal::begin([
+    'header' => '<h4>'. "View Wallet" .'</h4>',
+    'id' => 'view-modal',
+    'size' => 'modal-md',
+]);
+echo "<div id='viewModalContent'></div>";
+Modal::end();
+?>
