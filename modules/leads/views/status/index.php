@@ -33,7 +33,7 @@ digitv\bootstrap\widgets\Modal::end();
 
             <div class="table-responsive">
 
-                <table id="example" class="table table-hover table-bordered">
+                <table id="min-table" class="table table-hover table-bordered">
                     <thead>
                     <tr>
                         <td>ID</td>

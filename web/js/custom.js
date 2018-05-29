@@ -3,7 +3,7 @@ $(function () {
 });
 
 $(document).ready(function() {
-    $('#example').DataTable(
+    $('#extended-table').DataTable(
         {
 
         columnDefs: [

@@ -30,7 +30,7 @@ Modal::end();
         </h1>
         <?php if(!empty($leads)): ?>
         <div class="table-responsive">
-            <table id="example" class="table table-hover table-bordered">
+            <table id="extended-table" class="table table-hover table-bordered">
                 <thead>
                 <tr>
                     <td>ID</td>
