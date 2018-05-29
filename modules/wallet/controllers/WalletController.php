@@ -29,19 +29,6 @@ class WalletController extends Controller
     }
 
     /**
-     * Lists all Wallet models.
-     * @return mixed
-     */
-    public function actionIndex()
-    {
-
-        $wallets = Wallet::find()->orderBy('id asc')->all();
-        return $this->render('index',[
-            'wallets' => $wallets,
-        ]);
-    }
-
-    /**
      * Displays a single Wallet model.
      * @param integer $id
      * @return mixed
@@ -64,7 +51,7 @@ class WalletController extends Controller
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             Yii::$app->session->setFlash('success', 'Product created.');
-            return $this->redirect(['index']);
+            return $this->redirect(['/wallet']);
 
         } else {
             return $this->renderAjax('create', [

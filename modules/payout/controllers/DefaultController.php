@@ -2,6 +2,7 @@
 
 namespace app\modules\payout\controllers;
 
+use app\modules\payout\models\Payout;
 use yii\web\Controller;
 
 /**
@@ -15,6 +16,10 @@ class DefaultController extends Controller
      */
     public function actionIndex()
     {
-        return $this->render('index');
+
+        $payouts = Payout::find()->orderBy('id asc')->all();
+        return $this->render('index',[
+            'payouts' => $payouts,
+        ]);
     }
 }

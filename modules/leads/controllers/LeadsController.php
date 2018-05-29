@@ -4,7 +4,6 @@ namespace app\modules\leads\controllers;
 
 use Yii;
 use app\modules\leads\models\ClicksLeads;
-use app\modules\leads\models\ClicksLeadsSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -30,19 +29,6 @@ class LeadsController extends Controller
     }
 
     /**
-     * Lists all ClicksLeads models.
-     * @return mixed
-     */
-    public function actionIndex()
-    {
-
-        $leads = ClicksLeads::find()->orderBy('id asc')->all();
-        return $this->render('index',[
-            'leads' => $leads,
-        ]);
-    }
-
-    /**
      * Displays a single ClicksLeads model.
      * @param integer $id
      * @return mixed
@@ -65,7 +51,7 @@ class LeadsController extends Controller
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             Yii::$app->session->setFlash('success', 'Lead created.');
-            return $this->redirect(['index']);
+            return $this->redirect(['/leads']);
 
         } else {
             return $this->renderAjax('create', [

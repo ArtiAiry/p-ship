@@ -14,21 +14,21 @@ $(document).ready(function() {
         pageLength: 10,
         dom: 'Bfrtip',
         buttons: [
-            {
-                extend: 'copy', className: 'copyButton'
-            },
-            {
-                extend: 'csv', className: 'csvButton'
-            },
+            // {
+            //     extend: 'copy', className: 'copyButton'
+            // },
+            // {
+            //     extend: 'csv', className: 'csvButton'
+            // },
             {
                 extend: 'excel', className: 'excelButton'
             },
             {
                 extend: 'pdf', className: 'pdfButton'
             },
-            {
-                extend: 'print', className: 'printButton'
-            }
+            // {
+            //     extend: 'print', className: 'printButton'
+            // }
         ],
         language: {
                 "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Russian.json"
@@ -36,6 +36,25 @@ $(document).ready(function() {
         }
     );
 });
+
+$(document).ready(function() {
+    $('#min-table').DataTable(
+        {
+
+            columnDefs: [
+                {
+                    className: "dt-center", targets: "_all"
+                }
+            ],
+            pageLength: 10,
+            language: {
+                "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Russian.json"
+            }
+        }
+    );
+});
+
+
 
 $(document).ready(function(){
 

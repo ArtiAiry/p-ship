@@ -2,19 +2,45 @@
 
 namespace app\modules\profile\controllers;
 
+use app\models\form\SignupForm;
+use app\models\User;
+use app\modules\profile\models\Profile;
+use Yii;
+
 use yii\web\Controller;
+use yii\web\NotFoundHttpException;
+use yii\filters\VerbFilter;
 
 /**
- * Default controller for the `profile` module
+ * ProfileController implements the CRUD actions for Profile model.
  */
 class DefaultController extends Controller
 {
     /**
-     * Renders the index view for the module
-     * @return string
+     * @inheritdoc
+     */
+    public function behaviors()
+    {
+        return [
+            'verbs' => [
+                'class' => VerbFilter::className(),
+                'actions' => [
+                    'delete' => ['POST'],
+                ],
+            ],
+        ];
+    }
+
+    /**
+     * Lists all Profile models.
+     * @return mixed
      */
     public function actionIndex()
     {
-        return $this->render('index');
+
+        $profiles = Profile::find()->orderBy('id asc')->all();
+        return $this->render('index', [
+            'profiles' => $profiles,
+        ]);
     }
 }

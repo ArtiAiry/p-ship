@@ -59,13 +59,12 @@ class Payout extends \yii\db\ActiveRecord
             'id' => 'ID',
             'wallet_type_id' => 'Wallet Type',
             'user_id' => 'User',
-            'payout_sum' => 'Payout Sum',
+            'payout_sum' => 'Payout Summary',
             'payout_currency' => 'Payout Currency',
-            'payout_sum_rub' => 'Payout Sum Rub',
+            'payout_sum_rub' => 'Payout Summary (RUB)',
             'payout_status_id' => 'Payout Status',
             'comment' => 'Comment',
             'created_at' => 'Created At',
-            'isRemoved' => 'Is Removed',
         ];
     }
 
@@ -94,10 +93,44 @@ class Payout extends \yii\db\ActiveRecord
     }
 
 
-    public function getPayoutSummary() {
+    public function getSuccessPayoutSummary() {
+
+        $query = (new \yii\db\Query())->from('payout')->where(['user_id'=>Yii::$app->user->id, 'payout_status_id'=>1]);
+        $sum = $query->sum('payout_sum_rub');
+        echo $sum;
+    }
+
+    public function getTotalPayoutSummary() {
 
         $query = (new \yii\db\Query())->from('payout')->where(['user_id'=>Yii::$app->user->id]);
-        $sum = $query->sum('payout_sum');
+        $sum = $query->sum('payout_sum_rub');
         echo $sum;
+    }
+
+    public function getCurrencyList ()
+    {
+        return [
+            0=>'Not Set',
+            1=>'RUB',
+            2=>'USD',
+            3=>'UAH',
+            4=>'EUR',
+        ];
+    }
+
+    public function getCurrencyName()
+    {
+
+        if ($this->payout_currency == 1){
+            return 'RUB';
+        } elseif ($this->payout_currency == 2){
+            return 'USD';
+        } elseif ($this->payout_currency == 3){
+            return 'UAH';
+        } elseif ($this->payout_currency == 4){
+            return 'EUR';
+        } else {
+            return 'Not Set';
+        }
     }
 }

@@ -1,10 +1,11 @@
 <?php
 use app\models\User;
+use app\modules\profile\models\Profile;
 use yii\bootstrap\Html;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Url;
 
-$model = new User();
+$profile = Profile::findOne(Yii::$app->user->id);
 /* @var $model app\models\User */
 ?>
 
@@ -30,11 +31,13 @@ digitv\bootstrap\widgets\Modal::end();
                 </div>
             </div>
         </li>
-        <li class="nav-item"><a class="nav-link" href="<?= Url::to(['/leads/index']); ?>"><img class="menu-icon" src="/images/menu_icons/05.png" alt="menu icon"><span class="menu-title">Leads</span></a></li>
-        <li class="nav-item"><a class="nav-link" href="<?= Url::to(['/wallet/index']); ?>"><img class="menu-icon" src="/images/menu_icons/02.png" alt="menu icon"><span class="menu-title">Wallets</span></a></li>
-        <li class="nav-item"><a class="nav-link" href="<?= Url::to(['/product/index']); ?>"><img class="menu-icon" src="/images/menu_icons/03.png" alt="menu icon"><span class="menu-title">Products</span></a></li>
-        <li class="nav-item"><a class="nav-link" href="<?= Url::to(['/payout/index']); ?>"><img class="menu-icon" src="/images/menu_icons/04.png" alt="menu icon"><span class="menu-title">Payouts</span></a></li>
-        <li class="nav-item"><a class="nav-link" href="<?= Url::to(['/profile/index']); ?>"><img class="menu-icon" src="/images/menu_icons/01.png" alt="menu icon"><span class="menu-title">Profiles</span></a></li>
+        <li class="nav-item"><a class="nav-link" href="<?= Url::to(['/leads']); ?>"><img class="menu-icon" src="/images/menu_icons/05.png" alt="menu icon"><span class="menu-title">Leads</span></a></li>
+        <li class="nav-item"><a class="nav-link" href="<?= Url::to(['/wallet']); ?>"><img class="menu-icon" src="/images/menu_icons/02.png" alt="menu icon"><span class="menu-title">Wallets</span></a></li>
+        <li class="nav-item"><a class="nav-link" href="<?= Url::to(['/product']); ?>"><img class="menu-icon" src="/images/menu_icons/03.png" alt="menu icon"><span class="menu-title">Products</span></a></li>
+        <li class="nav-item"><a class="nav-link" href="<?= Url::to(['/payout']); ?>"><img class="menu-icon" src="/images/menu_icons/04.png" alt="menu icon"><span class="menu-title">Payouts</span></a></li>
+        <li class="nav-item"><a class="nav-link" href="<?= Url::to(['/source']); ?>"><img class="menu-icon" src="/images/menu_icons/06.png" alt="menu icon"><span class="menu-title">Source</span></a></li>
+        <li class="nav-item"><a class="nav-link" href="<?= Url::to(['/profile']); ?>"><img class="menu-icon" src="/images/menu_icons/01.png" alt="menu icon"><span class="menu-title">Profiles</span></a></li>
+        <li class="nav-item"><a class="nav-link" href="<?= Url::to(['/profile/edit','id'=>$profile->id]); ?>"><img class="menu-icon" src="/images/menu_icons/08.png" alt="menu icon"><span class="menu-title">Settings</span></a></li>
 <!--        <li class="nav-item"><a class="nav-link" href="pages/charts/chartjs.html"><img class="menu-icon" src="/images/menu_icons/05.png" alt="menu icon"><span class="menu-title">Charts</span></a></li>-->
 <!--        <li class="nav-item"><a class="nav-link" href="pages/tables/basic-table.html"><img class="menu-icon" src="/images/menu_icons/06.png" alt="menu icon"><span class="menu-title">Table</span></a></li>-->
 <!--        <li class="nav-item"><a class="nav-link" href="pages/icons/font-awesome.html"><img class="menu-icon" src="/images/menu_icons/07.png" alt="menu icon"> <span class="menu-title">Icons</span></a></li>-->

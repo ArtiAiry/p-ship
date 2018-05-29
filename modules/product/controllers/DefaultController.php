@@ -2,6 +2,7 @@
 
 namespace app\modules\product\controllers;
 
+use app\modules\product\models\Product;
 use yii\web\Controller;
 
 /**
@@ -15,6 +16,10 @@ class DefaultController extends Controller
      */
     public function actionIndex()
     {
-        return $this->render('index');
+
+        $products = Product::find()->orderBy('id asc')->all();
+        return $this->render('index',[
+            'products' => $products,
+        ]);
     }
 }

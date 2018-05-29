@@ -2,6 +2,7 @@
 
 namespace app\modules\leads\controllers;
 
+use app\modules\leads\models\ClicksLeads;
 use yii\web\Controller;
 
 /**
@@ -15,6 +16,10 @@ class DefaultController extends Controller
      */
     public function actionIndex()
     {
-        return $this->render('index');
+
+        $leads = ClicksLeads::find()->orderBy('id asc')->all();
+        return $this->render('index',[
+            'leads' => $leads,
+        ]);
     }
 }

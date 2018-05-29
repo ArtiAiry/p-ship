@@ -2,6 +2,7 @@
 
 namespace app\modules\source\controllers;
 
+use app\modules\source\models\Source;
 use yii\web\Controller;
 
 /**
@@ -15,6 +16,10 @@ class DefaultController extends Controller
      */
     public function actionIndex()
     {
-        return $this->render('index');
+
+        $sources = Source::find()->orderBy('id asc')->all();
+        return $this->render('index',[
+            'sources' => $sources,
+        ]);
     }
 }

@@ -4,7 +4,10 @@ namespace app\modules\profile\controllers;
 
 use app\models\form\SignupForm;
 use app\models\User;
+use app\modules\payout\models\Payout;
 use app\modules\profile\models\Profile;
+use app\modules\source\models\Source;
+use app\modules\wallet\models\Wallet;
 use Yii;
 
 use yii\web\Controller;
@@ -29,19 +32,6 @@ class ProfileController extends Controller
                 ],
             ],
         ];
-    }
-
-    /**
-     * Lists all Profile models.
-     * @return mixed
-     */
-    public function actionIndex()
-    {
-
-        $profiles = Profile::find()->orderBy('id asc')->all();
-        return $this->render('index',[
-            'profiles' => $profiles,
-        ]);
     }
 
     /**
@@ -93,40 +83,54 @@ class ProfileController extends Controller
      * @return mixed
      */
 
+//
+//    public function actionUpdate($id)
+//    {
+//
+//        $user = User::findOne($id);
+//        $profile = Profile::findOne($id);
+//
+//        if (!isset($user, $profile)) {
+//            throw new NotFoundHttpException("Профиль пользователя не найден.");
+//        }
+//
+//        if ($user->load(Yii::$app->request->post()) && $profile->load(Yii::$app->request->post())) {
+//            $isValid = $user->validate();
+//            $isValid = $profile->validate() && $isValid;
+//            if ($isValid) {
+//                $user->save(false);
+//                $profile->save(false);
+//                return $this->redirect(['view', 'id' => $id]);
+//            }
+//        }
+//
+//        return $this->render('edit', [
+//
+//            'user' => $user,
+//            'profile' => $profile,
+//        ]);
+//    }
 
-    public function actionUpdate($id)
+
+    public function actionSources()
     {
 
-        $user = User::findOne($id);
-        $profile = Profile::findOne($id);
-
-        if (!isset($user, $profile)) {
-            throw new NotFoundHttpException("Профиль пользователя не найден.");
-        }
-
-        if ($user->load(Yii::$app->request->post()) && $profile->load(Yii::$app->request->post())) {
-            $isValid = $user->validate();
-            $isValid = $profile->validate() && $isValid;
-            if ($isValid) {
-                $user->save(false);
-                $profile->save(false);
-                return $this->redirect(['view', 'id' => $id]);
-            }
-        }
-
-        return $this->render('update', [
-
-            'user' => $user,
-            'profile' => $profile,
+        $sources = Source::find()->orderBy('id asc')->where(['user_id'=>Yii::$app->user->id])->all();
+        return $this->render('sources', [
+            'sources' => $sources,
         ]);
     }
+
 
 
     public function actionEdit($id)
     {
 
+        $payout = new Payout();
         $user = User::findOne($id);
         $profile = Profile::findOne($id);
+        $sources = Source::find()->orderBy('id asc')->where(['user_id'=>Yii::$app->user->id])->all();
+        $wallet = Wallet::findOne(Yii::$app->user->id);
 
         if (!isset($user, $profile)) {
             throw new NotFoundHttpException("Профиль пользователя не найден.");
@@ -138,16 +142,20 @@ class ProfileController extends Controller
             if ($isValid) {
                 $user->save(false);
                 $profile->save(false);
-                return $this->redirect(['view', 'id' => $id]);
+                Yii::$app->session->setFlash('success', 'Profile Settings successfully saved.');
+                return $this->redirect(['edit', 'id' => $id]);
             }
         }
 
 
 
-        return $this->render('update', [
+        return $this->render('edit', [
 
             'user' => $user,
             'profile' => $profile,
+            'wallet' => $wallet,
+            'payout' => $payout,
+            'sources' => $sources,
         ]);
     }
 
@@ -166,7 +174,7 @@ class ProfileController extends Controller
         $user->findOne($id)->delete();
 //        $profile->findOne($id)->delete();
 
-        return $this->redirect(['index']);
+        return $this->redirect(['/profile']);
 
     }
 

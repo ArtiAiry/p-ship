@@ -32,7 +32,23 @@ $this->params['breadcrumbs'][] = $this->title;
             'walletType.name',
             'user.username',
             'payout_sum',
-            'payout_currency',
+            [
+                'label'  => 'Gender',
+                'value'  => function ($data) {
+                    if ($data->payout_currency == 1) {
+                        return 'RUB';
+                    } elseif ($data->payout_currency == 2) {
+                        return 'USD';
+                    } elseif ($data->payout_currency == 3) {
+                        return 'UAH';
+                    } elseif ($data->payout_currency == 4) {
+                        return 'EUR';
+                    } else {
+                        return 'Not Set';
+                    }
+                }
+            ],
+
             'payout_sum_rub',
             'payoutStatus.name',
             'comment',

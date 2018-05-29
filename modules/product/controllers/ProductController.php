@@ -29,18 +29,6 @@ class ProductController extends Controller
         ];
     }
 
-    /**
-     * Lists all Product models.
-     * @return mixed
-     */
-    public function actionIndex()
-    {
-
-        $products = Product::find()->orderBy('id asc')->all();
-        return $this->render('index',[
-            'products' => $products,
-        ]);
-    }
 
     /**
      * Displays a single Product model.
@@ -65,7 +53,7 @@ class ProductController extends Controller
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             Yii::$app->session->setFlash('success', 'Product created.');
-            return $this->redirect(['index']);
+            return $this->redirect(['/product']);
 
         } else {
             return $this->renderAjax('create', [
@@ -111,7 +99,7 @@ class ProductController extends Controller
     {
         $this->findModel($id)->delete();
 
-        return $this->redirect(['index']);
+        return $this->redirect(['/product']);
     }
 
     /**

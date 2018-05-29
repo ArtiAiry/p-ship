@@ -30,19 +30,6 @@ class PayoutController extends Controller
     }
 
     /**
-     * Lists all Payout models.
-     * @return mixed
-     */
-    public function actionIndex()
-    {
-
-        $payouts = Payout::find()->orderBy('id asc')->all();
-        return $this->render('index',[
-            'payouts' => $payouts,
-        ]);
-    }
-
-    /**
      * Displays a single Payout model.
      * @param integer $id
      * @return mixed
@@ -64,8 +51,8 @@ class PayoutController extends Controller
         $model = new Payout();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            Yii::$app->session->setFlash('success', 'Status created.');
-            return $this->redirect(['index']);
+            Yii::$app->session->setFlash('success', 'Payout created.');
+            return $this->redirect(['/payout']);
 
         } else {
             return $this->renderAjax('create', [
@@ -103,7 +90,7 @@ class PayoutController extends Controller
     {
         $this->findModel($id)->delete();
 
-        return $this->redirect(['index']);
+        return $this->redirect(['/payout']);
     }
 
     /**

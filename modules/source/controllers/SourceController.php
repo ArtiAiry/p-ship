@@ -34,26 +34,13 @@ class SourceController extends Controller
         $model = new AddSourceForm();
         if ($model->load(Yii::$app->request->post()) && $model->add_source()) {
             Yii::$app->session->setFlash('success', 'Source created.');
-            return $this->redirect(['/product/index']);
+            return $this->redirect(['/product']);
         }
         return $this->renderAjax('add', [
             'model' => $model,
         ]);
     }
 
-
-    /**
-     * Lists all Source models.
-     * @return mixed
-     */
-    public function actionIndex()
-    {
-
-        $sources = Source::find()->orderBy('id asc')->all();
-        return $this->render('index',[
-            'sources' => $sources,
-        ]);
-    }
 
     /**
      * Displays a single Source model.
@@ -78,7 +65,7 @@ class SourceController extends Controller
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             Yii::$app->session->setFlash('success', 'Source created.');
-            return $this->redirect(['index']);
+            return $this->redirect(['/source']);
 
         } else {
             return $this->renderAjax('create', [
@@ -116,7 +103,7 @@ class SourceController extends Controller
     {
         $this->findModel($id)->delete();
 
-        return $this->redirect(['index']);
+        return $this->redirect(['/source']);
     }
 
     /**

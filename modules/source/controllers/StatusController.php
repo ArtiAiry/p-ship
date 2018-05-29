@@ -3,7 +3,7 @@
 namespace app\modules\source\controllers;
 
 use Yii;
-use app\modules\source\models\Status;
+use app\modules\source\models\SourceStatus;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -35,7 +35,7 @@ class StatusController extends Controller
     public function actionIndex()
     {
 
-        $statuses = Status::find()->orderBy('id asc')->all();
+        $statuses = SourceStatus::find()->orderBy('id asc')->all();
         return $this->render('index',[
             'statuses' => $statuses,
         ]);
@@ -61,7 +61,7 @@ class StatusController extends Controller
      */
     public function actionCreate()
     {
-        $model = new Status();
+        $model = new SourceStatus();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             Yii::$app->session->setFlash('success', 'Status created.');
@@ -111,12 +111,12 @@ class StatusController extends Controller
      * Finds the Status model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return Status the loaded model
+     * @return SourceStatus the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = Status::findOne($id)) !== null) {
+        if (($model = SourceStatus::findOne($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');
