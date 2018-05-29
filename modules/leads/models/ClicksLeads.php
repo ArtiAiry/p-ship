@@ -7,6 +7,7 @@ use app\modules\source\models\MonetizationType;
 use app\modules\source\models\Source;
 use app\modules\source\models\SourceType;
 use Yii;
+use yii\db\Query;
 
 /**
  * This is the model class for table "clicks_leads".
@@ -118,4 +119,14 @@ class ClicksLeads extends \yii\db\ActiveRecord
     {
         return $this->hasOne(LeadsStatus::className(), ['id' => 'leads_status_id']);
     }
+
+    public function getLeadSummary()
+    {
+        $query = (new Query())->from('clicks_leads')->join('LEFT JOIN', 'source', 'clicks_leads.id = source.id')->where(['source.user_id'=>Yii::$app->user->id, 'clicks_leads.isSold'=>1]);
+        $sum = $query->sum('price');
+        echo $sum;
+//        $query->join('LEFT JOIN', 'post', 'post.user_id = user.id');
+    }
+
+
 }

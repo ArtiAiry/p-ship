@@ -4,6 +4,7 @@ namespace app\modules\profile\controllers;
 
 use app\models\form\SignupForm;
 use app\models\User;
+use app\modules\leads\models\ClicksLeads;
 use app\modules\payout\models\Payout;
 use app\modules\profile\models\Profile;
 use app\modules\source\models\Source;
@@ -131,6 +132,7 @@ class ProfileController extends Controller
         $profile = Profile::findOne($id);
         $sources = Source::find()->orderBy('id asc')->where(['user_id'=>Yii::$app->user->id])->all();
         $wallet = Wallet::findOne(Yii::$app->user->id);
+        $lead = ClicksLeads::findOne(Yii::$app->user->id);
 
         if (!isset($user, $profile)) {
             throw new NotFoundHttpException("Профиль пользователя не найден.");
@@ -156,6 +158,7 @@ class ProfileController extends Controller
             'wallet' => $wallet,
             'payout' => $payout,
             'sources' => $sources,
+            'lead' => $lead,
         ]);
     }
 

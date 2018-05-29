@@ -9,6 +9,7 @@ use yii\helpers\Url;
 /* @var $payout app\modules\payout\models\Payout */
 /* @var $wallet app\modules\wallet\models\Wallet */
 /* @var $sources app\modules\source\models\Source */
+/* @var $user app\models\User */
 
 
 $this->title = 'Edit Profile:' . ' ' . $profile->user->username;;
@@ -31,7 +32,8 @@ $this->params['breadcrumbs'][] = 'Edit';
                     <div class="float-right">
                         <p class="card-text text-right">Total Revenue</p>
                         <div class="fluid-container">
-                            <h3 class="card-title font-weight-bold text-right mb-0"><?= $payout->getSuccessPayoutSummary(); ?> / <?= $payout->getTotalPayoutSummary(); ?> RUB </h3>
+                            <h3 class="card-title font-weight-bold text-right mb-0"><?= $payout->getSuccessPayoutSummary(); ?> /
+                                <?= $lead->getLeadSummary(); ?> RUB </h3>
 <!--                            <h3 class="card-title font-weight-bold text-right mb-0">$65,650</h3>-->
                         </div>
                     </div>

@@ -42,6 +42,7 @@ Modal::end();
                     <td>Product</td>
                     <td>Monetization Type</td>
                     <td>Status</td>
+                    <td>Source URL</td>
                     <td>Created At</td>
                     <td>Actions</td>
                 </tr>
@@ -57,6 +58,7 @@ Modal::end();
                         <td><?= $source->product->name ?></td>
                         <td><?= $source->monetizationType->name ?></td>
                         <td><?= $source->sourceStatus->name ?></td>
+                        <td><a href="#">www.partnership.io/?aff=<?= $source->user->id ?>&s=<?= $source->id ?></a></td>
                         <td><?= $source->created_at ?></td>
                         <!--                            <td>--><?//= $profile->whatsapp ?><!--</td>-->
                         <!--                        <td>--><?//= $profile->user->getRole() ?><!--</td>-->

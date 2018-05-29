@@ -5,6 +5,7 @@ namespace app\modules\payout\models;
 use app\models\User;
 use app\modules\wallet\models\WalletType;
 use Yii;
+use yii\db\Query;
 
 /**
  * This is the model class for table "payout".
@@ -95,7 +96,7 @@ class Payout extends \yii\db\ActiveRecord
 
     public function getSuccessPayoutSummary() {
 
-        $query = (new \yii\db\Query())->from('payout')->where(['user_id'=>Yii::$app->user->id, 'payout_status_id'=>1]);
+        $query = (new Query())->from('payout')->where(['user_id'=>Yii::$app->user->id, 'payout_status_id'=>1]);
         $sum = $query->sum('payout_sum_rub');
         echo $sum;
     }
