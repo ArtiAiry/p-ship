@@ -75,6 +75,7 @@ $(document).ready(function(){
     );
 });
 
+//carousel
 
 $('.owl-carousel').owlCarousel({
     loop:true,
@@ -105,7 +106,6 @@ $('.owl-carousel').owlCarousel({
     }
 })
 
-
 var owl = $('.owl-carousel');
 owl.owlCarousel();
 // Go to the next item
@@ -118,3 +118,51 @@ $('.prvBtn').click(function() {
     // Parameters has to be in square bracket '[]'
     owl.trigger('prev.owl.carousel', [300]);
 })
+
+//clipboard
+
+// var clip = new ClipboardJS('.btn.btn-outline-primary.btn-xs');
+//
+// clip.on('success', function(e) {
+//     alert('success');
+//     e.clearSelection();
+// });
+//
+// clip.on("error", function() {
+//     document.body.insertAdjacentHTML('beforeend', '<div>that didn\'t work.</div>');
+// });
+
+
+$('.btn.btn-outline-primary.btn-xs').tooltip({
+    trigger: 'click',
+    placement: 'top'
+});
+
+function setTooltip(btn, message) {
+    $(btn).tooltip('hide')
+        .attr('data-original-title', message)
+        .tooltip('show');
+}
+
+function hideTooltip(btn) {
+    setTimeout(function() {
+        $(btn).tooltip('hide');
+    }, 1000);
+}
+
+
+// Clipboard
+
+$.fn.modal.Constructor.prototype._enforceFocus = function() {};
+
+var clipboard = new ClipboardJS('.btn.btn-outline-primary.btn-xs');
+
+clipboard.on('success', function(e) {
+    setTooltip(e.trigger, 'Copied!');
+    hideTooltip(e.trigger);
+});
+
+clipboard.on('error', function(e) {
+    setTooltip(e.trigger, 'Failed!');
+    hideTooltip(e.trigger);
+});

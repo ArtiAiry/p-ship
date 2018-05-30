@@ -306,7 +306,19 @@ li#example_next a.page-link
     text-align: center;
 }
 
+.card-img-overlay.h-100.d-flex.flex-column.justify-content-end {
+    -webkit-box-shadow: inset -12px -180px 107px -66px rgba(0,0,0,0.5);
+    -moz-box-shadow: inset -12px -180px 107px -66px rgba(0,0,0,0.5);
+    box-shadow: inset -12px -180px 107px -66px rgba(0,0,0,0.5);
+}
 
+a.btn-outline-primary.btn-xs{
+    color: #1991EB;
+}
+
+a:not([href]):not([tabindex]):hover  {
+    color: #ffffff;
+}
 
 
 

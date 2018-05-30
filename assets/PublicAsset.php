@@ -55,6 +55,7 @@ class PublicAsset extends AssetBundle
 
 
         'js/owl.carousel.js',
+        'js/clipboard.js',
         'js/dashboard.js',
         'js/custom.js',
         'js/modal/modal.js',

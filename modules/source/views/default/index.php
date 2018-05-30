@@ -58,7 +58,7 @@ Modal::end();
                         <td><?= $source->product->name ?></td>
                         <td><?= $source->monetizationType->name ?></td>
                         <td><?= $source->sourceStatus->name ?></td>
-                        <td><a href="<?= $source->getBuildUrl(); ?>"><?= $source->getBuildUrl(); ?></a></td>
+                        <td><a href="<?= $source->getBuildUrl(); ?>"><badge class="badge badge-primary"><?= $source->getBuildUrl(); ?></badge></a> <a class="btn btn-outline-primary btn-xs" data-clipboard-text="<?= $source->getBuildUrl(); ?>">Copy URL</a></td>
 <!--                        <td><a href="#">www.partnership.io/?aff=--><?////= $source->user->id ?><!--<!--&s=--><?////= $source->id ?><!--<!--</a></td>-->
 
                         <td><?= $source->created_at ?></td>
@@ -90,3 +90,7 @@ Modal::begin([
 echo "<div id='viewModalContent'></div>";
 Modal::end();
 ?>
+
+<!--<div class="alert alert-primary" role="alert">-->
+<!--    This is a primary alert—check it out!-->
+<!--</div>-->
