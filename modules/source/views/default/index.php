@@ -58,7 +58,9 @@ Modal::end();
                         <td><?= $source->product->name ?></td>
                         <td><?= $source->monetizationType->name ?></td>
                         <td><?= $source->sourceStatus->name ?></td>
-                        <td><a href="#">www.partnership.io/?aff=<?= $source->user->id ?>&s=<?= $source->id ?></a></td>
+                        <td><a href="<?= $source->getBuildUrl(); ?>"><?= $source->getBuildUrl(); ?></a></td>
+<!--                        <td><a href="#">www.partnership.io/?aff=--><?////= $source->user->id ?><!--<!--&s=--><?////= $source->id ?><!--<!--</a></td>-->
+
                         <td><?= $source->created_at ?></td>
                         <!--                            <td>--><?//= $profile->whatsapp ?><!--</td>-->
                         <!--                        <td>--><?//= $profile->user->getRole() ?><!--</td>-->

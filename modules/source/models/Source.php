@@ -104,4 +104,9 @@ class Source extends \yii\db\ActiveRecord
     {
         return $this->hasOne(SourceStatus::className(), ['id' => 'source_status_id']);
     }
+
+    public function getBuildUrl()
+    {
+        return "www.partnership.io/?aff=" . $this->user->id . "&s=" . $this->id;
+    }
 }
