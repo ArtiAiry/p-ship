@@ -63,17 +63,6 @@ digitv\bootstrap\widgets\Modal::end();
                     </div>
                 </div>
             </div>
-
         <?php endforeach; ?>
-
     </div>
-
-
-    <!--    <div class="owl-controls">-->
-    <!--        <div class="owl-nav">-->
-    <!--            <button  id="who-are-we" class="prvBtn btn-btn primary btn-lg"><i class="fa fa-leaf"></i></button>-->
-    <!--            <button id="who-are-we"  class="nxtBtn btn-btn primary btn-lg"><i class="fa fa-leaf"></i></button>-->
-    <!--        </div>-->
-    <!--    </div>-->
-
 </div>

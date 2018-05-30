@@ -21,17 +21,17 @@ $this->params['breadcrumbs'][] = 'Edit';
 
 
 ?>
-    <div class="grid-margin stretch-card">
-
-            <div class="card bg-dark text-white">
-                <img class="card-img" src="/images/bg-image.png" alt="Card image">
-                    <div class="card-img-overlay h-100 d-flex flex-column justify-content-end">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                        <p class="card-text">Last updated 3 mins ago</p>
-                    </div>
-            </div>
-    </div>
+<!--    <div class="grid-margin stretch-card">-->
+<!---->
+<!--            <div class="card bg-dark text-white">-->
+<!--                <img class="card-img" src="/images/bg-image.png" alt="Card image">-->
+<!--                    <div class="card-img-overlay h-100 d-flex flex-column justify-content-end">-->
+<!--                        <h5 class="card-title">Card title</h5>-->
+<!--                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>-->
+<!--                        <p class="card-text">Last updated 3 mins ago</p>-->
+<!--                    </div>-->
+<!--            </div>-->
+<!--    </div>-->
 <div class="row">
     <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 grid-margin stretch-card">
         <div class="card card-statistics">

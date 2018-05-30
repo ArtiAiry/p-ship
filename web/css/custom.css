@@ -320,6 +320,6 @@ a:not([href]):not([tabindex]):hover  {
     color: #ffffff;
 }
 
-
-
-
+.card-img-overlay.h-100.d-flex.flex-column.justify-content-end{
+    color: #ffffff;
+}
