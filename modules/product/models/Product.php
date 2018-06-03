@@ -10,8 +10,7 @@ use Yii;
  * @property integer $id
  * @property string $name
  * @property string $description
- * @property integer $cpl_price
- * @property integer $cps_price
+ * @property integer $price
  * @property string $banner_url
  * @property string $logo_url
  * @property string $created_at
@@ -32,7 +31,7 @@ class Product extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['cpl_price', 'cps_price'], 'integer'],
+            [['price'], 'integer'],
             [['created_at'], 'safe'],
             [['name', 'banner_url', 'logo_url', 'description'], 'string', 'max' => 255],
         ];
@@ -47,8 +46,7 @@ class Product extends \yii\db\ActiveRecord
             'id' => 'ID',
             'name' => 'Name',
             'description' => 'Description',
-            'cpl_price' => 'Cpl Price',
-            'cps_price' => 'Cps Price',
+            'price' => 'Price',
             'banner_url' => 'Banner Url',
             'logo_url' => 'Logo Url',
             'created_at' => 'Created At',

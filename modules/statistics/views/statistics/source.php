@@ -10,15 +10,6 @@ use yii\helpers\Url;
 $this->title = 'Leads';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<?php
-Modal::begin([
-    'header'=>'<h4>'. "Add Lead" .'</h4>',
-    'id'=>'modal1',
-    'size'=>'modal-md',
-]);
-echo "<div id='modalContent1' class='card'></div>";
-Modal::end();
-?>
 
 <div class="card fade-out">
     <div class="card-body">
@@ -33,17 +24,17 @@ Modal::end();
             <table id="extended-table" class="table table-hover table-bordered">
                 <thead>
                 <tr>
-                    <td>ID</td>
+                    <td>#</td>
+                    <td>Source</td>
                     <td>IP</td>
                     <td>User Device</td>
                     <td>User OS</td>
                     <td>Username</td>
-                    <td>Source</td>
                     <td>Product</td>
                     <td>Status</td>
                     <td>Price</td>
                     <td>Created At</td>
-                    <td>Actions</td>
+                    <td>Amount of Leads</td>
                 </tr>
                 </thead>
                 <tbody>
@@ -51,22 +42,19 @@ Modal::end();
                     <!--                --><?php //if($profile->user->getRole() == 'teacher'): ?>
                     <tr>
                         <td><?= $lead->id ?></td>
+                        <td><?= $lead->source ?></td>
                         <td><?= $lead->ip ?></td>
                         <td><?= $lead->user_device ?></td>
                         <td><?= $lead->user_os ?></td>
                         <td><?= $lead->user->username ?></td>
-                        <td><?= $lead->source  ?></td>
                         <td><?= $lead->product->name ?></td>
                         <td><?= $lead->leadsStatus->name ?></td>
                         <td><?= $lead->price ?></td>
                         <td><?= $lead->created_at ?></td>
+
+                        <td><?= $lead->count ?> </td>
                         <!--                            <td>--><?//= $profile->whatsapp ?><!--</td>-->
                         <!--                        <td>--><?//= $profile->user->getRole() ?><!--</td>-->
-                        <td>
-                            <button value="<?= Url::toRoute(['/leads/view','id'=>$lead->id]);?>" data-toggle="tooltip" title="View" aria-label="View" class="btn btn-outline-dark btn-rounded btn-xs view-modal-click"><span class="fa fa-eye"></span></button>
-                            <a href="<?= Url::toRoute(['/leads/update','id'=>$lead->id]);?>" data-toggle="tooltip"  title="Update" aria-label="Update" class="btn btn-outline-dark btn-rounded btn-xs update-modal-click"><span class="fa fa-pencil" ></span></a>
-                            <a href="<?= Url::toRoute(['/leads/delete','id'=>$lead->id]);?>" data-toggle="tooltip"  title="Delete" aria-label="Delete" data-confirm="Are you sure you want to delete this item?" class="btn btn-outline-dark btn-rounded btn-xs" data-method="post"><span class="fa fa-trash"></span></a>
-                        </td>
                     </tr>
                     <!--                --><?php //endif; ?>
                 <?php endforeach; ?>
@@ -75,16 +63,5 @@ Modal::end();
         </div>
     </div>
     <?php endif;?>
-
-
 </div>
 
-<?php
-Modal::begin([
-    'header' => '<h4>'. "View Lead" .'</h4>',
-    'id' => 'view-modal',
-    'size' => 'modal-md',
-]);
-echo "<div id='viewModalContent'></div>";
-Modal::end();
-?>

@@ -5,7 +5,7 @@
 use yii\bootstrap\Html;
 use yii\helpers\Url;
 
-$this->title = 'My Yii Application';
+$this->title = 'Partnership';
 ?>
 <div class="site-index">
 

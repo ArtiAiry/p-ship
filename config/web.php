@@ -78,6 +78,10 @@ $config = [
                 '<module:payout>/<action:\w+>/<id:\d+>' => '<module>/payout/<action>',
                 '<module:payout>/<action:\w+>' => '<module>/payout/<action>',
 
+                //statistics
+                '<module:statistics>/<action:\w+>/<id:\d+>' => '<module>/statistics/<action>',
+                '<module:statistics>/<action:\w+>' => '<module>/statistics/<action>',
+
             ],
         ],
 
@@ -100,6 +104,9 @@ $config = [
        ],
         'leads' => [
             'class' => 'app\modules\leads\Module',
+        ],
+        'statistics' => [
+            'class' => 'app\modules\statistics\Module',
         ],
     ],
     'params' => $params,

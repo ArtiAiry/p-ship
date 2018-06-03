@@ -52,10 +52,8 @@ digitv\bootstrap\widgets\Modal::end();
                         <p class="card-text"><?= $product->description ?></p>
                         <ul class="list-group list-group-flush">
 
-                            <li class="list-group-item">CPL price:  <?= $product->cpl_price ?></li>
-                            <li class="list-group-item">CPS price: <?= $product->cps_price ?></li>
+                            <li class="list-group-item">Price:  <?= $product->price ?></li>
                             <li class="list-group-item">
-                                <button value="<?= Url::to(['/source/add'])?>" id="modalButton2" class="btn btn-primary">Create Source</button>
                                 <a href="<?= $product->banner_url ?>" class="btn btn-primary" download="banners.rar">Banner link</a>
                             </li>
                         </ul>

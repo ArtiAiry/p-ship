@@ -113,14 +113,14 @@ class ProfileController extends Controller
 //    }
 
 
-    public function actionSources()
-    {
-
-        $sources = Source::find()->orderBy('id asc')->where(['user_id'=>Yii::$app->user->id])->all();
-        return $this->render('sources', [
-            'sources' => $sources,
-        ]);
-    }
+//    public function actionSources()
+//    {
+//
+//        $sources = Source::find()->orderBy('id asc')->where(['user_id'=>Yii::$app->user->id])->all();
+//        return $this->render('sources', [
+//            'sources' => $sources,
+//        ]);
+//    }
 
 
 
@@ -130,7 +130,7 @@ class ProfileController extends Controller
         $payout = new Payout();
         $user = User::findOne($id);
         $profile = Profile::findOne($id);
-        $sources = Source::find()->orderBy('id asc')->where(['user_id'=>Yii::$app->user->id])->all();
+//        $sources = Source::find()->orderBy('id asc')->where(['user_id'=>Yii::$app->user->id])->all();
         $wallet = Wallet::findOne(Yii::$app->user->id);
         $lead = ClicksLeads::findOne(Yii::$app->user->id);
 
@@ -157,7 +157,7 @@ class ProfileController extends Controller
             'profile' => $profile,
             'wallet' => $wallet,
             'payout' => $payout,
-            'sources' => $sources,
+//            'sources' => $sources,
             'lead' => $lead,
         ]);
     }

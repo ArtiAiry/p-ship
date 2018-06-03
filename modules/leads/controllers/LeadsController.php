@@ -71,7 +71,8 @@ class LeadsController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+            Yii::$app->session->setFlash('success', 'Lead edited.');
+            return $this->redirect(['/leads']);
         } else {
             return $this->render('update', [
                 'model' => $model,

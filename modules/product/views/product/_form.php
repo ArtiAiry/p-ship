@@ -16,9 +16,7 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'description')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'cpl_price')->textInput() ?>
-
-    <?= $form->field($model, 'cps_price')->textInput() ?>
+    <?= $form->field($model, 'price')->textInput() ?>
 
     <?= $form->field($model, 'banner_url')->textInput(['maxlength' => true]) ?>
 

@@ -17,9 +17,8 @@ class m180522_161426_create_clicks_leads_table extends Migration
             'ip' => $this->string(64),
             'user_device' => $this->string(64),
             'user_os' => $this->string(64),
-            'source_id' => $this->integer(),
-            'source_type_id' => $this->integer(),
-            'monetization_type_id' => $this->integer(),
+            'user_id' => $this->integer(),
+            'source' => $this->string(64),
             'product_id' => $this->integer(),
             'leads_status_id' => $this->integer()->defaultValue(1),
             'price' => $this->integer(),
@@ -28,24 +27,6 @@ class m180522_161426_create_clicks_leads_table extends Migration
             'isRemoved'=> "TINYINT (1) default 1",
 
         ]);
-
-        $this->createIndex(
-            'idx-clicks_leads-source_type_id',
-            'clicks_leads',
-            'source_type_id'
-        );
-
-        $this->createIndex(
-            'idx-clicks_leads-source_id',
-            'clicks_leads',
-            'source_id'
-        );
-
-        $this->createIndex(
-            'idx-clicks_leads-monetization_type_id',
-            'clicks_leads',
-            'monetization_type_id'
-        );
 
         $this->createIndex(
             'idx-clicks_leads-product_id',
@@ -59,25 +40,10 @@ class m180522_161426_create_clicks_leads_table extends Migration
             'leads_status_id'
         );
 
-
-        $this->addForeignKey(
-            'fk-clicks_leads-source_type',
+        $this->createIndex(
+            'idx-clicks_leads-user_id',
             'clicks_leads',
-            'source_type_id',
-            'source_type',
-            'id',
-            'CASCADE',
-            'CASCADE'
-        );
-
-        $this->addForeignKey(
-            'fk-clicks_leads-source',
-            'clicks_leads',
-            'source_id',
-            'source',
-            'id',
-            'CASCADE',
-            'CASCADE'
+            'user_id'
         );
 
         $this->addForeignKey(
@@ -91,20 +57,20 @@ class m180522_161426_create_clicks_leads_table extends Migration
         );
 
         $this->addForeignKey(
-            'fk-clicks_leads-monetization_type',
+            'fk-clicks_leads-leads_status',
             'clicks_leads',
-            'monetization_type_id',
-            'monetization_type',
+            'leads_status_id',
+            'leads_status',
             'id',
             'CASCADE',
             'CASCADE'
         );
 
         $this->addForeignKey(
-            'fk-clicks_leads-leads_status',
+            'fk-clicks_leads-user',
             'clicks_leads',
-            'leads_status_id',
-            'leads_status',
+            'user_id',
+            'user',
             'id',
             'CASCADE',
             'CASCADE'

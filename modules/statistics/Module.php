@@ -1,16 +1,16 @@
 <?php
 
-namespace app\modules\source;
+namespace app\modules\statistics;
 
 /**
- * source module definition class
+ * statistics module definition class
  */
 class Module extends \yii\base\Module
 {
     /**
      * @inheritdoc
      */
-    public $controllerNamespace = 'app\modules\source\controllers';
+    public $controllerNamespace = 'app\modules\statistics\controllers';
 
     /**
      * @inheritdoc

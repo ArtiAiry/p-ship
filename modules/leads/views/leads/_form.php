@@ -1,10 +1,8 @@
 <?php
 
+use app\models\User;
 use app\modules\leads\models\LeadsStatus;
 use app\modules\product\models\Product;
-use app\modules\source\models\MonetizationType;
-use app\modules\source\models\Source;
-use app\modules\source\models\SourceType;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
@@ -24,11 +22,9 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'user_os')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'source_id')->dropDownList(ArrayHelper::map(Source::find()->all(), 'id', 'name'),['prompt'=>'Choose a Source']);  ?>
+    <?= $form->field($model, 'user_id')->dropDownList(ArrayHelper::map(User::find()->all(), 'id', 'username'),['prompt'=>'Choose User']);  ?>
 
-    <?= $form->field($model, 'source_type_id')->dropDownList(ArrayHelper::map(SourceType::find()->all(), 'id', 'name'),['prompt'=>'Choose a Source Type']); ?>
-
-    <?= $form->field($model, 'monetization_type_id')->dropDownList(ArrayHelper::map(MonetizationType::find()->all(), 'id', 'name'),['prompt'=>'Choose a Monetization Type']); ?>
+    <?= $form->field($model, 'source')->textInput(['maxlength' => true]);  ?>
 
     <?= $form->field($model, 'product_id')->dropDownList(ArrayHelper::map(Product::find()->all(), 'id', 'name'),['prompt'=>'Choose a Product']); ?>
 

@@ -312,13 +312,13 @@ li#example_next a.page-link
     box-shadow: inset -12px -180px 107px -66px rgba(0,0,0,0.5);
 }
 
-a.btn-outline-primary.btn-xs{
-    color: #1991EB;
-}
+/*a.btn-outline-primary.btn-xs{*/
+    /*color: #1991EB;*/
+/*}*/
 
-a:not([href]):not([tabindex]):hover  {
-    color: #ffffff;
-}
+/*a:not([href]):not([tabindex]):hover  {*/
+    /*color: #ffffff;*/
+/*}*/
 
 .card-img-overlay.h-100.d-flex.flex-column.justify-content-end{
     color: #ffffff;
