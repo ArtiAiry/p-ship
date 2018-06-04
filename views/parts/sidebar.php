@@ -44,7 +44,7 @@ digitv\bootstrap\widgets\Modal::end();
             <a class="nav-link" data-toggle="collapse" href="#general-pages" aria-expanded="false" aria-controls="general-pages"> <img class="menu-icon" src="/images/menu_icons/08.png" alt="menu icon"> <span class="menu-title">Statistics</span><i class="menu-arrow"></i></a>
             <div class="collapse" id="general-pages">
                 <ul class="nav flex-column sub-menu">
-                    <li class="nav-item"> <a class="nav-link" href="<?= Url::to(['/statistics/product']); ?>">Product</a></li>
+                    <li class="nav-item"> <a class="nav-link" href="<?= Url::to(['/statistics/products']); ?>">Product</a></li>
                     <li class="nav-item"> <a class="nav-link" href="<?= Url::to(['/statistics/source']); ?>">Source</a></li>
                     <li class="nav-item"> <a class="nav-link" href="<?= Url::to(['/statistics/date']); ?>">Date</a></li>
                 </ul>

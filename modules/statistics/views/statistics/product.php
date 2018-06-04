@@ -25,15 +25,13 @@ $this->params['breadcrumbs'][] = $this->title;
                 <thead>
                 <tr>
                     <td>Product</td>
-                    <td>IP</td>
-                    <td>User Device</td>
-                    <td>User OS</td>
-                    <td>Username</td>
                     <td>Source</td>
-                    <td>Status</td>
-                    <td>Price</td>
-                    <td>Created At</td>
                     <td>Amount of Leads</td>
+                    <td>Unknown</td>
+                    <td>Rejected</td>
+                    <td>Approved</td>
+                    <td>Sold</td>
+                    <td>Summary</td>
                 </tr>
                 </thead>
                 <tbody>
@@ -41,16 +39,13 @@ $this->params['breadcrumbs'][] = $this->title;
                     <!--                --><?php //if($profile->user->getRole() == 'teacher'): ?>
                     <tr>
                         <td><?= $lead->product->name ?></td>
-                        <td><?= $lead->ip ?></td>
-                        <td><?= $lead->user_device ?></td>
-                        <td><?= $lead->user_os ?></td>
-                        <td><?= $lead->user->username ?></td>
                         <td><?= $lead->source ?></td>
-                        <td><?= $lead->leadsStatus->name ?></td>
-                        <td><?= $lead->price ?></td>
-                        <td><?= $lead->created_at ?></td>
-
-                        <td><?= $lead->count ?> </td>
+                        <td><?= $lead->count_lead ?> </td>
+                        <td><?= $lead->count_status_unknown ?> </td>
+                        <td><?= $lead->count_status_rejected ?> </td>
+                        <td><?= $lead->count_status_approved ?> </td>
+                        <td><?= $lead->count_status_sold ?></td>
+                        <td><?= $lead->sum_lead_sold_summary ?></td>
                         <!--                            <td>--><?//= $profile->whatsapp ?><!--</td>-->
                         <!--                        <td>--><?//= $profile->user->getRole() ?><!--</td>-->
                     </tr>

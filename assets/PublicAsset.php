@@ -30,7 +30,8 @@ class PublicAsset extends AssetBundle
         'css/buttons.bootstrap4.min.css',
 
 
-
+        'css/air-datepicker/datepicker.css',
+        'css/jquery-ui/jquery-ui.css',
 
         'css/owl.carousel.css',
         'css/owl.theme.default.css',
@@ -43,10 +44,13 @@ class PublicAsset extends AssetBundle
     public $js = [
 //        'js/jquery-3.3.1.js',
 
+        'http://code.jquery.com/ui/1.11.0/jquery-ui.js',
+        'js/jquery-ui/datepicker-ru.js',
         'js/chart.js',
         'js/maps.js',
         'js/misc.js',
         'js/off-canvas.js',
+//                'js/air-datepicker/datepicker.js',
         'js/popper.js',
         'js/popper.min.js',
         'js/bootstrap.min.js',
@@ -54,6 +58,7 @@ class PublicAsset extends AssetBundle
         'js/buttons.bootstrap4.min.js',
 
 
+//'js/daterangefilter.js',
         'js/owl.carousel.js',
         'js/clipboard.js',
         'js/dashboard.js',

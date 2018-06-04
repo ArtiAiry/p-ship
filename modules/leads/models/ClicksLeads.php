@@ -4,6 +4,7 @@ namespace app\modules\leads\models;
 
 use app\models\User;
 use app\modules\product\models\Product;
+use yii\db\ActiveRecord;
 use yii\db\Query;
 
 
@@ -26,10 +27,15 @@ use yii\db\Query;
  * @property Product $product
  * @property LeadsStatus $status
  */
-class ClicksLeads extends \yii\db\ActiveRecord
+class ClicksLeads extends ActiveRecord
 {
 
-    public $count;
+    public $count_lead;
+    public $count_status_unknown;
+    public $count_status_rejected;
+    public $count_status_approved;
+    public $count_status_sold;
+    public $sum_lead_sold_summary;
 
     /**
      * @inheritdoc
@@ -38,8 +44,6 @@ class ClicksLeads extends \yii\db\ActiveRecord
     {
         return 'clicks_leads';
     }
-
-
 
     /**
      * @inheritdoc
@@ -50,7 +54,7 @@ class ClicksLeads extends \yii\db\ActiveRecord
         return [
             [['product_id', 'leads_status_id', 'price', 'user_id'], 'integer'],
             [['created_at'], 'safe'],
-            [['count'], 'integer'],
+            [['count_lead','count_status_unknown','count_status_rejected','count_status_approved','count_status_sold', 'sum_lead_sold_summary'], 'integer'],
             [['ip', 'user_device', 'user_os', 'source'], 'string', 'max' => 64],
             [['product_id'], 'exist', 'skipOnError' => true, 'targetClass' => Product::className(), 'targetAttribute' => ['product_id' => 'id']],
             [['user_id'], 'exist', 'skipOnError' => true, 'targetClass' => Product::className(), 'targetAttribute' => ['user_id' => 'id']],

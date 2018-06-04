@@ -30,6 +30,18 @@ Modal::end();
         </h1>
         <?php if(!empty($leads)): ?>
         <div class="table-responsive">
+            <table border="0" cellspacing="5" cellpadding="5">
+                <tbody>
+                <tr>
+                    <td>From:</td>
+                    <td><input name="min" id="min" type="text"></td>
+                </tr>
+                <tr>
+                    <td>To:</td>
+                    <td><input name="max" id="max" type="text"></td>
+                </tr>
+                </tbody>
+            </table>
             <table id="extended-table" class="table table-hover table-bordered">
                 <thead>
                 <tr>
@@ -42,6 +54,7 @@ Modal::end();
                     <td>Product</td>
                     <td>Status</td>
                     <td>Price</td>
+                    <td>Created At</td>
                     <td>Created At</td>
                     <td>Actions</td>
                 </tr>
@@ -59,7 +72,9 @@ Modal::end();
                         <td><?= $lead->product->name ?></td>
                         <td><?= $lead->leadsStatus->name ?></td>
                         <td><?= $lead->price ?></td>
-                        <td><?= $lead->created_at ?></td>
+                        <td><?= Yii::$app->formatter->asDate($lead->created_at) . " " . Yii::$app->formatter->asTime($lead->created_at)?></td>
+                        <td>06.<?= $lead->id ?>.18</td>
+
                         <!--                            <td>--><?//= $profile->whatsapp ?><!--</td>-->
                         <!--                        <td>--><?//= $profile->user->getRole() ?><!--</td>-->
                         <td>

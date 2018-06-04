@@ -5,6 +5,7 @@ $db = require __DIR__ . '/db.php';
 Yii::setAlias('@tests', dirname(__DIR__) . '/tests');
 $config = [
     'id' => 'basic',
+    'language'=>'ru',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'aliases' => [
@@ -44,6 +45,11 @@ $config = [
                 ],
             ],
         ],
+       'formatter' => [
+           'defaultTimeZone' => 'Europe/Moscow',
+           'dateFormat' => 'dd.MM.yyyy',
+       ],
+
 
         'db' => $db,
 

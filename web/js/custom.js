@@ -2,6 +2,78 @@ $(function () {
     $('[data-toggle="tooltip"]').tooltip()
 });
 
+// $(document).ready(function(){
+//     $.fn.dataTable.ext.search.push(
+//         function (settings, data, dataIndex) {
+//             var min = $('#min').datepicker("getDate");
+//             var max = $('#max').datepicker("getDate");
+//
+//             var startDate = new Date(data[9]);
+//             if (min == null && max == null) { return true; }
+//             if (min == null && startDate <= max) { return true;}
+//             if(max == null && startDate >= min) {return true;}
+//             if (startDate <= max && startDate >= min) { return true; }
+//             return false;
+//         }
+//     );
+//
+//
+//     $("#min").datepicker({
+//         onSelect: function () {
+//             table.draw();
+//         },
+//         changeMonth: true,
+//         changeYear: true
+//     });
+//
+//     $("#max").datepicker({
+//         onSelect: function () {
+//             table.draw();
+//         },
+//         changeMonth: true,
+//         changeYear: true
+//     });
+//
+//
+//     var table = $('#extended-table').DataTable(
+//         {
+//
+//             columnDefs: [
+//                 {
+//                     className: "dt-center", targets: "_all"
+//                 }
+//             ],
+//             pageLength: 10,
+//             dom: 'Bfrtip',
+//             buttons: [
+//                 // {
+//                 //     extend: 'copy', className: 'copyButton'
+//                 // },
+//                 // {
+//                 //     extend: 'csv', className: 'csvButton'
+//                 // },
+//                 {
+//                     extend: 'excel', className: 'excelButton'
+//                 },
+//                 {
+//                     extend: 'pdf', className: 'pdfButton'
+//                 },
+//                 // {
+//                 //     extend: 'print', className: 'printButton'
+//                 // }
+//             ],
+//             language: {
+//                 "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Russian.json"
+//             }
+//         }
+//     );
+//
+//     // Event listener to the two range filtering inputs to redraw on input
+//     $('#min, #max').change(function () {
+//         table.draw();
+//     });
+// });
+
 $(document).ready(function() {
     $('#extended-table').DataTable(
         {
@@ -166,3 +238,5 @@ clipboard.on('error', function(e) {
     setTooltip(e.trigger, 'Failed!');
     hideTooltip(e.trigger);
 });
+
+// var min = $('#min').datepicker("getDate");
