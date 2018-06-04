@@ -31,12 +31,10 @@ digitv\bootstrap\widgets\Modal::end();
             </button>
         </h1>
     <?php if(!empty($wallets)): ?>
-            <div class="table-responsive">
-                <table id="min-table" class="table table-hover table-bordered">
+        <table id="min-table" class="table table-hover table-bordered dt-responsive nowrap" style="width:100%">
                     <thead>
                     <tr>
                         <td>ID</td>
-<!--                        <td>Main Wallet 1</td>-->
                         <td>Main Wallet</td>
                         <td>Username</td>
                         <td>Yandex Money</td>
@@ -44,8 +42,6 @@ digitv\bootstrap\widgets\Modal::end();
                         <td>Webmoney WMR</td>
                         <td>Sberbank RUB</td>
                         <td>Privat</td>
-<!--                        <td>Whatsapp</td>-->
-                        <!--                <td>Role</td>-->
                         <td>Actions</td>
                     </tr>
                     </thead>
@@ -55,15 +51,12 @@ digitv\bootstrap\widgets\Modal::end();
                         <tr>
                             <td><?= $wallet->id ?></td>
                             <td><?= $wallet->getMainWallet(); ?></td>
-<!--                            <td>--><?//= $wallet->walletType->name ?><!--</td>-->
                             <td><?= $wallet->user->username ?></td>
                             <td><?= $wallet->yandex_money ?></td>
                             <td><?= $wallet->qiwi ?></td>
                             <td><?= $wallet->webmoney_wmr ?></td>
                             <td><?= $wallet->sberbank_rub ?></td>
                             <td><?= $wallet->pb_uah ?></td>
-<!--                            <td>--><?//= $profile->whatsapp ?><!--</td>-->
-                            <!--                        <td>--><?//= $profile->user->getRole() ?><!--</td>-->
                             <td>
                                 <button value="<?= Url::toRoute(['/wallet/view','id'=>$wallet->id]);?>" data-toggle="tooltip" title="View" aria-label="View" class="btn btn-outline-dark btn-rounded btn-xs view-modal-click"><span class="fa fa-eye"></span></button>
                                 <a href="<?= Url::toRoute(['/wallet/update','id'=>$wallet->id]);?>" data-toggle="tooltip"  title="Update" aria-label="Update" class="btn btn-outline-dark btn-rounded btn-xs update-modal-click"><span class="fa fa-pencil" ></span></a>
@@ -74,11 +67,8 @@ digitv\bootstrap\widgets\Modal::end();
                     <?php endforeach; ?>
                     </tbody>
                 </table>
-            </div>
-        </div>
     <?php endif;?>
-
-
+    </div>
 </div>
 
 <?php

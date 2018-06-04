@@ -27,12 +27,8 @@ Modal::end();
                 Create
             </button>
         </h1>
-
     <?php if(!empty($types)): ?>
-
-            <div class="table-responsive">
-
-                <table id="min-table" class="table table-hover table-bordered">
+        <table id="min-table" class="table table-hover table-bordered dt-responsive nowrap" style="width:100%">
                     <thead>
                     <tr>
                         <td>ID</td>
@@ -54,8 +50,6 @@ Modal::end();
                     <?php endforeach; ?>
                     </tbody>
                 </table>
-            </div>
-
     <?php endif;?>
     </div>
 </div>

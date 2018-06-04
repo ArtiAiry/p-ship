@@ -19,9 +19,7 @@ $this->params['breadcrumbs'][] = $this->title;
             </button>
         </h1>
         <?php if(!empty($payouts)): ?>
-        <div class="table-responsive">
-
-            <table id="min-table" class="table table-hover table-bordered">
+            <table id="min-table" class="table table-hover table-bordered dt-responsive nowrap" style="width:100%">
                 <thead>
                 <tr>
                     <td>ID</td>
@@ -61,9 +59,8 @@ $this->params['breadcrumbs'][] = $this->title;
                 <?php endforeach; ?>
                 </tbody>
             </table>
-        </div>
-    </div>
     <?php endif;?>
+    </div>
 </div>
 
 <?php

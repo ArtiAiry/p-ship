@@ -29,20 +29,19 @@ Modal::end();
             </button>
         </h1>
         <?php if(!empty($leads)): ?>
-        <div class="table-responsive">
-            <table border="0" cellspacing="5" cellpadding="5">
-                <tbody>
-                <tr>
-                    <td>From:</td>
-                    <td><input name="min" id="min" type="text"></td>
-                </tr>
-                <tr>
-                    <td>To:</td>
-                    <td><input name="max" id="max" type="text"></td>
-                </tr>
-                </tbody>
-            </table>
-            <table id="extended-table" class="table table-hover table-bordered">
+<!--            <table border="0" cellspacing="5" cellpadding="5">-->
+<!--                <tbody>-->
+<!--                <tr>-->
+<!--                    <td>From:</td>-->
+<!--                    <td><input name="min" id="min" type="text"></td>-->
+<!--                </tr>-->
+<!--                <tr>-->
+<!--                    <td>To:</td>-->
+<!--                    <td><input name="max" id="max" type="text"></td>-->
+<!--                </tr>-->
+<!--                </tbody>-->
+<!--            </table>-->
+        <table id="extended-table" class="table table-hover table-bordered dt-responsive nowrap" style="width:100%">
                 <thead>
                 <tr>
                     <td>ID</td>
@@ -87,12 +86,10 @@ Modal::end();
                 <?php endforeach; ?>
                 </tbody>
             </table>
-        </div>
-    </div>
     <?php endif;?>
-
-
+    </div>
 </div>
+
 
 <?php
 Modal::begin([

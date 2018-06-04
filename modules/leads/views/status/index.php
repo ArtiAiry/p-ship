@@ -30,10 +30,7 @@ digitv\bootstrap\widgets\Modal::end();
         </h1>
 
         <?php if(!empty($statuses)): ?>
-
-            <div class="table-responsive">
-
-                <table id="min-table" class="table table-hover table-bordered">
+         <table id="min-table" class="table table-hover table-bordered dt-responsive nowrap" style="width:100%">
                     <thead>
                     <tr>
                         <td>ID</td>
@@ -56,8 +53,6 @@ digitv\bootstrap\widgets\Modal::end();
                     <?php endforeach; ?>
                     </tbody>
                 </table>
-            </div>
-
         <?php endif;?>
     </div>
 </div>

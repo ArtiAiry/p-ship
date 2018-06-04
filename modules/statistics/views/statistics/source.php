@@ -7,26 +7,21 @@ use yii\helpers\Url;
 
 /* @var $this yii\web\View */
 
-$this->title = 'Leads';
+$this->title = 'Leads, Group by Source';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 
 <div class="card fade-out">
     <div class="card-body">
-        <h1><?= Html::encode($this->title)?>
-
-            <button value="<?= Url::to(['/leads/create']) ?>" class="btn btn-outline-primary" id="modalButton1" data-toggle="tooltip" data-placement="bottom"  title="Add Lead">
-                Create
-            </button>
+        <h1>
+            <?= Html::encode($this->title)?>
         </h1>
         <?php if(!empty($leads)): ?>
-        <div class="table-responsive">
-            <table id="extended-table" class="table table-hover table-bordered">
+            <table id="extended-table" class="table table-hover table-bordered dt-responsive nowrap" style="width:100%">
                 <thead>
                 <tr>
                     <td>#</td>
                     <td>Source</td>
-                    <td>Product</td>
                     <td>Amount of Leads</td>
                     <td>Unknown</td>
                     <td>Rejected</td>
@@ -39,9 +34,8 @@ $this->params['breadcrumbs'][] = $this->title;
                 <?php foreach($leads as $lead):?>
                     <!--                --><?php //if($profile->user->getRole() == 'teacher'): ?>
                     <tr>
-                        <td><?= $lead->id ?></td>
+                        <td><?= $i += 1; ?></td>
                         <td><?= $lead->source ?></td>
-                        <td><?= $lead->product->name ?></td>
                         <td><?= $lead->count_lead ?> </td>
                         <td><?= $lead->count_status_unknown ?> </td>
                         <td><?= $lead->count_status_rejected ?> </td>
@@ -55,8 +49,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 <?php endforeach; ?>
                 </tbody>
             </table>
-        </div>
-    </div>
     <?php endif;?>
+    </div>
 </div>
 

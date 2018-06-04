@@ -7,14 +7,13 @@ use yii\helpers\Url;
 
 /* @var $this yii\web\View */
 
-$this->title = 'Leads, Group by Product';
+$this->title = 'Leads, Group by Date';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 
 <div class="card fade-out">
     <div class="card-body">
-        <h1>
-            <?= Html::encode($this->title)?>
+        <h1><?= Html::encode($this->title)?>
         </h1>
         <?php if(!empty($leads)): ?>
 <!--        <div class="table-responsive">-->
@@ -22,7 +21,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 <thead>
                 <tr>
                     <td>#</td>
-                    <td>Product</td>
+                    <td>Date</td>
                     <td>Amount of Leads</td>
                     <td>Unknown</td>
                     <td>Rejected</td>
@@ -35,13 +34,13 @@ $this->params['breadcrumbs'][] = $this->title;
                 <?php foreach($leads as $lead):?>
                     <!--                --><?php //if($profile->user->getRole() == 'teacher'): ?>
                     <tr>
-                        <td><?= $i += 1; ?></td>
-                        <td><?= $lead->product->name ?></td>
+                        <td><?= $i +=1 ?></td>
+                        <td><?= $lead->date ?></td>
                         <td><?= $lead->count_lead ?> </td>
                         <td><?= $lead->count_status_unknown ?> </td>
                         <td><?= $lead->count_status_rejected ?> </td>
                         <td><?= $lead->count_status_approved ?> </td>
-                        <td><?= $lead->count_status_sold ?></td>
+                        <td><?= $lead->count_status_sold ?> </td>
                         <td><?= $lead->sum_lead_sold_summary ?></td>
                         <!--                            <td>--><?//= $profile->whatsapp ?><!--</td>-->
                         <!--                        <td>--><?//= $profile->user->getRole() ?><!--</td>-->

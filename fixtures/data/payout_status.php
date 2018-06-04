@@ -3,7 +3,7 @@
 return [
     [
         'id' => 1,
-        'name' => 'Status 1.1',
+        'name' => 'Status 1',
         'isRemoved' => 1,
     ],
     [

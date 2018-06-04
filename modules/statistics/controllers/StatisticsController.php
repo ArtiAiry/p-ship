@@ -51,8 +51,19 @@ class StatisticsController extends Controller
 
     public function actionDate()
     {
-        $leads = ClicksLeads::find()->select(['*', 'count' => 'COUNT(*)'])->groupBy('created_at')->all();
-        return $this->render('source',
+        $leads = ClicksLeads::find()->select([
+            '*',
+            'count_lead' => 'COUNT(*)',
+            'count_status_unknown' => 'COUNT(CASE WHEN leads_status_id = 1 THEN 1 ELSE NULL END)',
+            'count_status_rejected' => 'COUNT(CASE WHEN leads_status_id = 2 THEN 1 ELSE NULL END)',
+            'count_status_approved' => 'COUNT(CASE WHEN leads_status_id = 3 THEN 1 ELSE NULL END)',
+            'count_status_sold' => 'COUNT(CASE WHEN leads_status_id = 4 THEN 1 ELSE NULL END)',
+            'sum_lead_sold_summary' => 'SUM(CASE WHEN leads_status_id = 4 THEN price ELSE 0 END)',
+            'date' => 'DATE(created_at)',
+
+
+        ])->groupBy('DATE(created_at)')->all();
+        return $this->render('date',
             [
                 'leads'=>$leads,
             ]);

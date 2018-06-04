@@ -75,44 +75,64 @@ $(function () {
 // });
 
 $(document).ready(function() {
-    $('#extended-table').DataTable(
+    var table = $('#extended-table').DataTable(
         {
 
-        columnDefs: [
+            responsive: true,
+            columnDefs: [
                 {
                     className: "dt-center", targets: "_all"
                 }
             ],
-        pageLength: 10,
-        dom: 'Bfrtip',
-        buttons: [
-            // {
-            //     extend: 'copy', className: 'copyButton'
-            // },
-            // {
-            //     extend: 'csv', className: 'csvButton'
-            // },
-            {
-                extend: 'excel', className: 'excelButton'
+            pageLength: 10,
+            dom: 'Bfrtip',
+            buttons: [
+                // {
+                //     extend: 'copy', className: 'copyButton'
+                // },
+                // {
+                //     extend: 'csv', className: 'csvButton'
+                // },
+                {
+                    extend: 'excel', className: 'excelButton'
+                },
+                {
+                    extend: 'pdf', className: 'pdfButton'
+                },
+                // {
+                //     extend: 'print', className: 'printButton'
+                // }
+            ],
+            language: {
+
+                search: "Поиск",
+                lengthMenu: "Отображать _MENU_ записей",
+                zeroRecords: "К сожалению, ничего не найдено.",
+                info: "Показана  _PAGE_ страница из _PAGES_",
+                infoEmpty: "Нет записей.",
+                infoFiltered: "(Отфильтровано с _MAX_ записей)",
+                paginate: {
+                    next: ">",
+                    previous: "<",
+                },
+                // url: "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Russian.json",
             },
-            {
-                extend: 'pdf', className: 'pdfButton'
-            },
-            // {
-            //     extend: 'print', className: 'printButton'
+
+
+            // oPaginate: {
+            //     "sNext": ">",
+            //     "sPrevious": "<"
             // }
-        ],
-        language: {
-                "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Russian.json"
-            }
+
         }
     );
+    // new $.fn.dataTable.FixedHeader( table );
 });
 
 $(document).ready(function() {
-    $('#min-table').DataTable(
+    var table = $('#min-table').DataTable(
         {
-
+            responsive: true,
             columnDefs: [
                 {
                     className: "dt-center", targets: "_all"
@@ -120,10 +140,22 @@ $(document).ready(function() {
             ],
             pageLength: 10,
             language: {
-                "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Russian.json"
-            }
+
+                search: "Поиск",
+                lengthMenu: "Отображать _MENU_ записей",
+                zeroRecords: "К сожалению, ничего не найдено.",
+                info: "Показана  _PAGE_ страница из _PAGES_",
+                infoEmpty: "Нет записей.",
+                infoFiltered: "(Отфильтровано с _MAX_ записей)",
+                paginate: {
+                    next: ">",
+                    previous: "<",
+                },
+                // url: "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Russian.json",
+            },
         }
     );
+    // new $.fn.dataTable.FixedHeader( table );
 });
 
 
