@@ -95,7 +95,6 @@ $this->title = 'Sign Up';
 
 <!-- container-scroller -->
 <!-- plugins:js -->
-
 <?php $this->endBody() ?>
 </body>
 

@@ -10,6 +10,7 @@ namespace app\modules\statistics\controllers;
 
 
 use app\modules\leads\models\ClicksLeads;
+use Codeception\Module\Cli;
 use yii\web\Controller;
 
 class StatisticsController extends Controller
@@ -63,12 +64,15 @@ class StatisticsController extends Controller
 
 
         ])->groupBy('DATE(created_at)')->all();
+
+
+
+
         return $this->render('date',
             [
                 'leads'=>$leads,
             ]);
     }
-
 
 
 }

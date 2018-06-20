@@ -63,8 +63,8 @@
 
 /*-------------------------------------------------------------------*/
 /* === SCSS Compass Functions === */
-@import "../node_modules/compass-mixins/lib/compass";
-@import "../node_modules/compass-mixins/lib/animate";
+@import "../node_modules/compass-sass-mixins/lib/compass";
+@import "../node_modules/compass-sass-mixins/lib/animate";
 
 /*-------------------------------------------------------------------*/
 /* === Boostrap Main SCSS === */
@@ -93,8 +93,8 @@
 @import "footer";
 @import "utilities";
 @import "demo";
-@import "dashboard";
-@import "custom";
+//@import "dashboard";
+
 
 /*-------------------------------------------------------------------*/
 /* === Components === */

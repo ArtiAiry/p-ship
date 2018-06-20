@@ -4,6 +4,7 @@ namespace app\modules\leads\models;
 
 use app\models\User;
 use app\modules\product\models\Product;
+use Codeception\Module\Cli;
 use yii\db\ActiveRecord;
 use yii\db\Query;
 
@@ -105,6 +106,15 @@ class ClicksLeads extends ActiveRecord
         $count = $query->count();
         echo $count;
     }
+
+    public function getCountStatus()
+    {
+        $query = ClicksLeads::find()->select('leads_status_id')->from('clicks_leads')->all();
+
+        echo $query;
+    }
+
+
 //    public function getLeadSummary()
 //    {
 //        $query = (new Query())->from('clicks_leads')->join('LEFT JOIN', 'source', 'clicks_leads.id = source.id')->where(['source.user_id'=>Yii::$app->user->id, 'clicks_leads.isSold'=>1]);

@@ -23,15 +23,22 @@ var paths = gulp.paths;
 gulp.task('serve', ['sass'], function() {
 
     browserSync.init({
-        port: 3000,
-        server: "./",
-        ghostMode: false,
-        notify: false
+        // server:{
+        //     baseDir: './'
+        // }
+        // port: 8080,
+        // browser: ["chrome.exe", "firefox"],
+        proxy: "localhost:8080",
+        // notify: false,
+        // ghostMode: false,
+        // open: "local",
+
+
     });
 
-    gulp.watch('scss/**/*.scss', ['sass']);
-    gulp.watch('**/*.html').on('change', browserSync.reload);
-    gulp.watch('js/**/*.js').on('change', browserSync.reload);
+    gulp.watch("./scss/*.scss", ['styles']).on('change', browserSync.reload);
+    gulp.watch('./**/*.html').on('change', browserSync.reload);
+    gulp.watch('./js/**/*.js').on('change', browserSync.reload);
 
 });
 
@@ -41,14 +48,15 @@ gulp.task('serve', ['sass'], function() {
 gulp.task('serve:lite', function() {
 
     browserSync.init({
-        server: "./",
-        ghostMode: false,
-        notify: false
+        server:{
+            baseDir: './'
+        }
+
     });
 
-    gulp.watch('**/*.css').on('change', browserSync.reload);
-    gulp.watch('**/*.html').on('change', browserSync.reload);
-    gulp.watch('js/**/*.js').on('change', browserSync.reload);
+    gulp.watch('./**/*.css').on('change', browserSync.reload);
+    gulp.watch('./**/*.html').on('change', browserSync.reload);
+    gulp.watch('./js/**/*.js').on('change', browserSync.reload);
 
 });
 
@@ -113,3 +121,4 @@ gulp.task('replacePath', function(){
 
 
 gulp.task('default', ['serve']);
+

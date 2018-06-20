@@ -1,12 +1,12 @@
 /* Auth */
 .auth {
 	&.login-full-bg {
-		background: url("../images/auth/login_1.jpg");
+		background: url("/web/images/auth/login_1.jpg");
 		background-size: cover;
 	}
 
 	&.register-full-bg {
-		background: url("../images/auth/register_1.jpg");
+		background: url("/web/images/auth/register_1.jpg");
 		background-size: cover;
 	}
 
@@ -17,7 +17,7 @@
 		.form-control {
 			border-color: rgba($white, .2);
 			color: $white;
-			@include input-placeholder {
+			@include placeholder {
 				color: $white;
 			}
 		}
@@ -30,7 +30,7 @@
 		.form-control {
 			border-color: rgba($black, .2);
 			color: $black;
-			@include input-placeholder {
+			@include placeholder {
 				color: $black;
 			}
 		}
@@ -60,7 +60,7 @@
 				margin-bottom: 0;
 				vertical-align: bottom;
 				font-size: 0.8125rem;
-				font-family: $type-1;
+				font-family: $type-2;
 			}
 
 			.form-control {

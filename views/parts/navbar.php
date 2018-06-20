@@ -23,12 +23,12 @@ Use yii\helpers\Url;
         <ul class="navbar-nav navbar-nav-right">
             <li class="nav-item d-lg-block">
                 <a class="nav-link" href="<?= Url::toRoute(['/profile/edit','id'=>Yii::$app->user->id]);?>">
-                    <i class="mdi mdi-settings" data-toggle="tooltip" data-placement="top"  title="Settings"></i>
+                    <i class="mdi mdi-settings" data-toggle="tooltip" data-placement="top"  title="<?= Yii::t('app','Settings') ?>"></i>
                 </a>
             </li>
             <li class="nav-item d-lg-block">
                 <a class="nav-link" href="<?= Url::to(['/auth/logout']) ?>">
-                    <i class="mdi mdi-exit-to-app"  data-toggle="tooltip" data-placement="top"  title="Logout"></i>
+                    <i class="mdi mdi-exit-to-app"  data-toggle="tooltip" data-placement="top"  title="<?= Yii::t('app','Logout') ?>"></i>
                 </a>
             </li>
         </ul>

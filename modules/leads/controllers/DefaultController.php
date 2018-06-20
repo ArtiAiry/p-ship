@@ -18,8 +18,11 @@ class DefaultController extends Controller
     {
 
         $leads = ClicksLeads::find()->orderBy('id asc')->all();
+
+//        $counting = $leads->getCountStatus();
         return $this->render('index',[
             'leads' => $leads,
+
         ]);
     }
 }

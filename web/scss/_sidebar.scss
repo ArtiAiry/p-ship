@@ -2,7 +2,7 @@
 .sidebar {
   min-height: calc(100vh - #{$navbar-height});
   background: $sidebar-light-bg;
-  font-family: $type-1;
+  font-family: $type-2;
   padding: 0;
   width: $sidebar-width-lg;
   z-index: 11;
@@ -120,7 +120,7 @@
 
           .designation,
           .name {
-            font-family: $type-1;
+            font-family: $type-2;
             margin-bottom: 0;
             line-height: 1.5;
             font-weight: 500;
@@ -211,7 +211,7 @@
         .nav-link{
           background-color: #d209fa;
           @include filter-gradient(#d209fa, #4f81d4, horizontal);
-          @include background-image(linear-gradient(left, #d209fa 1%,#4f81d4 100%));
+          @include background(linear-gradient(left, #d209fa 1%,#4f81d4 100%));
           color: $white;
           text-align: center;
           display: block;
@@ -222,7 +222,7 @@
           &:hover{
             background-color: #d209fa;
             @include filter-gradient(#d209fa, #4f81d4, horizontal);
-            @include background-image(linear-gradient(left, #d209fa 1%,#4f81d4 100%));
+            @include background(linear-gradient(left, #d209fa 1%,#4f81d4 100%));
           }
         }
         &:hover{

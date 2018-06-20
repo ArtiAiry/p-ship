@@ -32,8 +32,8 @@ $this->params['breadcrumbs'][] = $this->title;
             <div class="row w-100">
                 <div class="col-lg-4 mx-auto">
                     <div class="auth-form-dark text-left p-5">
-                        <h2>Login</h2>
-                        <h4 class="font-weight-light">Hello! let's get started</h4>
+                        <h2><?= Yii::t('app','Log in') ?></h2>
+                        <h4 class="font-weight-light"><?= Yii::t('app','Hello! let\'s get started') ?></h4>
                         <?php $form = ActiveForm::begin([
                                 'id' => 'login-form',
                                 'layout' => 'horizontal',
@@ -48,17 +48,17 @@ $this->params['breadcrumbs'][] = $this->title;
                                 <div class="form-group">
 <!--                                    <label for="exampleInputEmail1">Username</label>-->
 <!--                                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Username">-->
-                                    <?= $form->field($model, 'login')->textInput(['class'=>'form-control','autofocus' => true,'placeholder'=>'Enter Username or Email']) ?>
+                                    <?= $form->field($model, 'login')->textInput(['class'=>'form-control','autofocus' => true,'placeholder'=>Yii::t('app','Enter Username or Email')]) ?>
                                 </div>
                                 <div class="form-group">
-                                    <?= $form->field($model, 'password_hash')->passwordInput(['class'=>'form-control','placeholder'=>'Password']) ?>
+                                    <?= $form->field($model, 'password_hash')->passwordInput(['class'=>'form-control','placeholder'=>Yii::t('app','Enter Password')]) ?>
                                 </div>
                                 <div class="mt-5">
 <!--                                    <a class="btn btn-block btn-warning btn-lg font-weight-medium" href="../../index.html">Login</a>-->
-                                    <?= Html::submitButton('Login', ['class' => 'btn btn-block btn-warning btn-lg font-weight-medium', 'name' => 'login-button']) ?>
+                                    <?= Html::submitButton(Yii::t('app','Log in '), ['class' => 'btn btn-block btn-warning btn-lg font-weight-medium', 'name' => 'login-button']) ?>
                                 </div>
                                 <div class="mt-3 text-center">
-                                    <a href="#" class="auth-link text-white">Forgot password?</a>
+                                    <a href="#" class="auth-link text-white"><?= Yii::t('app','Forgot password?') ?></a>
                                 </div>
                     </div>
                 </div>

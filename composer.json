@@ -50,7 +50,11 @@
                     "web/assets": "0777",
                     "yii": "0755"
                 }
-            ]
+            ],
+            "asset-installer-paths": {
+                "npm-asset-library": "vendor/npm",
+                "bower-asset-library": "vendor/bower"
+            }
         },
         "yii\\composer\\Installer::postInstall": {
             "generateCookieValidationKey": [
@@ -64,4 +68,5 @@
             "url": "https://asset-packagist.org"
         }
     ]
+
 }

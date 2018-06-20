@@ -37,8 +37,11 @@ class PublicAsset extends AssetBundle
         'css/owl.theme.default.css',
 
 
+
         'css/style.css',
+
         'css/custom.css',
+
 
     ];
     public $js = [
