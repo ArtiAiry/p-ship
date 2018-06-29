@@ -1,5 +1,6 @@
 <?php
 
+use app\modules\product\Module;
 use yii\helpers\Html;
 use yii\grid\GridView;
 use yii\helpers\Url;
@@ -7,12 +8,12 @@ use yii\helpers\Url;
 /* @var $this yii\web\View */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Products';
+$this->title = Module::t('product','Products');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <?php
 digitv\bootstrap\widgets\Modal::begin([
-    'header'=>'<h4>'. "Add Product" .'</h4>',
+    'header'=>'<h4>'. Module::t('product','Adding a Product') .'</h4>',
     'id'=>'modal1',
     'size'=>'modal-md',
 ]);
@@ -20,19 +21,9 @@ echo "<div id='modalContent1' class='card'></div>";
 digitv\bootstrap\widgets\Modal::end();
 ?>
 
-<?php
-digitv\bootstrap\widgets\Modal::begin([
-    'header'=>'<h4>'. "Add Source" .'</h4>',
-    'id'=>'modal2',
-    'size'=>'modal-md',
-]);
-echo "<div id='modalContent2' class='card'></div>";
-digitv\bootstrap\widgets\Modal::end();
-?>
-
 <h1 class="h-center"><?= Html::encode($this->title)?>
-    <button value="<?= Url::to(['/product/create']) ?>" class="btn btn-outline-primary" id="modalButton1" data-toggle="tooltip" data-placement="bottom"  title="Add Product">
-        Create
+    <button value="<?= Url::to(['/product/create']) ?>" class="btn btn-outline-primary" id="modalButton1" data-toggle="tooltip" data-placement="bottom"  title="<?=  Module::t('product','Add Product') ?>">
+        <?= Module::t('product','Create')?>
     </button>
 </h1>
 
@@ -52,9 +43,9 @@ digitv\bootstrap\widgets\Modal::end();
                         <p class="card-text"><?= $product->description ?></p>
                         <ul class="list-group list-group-flush">
 
-                            <li class="list-group-item">Price:  <?= $product->price ?></li>
+                            <li class="list-group-item"><?= Module::t('product','Price: ')?><?= $product->price ?></li>
                             <li class="list-group-item">
-                                <a href="<?= $product->banner_url ?>" class="btn btn-primary" download="banners.rar">Banner link</a>
+                                <a href="<?= $product->banner_url ?>" class="btn btn-primary" download="banners.rar"><?= Module::t('product','Banner\'s link')?></a>
                             </li>
                         </ul>
 

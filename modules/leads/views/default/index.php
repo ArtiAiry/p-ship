@@ -1,18 +1,18 @@
 <?php
 
+use app\modules\leads\Module;
 use digitv\bootstrap\widgets\Modal;
 use yii\helpers\Html;
-use yii\grid\GridView;
 use yii\helpers\Url;
 
 /* @var $this yii\web\View */
 
-$this->title = 'Leads';
+$this->title = Module::t('leads','Leads');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <?php
 Modal::begin([
-    'header'=>'<h4>'. "Add Lead" .'</h4>',
+    'header'=>'<h4>'. Module::t('leads','Adding a Lead') .'</h4>',
     'id'=>'modal1',
     'size'=>'modal-md',
 ]);
@@ -24,11 +24,12 @@ Modal::end();
     <div class="card-body">
         <h1><?= Html::encode($this->title)?>
 
-            <button value="<?= Url::to(['/leads/create']) ?>" class="btn btn-outline-primary" id="modalButton1" data-toggle="tooltip" data-placement="bottom"  title="Add Lead">
-                Create
+            <button value="<?= Url::to(['/leads/create']) ?>" class="btn btn-outline-primary" id="modalButton1" data-toggle="tooltip" data-placement="bottom"  title="<?= Module::t('leads','Create a Lead')?>">
+                <?= Module::t('leads','Create')?>
             </button>
         </h1>
         <?php if(!empty($leads)): ?>
+
 <!--            <table border="0" cellspacing="5" cellpadding="5">-->
 <!--                <tbody>-->
 <!--                <tr>-->
@@ -44,22 +45,23 @@ Modal::end();
         <table id="extended-table" class="table table-hover table-bordered dt-responsive nowrap" style="width:100%">
                 <thead>
                 <tr>
-                    <td>ID</td>
-                    <td>IP</td>
-                    <td>User Device</td>
-                    <td>User OS</td>
-                    <td>Username</td>
-                    <td>Source</td>
-                    <td>Product</td>
-                    <td>Status</td>
-                    <td>Price</td>
-                    <td>Created At</td>
-                    <td>Created At</td>
-                    <td>Actions</td>
+                    <td><?= Module::t('leads','ID')?></td>
+                    <td><?= Module::t('leads','IP')?></td>
+                    <td><?= Module::t('leads','User Device')?></td>
+                    <td><?= Module::t('leads','User OS')?></td>
+                    <td><?= Module::t('leads','Affiliate')?></td>
+                    <td><?= Module::t('leads','Source')?></td>
+                    <td><?= Module::t('leads','Product')?></td>
+                    <td><?= Module::t('leads','Status')?></td>
+                    <td><?= Module::t('leads','Price')?></td>
+                    <td><?= Module::t('leads','Created At')?></td>
+                    <td><?= Module::t('leads','Created At')?></td>
+                    <td><?= Module::t('leads','Actions')?></td>
                 </tr>
                 </thead>
                 <tbody>
                 <?php foreach($leads as $lead):?>
+                    <?php if($lead->isRemoved() == 1): ?>
                     <!--                --><?php //if($profile->user->getRole() == 'teacher'): ?>
                     <tr>
                         <td><?= $lead->id ?></td>
@@ -77,12 +79,13 @@ Modal::end();
                         <!--                            <td>--><?//= $profile->whatsapp ?><!--</td>-->
                         <!--                        <td>--><?//= $profile->user->getRole() ?><!--</td>-->
                         <td>
-                            <button value="<?= Url::toRoute(['/leads/view','id'=>$lead->id]);?>" data-toggle="tooltip" title="View" aria-label="View" class="btn btn-outline-dark btn-rounded btn-xs view-modal-click"><span class="fa fa-eye"></span></button>
-                            <a href="<?= Url::toRoute(['/leads/update','id'=>$lead->id]);?>" data-toggle="tooltip"  title="Update" aria-label="Update" class="btn btn-outline-dark btn-rounded btn-xs update-modal-click"><span class="fa fa-pencil" ></span></a>
-                            <a href="<?= Url::toRoute(['/leads/delete','id'=>$lead->id]);?>" data-toggle="tooltip"  title="Delete" aria-label="Delete" data-confirm="Are you sure you want to delete this item?" class="btn btn-outline-dark btn-rounded btn-xs" data-method="post"><span class="fa fa-trash"></span></a>
+                            <a id="view-a" href="<?= Url::toRoute(['/leads/view','id'=>$lead->id]);?>" data-toggle="tooltip" title="<?= Module::t('leads','View')?>" aria-label="View" class="btn btn-outline-dark btn-rounded btn-xs view-modal-click"><span class="fa fa-eye"></span></a>
+                            <button id="view-button" value="<?= Url::toRoute(['/leads/view','id'=>$lead->id]);?>" data-toggle="tooltip" title="<?= Module::t('leads','View')?>" aria-label="View" class="btn btn-outline-dark btn-rounded btn-xs view-modal-click"><span class="fa fa-eye"></span></button>
+                            <a href="<?= Url::toRoute(['/leads/update','id'=>$lead->id]);?>" data-toggle="tooltip"  title="<?= Module::t('leads','Update')?>" aria-label="Update" class="btn btn-outline-dark btn-rounded btn-xs update-modal-click"><span class="fa fa-pencil" ></span></a>
+                            <a href="<?= Url::toRoute(['/leads/remove','id'=>$lead->id]);?>" data-toggle="tooltip"  title="<?= Module::t('leads','Delete')?>" aria-label="Delete" data-confirm="<?= Module::t('leads','Are you sure you want to delete this item?')?>" class="btn btn-outline-dark btn-rounded btn-xs" data-method="post"><span class="fa fa-trash"></span></a>
                         </td>
                     </tr>
-                    <!--                --><?php //endif; ?>
+                    <?php endif; ?>
                 <?php endforeach; ?>
                 </tbody>
             </table>
@@ -93,7 +96,7 @@ Modal::end();
 
 <?php
 Modal::begin([
-    'header' => '<h4>'. "View Lead" .'</h4>',
+    'header' => '<h4>'. Module::t('leads','Lead\'s View') .'</h4>',
     'id' => 'view-modal',
     'size' => 'modal-md',
 ]);

@@ -93,6 +93,13 @@ class LeadsController extends Controller
         return $this->redirect(['index']);
     }
 
+    public function actionRemove($id)
+    {
+        $this->findModel($id)->removeLead();
+
+        return $this->redirect(['/leads']);
+    }
+
     /**
      * Finds the ClicksLeads model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.

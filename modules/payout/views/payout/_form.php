@@ -2,6 +2,7 @@
 
 use app\models\User;
 use app\modules\payout\models\PayoutStatus;
+use app\modules\payout\Module;
 use app\modules\wallet\models\WalletType;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
@@ -20,9 +21,9 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'wallet_type_id')->dropDownList(ArrayHelper::map(WalletType::find()->all(), 'id', 'name'),['prompt'=>'Choose Wallet']); ?>
+    <?= $form->field($model, 'wallet_type_id')->dropDownList(ArrayHelper::map(WalletType::find()->all(), 'id', 'name'),['prompt'=>Module::t('payout','Choose Wallet')]); ?>
 
-    <?= $form->field($model, 'user_id')->dropDownList(ArrayHelper::map(User::find()->all(), 'id', 'username'),['prompt'=>'Choose User']); ?>
+    <?= $form->field($model, 'user_id')->dropDownList(ArrayHelper::map(User::find()->all(), 'id', 'username'),['prompt'=>Module::t('payout','Choose User')]); ?>
 
     <?= $form->field($model, 'payout_sum')->textInput() ?>
 
@@ -30,13 +31,13 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'payout_sum_rub')->textInput() ?>
 
-    <?= $form->field($model, 'payout_status_id')->dropDownList(ArrayHelper::map(PayoutStatus::find()->all(), 'id', 'name'),['prompt'=>'Choose Payout Status']);  ?>
+    <?= $form->field($model, 'payout_status_id')->dropDownList(ArrayHelper::map(PayoutStatus::find()->all(), 'id', 'name'),['prompt'=>Module::t('payout','Choose Payout Status')]);  ?>
 
     <?= $form->field($model, 'comment')->textInput(['maxlength' => true]) ?>
 
 
     <div class="form-group">
-        <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+        <?= Html::submitButton($model->isNewRecord ? Module::t('payout','Create') : Module::t('payout','Update'), ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

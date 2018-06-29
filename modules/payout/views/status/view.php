@@ -1,13 +1,14 @@
 <?php
 
+use app\modules\payout\Module;
 use yii\helpers\Html;
 use yii\widgets\DetailView;
 
 /* @var $this yii\web\View */
-/* @var $model app\modules\leads\models\Status */
+/* @var $model app\modules\payout\models\PayoutStatus */
 
 $this->title = $model->name;
-$this->params['breadcrumbs'][] = ['label' => 'Statuses', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => Module::t('payout','Statuses'), 'url' => ['/payout/status/index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="status-view">
@@ -15,11 +16,11 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('Delete', ['delete', 'id' => $model->id], [
+        <?= Html::a(Module::t('payout','Update'), ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
+        <?= Html::a(Module::t('payout','Delete'), ['delete', 'id' => $model->id], [
             'class' => 'btn btn-danger',
             'data' => [
-                'confirm' => 'Are you sure you want to delete this item?',
+                'confirm' => Module::t('payout','Are you sure you want to delete this item?'),
                 'method' => 'post',
             ],
         ]) ?>

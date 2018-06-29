@@ -3,6 +3,7 @@
 namespace app\modules\payout\models;
 
 use app\models\User;
+use app\modules\payout\Module;
 use app\modules\wallet\models\WalletType;
 use Yii;
 use yii\db\Query;
@@ -27,6 +28,8 @@ use yii\db\Query;
  */
 class Payout extends \yii\db\ActiveRecord
 {
+    const REMOVE = 0;
+
     /**
      * @inheritdoc
      */
@@ -57,15 +60,15 @@ class Payout extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => 'ID',
-            'wallet_type_id' => 'Wallet Type',
-            'user_id' => 'User',
-            'payout_sum' => 'Payout Summary',
-            'payout_currency' => 'Payout Currency',
-            'payout_sum_rub' => 'Payout Summary (RUB)',
-            'payout_status_id' => 'Payout Status',
-            'comment' => 'Comment',
-            'created_at' => 'Created At',
+            'id' => Module::t('payout','ID'),
+            'wallet_type_id' => Module::t('payout','Wallet Type'),
+            'user_id' =>  Module::t('payout','User'),
+            'payout_sum' =>  Module::t('payout','Payout Summary'),
+            'payout_currency' =>  Module::t('payout','Payout Currency'),
+            'payout_sum_rub' =>  Module::t('payout','Payout Summary (RUB)'),
+            'payout_status_id' =>  Module::t('payout','Payout Status'),
+            'comment' =>  Module::t('payout','Comment'),
+            'created_at' => Module::t('payout','Created At'),
         ];
     }
 
@@ -111,7 +114,7 @@ class Payout extends \yii\db\ActiveRecord
     public function getCurrencyList ()
     {
         return [
-            0=>'Not Set',
+            0=>Module::t('payout','Not Set'),
             1=>'RUB',
             2=>'USD',
             3=>'UAH',
@@ -131,7 +134,22 @@ class Payout extends \yii\db\ActiveRecord
         } elseif ($this->payout_currency == 4){
             return 'EUR';
         } else {
-            return 'Not Set';
+            return Module::t('payout','Not Set');
         }
     }
+
+
+    public function removePayout()
+    {
+        $this->isRemoved = self::REMOVE;
+
+        return $this->save(false);
+
+    }
+
+    public function isRemoved()
+    {
+        return $this->isRemoved;
+    }
+
 }

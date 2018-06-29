@@ -12,6 +12,7 @@ namespace app\models\form;
 use app\models\User;
 use app\modules\profile\models\Profile;
 use app\modules\wallet\models\Wallet;
+use Yii;
 use yii\base\Model;
 
 class SignupForm extends Model
@@ -39,11 +40,11 @@ class SignupForm extends Model
     public function attributeLabels()
     {
         return [
-            'id' => 'ID',
-            'username' => 'Username',
-            'email' => 'Email',
-            'password_hash' => 'Password',
-            'repeat_password' => 'Repeat password',
+            'id' => Yii::t('app','ID'),
+            'username' => Yii::t('app','Username'),
+            'email' => Yii::t('app','Email'),
+            'password_hash' => Yii::t('app','Password'),
+            'repeat_password' => Yii::t('app','Repeat Password'),
         ];
     }
 

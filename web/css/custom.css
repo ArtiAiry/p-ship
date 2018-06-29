@@ -338,3 +338,15 @@ li#example_next a.page-link
     color: #ffffff;
 }
 
+
+@media (max-width: 1633px) {
+    #view-button {
+        display: none;
+
+    }
+}
+@media(min-width: 1634px) {
+    #view-a{
+        display: none;
+    }
+}

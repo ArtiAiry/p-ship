@@ -2,7 +2,9 @@
 
 namespace app\modules\product\models;
 
+use app\modules\product\Module;
 use Yii;
+use yii\db\ActiveRecord;
 
 /**
  * This is the model class for table "product".
@@ -15,11 +17,12 @@ use Yii;
  * @property string $logo_url
  * @property string $created_at
  */
-class Product extends \yii\db\ActiveRecord
+class Product extends ActiveRecord
 {
-    /**
-     * @inheritdoc
-     */
+
+    const REMOVE = 0;
+
+
     public static function tableName()
     {
         return 'product';
@@ -43,13 +46,27 @@ class Product extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => 'ID',
-            'name' => 'Name',
-            'description' => 'Description',
-            'price' => 'Price',
-            'banner_url' => 'Banner Url',
-            'logo_url' => 'Logo Url',
-            'created_at' => 'Created At',
+            'id' => Module::t('product','ID'),
+            'name' => Module::t('product','Product\'s Name'),
+            'description' => Module::t('product','Description'),
+            'price' => Module::t('product','Price'),
+            'banner_url' => Module::t('product','Banner\'s Url'),
+            'logo_url' => Module::t('product','Logo\'s Url'),
+            'created_at' => Module::t('product','Created At'),
         ];
     }
+
+    public function removePayout()
+    {
+        $this->isRemoved = self::REMOVE;
+
+        return $this->save(false);
+
+    }
+
+    public function isRemoved()
+    {
+        return $this->isRemoved;
+    }
+
 }

@@ -1,13 +1,14 @@
 <?php
 
+use app\modules\payout\Module;
 use yii\helpers\Html;
 
 
 /* @var $this yii\web\View */
 /* @var $model app\modules\payout\models\Payout */
 
-$this->title = 'Create Payout';
-$this->params['breadcrumbs'][] = ['label' => 'Payouts', 'url' => ['index']];
+$this->title = Module::t('payout','Create Payout');
+$this->params['breadcrumbs'][] = ['label' => Module::t('payout','Payouts'), 'url' => ['/payout']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="payout-create">

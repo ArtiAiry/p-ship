@@ -1,14 +1,15 @@
 <?php
 
+use app\modules\payout\Module;
 use yii\helpers\Html;
 
 /* @var $this yii\web\View */
 /* @var $model app\modules\payout\models\Payout */
 
-$this->title = 'Update Payout: ' . $model->id;
-$this->params['breadcrumbs'][] = ['label' => 'Payouts', 'url' => ['index']];
+$this->title = Module::t('payout','Update Payout: ') . $model->id;
+$this->params['breadcrumbs'][] = ['label' => Module::t('payout','Payouts'), 'url' => ['/payout']];
 $this->params['breadcrumbs'][] = ['label' => $model->id, 'url' => ['view', 'id' => $model->id]];
-$this->params['breadcrumbs'][] = 'Update';
+$this->params['breadcrumbs'][] = Module::t('payout','Update');
 ?>
 <div class="payout-update">
 

@@ -33,7 +33,7 @@ class StatisticsController extends Controller
             ]);
     }
 
-    public function actionProducts()
+    public function actionGoods()
     {
         $leads = ClicksLeads::find()->select(['*',
             'count_lead' => 'COUNT(*)',
@@ -43,7 +43,7 @@ class StatisticsController extends Controller
             'count_status_sold' => 'COUNT(CASE WHEN leads_status_id = 4 THEN 1 ELSE NULL END)',
             'sum_lead_sold_summary' => 'SUM(CASE WHEN leads_status_id = 4 THEN price ELSE 0 END)',
         ])->groupBy('product_id')->all();
-        return $this->render('product',
+        return $this->render('goods',
             [
                 'leads'=>$leads,
             ]);

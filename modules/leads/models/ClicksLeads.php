@@ -3,6 +3,7 @@
 namespace app\modules\leads\models;
 
 use app\models\User;
+use app\modules\leads\Module;
 use app\modules\product\models\Product;
 use Codeception\Module\Cli;
 use yii\db\ActiveRecord;
@@ -30,6 +31,7 @@ use yii\db\Query;
  */
 class ClicksLeads extends ActiveRecord
 {
+    const REMOVE = 0;
 
     public $count_lead;
     public $count_status_unknown;
@@ -69,16 +71,16 @@ class ClicksLeads extends ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => 'ID',
-            'ip' => 'Ip',
-            'user_device' => 'User Device',
-            'user_os' => 'User Os',
-            'user_id' => 'User',
-            'product_id' => 'Product',
-            'leads_status_id' => 'Status',
-            'price' => 'Price',
-            'isSold' => 'Is Sold',
-            'created_at' => 'Created At',
+            'id' => Module::t('leads','ID'),
+            'ip' => Module::t('leads','Ip'),
+            'user_device' => Module::t('leads','User Device'),
+            'user_os' => Module::t('leads','User Os'),
+            'user_id' => Module::t('leads','Affiliate'),
+            'product_id' => Module::t('leads','Product'),
+            'leads_status_id' => Module::t('leads','Status'),
+            'price' => Module::t('leads','Price'),
+            'isSold' => Module::t('leads','Is Sold'),
+            'created_at' => Module::t('leads','Created At'),
         ];
     }
 
@@ -114,6 +116,18 @@ class ClicksLeads extends ActiveRecord
         echo $query;
     }
 
+    public function removeLead()
+    {
+        $this->isRemoved = self::REMOVE;
+
+        return $this->save(false);
+
+    }
+
+    public function isRemoved()
+    {
+        return $this->isRemoved;
+    }
 
 //    public function getLeadSummary()
 //    {

@@ -10,11 +10,9 @@ use yii\bootstrap\ActiveForm;
 
 PublicAsset::register($this);
 
-$this->title = 'Sign Up';
+$this->title = Yii::t('app','Sign Up');
 $this->params['breadcrumbs'][] = $this->title;
 
-
-$this->title = 'Sign Up';
 ?>
 
 
@@ -40,8 +38,8 @@ $this->title = 'Sign Up';
             <div class="row w-100">
                 <div class="col-lg-4 mx-auto">
                     <div class="auth-form-light text-left p-5">
-                        <h2>Register</h2>
-                        <h4 class="font-weight-light">Hello! let's get started</h4>
+                        <h2><?= Yii::t('app','Sign Up')?></h2>
+                        <h4 class="font-weight-light"><?= Yii::t('app','Hello! let\'s get started')?></h4>
 
                                 <?php $form = ActiveForm::begin([
                                                     'id' => 'signup-form',
@@ -56,31 +54,31 @@ $this->title = 'Sign Up';
                                                 ]); ?>
 
                                 <div class="form-group">
-                                    <?= $form->field($model, 'username')->textInput(['autofocus' => true,'class'=>'form-control', 'placeholder'=>'Username']) ?>
+                                    <?= $form->field($model, 'username')->textInput(['autofocus' => true,'class'=>'form-control', 'placeholder'=>Yii::t('app','Your Username')]) ?>
                                 </div>
 
                                 <div class="form-group">
-                                    <?= $form->field($model, 'email')->textInput(['class'=>'form-control', 'placeholder'=>'Email']) ?>
+                                    <?= $form->field($model, 'email')->textInput(['class'=>'form-control', 'placeholder'=>Yii::t('app','Your Email')]) ?>
                                 </div>
                                 <div class="form-group">
-                                    <?= $form->field($model, 'password_hash')->passwordInput(['class'=>'form-control','placeholder'=>'Password']) ?>
+                                    <?= $form->field($model, 'password_hash')->passwordInput(['class'=>'form-control','placeholder'=>Yii::t('app','Your Password')]) ?>
                                 </div>
                                 <div class="form-group">
-                                    <?= $form->field($model, 'repeat_password')->passwordInput(['placeholder'=>'Confirm password']) ?>
+                                    <?= $form->field($model, 'repeat_password')->passwordInput(['placeholder'=>Yii::t('app','Confirm Password')]) ?>
                                 </div>
                                 <div class="mt-5">
-                                    <?= Html::submitButton('Register', ['class' => 'btn btn-block btn-primary btn-lg font-weight-medium', 'name' => 'login-button']) ?>
+                                    <?= Html::submitButton(Yii::t('app','Register'), ['class' => 'btn btn-block btn-primary btn-lg font-weight-medium', 'name' => 'login-button']) ?>
                                 </div>
                                 <div class="mt-2 w-75 mx-auto">
                                     <div class="form-check form-check-flat">
                                         <label class="form-check-label">
                                             <input type="checkbox" class="form-check-input">
-                                            I accept terms and conditions
+                                            <?= Yii::t('app','I accept terms and conditions') ?>
                                         </label>
                                     </div>
                                 </div>
                                 <div class="mt-2 text-center">
-                                    <a href="<?= \yii\helpers\Url::to(['/auth/login']) ?>" class="auth-link text-black">Already have an account? <span class="font-weight-medium">Sign in</span></a>
+                                    <a href="<?= \yii\helpers\Url::to(['/auth/login']) ?>" class="auth-link text-black"><?= Yii::t('app','Already have an account?') ?><span class="font-weight-medium"><?= Yii::t('app','Sign In') ?></span></a>
                                 </div>
                     </div>
                 </div>

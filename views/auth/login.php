@@ -10,7 +10,7 @@ use yii\bootstrap\ActiveForm;
 
 
 PublicAsset::register($this);
-$this->title = 'Login';
+$this->title = Yii::t('app','Log in');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <?php $this->beginPage() ?>

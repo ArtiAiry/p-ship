@@ -88,6 +88,11 @@ $config = [
                 '<module:statistics>/<action:\w+>/<id:\d+>' => '<module>/statistics/<action>',
                 '<module:statistics>/<action:\w+>' => '<module>/statistics/<action>',
 
+                //settings
+                '<module:settings>/<action:\w+>/<id:\d+>' => '<module>/settings/<action>',
+                '<module:settings>/<action:\w+>' => '<module>/settings/<action>',
+
+
             ],
         ],
         'i18n' => [
@@ -95,7 +100,11 @@ $config = [
                 'app' => [
                     'class' => 'yii\i18n\PhpMessageSource',
                     'basePath' => '@app/messages',
-                ]
+                ],
+                'start' => [
+                    'class' => 'yii\i18n\PhpMessageSource',
+                    'basePath' => '@app/messages',
+                ],
             ],
         ],
     ],
@@ -115,12 +124,15 @@ $config = [
         ],
         'source' => [
                 'class' => 'app\modules\source\Module',
-       ],
+        ],
         'leads' => [
             'class' => 'app\modules\leads\Module',
         ],
         'statistics' => [
             'class' => 'app\modules\statistics\Module',
+        ],
+        'settings' => [
+            'class' => 'app\modules\settings\Module',
         ],
     ],
     'params' => $params,

@@ -1,5 +1,6 @@
 <?php
 
+use app\modules\payout\Module;
 use yii\helpers\Html;
 use yii\widgets\DetailView;
 
@@ -7,7 +8,7 @@ use yii\widgets\DetailView;
 /* @var $model app\modules\payout\models\Payout */
 
 $this->title = $model->id;
-$this->params['breadcrumbs'][] = ['label' => 'Payouts', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => Module::t('payout','Payouts'), 'url' => ['/payout']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="payout-view">
@@ -15,11 +16,11 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('Delete', ['delete', 'id' => $model->id], [
+        <?= Html::a(Module::t('payout','Update'), ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
+        <?= Html::a(Module::t('payout','Delete'), ['remove', 'id' => $model->id], [
             'class' => 'btn btn-danger',
             'data' => [
-                'confirm' => 'Are you sure you want to delete this item?',
+                'confirm' => Module::t('payout','Are you sure you want to delete this item?'),
                 'method' => 'post',
             ],
         ]) ?>
@@ -33,7 +34,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'user.username',
             'payout_sum',
             [
-                'label'  => 'Gender',
+                'label'  => Module::t('payout','Payout Currency'),
                 'value'  => function ($data) {
                     if ($data->payout_currency == 1) {
                         return 'RUB';
@@ -44,7 +45,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     } elseif ($data->payout_currency == 4) {
                         return 'EUR';
                     } else {
-                        return 'Not Set';
+                        return Module::t('payout','Not Set');
                     }
                 }
             ],

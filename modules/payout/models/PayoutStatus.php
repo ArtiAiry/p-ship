@@ -2,6 +2,7 @@
 
 namespace app\modules\payout\models;
 
+use app\modules\payout\Module;
 use Yii;
 
 /**
@@ -40,9 +41,8 @@ class PayoutStatus extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => 'ID',
-            'name' => 'Name',
-            'isRemoved' => 'Is Removed',
+            'id' => Module::t('status','ID'),
+            'name' =>  Module::t('status','Status Name'),
         ];
     }
 

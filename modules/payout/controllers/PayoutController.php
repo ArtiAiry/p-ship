@@ -93,6 +93,14 @@ class PayoutController extends Controller
         return $this->redirect(['/payout']);
     }
 
+    public function actionRemove($id)
+    {
+        $this->findModel($id)->removePayout();
+
+        return $this->redirect(['/payout']);
+    }
+
+
     /**
      * Finds the Payout model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
