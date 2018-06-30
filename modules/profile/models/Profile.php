@@ -3,6 +3,7 @@
 namespace app\modules\profile\models;
 
 use app\models\User;
+use app\modules\profile\Module;
 use Yii;
 use yii\db\ActiveRecord;
 
@@ -57,14 +58,13 @@ class Profile extends ActiveRecord
     {
         return [
             'id' => 'ID',
-            'user_id' => 'User ID',
-            'first_name' => 'First Name',
-            'last_name' => 'Last Name',
-            'skype' => 'Skype',
-            'phone' => 'Phone',
-            'telegram' => 'Telegram',
-            'whatsapp' => 'Whatsapp',
-            'isRemoved' => 'Is Removed',
+            'user_id' => Module::t('profile','Username'),
+            'first_name' => Module::t('profile','First Name'),
+            'last_name' => Module::t('profile','Last Name'),
+            'skype' => Module::t('profile','Skype'),
+            'phone' => Module::t('profile','Phone'),
+            'telegram' => Module::t('profile','Telegram'),
+            'whatsapp' => Module::t('profile','Whatsapp'),
         ];
     }
 

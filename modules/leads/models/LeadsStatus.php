@@ -2,6 +2,7 @@
 
 namespace app\modules\leads\models;
 
+use app\modules\leads\Module;
 use Yii;
 
 /**
@@ -40,8 +41,8 @@ class LeadsStatus extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => 'ID',
-            'name' => 'Name',
+            'id' => Module::t('status','ID'),
+            'name' => Module::t('status','Lead\'s Status Name'),
             'isRemoved' => '',
         ];
     }

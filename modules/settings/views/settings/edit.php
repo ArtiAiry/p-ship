@@ -1,5 +1,6 @@
 <?php
 
+use app\modules\settings\Module;
 use digitv\bootstrap\widgets\Modal;
 use yii\helpers\Html;
 use yii\helpers\Url;
@@ -8,14 +9,13 @@ use yii\helpers\Url;
 /* @var $profile app\modules\profile\models\Profile */
 /* @var $payout app\modules\payout\models\Payout */
 /* @var $wallet app\modules\wallet\models\Wallet */
-/* @var $sources app\modules\source\models\Source */
 /* @var $user app\models\User */
 
 
-$this->title = 'Edit Profile:' . ' ' . $profile->user->username;;
-$this->params['breadcrumbs'][] = ['label' => 'Profiles', 'url' => ['index']];
+$this->title = Module::t('settings','Edit Profile:') . ' ' . $profile->user->username;;
+$this->params['breadcrumbs'][] = ['label' => Module::t('settings','Profiles'), 'url' => ['/profile']];
 $this->params['breadcrumbs'][] = ['label' => $profile->id, 'url' => ['view', 'id' => $profile->id]];
-$this->params['breadcrumbs'][] = 'Edit';
+$this->params['breadcrumbs'][] = Module::t('settings','Edit');
 
 
 
@@ -41,7 +41,7 @@ $this->params['breadcrumbs'][] = 'Edit';
                         <i class="mdi mdi-cube text-danger icon-lg"></i>
                     </div>
                     <div class="float-right">
-                        <p class="card-text text-right">Total Revenue</p>
+                        <p class="card-text text-right"><?= Module::t('settings','Total Revenue') ?></p>
                         <div class="fluid-container">
                             <h3 class="card-title font-weight-bold text-right mb-0"><?= $payout->getSuccessPayoutSummary(); ?> /
                                 <?= $payout->getSuccessPayoutSummary(); ?> RUB </h3>
@@ -50,7 +50,7 @@ $this->params['breadcrumbs'][] = 'Edit';
                     </div>
                 </div>
                 <p class="text-muted mt-3">
-                    <i class="mdi mdi-alert-octagon mr-1" aria-hidden="true"></i> Only payed transactions
+                    <i class="mdi mdi-alert-octagon mr-1" aria-hidden="true"></i> <?= Module::t('settings','Only payed transactions') ?>
                 </p>
             </div>
         </div>
@@ -63,14 +63,14 @@ $this->params['breadcrumbs'][] = 'Edit';
                         <i class="mdi mdi-receipt text-warning icon-lg"></i>
                     </div>
                     <div class="float-right">
-                        <p class="card-text text-right">Main Wallet</p>
+                        <p class="card-text text-right"><?= Module::t('settings','Main Wallet') ?></p>
                         <div class="fluid-container">
                             <h3 class="card-title font-weight-bold text-right mb-0"><?= $wallet->getMainWallet(); ?></h3>
                         </div>
                     </div>
                 </div>
                 <p class="text-muted mt-3">
-                    <i class="mdi mdi-bookmark-outline mr-1" aria-hidden="true"></i> Product-wise sales
+                    <i class="mdi mdi-bookmark-outline mr-1" aria-hidden="true"></i> <?= Module::t('settings','Priority Wallet') ?>
                 </p>
             </div>
         </div>
@@ -83,14 +83,14 @@ $this->params['breadcrumbs'][] = 'Edit';
                         <i class="mdi mdi-poll-box text-teal icon-lg"></i>
                     </div>
                     <div class="float-right">
-                        <p class="card-text text-right">Wallet Settings</p>
+                        <p class="card-text text-right"><?= Module::t('settings','Wallet Settings') ?></p>
                         <div class="fluid-container">
-                            <h3 class="card-title font-weight-bold text-right mb-0"><a href="<?= Url::to(['/wallet/update','id'=>$wallet->id]) ?>" data-toggle="tooltip"  title="Update" aria-label="Update" class="btn btn-outline-primary btn-rounded btn-xs update-modal-click">Update</a> </h3>
+                            <h3 class="card-title font-weight-bold text-right mb-0"><a href="<?= Url::to(['/wallet/update','id'=>$wallet->id]) ?>" data-toggle="tooltip"  title="<?= Module::t('settings','Update') ?>" aria-label="Update" class="btn btn-outline-primary btn-rounded btn-xs update-modal-click"><?= Module::t('settings','Update') ?></a> </h3>
                         </div>
                     </div>
                 </div>
                 <p class="text-muted mt-3">
-                    <i class="mdi mdi-calendar mr-1" aria-hidden="true"></i> Here you can change wallet's settings
+                    <i class="mdi mdi-calendar mr-1" aria-hidden="true"></i> <?= Module::t('settings','Here you can change wallet\'s settings') ?>
                 </p>
             </div>
         </div>
@@ -103,14 +103,14 @@ $this->params['breadcrumbs'][] = 'Edit';
                         <i class="mdi mdi-account-location text-info icon-lg"></i>
                     </div>
                     <div class="float-right">
-                        <p class="card-text text-right">Password Settings</p>
+                        <p class="card-text text-right"><?= Module::t('settings','Password Settings') ?></p>
                         <div class="fluid-container">
-                            <h3 class="card-title font-weight-bold text-right mb-0"><a href="<?= Url::to(['/site/request-password-reset']) ?>" data-toggle="tooltip"  title="Reset" aria-label="Reset" class="btn btn-outline-primary btn-rounded btn-xs update-modal-click">Reset</a> </h3>
+                            <h3 class="card-title font-weight-bold text-right mb-0"><a href="<?= Url::to(['/site/request-password-reset']) ?>" data-toggle="tooltip"  title="<?= Module::t('settings','Reset') ?>" aria-label="Reset" class="btn btn-outline-primary btn-rounded btn-xs update-modal-click"><?= Module::t('settings','Reset') ?></a></h3>
                         </div>
                     </div>
                 </div>
                 <p class="text-muted mt-3">
-                    <i class="mdi mdi-reload mr-1" aria-hidden="true"></i> Reset Password
+                    <i class="mdi mdi-reload mr-1" aria-hidden="true"></i><?= Module::t('settings','Reset Password') ?>
                 </p>
             </div>
         </div>
@@ -167,7 +167,7 @@ $this->params['breadcrumbs'][] = 'Edit';
 
 <?php
 Modal::begin([
-    'header' => '<h4>'. "View Source" .'</h4>',
+    'header' => '<h4>'. Module::t('settings','View Source') .'</h4>',
     'id' => 'view-modal',
     'size' => 'modal-md',
 ]);

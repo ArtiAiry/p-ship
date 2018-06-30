@@ -11,23 +11,15 @@ return [
 
     //grid
 
-    'Add Lead'=>'Добавить лида',
-    'Adding a Lead'=>'Добавление лида',
-    'Leads'=>'Лиды',
+    'Profiles'=>'Профили',
     'Create Time' => 'Дата создания',
-    'Client' => 'Клиент',
-    'User Device'=>'Девайс Пользователя',
-    'User OS'=>'ОС Пользователя',
-    'User'=>'Пользователь',
-    'Product'=>'Продукт',
+    'Phone' => 'Телефон',
+    'Skype'=>'Скайп',
+    'Email'=>'Почта',
+    'Affliante\'s name'=>'Имя аффлианта',
+    'Username'=>'Логин АФфлианта',
     'Status'=>'Статус',
-    'Price'=>'Цена',
-    'Is Sold'=>'Продажа',
-    'Created At'=>'Дата создания',
-    'Lead\'s View'=>'Просмотр лида',
-    'Affiliate'=>'Аффлиат',
-    'Source'=>'Источник',
-
+    'Viewing a Profile'=>'Просмотр профиля',
 
     //batch delete
 
@@ -42,15 +34,14 @@ return [
     'Create' => 'Создать',
     'Update' => 'Обновить',
     'Delete' => 'Удалить',
-    'View'=> 'Просмотр',
-    'Add a lead'=> 'Добавить лида',
+    'View' => 'Просмотр',
+    'Add a lead' => 'Добавить лида',
+    'Save' => 'Сохранить',
 
 
     //prompts
 
-    'Choose User'=>'Выберите аффлианта',
-    'Choose Product'=>'Выберите продукт',
-    'Choose Lead\'s Status'=>'Выберите статус лида',
+    'Choose a Main Wallet'=>'Выберите основной кошелек',
 
 
 ];

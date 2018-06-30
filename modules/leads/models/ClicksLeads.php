@@ -74,11 +74,12 @@ class ClicksLeads extends ActiveRecord
             'id' => Module::t('leads','ID'),
             'ip' => Module::t('leads','Ip'),
             'user_device' => Module::t('leads','User Device'),
-            'user_os' => Module::t('leads','User Os'),
+            'user_os' => Module::t('leads','User OS'),
             'user_id' => Module::t('leads','Affiliate'),
             'product_id' => Module::t('leads','Product'),
             'leads_status_id' => Module::t('leads','Status'),
             'price' => Module::t('leads','Price'),
+            'source'=> Module::t('leads','Source'),
             'isSold' => Module::t('leads','Is Sold'),
             'created_at' => Module::t('leads','Created At'),
         ];

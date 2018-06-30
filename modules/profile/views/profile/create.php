@@ -7,7 +7,7 @@ use dosamigos\datepicker\DatePicker;
 
 
 /* @var $this yii\web\View */
-/* @var $profile app\models\Profile */
+/* @var $profile app\modules\profile\models\Profile */
 /* @var $user app\models\User */
 /* @var $form yii\widgets\ActiveForm */
 

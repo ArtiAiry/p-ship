@@ -1,14 +1,15 @@
 <?php
 
+use app\modules\wallet\Module;
 use yii\helpers\Html;
 
 /* @var $this yii\web\View */
 /* @var $model app\modules\wallet\models\Wallet */
 
-$this->title = 'Update Wallet: ' . $model->id;
-$this->params['breadcrumbs'][] = ['label' => 'Wallets', 'url' => ['index']];
+$this->title = Module::t('wallet','Update Wallet: ') . $model->id;
+$this->params['breadcrumbs'][] = ['label' =>  Module::t('wallet','Wallets'), 'url' => ['/wallet']];
 $this->params['breadcrumbs'][] = ['label' => $model->id, 'url' => ['view', 'id' => $model->id]];
-$this->params['breadcrumbs'][] = 'Update';
+$this->params['breadcrumbs'][] = Module::t('wallet','Update');
 ?>
 <div class="col-md-6 d-flex align-items-stretch grid-margin">
 <div class="card">

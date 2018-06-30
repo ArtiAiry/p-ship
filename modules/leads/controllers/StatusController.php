@@ -3,8 +3,7 @@
 namespace app\modules\leads\controllers;
 
 use Yii;
-use app\modules\leads\models\Status;
-use app\modules\leads\models\StatusSearch;
+use app\modules\leads\models\LeadsStatus;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -36,7 +35,7 @@ class StatusController extends Controller
     public function actionIndex()
     {
 
-        $statuses = Status::find()->orderBy('id asc')->all();
+        $statuses = LeadsStatus::find()->orderBy('id asc')->all();
         return $this->render('index',[
             'statuses' => $statuses,
         ]);
@@ -62,7 +61,7 @@ class StatusController extends Controller
      */
     public function actionCreate()
     {
-        $model = new Status();
+        $model = new LeadsStatus();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             Yii::$app->session->setFlash('success', 'Status created.');
@@ -112,12 +111,12 @@ class StatusController extends Controller
      * Finds the Status model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return Status the loaded model
+     * @return LeadsStatus the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = Status::findOne($id)) !== null) {
+        if (($model = LeadsStatus::findOne($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');

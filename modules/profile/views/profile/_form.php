@@ -1,6 +1,7 @@
 <?php
 
 use app\models\Profile;
+use app\modules\profile\Module;
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use dosamigos\datepicker\DatePicker;
@@ -28,7 +29,7 @@ use dosamigos\datepicker\DatePicker;
     <?= $form->field($profile, 'telegram')->textInput(['maxlength' => true]) ?>
 
     <div class="form-group">
-        <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
+        <?= Html::submitButton(Module::t('profile','Save'), ['class' => 'btn btn-success']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

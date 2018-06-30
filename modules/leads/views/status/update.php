@@ -1,14 +1,15 @@
 <?php
 
+use app\modules\leads\Module;
 use yii\helpers\Html;
 
 /* @var $this yii\web\View */
-/* @var $model app\modules\leads\models\Status */
+/* @var $model app\modules\leads\models\LeadsStatus */
 
-$this->title = 'Update Status: ' . $model->name;
-$this->params['breadcrumbs'][] = ['label' => 'Statuses', 'url' => ['index']];
+$this->title = Module::t('status','Update Status: ') . $model->name;
+$this->params['breadcrumbs'][] = ['label' => Module::t('status','Statuses'), 'url' => ['/leads/status/index']];
 $this->params['breadcrumbs'][] = ['label' => $model->name, 'url' => ['view', 'id' => $model->id]];
-$this->params['breadcrumbs'][] = 'Update';
+$this->params['breadcrumbs'][] = Module::t('status','Update');
 ?>
 <div class="status-update">
 

@@ -64,12 +64,12 @@ class User extends ActiveRecord implements IdentityInterface
     public function attributeLabels()
     {
         return [
-            'id' => 'ID',
-            'username' => 'Username',
-            'email' => 'Email',
-            'password_hash' => 'password',
-            'created_at' => 'Create Time',
-            'updated_at' => 'Update Time'
+            'id' => Yii::t('app','ID'),
+            'username' => Yii::t('app','Username'),
+            'email' => Yii::t('app','Email'),
+            'password_hash' => Yii::t('app','Password'),
+            'created_at' => Yii::t('app','Create Time'),
+            'updated_at' => Yii::t('app','Update Time')
         ];
     }
 
@@ -194,9 +194,9 @@ class User extends ActiveRecord implements IdentityInterface
     public function getStatusName()
     {
         if($this->status == self::STATUS_ACTIVE){
-            return "<label class='badge badge-success'>Active</label>";
+            return "<label class='badge badge-success'>" . Yii::t('app','Active') . "</label>";
         }else{
-            return "<label class='badge badge-success'>Deleted</label>";
+            return "<label class='badge badge-success'>" . Yii::t('app','Active') . "</label>";
         }
     }
 

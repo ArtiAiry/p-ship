@@ -1,4 +1,5 @@
 <?php
+use app\modules\profile\Module;
 use digitv\bootstrap\widgets\Modal;
 use yii\helpers\Html;
 use yii\helpers\Url;
@@ -6,7 +7,7 @@ use yii\helpers\Url;
 
 /* @var $this yii\web\View */
 /* @var $dataProvider yii\data\ActiveDataProvider */
-$this->title = 'Profiles';
+$this->title = Module::t('profile','Profiles');
 $this->params['breadcrumbs'][] = $this->title;
 
 ?>
@@ -19,14 +20,14 @@ $this->params['breadcrumbs'][] = $this->title;
                 <table id="min-table" class="table table-hover table-bordered dt-responsive nowrap" style="width:100%">
                     <thead>
                     <tr>
-                        <td>ID</td>
-                        <td>Affliante Name</td>
-                        <td>Email</td>
-                        <td>Telegram</td>
-                        <td>Status</td>
-                        <td>Whatsapp</td>
+                        <td><?= Module::t('profile','ID')?></td>
+                        <td><?= Module::t('profile','Affliante\'s name')?></td>
+                        <td><?= Module::t('profile','Email')?></td>
+                        <td><?= Module::t('profile','Telegram')?></td>
+                        <td><?= Module::t('profile','Status')?></td>
+                        <td><?= Module::t('profile','Whatsapp')?></td>
                         <!--                <td>Role</td>-->
-                        <td>Actions</td>
+                        <td><?= Module::t('profile','Actions')?></td>
                     </tr>
                     </thead>
                     <tbody>
@@ -41,9 +42,9 @@ $this->params['breadcrumbs'][] = $this->title;
                             <td><?= $profile->whatsapp ?></td>
                             <!--                        <td>--><?//= $profile->user->getRole() ?><!--</td>-->
                             <td>
-                                <button value="<?= Url::toRoute(['/profile/view','id'=>$profile->id]);?>" data-toggle="tooltip" title="View" aria-label="View" class="btn btn-outline-dark btn-rounded btn-xs view-modal-click"><span class="fa fa-eye"></span></button>
-                                <a href="<?= Url::toRoute(['/profile/update','id'=>$profile->id]);?>" data-toggle="tooltip"  title="Update" aria-label="Update" class="btn btn-outline-dark btn-rounded btn-xs update-modal-click"><span class="fa fa-pencil" ></span></a>
-                                <a href="<?= Url::toRoute(['/profile/delete','id'=>$profile->id]);?>" data-toggle="tooltip"  title="Delete" aria-label="Delete" data-confirm="Are you sure you want to delete this item?" class="btn btn-outline-dark btn-rounded btn-xs" data-method="post"><span class="fa fa-trash"></span></a>
+                                <button value="<?= Url::toRoute(['/profile/view','id'=>$profile->id]);?>" data-toggle="tooltip" title="<?= Module::t('profile','View')?>" aria-label="View" class="btn btn-outline-dark btn-rounded btn-xs view-modal-click"><span class="fa fa-eye"></span></button>
+                                <a href="<?= Url::toRoute(['/settings/edit','id'=>$profile->id]);?>" data-toggle="tooltip"  title="<?= Module::t('profile','Update')?>" aria-label="Update" class="btn btn-outline-dark btn-rounded btn-xs update-modal-click"><span class="fa fa-pencil" ></span></a>
+                                <a href="<?= Url::toRoute(['/profile/delete','id'=>$profile->id]);?>" data-toggle="tooltip"  title="<?= Module::t('profile','Delete')?>" aria-label="Delete" data-confirm="<?= Module::t('profile','Are you sure you want to delete this item?') ?>" class="btn btn-outline-dark btn-rounded btn-xs" data-method="post"><span class="fa fa-trash"></span></a>
                             </td>
                         </tr>
                         <!--                --><?php //endif; ?>
@@ -56,7 +57,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
 <?php
 Modal::begin([
-    'header' => '<h4>'. "View Wallet" .'</h4>',
+    'header' => '<h4>'. Module::t('profile','Viewing a Profile') .'</h4>',
     'id' => 'view-modal',
     'size' => 'modal-md',
 ]);

@@ -4,7 +4,9 @@ namespace app\modules\wallet\models;
 
 use app\models\User;
 use app\modules\payout\models\PayoutType;
+use app\modules\wallet\Module;
 use Yii;
+use yii\db\ActiveRecord;
 
 /**
  * This is the model class for table "wallet".
@@ -22,7 +24,7 @@ use Yii;
  *
  * @property User $user
  */
-class Wallet extends \yii\db\ActiveRecord
+class Wallet extends ActiveRecord
 {
 
     const REMOVE = 0;
@@ -52,14 +54,15 @@ class Wallet extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => 'ID',
-            'wallet_type_id' => 'Main Wallet',
-            'yandex_money' => 'Yandex Money',
-            'qiwi' => 'Qiwi',
-            'webmoney_wmr' => 'Webmoney Wmr',
-            'paypal_eur' => 'Paypal Eur',
-            'sberbank_rub' => 'Sberbank Rub',
-            'pb_uah' => 'Privat UAH',
+            'id' => Module::t('wallet','ID'),
+            'wallet_type_id' => Module::t('wallet','Main Wallet'),
+            'yandex_money' => Module::t('wallet','Yandex Money'),
+            'qiwi' => Module::t('wallet','Qiwi'),
+            'webmoney_wmr' =>  Module::t('wallet','Webmoney Wmr'),
+            'paypal_eur' =>  Module::t('wallet','Paypal Eur'),
+            'sberbank_rub' => Module::t('wallet','Sberbank Rub'),
+            'pb_uah' => Module::t('wallet','Privat UAH'),
+            'user_id' => Module::t('wallet','Username'),
         ];
     }
 
@@ -80,7 +83,7 @@ class Wallet extends \yii\db\ActiveRecord
     {
         return $this->isRemoved;
     }
-    public function remove()
+    public function removeWallet()
     {
         $this->isRemoved = self::REMOVE;
         return $this->save(false);
@@ -103,6 +106,5 @@ class Wallet extends \yii\db\ActiveRecord
         }
 
     }
-
 
 }

@@ -1,13 +1,14 @@
 <?php
 
+use app\modules\wallet\Module;
 use yii\helpers\Html;
 
 
 /* @var $this yii\web\View */
 /* @var $model app\modules\wallet\models\WalletType */
 
-$this->title = 'Create Wallet Type';
-$this->params['breadcrumbs'][] = ['label' => 'Wallet Types', 'url' => ['index']];
+$this->title = Module::t('type','Create Wallet Type');
+$this->params['breadcrumbs'][] = ['label' =>Module::t('type','Wallet Types'), 'url' => ['/wallet/type/index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="wallet-type-create">

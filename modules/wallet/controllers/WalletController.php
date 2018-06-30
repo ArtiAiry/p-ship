@@ -89,8 +89,17 @@ class WalletController extends Controller
     {
         $this->findModel($id)->delete();
 
-        return $this->redirect(['index']);
+        return $this->redirect(['/wallet']);
     }
+
+    public function actionRemove($id)
+    {
+        $this->findModel($id)->removeWallet();
+
+        return $this->redirect(['/wallet']);
+    }
+
+
 
     /**
      * Finds the Wallet model based on its primary key value.

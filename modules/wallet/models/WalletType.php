@@ -2,7 +2,9 @@
 
 namespace app\modules\wallet\models;
 
+use app\modules\wallet\Module;
 use Yii;
+use yii\db\ActiveRecord;
 
 /**
  * This is the model class for table "wallet_type".
@@ -11,7 +13,7 @@ use Yii;
  * @property string $name
  * @property integer $isRemoved
  */
-class WalletType extends \yii\db\ActiveRecord
+class WalletType extends ActiveRecord
 {
     /**
      * @inheritdoc
@@ -38,9 +40,8 @@ class WalletType extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => 'ID',
-            'name' => 'Name',
-            'isRemoved' => 'Is Removed',
+            'id' => Module::t('type','ID'),
+            'name' => Module::t('type','Wallet Type\'s Name'),
         ];
     }
 }

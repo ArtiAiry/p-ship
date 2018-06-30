@@ -1,13 +1,14 @@
 <?php
 
+use app\modules\leads\Module;
 use yii\helpers\Html;
 
 
 /* @var $this yii\web\View */
-/* @var $model app\modules\leads\models\Status */
+/* @var $model app\modules\leads\models\LeadsStatus */
 
-$this->title = 'Create Status';
-$this->params['breadcrumbs'][] = ['label' => 'Statuses', 'url' => ['index']];
+$this->title = Module::t('status','Create Status');
+$this->params['breadcrumbs'][] = ['label' => Module::t('status','Statuses'), 'url' => ['/leads/status/index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="status-create">

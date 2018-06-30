@@ -1,33 +1,36 @@
 <?php
 
 
+
 return [
 
     //buttons
-    'Create a Lead' => 'Создать лида',
+    'Create Wallet' => 'Создать кошелек',
     'Create Form' => 'Создать форму',
     'Create Landing' => 'Создать Лэндинг',
     'Update Lead: ' => 'Обновить лид с id: ',
 
     //grid
 
-    'Add Lead'=>'Добавить лида',
-    'Adding a Lead'=>'Добавление лида',
-    'Leads'=>'Лиды',
+    'Choose a Main Wallet'=>'Выберите основной кошелек',
+    'Adding a Wallet'=>'Добавление кошелька',
+    'Wallets'=>'Кошельки',
     'Create Time' => 'Дата создания',
     'Client' => 'Клиент',
-    'User Device'=>'Девайс Пользователя',
-    'User OS'=>'ОС Пользователя',
-    'User'=>'Пользователь',
-    'Product'=>'Продукт',
-    'Status'=>'Статус',
-    'Price'=>'Цена',
+    'Yandex Money'=>'Яндекс.Кошелек',
+    'Qiwi'=>'Qiwi',
+    'Webmoney WMR'=>'Webmoney WMR',
+    'Sberbank RUB'=>'Сбербанк (руб.)',
+    'Privat'=>'Приват',
+    'Username'=>'Пользователь',
+    'Main Wallet'=>'Основной кошелек',
     'Is Sold'=>'Продажа',
     'Created At'=>'Дата создания',
-    'Lead\'s View'=>'Просмотр лида',
+    'Wallet\'s View'=>'Просмотр лида',
     'Affiliate'=>'Аффлиат',
-    'Source'=>'Источник',
-
+    'Add Wallet'=>'Добавить кошелек',
+    'Viewing a Wallet'=>'Просмотр кошелька',
+    
 
     //batch delete
 
@@ -35,6 +38,7 @@ return [
     'Delete Selected' => 'Удалить выделенное',
     'Are you sure you want to delete this item?' => 'Вы действительно хотите удалить этот элемент?',
     'Are you sure you want to delete selected items?' => 'Вы действительно хотите удалить выбранные элементы?',
+
 
     //other
 
@@ -48,9 +52,11 @@ return [
 
     //prompts
 
-    'Choose User'=>'Выберите аффлианта',
-    'Choose Product'=>'Выберите продукт',
-    'Choose Lead\'s Status'=>'Выберите статус лида',
+    'Choose a Product'=>'Выберите продукт',
+    'Choose User'=>'Выберите пользователя',
+    'Choose a Form'=>'Выберите тип формы',
+    'Choose a Lead Status'=>'Выберите статус лида',
+
 
 
 ];
