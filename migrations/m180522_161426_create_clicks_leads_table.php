@@ -14,6 +14,7 @@ class m180522_161426_create_clicks_leads_table extends Migration
     {
         $this->createTable('{{%clicks_leads}}', [
             'id' => 'pk',
+            'crm_id'=> $this->integer(),
             'ip' => $this->string(64),
             'user_device' => $this->string(64),
             'user_os' => $this->string(64),

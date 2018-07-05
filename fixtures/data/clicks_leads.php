@@ -3,6 +3,7 @@
 return [
     [
         'id' => 1,
+        'crm_id' => 6801,
         'ip' => '127.0.0.1',
         'user_device' => 'PC',
         'user_os' => 'Windows',
@@ -17,6 +18,7 @@ return [
     ],
     [
         'id' => 2,
+        'crm_id' => 6802,
         'ip' => '127.0.0.1',
         'user_device' => 'PC',
         'user_os' => 'Windows',
@@ -31,6 +33,7 @@ return [
     ],
     [
         'id' => 3,
+        'crm_id' => 6803,
         'ip' => '127.0.0.1',
         'user_device' => 'PC',
         'user_os' => 'MacOS',
@@ -45,6 +48,7 @@ return [
     ],
     [
         'id' => 4,
+        'crm_id' => 6804,
         'ip' => '127.0.0.1',
         'user_device' => 'PC',
         'user_os' => 'MacOS',
@@ -59,6 +63,7 @@ return [
     ],
     [
         'id' => 5,
+        'crm_id' => 6805,
         'ip' => '127.0.0.1',
         'user_device' => 'PC',
         'user_os' => 'MacOS',
@@ -73,6 +78,7 @@ return [
     ],
     [
         'id' => 6,
+        'crm_id' => 6806,
         'ip' => '127.0.0.1',
         'user_device' => 'PC',
         'user_os' => 'Windows',
@@ -87,6 +93,7 @@ return [
     ],
     [
         'id' => 7,
+        'crm_id' => 6807,
         'ip' => '127.0.0.1',
         'user_device' => 'PC',
         'user_os' => 'Windows',
@@ -101,6 +108,7 @@ return [
     ],
     [
         'id' => 8,
+        'crm_id' => 6808,
         'ip' => '127.0.0.1',
         'user_device' => 'PC',
         'user_os' => 'Windows',
@@ -115,6 +123,7 @@ return [
     ],
     [
         'id' => 9,
+        'crm_id' => 6809,
         'ip' => '127.0.0.1',
         'user_device' => 'PC',
         'user_os' => 'Windows',
@@ -129,6 +138,7 @@ return [
     ],
     [
         'id' => 10,
+        'crm_id' => 6810,
         'ip' => '127.0.0.1',
         'user_device' => 'PC',
         'user_os' => 'MacOS',
@@ -143,6 +153,7 @@ return [
     ],
     [
         'id' => 11,
+        'crm_id' => 6811,
         'ip' => '127.0.0.1',
         'user_device' => 'PC',
         'user_os' => 'MacOS',

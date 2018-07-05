@@ -16,6 +16,9 @@ use yii\web\Controller;
 class StatisticsController extends Controller
 {
 
+
+
+
     public function actionSource()
     {
         $leads = ClicksLeads::find()->select([
@@ -48,6 +51,16 @@ class StatisticsController extends Controller
                 'leads'=>$leads,
             ]);
     }
+
+    public function actionDemo()
+    {
+        $leads = ClicksLeads::getLeadsCountDemo();
+        return $this->render('goods',
+            [
+                'leads'=>$leads,
+            ]);
+    }
+
 
 
     public function actionDate()
