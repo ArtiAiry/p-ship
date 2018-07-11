@@ -1,6 +1,7 @@
 <?php
 
 use app\modules\product\Module;
+use app\modules\profile\models\Profile;
 use yii\helpers\Html;
 use yii\grid\GridView;
 use yii\helpers\Url;
@@ -10,6 +11,8 @@ use yii\helpers\Url;
 
 $this->title = Module::t('product','Products');
 $this->params['breadcrumbs'][] = $this->title;
+
+
 ?>
 <?php
 digitv\bootstrap\widgets\Modal::begin([
@@ -22,9 +25,11 @@ digitv\bootstrap\widgets\Modal::end();
 ?>
 
 <h1 class="h-center"><?= Html::encode($this->title)?>
+    <?php if($profile->user->getRole() == 'admin'): ?>
     <button value="<?= Url::to(['/product/create']) ?>" class="btn btn-outline-primary" id="modalButton1" data-toggle="tooltip" data-placement="bottom"  title="<?=  Module::t('product','Add Product') ?>">
         <?= Module::t('product','Create')?>
     </button>
+    <?php endif; ?>
 </h1>
 
 <div class="card-deck">

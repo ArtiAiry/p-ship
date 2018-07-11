@@ -1,8 +1,7 @@
 <?php
-use app\models\User;
+
+
 use app\modules\profile\models\Profile;
-use yii\bootstrap\Html;
-use yii\helpers\ArrayHelper;
 use yii\helpers\Url;
 
 $profile = Profile::findOne(Yii::$app->user->id);
@@ -32,10 +31,13 @@ digitv\bootstrap\widgets\Modal::end();
             </div>
         </li>
         <li class="nav-item"><a class="nav-link" href="<?= Url::to(['/leads']); ?>"><img class="menu-icon" src="/images/menu_icons/05.png" alt="menu icon"><span class="menu-title"><?= Yii::t('app','Leads') ?></span></a></li>
+        <?php if($profile->user->getRole() == 'admin'): ?>
         <li class="nav-item"><a class="nav-link" href="<?= Url::to(['/wallet']); ?>"><img class="menu-icon" src="/images/menu_icons/02.png" alt="menu icon"><span class="menu-title"><?= Yii::t('app','Wallets') ?></span></a></li>
-        <li class="nav-item"><a class="nav-link" href="<?= Url::to(['/product']); ?>"><img class="menu-icon" src="/images/menu_icons/03.png" alt="menu icon"><span class="menu-title"><?= Yii::t('app','Products') ?></span></a></li>
         <li class="nav-item"><a class="nav-link" href="<?= Url::to(['/payout']); ?>"><img class="menu-icon" src="/images/menu_icons/04.png" alt="menu icon"><span class="menu-title"><?= Yii::t('app','Payouts') ?></span></a></li>
         <li class="nav-item"><a class="nav-link" href="<?= Url::to(['/profile']); ?>"><img class="menu-icon" src="/images/menu_icons/01.png" alt="menu icon"><span class="menu-title"><?= Yii::t('app','Profiles') ?></span></a></li>
+        <?php endif; ?>
+        <li class="nav-item"><a class="nav-link" href="<?= Url::to(['/product']); ?>"><img class="menu-icon" src="/images/menu_icons/03.png" alt="menu icon"><span class="menu-title"><?= Yii::t('app','Products') ?></span></a></li>
+
         <li class="nav-item"><a class="nav-link" href="<?= Url::to(['/settings/edit','id'=>$profile->id]); ?>"><img class="menu-icon" src="/images/menu_icons/08.png" alt="menu icon"><span class="menu-title"><?= Yii::t('app','Settings') ?></span></a></li>
 <!--        <li class="nav-item"><a class="nav-link" href="pages/charts/chartjs.html"><img class="menu-icon" src="/images/menu_icons/05.png" alt="menu icon"><span class="menu-title">Charts</span></a></li>-->
 <!--        <li class="nav-item"><a class="nav-link" href="pages/tables/basic-table.html"><img class="menu-icon" src="/images/menu_icons/06.png" alt="menu icon"><span class="menu-title">Table</span></a></li>-->

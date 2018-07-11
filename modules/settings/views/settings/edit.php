@@ -121,7 +121,7 @@ $this->params['breadcrumbs'][] = Module::t('settings','Edit');
         <div class="card lg-8">
             <div class="card-body">
 
-                <h1><?= Html::encode($this->title) ?></h1>
+                <h1><?= Html::encode($this->title) ?> </h1>
 
                 <?= $this->render('@app/modules/profile/views/profile/_form', [
                     'user' => $user,

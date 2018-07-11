@@ -95,6 +95,7 @@ $config = [
 
             ],
         ],
+
         'i18n' => [
             'translations' => [
                 'app' => [
@@ -106,6 +107,9 @@ $config = [
                     'basePath' => '@app/messages',
                 ],
             ],
+        ],
+        'authManager'  => [
+            'class' => 'yii\rbac\DbManager',
         ],
     ],
 

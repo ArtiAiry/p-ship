@@ -2,6 +2,7 @@
 
 use app\modules\leads\Module;
 use digitv\bootstrap\widgets\Modal;
+use yii\debug\models\search\Profile;
 use yii\helpers\Html;
 use yii\helpers\Url;
 
@@ -9,7 +10,11 @@ use yii\helpers\Url;
 
 $this->title = Module::t('leads','Leads');
 $this->params['breadcrumbs'][] = $this->title;
+
+
+
 ?>
+
 <?php
 Modal::begin([
     'header'=>'<h4>'. Module::t('leads','Adding a Lead') .'</h4>',
@@ -18,15 +23,18 @@ Modal::begin([
 ]);
 echo "<div id='modalContent1' class='card'></div>";
 Modal::end();
+
+
 ?>
 
 <div class="card fade-out">
     <div class="card-body">
         <h1><?= Html::encode($this->title)?>
-
+            <?php if($profile->user->getRole() == 'admin'): ?>
             <button value="<?= Url::to(['/leads/create']) ?>" class="btn btn-outline-primary" id="modalButton1" data-toggle="tooltip" data-placement="bottom"  title="<?= Module::t('leads','Create a Lead')?>">
                 <?= Module::t('leads','Create')?>
             </button>
+            <?php endif; ?>
         </h1>
         <?php if(!empty($leads)): ?>
 

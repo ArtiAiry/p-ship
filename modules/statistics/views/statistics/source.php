@@ -1,5 +1,6 @@
 <?php
 
+use app\modules\statistics\Module;
 use digitv\bootstrap\widgets\Modal;
 use yii\helpers\Html;
 use yii\grid\GridView;
@@ -7,7 +8,7 @@ use yii\helpers\Url;
 
 /* @var $this yii\web\View */
 
-$this->title = 'Leads, Group by Source';
+$this->title = Module::t('source','Leads, Group by Source');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 
@@ -20,21 +21,19 @@ $this->params['breadcrumbs'][] = $this->title;
             <table id="extended-table" class="table table-hover table-bordered dt-responsive nowrap" style="width:100%">
                 <thead>
                 <tr>
-                    <td>#</td>
-                    <td>Source</td>
-                    <td>Amount of Leads</td>
-                    <td>Unknown</td>
-                    <td>Rejected</td>
-                    <td>Approved</td>
-                    <td>Sold</td>
-                    <td>Summary</td>
+                    <td><?= Module::t('source','Source') ?></td>
+                    <td><?= Module::t('source','Amount of Leads') ?></td>
+                    <td><?= Module::t('source','Unknown') ?></td>
+                    <td><?= Module::t('source','Rejected') ?></td>
+                    <td><?= Module::t('source','Approved') ?></td>
+                    <td><?= Module::t('source','Sold') ?></td>
+                    <td><?= Module::t('source','Summary') ?></td>
                 </tr>
                 </thead>
                 <tbody>
                 <?php foreach($leads as $lead):?>
                     <!--                --><?php //if($profile->user->getRole() == 'teacher'): ?>
                     <tr>
-                        <td><?= $i += 1; ?></td>
                         <td><?= $lead->source ?></td>
                         <td><?= $lead->count_lead ?> </td>
                         <td><?= $lead->count_status_unknown ?> </td>

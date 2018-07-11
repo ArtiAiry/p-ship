@@ -2,9 +2,10 @@
 
 namespace app\modules\product\controllers;
 
+use app\modules\profile\models\Profile;
 use Yii;
 use app\modules\product\models\Product;
-use app\modules\product\models\ProductSearch;
+use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -25,10 +26,21 @@ class ProductController extends Controller
                 'actions' => [
                     'delete' => ['POST'],
                 ],
+
             ],
+            'access' => [
+                'class' => AccessControl::className(),
+                'only' => ['create','update','delete'],
+                'rules' => [
+                    [
+                        'allow' => true,
+                        'actions' => ['create','update','delete'],
+                        'roles' => ['manageProducts'],
+                    ],
+                    ],
+                ],
         ];
     }
-
 
     /**
      * Displays a single Product model.
@@ -50,13 +62,18 @@ class ProductController extends Controller
     public function actionCreate()
     {
         $model = new Product();
-
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            Yii::$app->session->setFlash('success', 'Product created.');
-            return $this->redirect(['/product']);
-
-        } else {
-            return $this->renderAjax('create', [
+        $profile = Profile::findOne(Yii::$app->user->id);
+        if($profile->user->getRole() == 'admin'){
+            if ($model->load(Yii::$app->request->post()) && $model->save()) {
+                Yii::$app->session->setFlash('success', 'Product created.');
+                return $this->redirect(['/product']);
+            } else {
+                return $this->renderAjax('create', [
+                'model' => $model,
+                ]);
+            }
+        }else{
+            return $this->render('create', [
                 'model' => $model,
             ]);
         }

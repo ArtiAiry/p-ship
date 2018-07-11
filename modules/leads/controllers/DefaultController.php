@@ -3,6 +3,8 @@
 namespace app\modules\leads\controllers;
 
 use app\modules\leads\models\ClicksLeads;
+use app\modules\profile\models\Profile;
+use Yii;
 use yii\web\Controller;
 
 /**
@@ -18,11 +20,11 @@ class DefaultController extends Controller
     {
 
         $leads = ClicksLeads::find()->orderBy('id asc')->all();
-
+        $profile = Profile::findOne(Yii::$app->user->id);
 //        $counting = $leads->getCountStatus();
         return $this->render('index',[
             'leads' => $leads,
-
+            'profile' => $profile,
         ]);
     }
 }
