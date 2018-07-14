@@ -117,13 +117,6 @@ $(document).ready(function() {
                 },
                 // url: "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Russian.json",
             },
-
-
-            // oPaginate: {
-            //     "sNext": ">",
-            //     "sPrevious": "<"
-            // }
-
         }
     );
     // new $.fn.dataTable.FixedHeader( table );
@@ -157,6 +150,39 @@ $(document).ready(function() {
     );
     // new $.fn.dataTable.FixedHeader( table );
 });
+
+
+$(document).ready(function() {
+    var table = $('#portable').DataTable(
+        {
+            responsive: true,
+            columnDefs: [
+                {
+                    className: "dt-center", targets: "_all"
+                }
+            ],
+            pageLength: 5,
+            lengthChange: false,
+            searching: true,
+            language: {
+
+                search: "Поиск",
+                lengthMenu: "Отображать _MENU_ записей",
+                zeroRecords: "К сожалению, ничего не найдено.",
+                info: "Показана  _PAGE_ страница из _PAGES_",
+                infoEmpty: "Нет записей.",
+                infoFiltered: "(Отфильтровано с _MAX_ записей)",
+                paginate: {
+                    next: ">",
+                    previous: "<",
+                },
+                // url: "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Russian.json",
+            },
+        }
+    );
+    // new $.fn.dataTable.FixedHeader( table );
+});
+
 
 
 

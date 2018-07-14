@@ -2,6 +2,7 @@
 
 return [
 
+    'Leads'=>'Лиды',
     'Edit Profile:'=>'Редактировать профиль:',
     'Profiles'=>'Профили',
     'Total Revenue'=>'Общий доход',
@@ -15,13 +16,17 @@ return [
     'Profile\'s settings successfully saved.'=>'Настройки профиля были успешно сохранены.',
     'User\'s Profile is not found.'=>'Профиль пользователя не найден.',
     'Profile\'s Settings'=>'Настройки профиля',
-
-
+    'Source'=>'Источник',
+    'Product'=>'Продукт',
+    'Actions'=>'Действия',
 
     //actions
 
+    'View Full Table'=>'Просмотреть подробную таблицу',
+    'View'=>'Просмотреть',
     'Reset'=>'Сменить',
     'Update'=>'Обновить',
+    'Delete'=>'Удалить',
     'Edit'=>'Редактировать',
 
     ];

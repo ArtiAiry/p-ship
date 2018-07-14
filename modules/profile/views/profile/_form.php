@@ -14,8 +14,6 @@ use dosamigos\datepicker\DatePicker;
 
 <div class="profile-form">
 
-
-
     <?php $form = ActiveForm::begin(); ?>
 
     <?= $form->field($user, 'email')->textInput(['maxlength' => true]) ?>

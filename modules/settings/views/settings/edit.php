@@ -114,7 +114,7 @@ $this->params['breadcrumbs'][] = Module::t('settings','Profile\'s Settings');
     </div>
 </div>
 <div class="row">
-    <div class="col-md-6 grid-margin stretch-card">
+    <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 grid-margin stretch-card">
         <div class="card lg-8">
             <div class="card-body">
 
@@ -128,37 +128,41 @@ $this->params['breadcrumbs'][] = Module::t('settings','Profile\'s Settings');
             </div>
         </div>
     </div>
-<!--    <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 grid-margin stretch-card">-->
-<!--        <div class="card">-->
-<!--            <div class="card-body">-->
-<!--                <h5 class="card-title mb-4">Sources  <a href="--><?//= Url::to(['profile/sources/'])?><!--" class="btn btn-outline-primary btn-xs">View Full Table</a></h5>-->
-<!--                <table class="table table-hover table-striped" id="min-table">-->
-<!--                    <thead>-->
-<!--                    <tr>-->
-<!--                        <th>ID</th>-->
-<!--                        <th>Source Name</th>-->
-<!--                        <th>Source Type</th>-->
-<!--                        <th>Country</th>-->
-<!--                    </tr>-->
-<!--                    </thead>-->
-<!--                    <tbody>-->
-<!--                    --><?php //foreach($sources as $source):?>
-<!--                    <tr>-->
-<!--                        <td>--><?//= $source->id ?><!--</td>-->
-<!--                        <td>--><?//= $source->name ?><!--</td>-->
-<!--                        <td>--><?//= $source->sourceType->name ?><!--</td>-->
-<!--                        <td>-->
-<!--                            <button value="--><?//= Url::toRoute(['/source/view','id'=>$source->id]);?><!--" data-toggle="tooltip" title="View" aria-label="View" class="btn btn-outline-dark btn-rounded btn-xs view-modal-click"><span class="fa fa-eye"></span></button>-->
-<!--                            <a href="--><?//= Url::toRoute(['/source/update','id'=>$source->id]);?><!--" data-toggle="tooltip"  title="Update" aria-label="Update" class="btn btn-outline-dark btn-rounded btn-xs update-modal-click"><span class="fa fa-pencil" ></span></a>-->
-<!--                            <a href="--><?//= Url::toRoute(['/source/delete','id'=>$source->id]);?><!--" data-toggle="tooltip"  title="Delete" aria-label="Delete" data-confirm="Are you sure you want to delete this item?" class="btn btn-outline-dark btn-rounded btn-xs" data-method="post"><span class="fa fa-trash"></span></a>-->
-<!--                        </td>-->
-<!--                    </tr>-->
-<!--                    --><?php //endforeach; ?>
-<!--                    </tbody>-->
-<!--                </table>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </div>-->
+    <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h1 class="card-title mb-4"><?= Module::t('settings','Leads') ?> <a href="<?= Url::to(['/leads'])?>" class="btn btn-outline-primary btn-xs"><?= Module::t('settings','View Full Table') ?></a></h1>
+                <table class="table table-hover table-bordered dt-responsive nowrap" style="width:100%" id="portable">
+                    <thead>
+                    <tr>
+                        <th><?= Module::t('settings','ID') ?></th>
+                        <th><?= Module::t('settings','Source') ?></th>
+                        <th><?= Module::t('settings','Product') ?></th>
+                        <?php if($profile->user->getRole() == 'admin'): ?>
+                        <th><?= Module::t('settings','Actions') ?></th>
+                        <?php endif; ?>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <?php foreach($leads as $lead):?>
+                    <tr>
+                        <td><?= $lead->id ?></td>
+                        <td><?= $lead->source  ?></td>
+                        <td><?= $lead->product->name ?></td>
+                        <?php if($profile->user->getRole() == 'admin'): ?>
+                        <td>
+                            <button value="<?= Url::toRoute(['/leads/view','id'=>$lead->id]);?>" data-toggle="tooltip" title="<?= Module::t('settings','View') ?>" aria-label="View" class="btn btn-outline-dark btn-rounded btn-xs view-modal-click"><span class="fa fa-eye"></span></button>
+                            <a href="<?= Url::toRoute(['/leads/update','id'=>$lead->id]);?>" data-toggle="tooltip"  title="<?= Module::t('settings','Update') ?>" aria-label="Update" class="btn btn-outline-dark btn-rounded btn-xs update-modal-click"><span class="fa fa-pencil" ></span></a>
+                            <a href="<?= Url::toRoute(['/leads/delete','id'=>$lead->id]);?>" data-toggle="tooltip"  title="<?= Module::t('settings','Delete') ?>" aria-label="Delete" data-confirm="Are you sure you want to delete this item?" class="btn btn-outline-dark btn-rounded btn-xs" data-method="post"><span class="fa fa-trash"></span></a>
+                        </td>
+                        <?php endif; ?>
+                    </tr>
+                    <?php endforeach; ?>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
 </div>
 
 
