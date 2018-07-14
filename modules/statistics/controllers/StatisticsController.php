@@ -22,7 +22,7 @@ class StatisticsController extends Controller
     public function actionSource()
     {
         $leads = ClicksLeads::find()->select([
-            '*',
+            'source',
             'count_lead' => 'COUNT(*)',
             'count_status_unknown' => 'COUNT(CASE WHEN leads_status_id = 1 THEN 1 ELSE NULL END)',
             'count_status_rejected' => 'COUNT(CASE WHEN leads_status_id = 2 THEN 1 ELSE NULL END)',
@@ -38,7 +38,8 @@ class StatisticsController extends Controller
 
     public function actionGoods()
     {
-        $leads = ClicksLeads::find()->select(['*',
+        $leads = ClicksLeads::find()->select([
+            'product_id',
             'count_lead' => 'COUNT(*)',
             'count_status_unknown' => 'COUNT(CASE WHEN leads_status_id = 1 THEN 1 ELSE NULL END)',
             'count_status_rejected' => 'COUNT(CASE WHEN leads_status_id = 2 THEN 1 ELSE NULL END)',
@@ -66,7 +67,7 @@ class StatisticsController extends Controller
     public function actionDate()
     {
         $leads = ClicksLeads::find()->select([
-            '*',
+            'DATE(created_at)',
             'count_lead' => 'COUNT(*)',
             'count_status_unknown' => 'COUNT(CASE WHEN leads_status_id = 1 THEN 1 ELSE NULL END)',
             'count_status_rejected' => 'COUNT(CASE WHEN leads_status_id = 2 THEN 1 ELSE NULL END)',

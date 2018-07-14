@@ -13,7 +13,9 @@ use yii\helpers\Url;
 
 
 $this->title = Module::t('settings','Edit Profile:') . ' ' . $profile->user->username;
-$this->params['breadcrumbs'][] = Module::t('settings','Profile\'s Settings');
+$this->params['breadcrumbs'][] = ['label' => Module::t('settings','Profiles'), 'url' => ['/profile']];
+$this->params['breadcrumbs'][] = ['label' => $profile->id, 'url' => ['view', 'id' => $profile->id]];
+$this->params['breadcrumbs'][] = Module::t('settings','Edit');
 
 
 
@@ -42,7 +44,7 @@ $this->params['breadcrumbs'][] = Module::t('settings','Profile\'s Settings');
                         <p class="card-text text-right"><?= Module::t('settings','Total Revenue') ?></p>
                         <div class="fluid-container">
                             <h3 class="card-title font-weight-bold text-right mb-0"><?= $payout->getSuccessPayoutSummary(); ?> /
-                                <?= $payout->getTotalPayoutSummary(); ?> RUB </h3>
+                                <?= $payout->getSuccessPayoutSummary(); ?> RUB </h3>
                         </div>
                     </div>
                 </div>
@@ -128,39 +130,7 @@ $this->params['breadcrumbs'][] = Module::t('settings','Profile\'s Settings');
             </div>
         </div>
     </div>
-<!--    <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 grid-margin stretch-card">-->
-<!--        <div class="card">-->
-<!--            <div class="card-body">-->
-<!--                <h5 class="card-title mb-4">Sources  <a href="--><?//= Url::to(['profile/sources/'])?><!--" class="btn btn-outline-primary btn-xs">View Full Table</a></h5>-->
-<!--                <table class="table table-hover table-striped" id="min-table">-->
-<!--                    <thead>-->
-<!--                    <tr>-->
-<!--                        <th>ID</th>-->
-<!--                        <th>Source Name</th>-->
-<!--                        <th>Source Type</th>-->
-<!--                        <th>Country</th>-->
-<!--                    </tr>-->
-<!--                    </thead>-->
-<!--                    <tbody>-->
-<!--                    --><?php //foreach($sources as $source):?>
-<!--                    <tr>-->
-<!--                        <td>--><?//= $source->id ?><!--</td>-->
-<!--                        <td>--><?//= $source->name ?><!--</td>-->
-<!--                        <td>--><?//= $source->sourceType->name ?><!--</td>-->
-<!--                        <td>-->
-<!--                            <button value="--><?//= Url::toRoute(['/source/view','id'=>$source->id]);?><!--" data-toggle="tooltip" title="View" aria-label="View" class="btn btn-outline-dark btn-rounded btn-xs view-modal-click"><span class="fa fa-eye"></span></button>-->
-<!--                            <a href="--><?//= Url::toRoute(['/source/update','id'=>$source->id]);?><!--" data-toggle="tooltip"  title="Update" aria-label="Update" class="btn btn-outline-dark btn-rounded btn-xs update-modal-click"><span class="fa fa-pencil" ></span></a>-->
-<!--                            <a href="--><?//= Url::toRoute(['/source/delete','id'=>$source->id]);?><!--" data-toggle="tooltip"  title="Delete" aria-label="Delete" data-confirm="Are you sure you want to delete this item?" class="btn btn-outline-dark btn-rounded btn-xs" data-method="post"><span class="fa fa-trash"></span></a>-->
-<!--                        </td>-->
-<!--                    </tr>-->
-<!--                    --><?php //endforeach; ?>
-<!--                    </tbody>-->
-<!--                </table>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </div>-->
 </div>
-
 
 <?php
 Modal::begin([

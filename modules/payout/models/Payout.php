@@ -6,6 +6,7 @@ use app\models\User;
 use app\modules\payout\Module;
 use app\modules\wallet\models\WalletType;
 use Yii;
+use yii\db\ActiveRecord;
 use yii\db\Query;
 
 /**
@@ -26,7 +27,7 @@ use yii\db\Query;
  * @property User $user
  * @property WalletType $walletType
  */
-class Payout extends \yii\db\ActiveRecord
+class Payout extends ActiveRecord
 {
     const REMOVE = 0;
 
@@ -99,16 +100,25 @@ class Payout extends \yii\db\ActiveRecord
 
     public function getSuccessPayoutSummary() {
 
-        $query = (new Query())->from('payout')->where(['user_id'=>Yii::$app->user->id, 'payout_status_id'=>1]);
+        $query = (new Query())->from('payout')->where(['user_id'=>Yii::$app->user->id, 'payout_status_id'=>1,'isRemoved'=>1]);
         $sum = $query->sum('payout_sum_rub');
-        echo $sum;
+
+        if($sum == 0){
+            echo 0;
+        }else{
+            echo $sum;
+        }
     }
 
     public function getTotalPayoutSummary() {
 
-        $query = (new \yii\db\Query())->from('payout')->where(['user_id'=>Yii::$app->user->id]);
+        $query = (new Query())->from('payout')->where(['user_id'=>Yii::$app->user->id]);
         $sum = $query->sum('payout_sum_rub');
-        echo $sum;
+        if($sum == 0){
+            echo 0;
+        }else{
+            echo $sum;
+        }
     }
 
     public function getCurrencyList ()

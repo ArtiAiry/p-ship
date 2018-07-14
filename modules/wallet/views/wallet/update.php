@@ -6,7 +6,8 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model app\modules\wallet\models\Wallet */
 
-$this->title = Module::t('wallet','Update Wallet: ') . $model->id;
+//$this->title = Module::t('wallet','Update Wallet: ') . $model->id;
+$this->title = Module::t('wallet','Edit Wallet');
 $this->params['breadcrumbs'][] = ['label' =>  Module::t('wallet','Wallets'), 'url' => ['/wallet']];
 $this->params['breadcrumbs'][] = ['label' => $model->id, 'url' => ['view', 'id' => $model->id]];
 $this->params['breadcrumbs'][] = Module::t('wallet','Update');

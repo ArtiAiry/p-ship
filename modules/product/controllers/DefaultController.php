@@ -3,6 +3,8 @@
 namespace app\modules\product\controllers;
 
 use app\modules\product\models\Product;
+use app\modules\profile\models\Profile;
+use Yii;
 use yii\web\Controller;
 
 /**
@@ -18,8 +20,11 @@ class DefaultController extends Controller
     {
 
         $products = Product::find()->orderBy('id asc')->all();
+        $profile = Profile::findOne(Yii::$app->user->id);
+
         return $this->render('index',[
             'products' => $products,
+            'profile' => $profile,
         ]);
     }
 }

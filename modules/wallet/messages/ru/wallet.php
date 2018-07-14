@@ -9,6 +9,8 @@ return [
     'Create Form' => 'Создать форму',
     'Create Landing' => 'Создать Лэндинг',
     'Update Lead: ' => 'Обновить лид с id: ',
+    'Edit Wallet' => 'Редактировать кошелек',
+    'Update Wallet: ' => 'Редактировать кошелек с id: ',
 
     //grid
 

@@ -4,6 +4,7 @@ namespace app\modules\leads\controllers;
 
 use Yii;
 use app\modules\leads\models\ClicksLeads;
+use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -23,6 +24,17 @@ class LeadsController extends Controller
                 'class' => VerbFilter::className(),
                 'actions' => [
                     'delete' => ['POST'],
+                ],
+            ],
+            'access' => [
+                'class' => AccessControl::className(),
+                'only' => ['create','update','view','delete','remove'],
+                'rules' => [
+                    [
+                        'allow' => true,
+                        'actions' => ['create','update','view','delete','remove'],
+                        'roles' => ['admin'],
+                    ],
                 ],
             ],
         ];
@@ -92,6 +104,7 @@ class LeadsController extends Controller
 
         return $this->redirect(['index']);
     }
+
 
     public function actionRemove($id)
     {

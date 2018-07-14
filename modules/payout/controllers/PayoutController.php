@@ -5,6 +5,7 @@ namespace app\modules\payout\controllers;
 use Yii;
 use app\modules\payout\models\Payout;
 use app\modules\payout\models\PayoutSearch;
+use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -24,6 +25,17 @@ class PayoutController extends Controller
                 'class' => VerbFilter::className(),
                 'actions' => [
                     'delete' => ['POST'],
+                ],
+            ],
+            'access' => [
+                'class' => AccessControl::className(),
+                'only' => ['create','update','view','delete'],
+                'rules' => [
+                    [
+                        'allow' => true,
+                        'actions' => ['create','update','view','delete'],
+                        'roles' => ['managePayouts'],
+                    ],
                 ],
             ],
         ];

@@ -196,7 +196,22 @@ class User extends ActiveRecord implements IdentityInterface
         if($this->status == self::STATUS_ACTIVE){
             return "<label class='badge badge-success'>" . Yii::t('app','Active') . "</label>";
         }else{
-            return "<label class='badge badge-success'>" . Yii::t('app','Active') . "</label>";
+            return "<label class='badge badge-danger'>" . Yii::t('app','Deleted') . "</label>";
+        }
+    }
+
+    public function getRole()
+    {
+        $auth = Yii::$app->authManager;
+        $roles = $auth->getRolesByUser($this->id);
+        return !empty($roles) ? array_keys($roles)[0] : null;
+    }
+
+    public function getRoleName()
+    {
+        $roles = Yii::$app->authManager->getRolesByUser(Yii::$app->user->getId());
+        foreach ($roles as $role){
+            echo $role->description;
         }
     }
 

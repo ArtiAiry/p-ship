@@ -20,22 +20,27 @@ class RbacController extends Controller
 
         $auth = Yii::$app->authManager;
 
-        $manageAffiliates = $auth->createPermission('manageSources');
-        $manageAffiliates->description = 'Manage sources';
-        $auth->add($manageAffiliates);
+
+        $addPayouts = $auth->createPermission('managePayouts');
+        $addPayouts->description = 'Manage payouts';
+        $auth->add($addPayouts);
+
+        $addProducts = $auth->createPermission('manageProducts');
+        $addProducts->description = 'Manage products';
+        $auth->add($addProducts);
 
 
         $affiliate = $auth->createRole('affiliate');
         $affiliate->description = 'Affiliate';
         $auth->add($affiliate);
 
-        $auth->addChild($affiliate, $manageAffiliates);
         $admin = $auth->createRole('admin');
         $admin->description = 'Administrator';
         $auth->add($admin);
 
         $auth->addChild($admin, $affiliate);
-        $auth->addChild($admin, $manageAffiliates);
+        $auth->addChild($admin, $addProducts);
+        $auth->addChild($admin, $addPayouts);
     }
     public function actionAssign($role, $username)
     {
