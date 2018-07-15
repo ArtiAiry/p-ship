@@ -26,12 +26,11 @@ class SettingsController extends Controller
         $payout = new Payout();
         $user = User::find()->where(['id' => Yii::$app->user->id])->one();
         $profile = Profile::find()->where(['id' => Yii::$app->user->id])->one();
-//        $sources = Source::find()->orderBy('id asc')->where(['user_id'=>Yii::$app->user->id])->all();
         $wallet = Wallet::findOne(Yii::$app->user->id);
-        $leads = ClicksLeads::find()->orderBy('id asc')->where(['user_id'=>Yii::$app->user->id])->all();
+        $leads = ClicksLeads::find()->orderBy('id asc')->where(['user_id' => Yii::$app->user->id])->all();
 
         if (!isset($user, $profile)) {
-            throw new NotFoundHttpException(Module::t('settings','Profile\'s settings successfully saved.'));
+            throw new NotFoundHttpException(Module::t('settings', 'Profile\'s settings successfully saved.'));
         }
 
         if ($user->load(Yii::$app->request->post()) && $profile->load(Yii::$app->request->post())) {
@@ -40,12 +39,11 @@ class SettingsController extends Controller
             if ($isValid) {
                 $user->save(false);
                 $profile->save(false);
-                Yii::$app->session->setFlash('success', Module::t('settings','Profile\'s settings successfully saved.'));
+                Yii::$app->session->setFlash('success', Module::t('settings', 'Profile\'s settings successfully saved.'));
                 return $this->redirect(['edit']);
-            } else{
-                Yii::$app->session->setFlash('danger', Module::t('settings','Error in saving Profile\'s settings.'));
+            } else {
+                Yii::$app->session->setFlash('danger', Module::t('settings', 'Error in saving Profile\'s settings.'));
                 return $this->redirect(['edit']);
-
             }
         }
 
@@ -55,11 +53,33 @@ class SettingsController extends Controller
             'profile' => $profile,
             'wallet' => $wallet,
             'payout' => $payout,
-//            'sources' => $sources,
             'leads' => $leads,
         ]);
     }
 
+
+    public function actionWallet()
+    {
+
+        $wallet = Wallet::find()->where(['id' => Yii::$app->user->id])->one();
+
+        if ($wallet->load(Yii::$app->request->post())) {
+
+            $isValid = $wallet->validate();
+
+            if ($isValid) {
+                $wallet->save(false);
+                Yii::$app->session->setFlash('success', Module::t('settings', 'Wallet\'s settings successfully saved.'));
+                return $this->redirect(['/settings/edit']);
+            } else {
+                Yii::$app->session->setFlash('danger', Module::t('settings', 'Error in saving Wallet\'s settings.'));
+                return $this->redirect(['/settings/edit']);
+            }
+        }
+        return $this->render('wallet', [
+            'wallet' => $wallet,
+        ]);
+    }
 
 
     public function actionTest($id)
@@ -67,14 +87,12 @@ class SettingsController extends Controller
         $payout = new Payout();
         $user = User::findOne($id);
         $profile = Profile::findOne($id);
-        $identity = Yii::$app->user->id;
-//        $sources = Source::find()->orderBy('id asc')->where(['user_id'=>Yii::$app->user->id])->all();
         $wallet = Wallet::findOne(Yii::$app->user->id);
         $lead = ClicksLeads::findOne(Yii::$app->user->id);
 
         if ($profile['user_id'] != Yii::$app->user->id) {
             throw new NotFoundHttpException("Профиль пользователя не найден.");
-        }else{
+        } else {
             if (!isset($user, $profile)) {
                 throw new NotFoundHttpException("Профиль пользователя не найден.");
             }
@@ -97,7 +115,6 @@ class SettingsController extends Controller
                 'profile' => $profile,
                 'wallet' => $wallet,
                 'payout' => $payout,
-//            'sources' => $sources,
                 'lead' => $lead,
             ]);
         }

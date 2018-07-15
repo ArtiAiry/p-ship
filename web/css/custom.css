@@ -290,6 +290,13 @@ li#example_next a.page-link
 
 }
 
+.img-overlay{
+    width: 100%;
+    height: 100%;
+    background: rgba(255,0,0,0.3);
+}
+
+
 .zoom img{
     transition: all 0.3s;
 }
@@ -327,6 +334,12 @@ li#example_next a.page-link
 }
 
 .card-img-overlay.h-100.d-flex.flex-column.justify-content-end {
+    -webkit-box-shadow: inset 0px -1px 300px 200px rgba(0,0,0,0.7);
+    -moz-box-shadow: inset 0px -1px 300px 200px rgba(0,0,0,0.7);
+    box-shadow: inset 0px -1px 300px 200px rgba(0,0,0,0.7);
+}
+
+.card-img-overlay.h-100.d-flex.flex-column.justify-content-end.main {
     -webkit-box-shadow: inset -12px -180px 107px -66px rgba(0,0,0,0.5);
     -moz-box-shadow: inset -12px -180px 107px -66px rgba(0,0,0,0.5);
     box-shadow: inset -12px -180px 107px -66px rgba(0,0,0,0.5);
@@ -341,6 +354,10 @@ li#example_next a.page-link
 /*}*/
 
 .card-img-overlay.h-100.d-flex.flex-column.justify-content-end{
+    color: #ffffff;
+}
+
+.my-auto.mx-auto.text-center{
     color: #ffffff;
 }
 

@@ -5,7 +5,9 @@ namespace app\modules\leads\models;
 use app\models\User;
 use app\modules\leads\Module;
 use app\modules\product\models\Product;
+use app\modules\profile\models\Profile;
 use Codeception\Module\Cli;
+use Yii;
 use yii\db\ActiveRecord;
 use yii\db\Query;
 
@@ -41,6 +43,7 @@ class ClicksLeads extends ActiveRecord
     public $count_status_sold;
     public $sum_lead_sold_summary;
     public $date;
+
     /**
      * @inheritdoc
      */
@@ -57,8 +60,8 @@ class ClicksLeads extends ActiveRecord
     {
         return [
             [['product_id', 'leads_status_id', 'price', 'user_id'], 'integer'],
-            [['created_at','date'], 'safe'],
-            [['count_lead','count_status_unknown','count_status_rejected','count_status_approved','count_status_sold', 'sum_lead_sold_summary'], 'integer'],
+            [['created_at', 'date'], 'safe'],
+            [['count_lead', 'count_status_unknown', 'count_status_rejected', 'count_status_approved', 'count_status_sold', 'sum_lead_sold_summary'], 'integer'],
             [['ip', 'user_device', 'user_os', 'source'], 'string', 'max' => 64],
             [['product_id'], 'exist', 'skipOnError' => true, 'targetClass' => Product::className(), 'targetAttribute' => ['product_id' => 'id']],
             [['user_id'], 'exist', 'skipOnError' => true, 'targetClass' => Product::className(), 'targetAttribute' => ['user_id' => 'id']],
@@ -72,20 +75,19 @@ class ClicksLeads extends ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => Module::t('leads','ID'),
-            'ip' => Module::t('leads','Ip'),
-            'user_device' => Module::t('leads','User Device'),
-            'user_os' => Module::t('leads','User OS'),
-            'user_id' => Module::t('leads','Affiliate'),
-            'product_id' => Module::t('leads','Product'),
-            'leads_status_id' => Module::t('leads','Status'),
-            'price' => Module::t('leads','Price'),
-            'source'=> Module::t('leads','Source'),
-            'isSold' => Module::t('leads','Is Sold'),
-            'created_at' => Module::t('leads','Created At'),
+            'id' => Module::t('leads', 'ID'),
+            'ip' => Module::t('leads', 'Ip'),
+            'user_device' => Module::t('leads', 'User Device'),
+            'user_os' => Module::t('leads', 'User OS'),
+            'user_id' => Module::t('leads', 'Affiliate'),
+            'product_id' => Module::t('leads', 'Product'),
+            'leads_status_id' => Module::t('leads', 'Status'),
+            'price' => Module::t('leads', 'Price'),
+            'source' => Module::t('leads', 'Source'),
+            'isSold' => Module::t('leads', 'Is Sold'),
+            'created_at' => Module::t('leads', 'Created At'),
         ];
     }
-
 
 
     /**
@@ -133,7 +135,8 @@ class ClicksLeads extends ActiveRecord
         return $this->isRemoved;
     }
 
-    public static function getLeadsCountDemo() {
+    public static function getLeadsCountDemo()
+    {
 
         return self::find()->select(['*',
             'count_lead' => 'COUNT(*)',
@@ -143,6 +146,122 @@ class ClicksLeads extends ActiveRecord
             'count_status_sold' => 'COUNT(CASE WHEN leads_status_id = 4 THEN 1 ELSE NULL END)',
             'sum_lead_sold_summary' => 'SUM(CASE WHEN leads_status_id = 4 THEN price ELSE 0 END)',
         ])->groupBy('source')->all();
+    }
+
+
+    public static function getLeadsBySource()
+    {
+
+        $profile = Profile::find()->where(['id' => Yii::$app->user->id])->one();
+
+        if ($profile->user->getRole() == 'admin') {
+
+            return self::find()->select([
+                'source',
+                'count_lead' => 'COUNT(*)',
+                'count_status_unknown' => 'COUNT(CASE WHEN leads_status_id = 1 THEN 1 ELSE NULL END)',
+                'count_status_rejected' => 'COUNT(CASE WHEN leads_status_id = 2 THEN 1 ELSE NULL END)',
+                'count_status_approved' => 'COUNT(CASE WHEN leads_status_id = 3 THEN 1 ELSE NULL END)',
+                'count_status_sold' => 'COUNT(CASE WHEN leads_status_id = 4 THEN 1 ELSE NULL END)',
+                'sum_lead_sold_summary' => 'SUM(CASE WHEN leads_status_id = 4 THEN price ELSE 0 END)',
+            ])
+                ->groupBy('source')
+                ->all();
+        } else {
+            return self::find()->select([
+                'source',
+                'count_lead' => 'COUNT(*)',
+                'count_status_unknown' => 'COUNT(CASE WHEN leads_status_id = 1 THEN 1 ELSE NULL END)',
+                'count_status_rejected' => 'COUNT(CASE WHEN leads_status_id = 2 THEN 1 ELSE NULL END)',
+                'count_status_approved' => 'COUNT(CASE WHEN leads_status_id = 3 THEN 1 ELSE NULL END)',
+                'count_status_sold' => 'COUNT(CASE WHEN leads_status_id = 4 THEN 1 ELSE NULL END)',
+                'sum_lead_sold_summary' => 'SUM(CASE WHEN leads_status_id = 4 THEN price ELSE 0 END)',
+            ])
+                ->where(['user_id' => Yii::$app->user->id])
+                ->groupBy('source')
+                ->all();
+        }
+    }
+
+    public static function getLeadsByProducts()
+    {
+
+        $profile = Profile::find()->where(['id' => Yii::$app->user->id])->one();
+
+        if ($profile->user->getRole() == 'admin') {
+
+            return self::find()->select([
+                'product_id',
+                'count_lead' => 'COUNT(*)',
+                'count_status_unknown' => 'COUNT(CASE WHEN leads_status_id = 1 THEN 1 ELSE NULL END)',
+                'count_status_rejected' => 'COUNT(CASE WHEN leads_status_id = 2 THEN 1 ELSE NULL END)',
+                'count_status_approved' => 'COUNT(CASE WHEN leads_status_id = 3 THEN 1 ELSE NULL END)',
+                'count_status_sold' => 'COUNT(CASE WHEN leads_status_id = 4 THEN 1 ELSE NULL END)',
+                'sum_lead_sold_summary' => 'SUM(CASE WHEN leads_status_id = 4 THEN price ELSE 0 END)',
+            ])
+                ->groupBy('product_id')
+                ->all();
+
+        } else {
+
+
+            return self::find()->select([
+                'product_id',
+                'count_lead' => 'COUNT(*)',
+                'count_status_unknown' => 'COUNT(CASE WHEN leads_status_id = 1 THEN 1 ELSE NULL END)',
+                'count_status_rejected' => 'COUNT(CASE WHEN leads_status_id = 2 THEN 1 ELSE NULL END)',
+                'count_status_approved' => 'COUNT(CASE WHEN leads_status_id = 3 THEN 1 ELSE NULL END)',
+                'count_status_sold' => 'COUNT(CASE WHEN leads_status_id = 4 THEN 1 ELSE NULL END)',
+                'sum_lead_sold_summary' => 'SUM(CASE WHEN leads_status_id = 4 THEN price ELSE 0 END)',
+            ])
+                ->where(['user_id' => Yii::$app->user->id])
+                ->groupBy('product_id')
+                ->all();
+
+        }
+    }
+
+
+    public static function getLeadsByDate()
+    {
+
+        $profile = Profile::find()->where(['id' => Yii::$app->user->id])->one();
+
+        if ($profile->user->getRole() == 'admin') {
+
+            return self::find()->select([
+                'DATE(created_at)',
+                'count_lead' => 'COUNT(*)',
+                'count_status_unknown' => 'COUNT(CASE WHEN leads_status_id = 1 THEN 1 ELSE NULL END)',
+                'count_status_rejected' => 'COUNT(CASE WHEN leads_status_id = 2 THEN 1 ELSE NULL END)',
+                'count_status_approved' => 'COUNT(CASE WHEN leads_status_id = 3 THEN 1 ELSE NULL END)',
+                'count_status_sold' => 'COUNT(CASE WHEN leads_status_id = 4 THEN 1 ELSE NULL END)',
+                'sum_lead_sold_summary' => 'SUM(CASE WHEN leads_status_id = 4 THEN price ELSE 0 END)',
+                'date' => 'DATE(created_at)',
+            ])
+                ->groupBy('DATE(created_at)')
+                ->all();
+
+        } else {
+
+
+            return self::find()->select([
+                'DATE(created_at)',
+                'count_lead' => 'COUNT(*)',
+                'count_status_unknown' => 'COUNT(CASE WHEN leads_status_id = 1 THEN 1 ELSE NULL END)',
+                'count_status_rejected' => 'COUNT(CASE WHEN leads_status_id = 2 THEN 1 ELSE NULL END)',
+                'count_status_approved' => 'COUNT(CASE WHEN leads_status_id = 3 THEN 1 ELSE NULL END)',
+                'count_status_sold' => 'COUNT(CASE WHEN leads_status_id = 4 THEN 1 ELSE NULL END)',
+                'sum_lead_sold_summary' => 'SUM(CASE WHEN leads_status_id = 4 THEN price ELSE 0 END)',
+                'date' => 'DATE(created_at)',
+            ])
+                ->where(['user_id' => Yii::$app->user->id])
+                ->groupBy('DATE(created_at)')
+                ->all();
+
+        }
+
+
     }
 
 //    public function getLeadSummary()

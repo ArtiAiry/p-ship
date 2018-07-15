@@ -13,14 +13,14 @@ $this->params['breadcrumbs'][] = ['label' => $model->id, 'url' => ['view', 'id' 
 $this->params['breadcrumbs'][] = Module::t('wallet','Update');
 ?>
 <div class="col-md-6 d-flex align-items-stretch grid-margin">
-<div class="card">
-    <div class="card-body">
+    <div class="card">
+        <div class="card-body">
 
-    <h1><?= Html::encode($this->title) ?></h1>
+            <h1><?= Html::encode($this->title) ?></h1>
 
-    <?= $this->render('_form', [
-        'model' => $model,
-    ]) ?>
+            <?= $this->render('_form', [
+                'model' => $model,
+            ]) ?>
+        </div>
     </div>
-</div>
 </div>
