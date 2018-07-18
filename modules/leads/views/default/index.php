@@ -26,6 +26,13 @@ Modal::end();
 
 ?>
 
+<badge id="reportrange" class="btn btn-outline-primary">
+
+    <span></span> <b class="caret"></b>
+</badge>
+
+<p></p>
+
 <div class="card fade-out">
     <div class="card-body">
         <h1><?= Html::encode($this->title)?>
@@ -37,22 +44,11 @@ Modal::end();
         </h1>
         <?php if(!empty($leads)): ?>
 
-<!--            <table border="0" cellspacing="5" cellpadding="5">-->
-<!--                <tbody>-->
-<!--                <tr>-->
-<!--                    <td>From:</td>-->
-<!--                    <td><input name="min" id="min" type="text"></td>-->
-<!--                </tr>-->
-<!--                <tr>-->
-<!--                    <td>To:</td>-->
-<!--                    <td><input name="max" id="max" type="text"></td>-->
-<!--                </tr>-->
-<!--                </tbody>-->
-<!--            </table>-->
-        <table id="extended-table" class="table table-hover table-bordered dt-responsive nowrap" style="width:100%">
+        <table id="demo-table" class="table table-hover table-bordered dt-responsive nowrap" style="width:100%">
                 <thead>
                 <tr>
                     <td><?= Module::t('leads','ID')?></td>
+                    <td><?= Module::t('leads','Created At')?></td>
                     <td><?= Module::t('leads','IP')?></td>
                     <td><?= Module::t('leads','User Device')?></td>
                     <td><?= Module::t('leads','User OS')?></td>
@@ -61,8 +57,6 @@ Modal::end();
                     <td><?= Module::t('leads','Product')?></td>
                     <td><?= Module::t('leads','Status')?></td>
                     <td><?= Module::t('leads','Price')?></td>
-                    <td><?= Module::t('leads','Created At')?></td>
-                    <td><?= Module::t('leads','Created At')?></td>
                     <?php if($profile->user->getRole() == 'admin'): ?>
                     <td><?= Module::t('leads','Actions')?></td>
                     <?php endif; ?>
@@ -74,6 +68,8 @@ Modal::end();
                     <!--                --><?php //if($profile->user->getRole() == 'teacher'): ?>
                     <tr>
                         <td><?= $lead->id ?></td>
+<!--                        <td>06.0--><?//= $lead->id ?><!--.18</td>-->
+                        <td><?= Yii::$app->formatter->asDate($lead->created_at) . " " . Yii::$app->formatter->asTime($lead->created_at)?></td>
                         <td><?= $lead->ip ?></td>
                         <td><?= $lead->user_device ?></td>
                         <td><?= $lead->user_os ?></td>
@@ -82,8 +78,6 @@ Modal::end();
                         <td><?= $lead->product->name ?></td>
                         <td><?= $lead->leadsStatus->name ?></td>
                         <td><?= $lead->price ?></td>
-                        <td><?= Yii::$app->formatter->asDate($lead->created_at) . " " . Yii::$app->formatter->asTime($lead->created_at)?></td>
-                        <td>06.<?= $lead->id ?>.18</td>
                         <!--                        <td>--><?//= $profile->user->getRole() ?><!--</td>-->
                         <?php if($profile->user->getRole() == 'admin'): ?>
                         <td>
@@ -101,6 +95,16 @@ Modal::end();
     </div>
 </div>
 
+
+
+<!--<div id="reportrange" class="btn btn-success btn-lg">-->
+<!---->
+<!--    <span></span> <b class="caret"></b>-->
+<!--</div>-->
+<!--<hr>-->
+<!--<br>-->
+<!--<table id="example" class="table table-striped" cellspacing="0" width="100%"></table>-->
+<!---->
 
 <?php
 Modal::begin([

@@ -42,13 +42,16 @@ class PublicAsset extends AssetBundle
 
         'css/custom.css',
 
+        'https://app.dineandgift.com/plugins/daterangepicker/daterangepicker.css',
 
     ];
     public $js = [
 //        'js/jquery-3.3.1.js',
 
         'http://code.jquery.com/ui/1.11.0/jquery-ui.js',
-        'js/jquery-ui/datepicker-ru.js',
+//        'js/jquery-ui/datepicker-ru.js',
+        'https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.16.0/moment.min.js',
+        'https://cdnjs.cloudflare.com/ajax/libs/bootstrap-daterangepicker/2.1.27/daterangepicker.js',
         'js/chart.js',
         'js/maps.js',
         'js/misc.js',
@@ -60,8 +63,10 @@ class PublicAsset extends AssetBundle
         'js/datatables.js',
         'js/buttons.bootstrap4.min.js',
 
-
-//'js/daterangefilter.js',
+//        '//cdn.datatables.net/plug-ins/1.10.19/filtering/row-based/range_dates.js',
+//        'js/daterangefilter.js',
+        'js/daterange.js',
+//        'js/date-page.js',
         'js/owl.carousel.js',
         'js/clipboard.js',
         'js/dashboard.js',
@@ -72,6 +77,8 @@ class PublicAsset extends AssetBundle
 
         'js/modal/modalView.js',
         'js/modal/modalUpdate.js',
+
+
 
     ];
     public $depends = [

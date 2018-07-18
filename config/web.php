@@ -47,7 +47,7 @@ $config = [
         ],
        'formatter' => [
            'defaultTimeZone' => 'Europe/Moscow',
-           'dateFormat' => 'dd.MM.yyyy',
+           'dateFormat' => 'MM.dd.yyyy',
        ],
 
 
