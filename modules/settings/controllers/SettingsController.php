@@ -8,6 +8,7 @@
 
 namespace app\modules\settings\controllers;
 
+use app\models\form\PasswordResetRequestForm;
 use app\models\User;
 use app\modules\leads\models\ClicksLeads;
 use app\modules\payout\models\Payout;
@@ -80,45 +81,23 @@ class SettingsController extends Controller
         ]);
     }
 
-
-    public function actionTest($id)
+    public function actionReset()
     {
-        $payout = new Payout();
-        $user = User::findOne($id);
-        $profile = Profile::findOne($id);
-        $wallet = Wallet::findOne(Yii::$app->user->id);
-        $lead = ClicksLeads::findOne(Yii::$app->user->id);
 
-        if ($profile['user_id'] != Yii::$app->user->id) {
-            throw new NotFoundHttpException("Профиль пользователя не найден.");
-        } else {
-            if (!isset($user, $profile)) {
-                throw new NotFoundHttpException("Профиль пользователя не найден.");
+        $model = new PasswordResetRequestForm();
+        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
+            if ($model->sendEmail()) {
+                Yii::$app->session->setFlash('success', 'Check your email for further instructions.');
+
+                return $this->goHome();
+            } else {
+                Yii::$app->session->setFlash('error', 'Sorry, we are unable to reset password for email provided.');
             }
-
-            if ($user->load(Yii::$app->request->post()) && $profile->load(Yii::$app->request->post())) {
-                $isValid = $user->validate();
-                $isValid = $profile->validate() && $isValid;
-                if ($isValid) {
-                    $user->save(false);
-                    $profile->save(false);
-                    Yii::$app->session->setFlash('success', 'Profile Settings successfully saved.');
-                    return $this->redirect(['edit', 'id' => $id]);
-                }
-            }
-
-
-            return $this->render('edit', [
-
-                'user' => $user,
-                'profile' => $profile,
-                'wallet' => $wallet,
-                'payout' => $payout,
-                'lead' => $lead,
-
-            ]);
         }
 
+        return $this->render('requestPasswordResetToken', [
+            'model' => $model,
+        ]);
     }
 
 

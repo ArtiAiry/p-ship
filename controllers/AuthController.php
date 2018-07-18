@@ -59,7 +59,7 @@ class AuthController extends Controller
             }
         }
 
-        return $this->renderPartial('requestPasswordResetToken', [
+        return $this->render('requestPasswordResetToken', [
             'model' => $model,
         ]);
     }

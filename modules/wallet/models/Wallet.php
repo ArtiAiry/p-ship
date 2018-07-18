@@ -92,17 +92,17 @@ class Wallet extends ActiveRecord
     public function getMainWallet() {
 
         if ($this->wallet_type_id == 1){
-            return '<span class="badge badge-warning" data-toggle="tooltip" data-placement="bottom"  title="Requisites: ' . $this->yandex_money  .   '">' . $this->walletType->name .  "</span>";
+            return '<span class="badge badge-warning" data-toggle="tooltip" data-placement="bottom"  title="Реквизиты: ' . $this->yandex_money  .   '">' . $this->walletType->name .  "</span>";
         } elseif ($this->wallet_type_id == 2){
-            return '<span class="badge badge-success" data-toggle="tooltip" data-placement="bottom"  title="Requisites: ' . $this->qiwi . '">' . $this->walletType->name . "</span>";
+            return '<span class="badge badge-success" data-toggle="tooltip" data-placement="bottom"  title="Реквизиты: ' . $this->qiwi . '">' . $this->walletType->name . "</span>";
         } elseif ($this->wallet_type_id == 3){
-            return '<span class="badge badge-pill badge-dark" data-toggle="tooltip" data-placement="bottom"  title="Requisites: ' . $this->webmoney_wmr . '">' . $this->walletType->name . '</span>';
+            return '<span class="badge badge-pill badge-dark" data-toggle="tooltip" data-placement="bottom"  title="Реквизиты: ' . $this->webmoney_wmr . '">' . $this->walletType->name . '</span>';
         } elseif ($this->wallet_type_id == 4){
-            return '<span class="badge badge-primary" data-toggle="tooltip" data-placement="bottom"  title="Requisites: ' . $this->paypal_eur . '">' . $this->walletType->name . '</span>';
+            return '<span class="badge badge-primary" data-toggle="tooltip" data-placement="bottom"  title="Реквизиты: ' . $this->paypal_eur . '">' . $this->walletType->name . '</span>';
         } elseif ($this->wallet_type_id == 5){
-            return '<span class="badge badge-info" data-toggle="tooltip" data-placement="bottom"  title="Requisites: ' . $this->sberbank_rub . '">' . $this->walletType->name . '</span>';
+            return '<span class="badge badge-info" data-toggle="tooltip" data-placement="bottom"  title="Реквизиты: ' . $this->sberbank_rub . '">' . $this->walletType->name . '</span>';
         } else {
-            return '<span class="badge badge-success" data-toggle="tooltip" data-placement="bottom"  title="Requisites: ' . $this->pb_uah . '">' . $this->walletType->name . '</span>';
+            return '<span class="badge badge-success" data-toggle="tooltip" data-placement="bottom"  title="Реквизиты: ' . $this->pb_uah . '">' . $this->walletType->name . '</span>';
         }
 
     }

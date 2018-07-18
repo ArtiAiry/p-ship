@@ -108,7 +108,7 @@ $this->params['breadcrumbs'][] = Module::t('settings', 'Profile\'s Settings');
                             <p class="card-text text-right"><?= Module::t('settings', 'Password Settings') ?></p>
                             <div class="fluid-container">
                                 <h3 class="card-title font-weight-bold text-right mb-0"><a
-                                        href="<?= Url::to(['/site/request-password-reset']) ?>"
+                                        href="<?= Url::to(['/settings/reset']) ?>"
                                         class="btn btn-outline-primary btn-rounded btn-xs update-modal-click"><?= Module::t('settings', 'Reset') ?></a>
                                 </h3>
                             </div>
