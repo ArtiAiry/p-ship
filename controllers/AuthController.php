@@ -10,6 +10,7 @@ namespace app\controllers;
 
 
 
+use app\models\form\PasswordResetRequestForm;
 use Yii;
 use yii\web\Controller;
 use app\models\form\LoginForm;
@@ -40,6 +41,27 @@ class AuthController extends Controller
         Yii::$app->user->logout();
 
         return $this->goHome();
+    }
+
+    public function actionReset()
+    {
+
+        $this->layout = false;
+
+        $model = new PasswordResetRequestForm();
+        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
+            if ($model->sendEmail()) {
+                Yii::$app->session->setFlash('success', 'Check your email for further instructions.');
+
+                return $this->goHome();
+            } else {
+                Yii::$app->session->setFlash('error', 'Sorry, we are unable to reset password for email provided.');
+            }
+        }
+
+        return $this->renderPartial('requestPasswordResetToken', [
+            'model' => $model,
+        ]);
     }
 
 

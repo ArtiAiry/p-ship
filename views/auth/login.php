@@ -7,6 +7,7 @@
 use app\assets\PublicAsset;
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
+use yii\helpers\Url;
 
 
 PublicAsset::register($this);
@@ -58,8 +59,10 @@ $this->params['breadcrumbs'][] = $this->title;
                                     <?= Html::submitButton(Yii::t('app','Log in '), ['class' => 'btn btn-block btn-warning btn-lg font-weight-medium', 'name' => 'login-button']) ?>
                                 </div>
                                 <div class="mt-3 text-center">
-                                    <a href="#" class="auth-link text-white"><?= Yii::t('app','Forgot password?') ?></a>
+                                    <a href="<?= Url::to(['auth/reset'])?>" class="auth-link text-white"><?= Yii::t('app','Forgot password?') ?></a> /
+                                    <a href="<?= Url::to(['/register'])?>" class="auth-link text-white"><?= Yii::t('app','Register') ?></a>
                                 </div>
+
                     </div>
                 </div>
                 <?php ActiveForm::end(); ?>
@@ -74,35 +77,3 @@ $this->params['breadcrumbs'][] = $this->title;
 </html>
 <?php $this->endPage() ?>
 
-
-<!---->
-<!--<div class="site-login">-->
-<!--    <h1>--><?//= Html::encode($this->title) ?><!--</h1>-->
-<!---->
-<!--    <p>Please fill out the following fields to login:</p>-->
-<!---->
-<!--    --><?php //$form = ActiveForm::begin([
-//        'id' => 'login-form',
-//        'layout' => 'horizontal',
-//        'fieldConfig' => [
-//            'template' => "{label}\n<div class=\"col-lg-3\">{input}</div>\n<div class=\"col-lg-8\">{error}</div>",
-//            'labelOptions' => ['class' => 'col-lg-1 control-label'],
-//        ],
-//    ]); ?>
-<!---->
-<!--    --><?//= $form->field($model, 'login')->textInput(['autofocus' => true]) ?>
-<!---->
-<!--    --><?//= $form->field($model, 'password_hash')->passwordInput() ?>
-<!---->
-<!--    --><?//= $form->field($model, 'rememberMe')->checkbox([
-//        'template' => "<div class=\"col-lg-offset-1 col-lg-3\">{input} {label}</div>\n<div class=\"col-lg-8\">{error}</div>",
-//    ]) ?>
-<!---->
-<!--    <div class="form-group">-->
-<!--        <div class="col-lg-offset-1 col-lg-11">-->
-<!--            --><?//= Html::submitButton('Login', ['class' => 'btn btn-primary', 'name' => 'login-button']) ?>
-<!--        </div>-->
-<!--    </div>-->
-<!---->
-<!--    --><?php //ActiveForm::end(); ?>
-<!--</div>-->

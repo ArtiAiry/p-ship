@@ -55,6 +55,7 @@ return [
     'I accept terms and conditions'=>'Я принимаю условия соглашения',
     'Enter Username or Email'=>'Введите Логин или Почту',
     'Enter Password'=>'Введите Пароль',
+    'Enter Email'=>'Введите почту',
     'Password'=>'Пароль',
     'Your Username'=>'Ваш логин',
     'Your Email'=>'Ваша почта',
@@ -101,6 +102,12 @@ return [
     'Send'=>'Отправить',
     'Subject'=>'Тема',
     'Text Body'=>'Текст',
-    'Verification Code'=>'Код верификации'
+    'Verification Code'=>'Код верификации',
+
+    //reset pw
+
+    'Request Reset Password'=>'Сброс Пароля',
+    'Back to the main page'=>'Вернуться на главную',
+    'Please fill out your email. A link to reset password will be sent there.'=>'Пожалуйста, укажите свой адрес электронной почты. На Вашу почту будет отправлена ссылка на сброс пароля.'
 
 ];

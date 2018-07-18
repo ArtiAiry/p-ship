@@ -12,7 +12,7 @@ use Yii;
 use yii\web\Controller;
 use app\models\form\SignupForm;
 
-class SignupController extends Controller
+class RegisterController extends Controller
 {
     public function actionIndex()
     {

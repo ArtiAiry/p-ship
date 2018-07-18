@@ -9501,7 +9501,8 @@ fieldset:disabled a.btn {
 input[type="submit"].btn-block,
 input[type="reset"].btn-block,
 input[type="button"].btn-block {
-  width: 100%; }
+  width: 100%;
+}
 
 .fade {
   transition: opacity 0.15s linear; }

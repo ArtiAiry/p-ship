@@ -374,3 +374,10 @@ li#example_next a.page-link
         display: none;
     }
 }
+
+.auth.reset-full-bg {
+    background: url("/web/images/auth/reset_1.png");
+    background-size: cover;
+}
+
+
