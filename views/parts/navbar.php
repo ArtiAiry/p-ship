@@ -22,7 +22,7 @@ Use yii\helpers\Url;
 <!--        <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>-->
         <ul class="navbar-nav navbar-nav-right">
             <li class="nav-item d-lg-block">
-                <a class="nav-link" href="<?= Url::toRoute(['/profile/edit','id'=>Yii::$app->user->id]);?>">
+                <a class="nav-link" href="<?= Url::toRoute(['/settings/edit']);?>">
                     <i class="mdi mdi-settings" data-toggle="tooltip" data-placement="top"  title="<?= Yii::t('app','Settings') ?>"></i>
                 </a>
             </li>

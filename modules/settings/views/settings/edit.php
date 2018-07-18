@@ -33,15 +33,15 @@ $this->params['breadcrumbs'][] = Module::t('settings', 'Profile\'s Settings');
             <div class="card card-statistics">
                 <div class="card-body">
                     <div class="clearfix">
-                        <div class="float-left">
-                            <i class="mdi mdi-cube text-danger icon-lg"></i>
-                        </div>
+<!--                        <div class="float-left">-->
+<!--                            <i class="mdi mdi-cube text-danger icon-sm"></i>-->
+<!--                        </div>-->
                         <div class="float-right">
                             <p class="card-text text-right"><?= Module::t('settings', 'Total Revenue') ?></p>
                             <div class="fluid-container">
                                 <h3 class="card-title font-weight-bold text-right mb-0"><?= $payout->getSuccessPayoutSummary(); ?>
                                     /
-                                    <?= $payout->getTotalPayoutSummary(); ?> RUB </h3>
+                                    <?= $sumLead->getTotalLeadSummary(); ?> RUB </h3>
                             </div>
                         </div>
                     </div>

@@ -28,10 +28,8 @@ class SettingsController extends Controller
         $profile = Profile::find()->where(['id' => Yii::$app->user->id])->one();
         $wallet = Wallet::findOne(Yii::$app->user->id);
         $leads = ClicksLeads::find()->orderBy('id asc')->where(['user_id' => Yii::$app->user->id])->all();
+        $sumLead = new ClicksLeads();
 
-        if (!isset($user, $profile)) {
-            throw new NotFoundHttpException(Module::t('settings', 'Profile\'s settings successfully saved.'));
-        }
 
         if ($user->load(Yii::$app->request->post()) && $profile->load(Yii::$app->request->post())) {
             $isValid = $user->validate();
@@ -54,6 +52,7 @@ class SettingsController extends Controller
             'wallet' => $wallet,
             'payout' => $payout,
             'leads' => $leads,
+            'sumLead' => $sumLead,
         ]);
     }
 
@@ -116,6 +115,7 @@ class SettingsController extends Controller
                 'wallet' => $wallet,
                 'payout' => $payout,
                 'lead' => $lead,
+
             ]);
         }
 

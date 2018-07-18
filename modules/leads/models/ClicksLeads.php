@@ -272,4 +272,20 @@ class ClicksLeads extends ActiveRecord
 ////        $query->join('LEFT JOIN', 'post', 'post.user_id = user.id');
 //    }
 
+
+
+
+    public function getTotalLeadSummary()
+    {
+        $query = (new Query())
+            ->from('clicks_leads')
+            ->where([
+                'clicks_leads.user_id'=>Yii::$app->user->id,
+                'clicks_leads.leads_status_id'=>4,
+                'clicks_leads.isRemoved'=> 1
+            ]);
+        $sum = $query->sum('price');
+        echo $sum;
+    }
+
 }
