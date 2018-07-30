@@ -21,18 +21,29 @@ class SignupForm extends Model
     public $email;
     public $password_hash;
     public $repeat_password;
+    public $reCaptcha;
+    public $agreement;
 
     public function rules()
     {
         return [
             [['username','email','password_hash','repeat_password'],'required'],
             [['username'], 'string', 'min'=> 4, 'max'=> 255],
-            [['email'], 'unique', 'targetClass'=>'app\models\User', 'targetAttribute'=>'email', 'message'=>"This email has been already token."],
-            [['username'], 'unique', 'targetClass'=>'app\models\User', 'targetAttribute'=>'username', 'message'=>"This username has been already token."],
+            [['email'], 'unique', 'targetClass'=>'app\models\User', 'targetAttribute'=>'email', 'message'=>Yii::t('app','This email has been already token.')],
+            [['username'], 'unique', 'targetClass'=>'app\models\User', 'targetAttribute'=>'username', 'message'=>Yii::t('app','This username has been already token.')],
             [['email'], 'email'],
             [['email'], 'trim'],
             ['email', 'string', 'max' => 255],
-            ['repeat_password', 'compare', 'compareAttribute'=>'password_hash', 'message'=>"Passwords don't match."],
+            ['repeat_password', 'compare', 'compareAttribute'=>'password_hash', 'message'=>Yii::t('app','Passwords don\'t match.')],
+            [['reCaptcha'], \himiklab\yii2\recaptcha\ReCaptchaValidator::className(), 'secret' => '6LdAwGYUAAAAAH2Qnxt-1XMODkvI5aaEdmXck4U7', 'uncheckedMessage' => Yii::t('app','Please confirm that you are not a bot.')],
+            [['agreement'],'compare',
+                'compareValue'=>true,
+                'operator'=>'==',
+                'when' => function($model){
+                    return $model->agreement == 1;
+                },
+                'message'=>Yii::t('app','You must agree with terms and conditions.')
+            ],
 
         ];
     }
@@ -45,6 +56,7 @@ class SignupForm extends Model
             'email' => Yii::t('app','Email'),
             'password_hash' => Yii::t('app','Password'),
             'repeat_password' => Yii::t('app','Repeat Password'),
+            'agreement' => Yii::t('app','I accept terms and conditions'),
         ];
     }
 

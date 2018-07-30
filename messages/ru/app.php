@@ -88,6 +88,13 @@ return [
     'Profiles' => 'Профили',
     'Select Item' => 'Выбрать...',
     'Role'=>'Роль',
+    'Remember me'=>'Запомнить меня',
+    'This email has been already token.'=>'Эта почта уже занята.',
+    'This username has been already token.'=>'Этот логин был уже занят.',
+    'Please confirm that you are not a bot.'=>'Пожалуйста, подтвердите, что Вы не бот.',
+    'You must agree with terms and conditions.'=>'Вы должны согласиться с правилами условия соглашения.',
+
+
 
 
     //status

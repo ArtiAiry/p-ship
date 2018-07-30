@@ -47,22 +47,33 @@ $this->params['breadcrumbs'][] = $this->title;
                             ],
                             ]); ?>
                                 <div class="form-group">
-<!--                                    <label for="exampleInputEmail1">Username</label>-->
-<!--                                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Username">-->
                                     <?= $form->field($model, 'login')->textInput(['class'=>'form-control','autofocus' => true,'placeholder'=>Yii::t('app','Enter Username or Email')]) ?>
                                 </div>
                                 <div class="form-group">
                                     <?= $form->field($model, 'password_hash')->passwordInput(['class'=>'form-control','placeholder'=>Yii::t('app','Enter Password')]) ?>
                                 </div>
                                 <div class="mt-5">
-<!--                                    <a class="btn btn-block btn-warning btn-lg font-weight-medium" href="../../index.html">Login</a>-->
                                     <?= Html::submitButton(Yii::t('app','Log in '), ['class' => 'btn btn-block btn-warning btn-lg font-weight-medium', 'name' => 'login-button']) ?>
                                 </div>
                                 <div class="mt-3 text-center">
                                     <a href="<?= Url::to(['auth/reset'])?>" class="auth-link text-white"><?= Yii::t('app','Forgot password?') ?></a> /
                                     <a href="<?= Url::to(['/register'])?>" class="auth-link text-white"><?= Yii::t('app','Register') ?></a>
                                 </div>
-
+                                <div class="mt-2 w-75 mx-auto">
+<!--                                    <div class="form-check form-check-flat">-->
+<!--                                        <label class="form-check-label">-->
+<!--                                            <input type="checkbox" class="form-check-input">-->
+<!--<!--                                            <input type="checkbox" id="loginform-rememberme" class="form-check-input" name="LoginForm[rememberMe]" value="1" checked="" aria-invalid="false">-->
+<!--                                            --><?//= Yii::t('app','Remember me') ?>
+<!--<!--                                            --><?////= $form->field($model, 'rememberMe')->checkbox(['class'=>'form-check-input'])->label(Yii::t('app','Remember me')) ?>
+<!--                                        </label>-->
+<!--                                    </div>-->
+                                </div>
+                                <div class="mt-2 w-75 mx-auto">
+                                    <div class="form-check form-check-flat">
+                                            <?= $form->field($model, 'rememberMe')->checkbox() ?>
+                                    </div>
+                                </div>
                     </div>
                 </div>
                 <?php ActiveForm::end(); ?>

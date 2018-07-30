@@ -66,15 +66,23 @@ $this->params['breadcrumbs'][] = $this->title;
                                 <div class="form-group">
                                     <?= $form->field($model, 'repeat_password')->passwordInput(['placeholder'=>Yii::t('app','Confirm Password')]) ?>
                                 </div>
+                                <div class="form-group">
+                                    <?= $form->field($model, 'reCaptcha')->widget(
+                                        \himiklab\yii2\recaptcha\ReCaptcha::className(),
+                                        ['siteKey' => '6LdAwGYUAAAAABdm3T80nGL0KtMIKCn7iOY44cZu']
+                                    )->label('') ?>
+                                </div>
                                 <div class="mt-5">
                                     <?= Html::submitButton(Yii::t('app','Register'), ['class' => 'btn btn-block btn-primary btn-lg font-weight-medium', 'name' => 'login-button']) ?>
                                 </div>
                                 <div class="mt-2 w-75 mx-auto">
                                     <div class="form-check form-check-flat">
-                                        <label class="form-check-label">
-                                            <input type="checkbox" class="form-check-input">
-                                            <?= Yii::t('app','I accept terms and conditions') ?>
-                                        </label>
+<!--                                        <label class="form-check-label">-->
+<!--                                            <input type="checkbox" class="form-check-input">-->
+<!--                                            --><?//= Yii::t('app','I accept terms and conditions') ?>
+                                        <?= $form->field($model, 'agreement')->checkbox() ?>
+<!--                                            --><?//= Html::activeCheckbox($model, 'agreement') ?>
+<!--                                        </label>-->
                                     </div>
                                 </div>
                                 <div class="mt-2 text-center">

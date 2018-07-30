@@ -13,6 +13,12 @@ $config = [
         '@npm'   => '@vendor/npm-asset',
     ],
     'components' => [
+        'reCaptcha' => [
+            'name' => 'reCaptcha',
+            'class' => 'himiklab\yii2\recaptcha\ReCaptcha',
+            'siteKey' => '6LdAwGYUAAAAABdm3T80nGL0KtMIKCn7iOY44cZu',
+            'secret' => '6LdAwGYUAAAAAH2Qnxt-1XMODkvI5aaEdmXck4U7',
+        ],
         'request' => [
             'baseUrl' => '',
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
@@ -24,6 +30,7 @@ $config = [
         'user' => [
             'identityClass' => 'app\models\User',
             'enableAutoLogin' => true,
+            'loginUrl' => ['/auth/login'],
         ],
 
         'errorHandler' => [
