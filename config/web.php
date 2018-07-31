@@ -41,7 +41,24 @@ $config = [
             // send all mails to a file by default. You have to set
             // 'useFileTransport' to false and configure a transport
             // for the mailer to send real emails.
-            'useFileTransport' => true,
+            'useFileTransport' => false,
+            'enableSwiftMailerLogging' => true,
+            'transport' => [
+                'class' => 'Swift_SmtpTransport',
+                'host' => 'mail.bontip.ru',
+                'username' => 'autouser@bontip.ru',
+                'password' => 'g8wQEmASp',
+                'port' => '25',
+                'encryption' => 'tls',
+                'streamOptions'=>[
+                    'ssl'=>[
+                        'verify_peer'=>false,
+                        'verify_peer_name'=>false,
+                        'allow_self_signed'=>true
+                    ],
+                ],
+            ],
+
         ],
         'log' => [
             'traceLevel' => YII_DEBUG ? 3 : 0,

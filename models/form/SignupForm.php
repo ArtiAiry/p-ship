@@ -90,6 +90,9 @@ class SignupForm extends Model
             $transaction = $db->beginTransaction();
             if ($user->create() && $profile->save()) {
 
+                $userRole = Yii::$app->authManager->getRole('affiliate');
+                Yii::$app->authManager->assign($userRole, $user->getId());
+
                 $transaction->commit();
             } else {
                 $transaction->rollback();
