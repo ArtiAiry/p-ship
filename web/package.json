@@ -1,0 +1,41 @@
+{
+  "name": "p-ship",
+  "version": "1.0.0",
+  "description": "yii-app-bootstrap-4\r ===========\r yii-app-bootstrap-4 is a mixture of Yii 2 Basic and Advanced templates with no backend / frontend separation, but with the database-based user functionality from the advanced template. The other important note is that it is using Bootsrap 4 instead of Boostrap 3. Some additional folders ('components', 'messages') are also added.",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "dependencies": {
+    "bootstrap": "^4.1.1",
+    "compass": "^0.1.1",
+    "compass-sass-mixins": "^0.12.7",
+    "gulp-rename": "^1.2.3"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.24.4",
+    "del": "^3.0.0",
+    "gulp": "^3.9.1",
+    "gulp-inject": "^4.3.2",
+    "gulp-inject-partials": "^1.0.4",
+    "gulp-replace": "^1.0.0",
+    "gulp-sass": "^4.0.1",
+    "gulp-sourcemaps": "^2.6.4",
+    "run-sequence": "^2.2.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ArtiAiry/p-ship.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ArtiAiry/p-ship/issues"
+  },
+  "homepage": "https://github.com/ArtiAiry/p-ship#readme",
+  "optionalDependencies": {}
+}
