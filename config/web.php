@@ -117,7 +117,7 @@ $config = [
 
                 //settings
                 '<module:settings>/<action:\w+>/<id:\d+>' => '<module>/settings/<action>',
-                '<module:settings>/<action:\w+>' => '<module>/settings/<action>',
+                '<module:settings>/<action>' => '<module>/settings/<action>',
 
 
             ],

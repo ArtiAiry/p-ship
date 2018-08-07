@@ -41,7 +41,7 @@ class PasswordResetRequestForm extends Model
         /* @var $user User */
         $user = User::findOne([
             'status' => User::STATUS_ACTIVE,
-            'email' => $user->email,
+            'email' => $this->email,
         ]);
 
         if (!$user) {
@@ -59,8 +59,14 @@ class PasswordResetRequestForm extends Model
         return Yii::$app
             ->mailer
             ->compose(
-                ['html' => '@app/modules/settings/mail/passwordResetToken-html'],
-                ['user' => $user]
+                [
+                    'html' => '@app/modules/settings/mail/passwordResetToken-html',
+                ],
+                [
+                    'user' => $user,
+                    'logo' => 'http://bontip.ru/web/images/mail/logo-white.png',
+                    'reset'=> 'http://bontip.ru/web/images/mail/mail-change-pw.png',
+                ]
             )
             ->setFrom([Yii::$app->params['supportEmail'] => Yii::$app->name . ' бот'])
             ->setTo($this->email)

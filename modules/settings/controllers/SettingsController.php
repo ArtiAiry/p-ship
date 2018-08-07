@@ -8,16 +8,15 @@
 
 namespace app\modules\settings\controllers;
 
-use app\models\form\PasswordResetRequestForm;
+use app\modules\settings\models\form\PasswordResetRequestForm;
 use app\models\User;
-use app\modules\leads\models\ClicksLeads;
-use app\modules\payout\models\Payout;
-use app\modules\profile\models\Profile;
+use app\modules\settings\models\form\ResetPasswordForm;
 use app\modules\settings\Module;
 use app\modules\wallet\models\Wallet;
 use Yii;
+use yii\base\InvalidParamException;
+use yii\web\BadRequestHttpException;
 use yii\web\Controller;
-use yii\web\NotFoundHttpException;
 
 class SettingsController extends Controller
 {
@@ -35,10 +34,10 @@ class SettingsController extends Controller
             if ($isValid) {
                 $wallet->save(false);
                 Yii::$app->session->setFlash('success', Module::t('settings', 'Wallet\'s settings successfully saved.'));
-                return $this->redirect(['/settings/edit']);
+                return $this->redirect(['/settings']);
             } else {
                 Yii::$app->session->setFlash('danger', Module::t('settings', 'Error in saving Wallet\'s settings.'));
-                return $this->redirect(['/settings/edit']);
+                return $this->redirect(['/settings']);
             }
         }
         return $this->render('wallet', [
@@ -46,19 +45,39 @@ class SettingsController extends Controller
         ]);
     }
 
-    public function actionResetPassword()
+    public function actionPassword()
     {
 
+        $user = User::find()->where(['id'=>Yii::$app->user->id])->one();
         $model = new PasswordResetRequestForm();
+
+        $model->email = $user->email;
             if ($model->sendEmail()) {
-                Yii::$app->session->setFlash('success', 'Check your email for further instructions.');
+                Yii::$app->session->setFlash('success', Module::t('settings', 'Check your email for further instructions.'));
 
-                return $this->goHome();
+                return $this->redirect(['/settings']);
             } else {
-                Yii::$app->session->setFlash('error', 'Sorry, we are unable to reset password for email provided.');
+                Yii::$app->session->setFlash('error', Module::t('settings', 'Sorry, we are unable to reset password for email provided.'));
             }
+            return $this->redirect(['/settings']);
+    }
 
-        return $this->render('requestPasswordResetToken', [
+    public function actionChangePassword($token)
+    {
+        try {
+            $model = new ResetPasswordForm($token);
+
+        } catch (InvalidParamException $e) {
+            throw new BadRequestHttpException($e->getMessage());
+        }
+
+        if ($model->load(Yii::$app->request->post()) && $model->validate() && $model->resetPassword()) {
+            Yii::$app->session->setFlash('success',  Module::t('settings','New password was saved.'));
+
+            return $this->goHome();
+        }
+
+        return $this->render('changePassword', [
             'model' => $model,
         ]);
     }

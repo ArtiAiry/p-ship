@@ -94,11 +94,15 @@ $this->params['breadcrumbs'][] = Module::t('settings', 'Profile\'s Settings');
                             <i class="mdi mdi-lock-question text-primary icon-lg"></i>
                         </div>
                         <div class="float-right">
-                            <p class="card-text text-right"><?= Module::t('settings', 'Password Settings') ?></p>
+                            <p class="card-text text-right"><?= Module::t('settings', 'Access Control') ?></p>
                             <div class="fluid-container">
-                                <h4 class="card-title font-weight-bold text-right mb-0"><a
-                                        href="<?= Url::to(['/settings/reset']) ?>"
-                                        class="btn btn-outline-primary btn-rounded btn-xs update-modal-click"><?= Module::t('settings', 'Reset') ?></a>
+                                <h4 class="card-title font-weight-bold text-right mb-0">
+                                    <a
+                                        href="<?= Url::to(['/settings/reset-email']) ?>"
+                                        class="btn btn-outline-primary btn-rounded btn-xs update-modal-click"><?= Module::t('settings', 'Reset Email') ?></a>
+                                    <a
+                                        href="<?= Url::to(['/settings/password']) ?>"
+                                        class="btn btn-outline-primary btn-rounded btn-xs update-modal-click"><?= Module::t('settings', 'Reset Password') ?></a>
                                 </h4>
                             </div>
                         </div>

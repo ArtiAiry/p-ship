@@ -60,7 +60,11 @@ class PasswordResetRequestForm extends Model
             ->mailer
             ->compose(
                 ['html' => 'passwordResetToken-html', 'text' => 'passwordResetToken-text'],
-                ['user' => $user]
+                [
+                    'user' => $user,
+                    'logo' => 'http://bontip.ru/web/images/mail/logo-white.png',
+                    'reset'=> 'http://bontip.ru/web/images/mail/mail-change-pw.png',
+                ]
             )
             ->setFrom([Yii::$app->params['supportEmail'] => Yii::$app->name . ' бот'])
             ->setTo($this->email)

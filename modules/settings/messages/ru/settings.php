@@ -12,7 +12,11 @@ return [
     'Wallet Settings' => 'Настройки кошелька',
     'Here you can change wallet\'s settings' => 'Настройки кошелька',
     'Password Settings' => 'Настройки пароля',
+    'Access Control' => 'Настройки доступа',
     'Reset Password' => 'Сменить пароль',
+
+
+    'Reset Email' => 'Сменить почту',
     'Profile\'s settings successfully saved.' => 'Настройки профиля были успешно сохранены.',
     'Wallet\'s settings successfully saved.' => 'Настройки кошелька были успешно сохранены.',
     'Error in saving Profile\'s settings.' => 'Ошибка в сохранении настроек профиля.',
@@ -20,8 +24,22 @@ return [
     'User\'s Profile is not found.' => 'Профиль пользователя не найден.',
     'Profile\'s Settings' => 'Настройки профиля',
     'Source' => 'Источник',
+    'Save' => 'Сохранить',
     'Product' => 'Продукт',
     'Actions' => 'Действия',
+
+    //reset pw
+
+    'Change Password'=>'Смена пароля',
+    'Password'=>'Пароль',
+    'Repeat Password'=>'Повторите пароль',
+    'Check your email for further instructions.'=>'Проверьте Вашу почту для дальнейших инструкций.',
+    'Sorry, we are unable to reset password for email provided.'=>'Извините, мы не можем сбросить пароль для отправки по электронной почте.',
+    'Please choose your new password:'=>'Пожалуйста, укажите Ваш новый пароль.',
+    'Password reset token cannot be blank.'=>'Токен сброса пароля не может быть пустым.',
+    'Passwords don\'t match.'=>'Введенные пароли не совпадают.',
+    'Wrong password reset token.'=>'Неправильный токен сброса пароля',
+    'New password was saved.'=>'Новый пароль был сохранен.',
 
     //actions
 

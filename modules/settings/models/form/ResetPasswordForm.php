@@ -1,6 +1,7 @@
 <?php
 namespace app\modules\settings\models\form;
 
+use app\modules\settings\Module;
 use Yii;
 use yii\base\Model;
 use yii\base\InvalidParamException;
@@ -11,7 +12,9 @@ use app\models\User;
  */
 class ResetPasswordForm extends Model
 {
+    public $repeat_password;
     public $password;
+
 
     /**
      * @var User
@@ -30,7 +33,8 @@ class ResetPasswordForm extends Model
     {
         return [
             // 'verifyCode' => Yii::t('app','Verification Code'),
-            'password' => Yii::t('app','Password'),
+            'password' => Module::t('settings','Password'),
+            'repeat_password' => Module::t('settings','Repeat Password'),
 
         ];
     }
@@ -39,11 +43,11 @@ class ResetPasswordForm extends Model
     public function __construct($token, $config = [])
     {
         if (empty($token) || !is_string($token)) {
-            throw new InvalidParamException(Yii::t('app','Password reset token cannot be blank.'));
+            throw new InvalidParamException(Module::t('settings','Password reset token cannot be blank.'));
         }
         $this->_user = User::findByPasswordResetToken($token);
         if (!$this->_user) {
-            throw new InvalidParamException(Yii::t('app','Wrong password reset token.'));
+            throw new InvalidParamException(Module::t('settings','Wrong password reset token.'));
         }
         parent::__construct($config);
     }
@@ -54,8 +58,9 @@ class ResetPasswordForm extends Model
     public function rules()
     {
         return [
-            ['password', 'required'],
+            [['password', 'repeat_password'],'required'],
             ['password', 'string', 'min' => 6],
+            ['repeat_password', 'compare', 'compareAttribute'=>'password', 'message'=>Module::t('settings','Passwords don\'t match.')],
         ];
     }
 

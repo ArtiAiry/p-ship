@@ -131,7 +131,8 @@ return [
     'Sorry, we are unable to reset password for email provided.'=>'Извините, мы не можем сбросить пароль для отправки по электронной почте.',
     'Please choose your new password:'=>'Пожалуйста, укажите Ваш новый пароль.',
     'Password reset token cannot be blank.'=>'Токен сброса пароля не может быть пустым.',
-    'Wrong password reset token.'=>'Направильный токен сброса пароля',
+    'Wrong password reset token.'=>'Неправильный токен сброса пароля',
+    'Passwords don\'t match.'=>'Введенные пароли не совпадают.',
     'New password was saved.'=>'Новый пароль был сохранен.',
     'Please fill out your email. A link to reset password will be sent there.'=>'Пожалуйста, укажите свой адрес электронной почты. На Вашу почту будет отправлена ссылка на сброс пароля.'
 

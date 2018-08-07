@@ -11,7 +11,9 @@ use app\models\User;
  */
 class ResetPasswordForm extends Model
 {
+    public $repeat_password;
     public $password;
+
 
     /**
      * @var User
@@ -31,6 +33,7 @@ class ResetPasswordForm extends Model
         return [
             // 'verifyCode' => Yii::t('app','Verification Code'),
             'password' => Yii::t('app','Password'),
+            'repeat_password' => Yii::t('app','Repeat Password'),
 
         ];
     }
@@ -54,8 +57,9 @@ class ResetPasswordForm extends Model
     public function rules()
     {
         return [
-            ['password', 'required'],
+            [['password', 'repeat_password'],'required'],
             ['password', 'string', 'min' => 6],
+            ['repeat_password', 'compare', 'compareAttribute'=>'password', 'message'=>Yii::t('app','Passwords don\'t match.')],
         ];
     }
 

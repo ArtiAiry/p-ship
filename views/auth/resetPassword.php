@@ -49,6 +49,9 @@ $this->params['breadcrumbs'][] = $this->title;
                         <div class="form-group">
                         <?= $form->field($model, 'password')->passwordInput(['autofocus' => true]) ?>
                         </div>
+                        <div class="form-group">
+                            <?= $form->field($model, 'repeat_password')->passwordInput(['autofocus' => true]) ?>
+                        </div>
                         <div class="mt-5">
                             <?= Html::submitButton(Yii::t('app','Save'), ['class' => 'btn btn-block btn-dark btn-lg font-weight-medium']) ?>
                         </div>
