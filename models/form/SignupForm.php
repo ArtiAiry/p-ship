@@ -29,10 +29,12 @@ class SignupForm extends Model
         return [
             [['username','email','password_hash','repeat_password'],'required'],
             [['username'], 'string', 'min'=> 4, 'max'=> 255],
+            ['username', 'match', 'pattern' => '/^[a-z]\w*$/i'],
             [['email'], 'unique', 'targetClass'=>'app\models\User', 'targetAttribute'=>'email', 'message'=>Yii::t('app','This email has been already token.')],
             [['username'], 'unique', 'targetClass'=>'app\models\User', 'targetAttribute'=>'username', 'message'=>Yii::t('app','This username has been already token.')],
             [['email'], 'email'],
-            [['email'], 'trim'],
+            ['email', 'filter', 'filter' => 'trim'],
+            ['password_hash', 'string', 'min' => 6],
             ['email', 'string', 'max' => 255],
             ['repeat_password', 'compare', 'compareAttribute'=>'password_hash', 'message'=>Yii::t('app','Passwords don\'t match.')],
             [['reCaptcha'], \himiklab\yii2\recaptcha\ReCaptchaValidator::className(), 'secret' => '6LdAwGYUAAAAAH2Qnxt-1XMODkvI5aaEdmXck4U7', 'uncheckedMessage' => Yii::t('app','Please confirm that you are not a bot.')],
@@ -71,11 +73,15 @@ class SignupForm extends Model
             $user->email = $this->email;
             $user->setPassword($this->password_hash);
             $user->generateAuthKey();
+            $user->status = User::STATUS_WAIT;
+            $user->generateEmailConfirmToken();
             $user->save();
+
 
             $profile = new Profile();
 
             $profile->user_id = $user->id;
+            $profile->ip = Yii::$app->request->userIP;
 
             $user->link('profile', $profile);
 
@@ -84,6 +90,23 @@ class SignupForm extends Model
             $wallet->user_id = $user->id;
 
             $user->link('wallet', $wallet);
+
+            if ($user->save()) {
+                Yii::$app->mailer->compose(
+                    ['html' => 'emailConfirm'],
+                    [
+                        'user' => $user,
+                        'logo' => 'http://bontip.ru/web/images/mail/logo-white.png',
+                        'confirm'=> 'http://bontip.ru/web/images/mail/mail-confirm.png',
+                    ]
+                )
+                    ->setFrom([Yii::$app->params['supportEmail'] => Yii::$app->name . ' бот'])
+                    ->setTo($user->email)
+                    ->setSubject('Подтверждение почты/аккаунта')
+                    ->send();
+
+                return $user;
+            }
 
 
             $db = \Yii::$app->db;

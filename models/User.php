@@ -13,18 +13,24 @@ use yii\web\IdentityInterface;
 /**
  * This is the model class for table "user".
  *
- * @property int $id
+ * @property integer $id
+ * @property integer $created_at
+ * @property integer $updated_at
  * @property string $username
- * @property string $email
+ * @property string $auth_key
+ * @property string $email_confirm_token
  * @property string $password_hash
- * @property string $created_at
- * @property string $updated_at
- */
+ * @property string $password_reset_token
+ * @property string $email
+ * @property integer $status
+ *
+ *
+ **/
 class User extends ActiveRecord implements IdentityInterface
 {
 
 
-    const STATUS_DELETED = 0;
+    const STATUS_BLOCKED = 0;
     const STATUS_WAIT = 5;
     const STATUS_ACTIVE = 10;
 
@@ -47,8 +53,8 @@ class User extends ActiveRecord implements IdentityInterface
             [['password_hash'], 'string', 'max' => 128],
             [['email','username'], 'unique'],
 
-            ['status', 'default', 'value' => self::STATUS_ACTIVE],
-            ['status', 'in', 'range' => [self::STATUS_ACTIVE, self::STATUS_DELETED]],
+            ['status', 'default', 'value' => self::STATUS_WAIT],
+            ['status', 'in', 'range' => [self::STATUS_ACTIVE, self::STATUS_BLOCKED, self::STATUS_WAIT]],
         ];
     }
 
@@ -138,6 +144,29 @@ class User extends ActiveRecord implements IdentityInterface
         return User::find()->andWhere(['or', ['username' => $login], ['email' => $login]])->one();
     }
 
+    /**
+     * @param string $email_confirm_token
+     * @return static|null
+     */
+    public static function findByEmailConfirmToken($email_confirm_token)
+    {
+        return static::findOne(['email_confirm_token' => $email_confirm_token, 'status' => self::STATUS_WAIT]);
+    }
+    /**
+     * Generates email confirmation token
+     */
+    public function generateEmailConfirmToken()
+    {
+        $this->email_confirm_token = Yii::$app->security->generateRandomString();
+    }
+    /**
+     * Removes email confirmation token
+     */
+    public function removeEmailConfirmToken()
+    {
+        $this->email_confirm_token = null;
+    }
+
     public function validatePassword($password_hash)
     {
         if(is_null($this->password_hash))
@@ -196,6 +225,8 @@ class User extends ActiveRecord implements IdentityInterface
     {
         if($this->status == self::STATUS_ACTIVE){
             return "<label class='badge badge-success'>" . Yii::t('app','Active') . "</label>";
+        }elseif($this->status == self::STATUS_WAIT){
+            return "<label class='badge badge-warning'>" . Yii::t('app','Not Confirmed') . "</label>";
         }else{
             return "<label class='badge badge-danger'>" . Yii::t('app','Deleted') . "</label>";
         }

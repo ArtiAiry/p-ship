@@ -16,7 +16,6 @@ $this->params['breadcrumbs'][] = $this->title;
     <div class="card-body">
         <h1><?= Html::encode($this->title)?>
         </h1>
-        <?php if(!empty($leads)): ?>
 <!--        <div class="table-responsive">-->
             <table id="extended-table" class="table table-hover table-bordered dt-responsive nowrap" style="width:100%">
                 <thead>
@@ -48,8 +47,6 @@ $this->params['breadcrumbs'][] = $this->title;
                 <?php endforeach; ?>
                 </tbody>
             </table>
-        </div>
-<!--    </div>-->
-    <?php endif;?>
+    </div>
 </div>
 

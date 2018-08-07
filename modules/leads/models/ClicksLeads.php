@@ -285,7 +285,12 @@ class ClicksLeads extends ActiveRecord
                 'clicks_leads.isRemoved'=> 1
             ]);
         $sum = $query->sum('price');
-        echo $sum;
+
+        if($sum == 0){
+            echo 0;
+        }else{
+            echo $sum;
+        }
     }
 
 }

@@ -45,7 +45,7 @@ $this->params['breadcrumbs'][] = Module::t('wallet','Update');
 
 
                 <div class="form-group">
-                    <?= Html::submitButton(Module::t('wallet','Save'), ['class' => 'btn btn-success']) ?>
+                    <?= Html::submitButton(Module::t('wallet','Save'), ['class' => 'btn btn-primary']) ?>
                 </div>
 
                 <?php ActiveForm::end(); ?>

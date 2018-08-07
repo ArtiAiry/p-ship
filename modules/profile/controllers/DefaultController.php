@@ -2,13 +2,8 @@
 
 namespace app\modules\profile\controllers;
 
-use app\models\form\SignupForm;
-use app\models\User;
 use app\modules\profile\models\Profile;
-use Yii;
-
 use yii\web\Controller;
-use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**

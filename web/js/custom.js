@@ -79,6 +79,7 @@ $(document).ready(function() {
         {
 
             responsive: true,
+            searching: true,
             columnDefs: [
                 {
                     className: "dt-center", targets: "_all"
@@ -132,6 +133,7 @@ $(document).ready(function() {
                 }
             ],
             pageLength: 10,
+            searching: true,
             language: {
 
                 search: "Поиск",

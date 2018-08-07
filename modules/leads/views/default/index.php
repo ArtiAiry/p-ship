@@ -42,8 +42,6 @@ Modal::end();
             </button>
             <?php endif; ?>
         </h1>
-        <?php if(!empty($leads)): ?>
-
         <table id="demo-table" class="table table-hover table-bordered dt-responsive nowrap" style="width:100%">
                 <thead>
                 <tr>
@@ -89,7 +87,6 @@ Modal::end();
                 <?php endforeach; ?>
                 </tbody>
             </table>
-    <?php endif;?>
     </div>
 </div>
 

@@ -101,10 +101,14 @@ class Wallet extends ActiveRecord
             return '<span class="badge badge-primary" data-toggle="tooltip" data-placement="bottom"  title="Реквизиты: ' . $this->paypal_eur . '">' . $this->walletType->name . '</span>';
         } elseif ($this->wallet_type_id == 5){
             return '<span class="badge badge-info" data-toggle="tooltip" data-placement="bottom"  title="Реквизиты: ' . $this->sberbank_rub . '">' . $this->walletType->name . '</span>';
-        } else {
+        } elseif ($this->wallet_type_id == 6) {
             return '<span class="badge badge-success" data-toggle="tooltip" data-placement="bottom"  title="Реквизиты: ' . $this->pb_uah . '">' . $this->walletType->name . '</span>';
+        } elseif ($this->wallet_type_id == null) {
+            return '<span class="badge badge-danger" data-toggle="tooltip" data-placement="bottom"  title="Для того, чтобы указать приоритетный кошелек для выплат, нужно зайти в настройки кошелька."' . '">' . '<i class="mdi mdi-information mr-1" aria-hidden="true"></i>' ."Не указан" . '</span>';
         }
 
     }
 
 }
+
+//Для того, чтобы поставить приоритетный кошелек, нужно зайти в настройки кошелька.

@@ -4,7 +4,6 @@ namespace app\controllers;
 
 use app\models\form\ContactForm;
 use Yii;
-use app\models\User;
 use yii\base\InvalidParamException;
 use yii\web\BadRequestHttpException;
 use yii\web\Controller;
@@ -162,4 +161,6 @@ class SiteController extends Controller
             'model' => $model,
         ]);
     }
+
+
 }

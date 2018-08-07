@@ -42,23 +42,23 @@ $config = [
             // send all mails to a file by default. You have to set
             // 'useFileTransport' to false and configure a transport
             // for the mailer to send real emails.
-            'useFileTransport' => false,
-            'enableSwiftMailerLogging' => true,
-            'transport' => [
-                'class' => 'Swift_SmtpTransport',
-                'host' => 'mail.bontip.ru',
-                'username' => 'autouser@bontip.ru',
-                'password' => 'g8wQEmASp',
-                'port' => '25',
-                'encryption' => 'tls',
-                'streamOptions'=>[
-                    'ssl'=>[
-                        'verify_peer'=>false,
-                        'verify_peer_name'=>false,
-                        'allow_self_signed'=>true
-                    ],
-                ],
-            ],
+            'useFileTransport' => true,
+//            'enableSwiftMailerLogging' => true,
+//            'transport' => [
+//                'class' => 'Swift_SmtpTransport',
+//                'host' => 'mail.bontip.ru',
+//                'username' => 'autouser@bontip.ru',
+//                'password' => 'g8wQEmASp',
+//                'port' => '25',
+//                'encryption' => 'tls',
+//                'streamOptions'=>[
+//                    'ssl'=>[
+//                        'verify_peer'=>false,
+//                        'verify_peer_name'=>false,
+//                        'allow_self_signed'=>true
+//                    ],
+//                ],
+//            ],
 
         ],
         'log' => [
@@ -175,7 +175,7 @@ if (YII_ENV_DEV) {
     $config['modules']['debug'] = [
         'class' => 'yii\debug\Module',
         // uncomment the following to add your IP if you are not connecting from localhost.
-      'allowedIPs' => ['178.215.164.31'],
+      'allowedIPs' => ['127.0.0.1'],
     ];
 
     $config['bootstrap'][] = 'gii';

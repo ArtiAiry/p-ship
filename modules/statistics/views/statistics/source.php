@@ -17,7 +17,6 @@ $this->params['breadcrumbs'][] = $this->title;
         <h1>
             <?= Html::encode($this->title)?>
         </h1>
-        <?php if(!empty($leads)): ?>
             <table id="extended-table" class="table table-hover table-bordered dt-responsive nowrap" style="width:100%">
                 <thead>
                 <tr>
@@ -48,7 +47,6 @@ $this->params['breadcrumbs'][] = $this->title;
                 <?php endforeach; ?>
                 </tbody>
             </table>
-    <?php endif;?>
     </div>
 </div>
 

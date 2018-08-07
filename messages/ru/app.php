@@ -20,6 +20,7 @@ return [
     'By Date'=>'По дате',
     'Ask Manager'=>'Задать вопрос менеджеру',
     'Contact Us'=>'Свяжитесь с нами',
+    'Ask...'=>'Спросить...',
 
     //navbar
 
@@ -68,6 +69,10 @@ return [
     'Test'=>'Тест',
     'Save' => 'Сохранить',
     'Hello! let\'s get started' => 'Приветствуем! Давайте приступим к работе.',
+    'Please confirm your Email.' => 'Подтвердите вашу почту.',
+    'Thanks! Your Email is confirmed.' => 'Спасибо! Ваша почта и акканут успешно подтверждены.',
+    'Email confirmation error.' => 'Ошибка подтверждения почты.',
+
 
     //FORMS
 
@@ -93,11 +98,16 @@ return [
     'This username has been already token.'=>'Этот логин был уже занят.',
     'Please confirm that you are not a bot.'=>'Пожалуйста, подтвердите, что Вы не бот.',
     'You must agree with terms and conditions.'=>'Вы должны согласиться с правилами условия соглашения.',
+    'Incorrect username or password.'=>'Неверное имя пользователя или пароль.',
+    'Your account has been suspended.'=>'Ваш аккаунт заблокирован.',
+    'Your account is not confirmed.'=>'Ваш аккаунт не подтвежден.',
+    'Wrong Email confirm token.'=>'Неправильный токен подтверждения почты.',
 
 
     //status
 
     'Active'=>'Активный',
+    'Not Confirmed'=>'Не потвержден',
     'Deleted'=>'Удален',
 
     //contact
@@ -124,5 +134,7 @@ return [
     'Wrong password reset token.'=>'Направильный токен сброса пароля',
     'New password was saved.'=>'Новый пароль был сохранен.',
     'Please fill out your email. A link to reset password will be sent there.'=>'Пожалуйста, укажите свой адрес электронной почты. На Вашу почту будет отправлена ссылка на сброс пароля.'
+
+
 
 ];

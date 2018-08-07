@@ -64,8 +64,8 @@ class ContactForm extends Model
                     'profile' => $profile,
                     'body' => $this->body,
                     'subject' => $this->subject,
-                    'logo'=> 'http://bontip.ru/web/images/mail/partnership_pacifico.png',
-                    'message'=> 'http://bontip.ru/web/images/mail/partnership_message.png',
+                    'logo' => 'http://bontip.ru/web/images/mail/logo-white.png',
+                    'message'=> 'http://bontip.ru/web/images/mail/mail-message.png',
                 ]
             )
                 ->setFrom([Yii::$app->params['supportEmail'] => Yii::$app->name . ' бот'])

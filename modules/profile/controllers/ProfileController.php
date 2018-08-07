@@ -124,6 +124,42 @@ class ProfileController extends Controller
 
 
 
+//    public function actionEdit($id)
+//    {
+//
+//        $payout = new Payout();
+//        $user = User::findOne($id);
+//        $profile = Profile::findOne($id);
+//        $wallet = Wallet::findOne(Yii::$app->user->id);
+//        $lead = ClicksLeads::findOne(Yii::$app->user->id);
+//
+//        if (!isset($user, $profile)) {
+//            throw new NotFoundHttpException("Профиль пользователя не найден.");
+//        }
+//
+//        if ($user->load(Yii::$app->request->post()) && $profile->load(Yii::$app->request->post())) {
+//            $isValid = $user->validate();
+//            $isValid = $profile->validate() && $isValid;
+//            if ($isValid) {
+//                $user->save(false);
+//                $profile->save(false);
+//                Yii::$app->session->setFlash('success', 'Profile Settings successfully saved.');
+//                return $this->redirect(['edit', 'id' => $id]);
+//            }
+//        }
+//
+//
+//
+//        return $this->render('edit', [
+//
+//            'user' => $user,
+//            'profile' => $profile,
+//            'wallet' => $wallet,
+//            'payout' => $payout,
+//            'lead' => $lead,
+//        ]);
+//    }
+
     public function actionEdit($id)
     {
 
@@ -134,19 +170,15 @@ class ProfileController extends Controller
         $wallet = Wallet::findOne(Yii::$app->user->id);
         $lead = ClicksLeads::findOne(Yii::$app->user->id);
 
-        if (!isset($user, $profile)) {
+        if (!isset($profile)) {
             throw new NotFoundHttpException("Профиль пользователя не найден.");
         }
 
-        if ($user->load(Yii::$app->request->post()) && $profile->load(Yii::$app->request->post())) {
-            $isValid = $user->validate();
-            $isValid = $profile->validate() && $isValid;
-            if ($isValid) {
-                $user->save(false);
-                $profile->save(false);
+        if ($profile->load(Yii::$app->request->post()) && $profile->save(false)) {
+
                 Yii::$app->session->setFlash('success', 'Profile Settings successfully saved.');
                 return $this->redirect(['edit', 'id' => $id]);
-            }
+
         }
 
 

@@ -47,13 +47,19 @@ class LoginForm extends Model
      *
      * @param string $attribute the attribute currently being validated
      * @param array $params the additional name-value pairs given in the rule
-     */
+    */
+
     public function validatePassword($attribute, $params)
     {
         if (!$this->hasErrors()) {
             $user = $this->getUser();
+
             if (!$user || !$user->validatePassword($this->password_hash)) {
-                $this->addError($attribute, 'Incorrect email or password.');
+                $this->addError($attribute, Yii::t('app','Incorrect username or password.'));
+            } elseif ($user && $user->status == User::STATUS_BLOCKED) {
+                $this->addError($attribute, Yii::t('app','Your account has been suspended.'));
+            } elseif ($user && $user->status == User::STATUS_WAIT) {
+                $this->addError($attribute, Yii::t('app','Your account is not confirmed.'));
             }
         }
     }

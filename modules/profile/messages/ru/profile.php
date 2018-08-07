@@ -20,6 +20,8 @@ return [
     'Username'=>'Логин АФфлианта',
     'Status'=>'Статус',
     'Viewing a Profile'=>'Просмотр профиля',
+    'First Name'=>'Имя',
+    'Last Name'=>'Фамилия',
 
     //batch delete
 
