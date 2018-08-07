@@ -41,6 +41,16 @@ return [
     'Wrong password reset token.'=>'Неправильный токен сброса пароля',
     'New password was saved.'=>'Новый пароль был сохранен.',
 
+    //reset email
+
+    'Change Email'=>'Смена почты',
+    'Email'=>'Почта',
+    'Sorry, we are unable to reset email for email provided.'=>'Извините, мы не можем сменить почту для отправки по электронной почте.',
+    'Please choose your new email:'=>'Пожалуйста, укажите Ваш новый электронный адрес.',
+    'Email reset token cannot be blank.'=>'Токен сброса почты не может быть пустым.',
+    'Wrong email reset token.'=>'Неправильный токен сброса почты',
+    'New email was saved.'=>'Новый электронный адрес был сохранен.',
+
     //actions
 
     'View Full Table' => 'Просмотреть подробную таблицу',

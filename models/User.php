@@ -19,6 +19,7 @@ use yii\web\IdentityInterface;
  * @property string $username
  * @property string $auth_key
  * @property string $email_confirm_token
+ * @property string $email_reset_token
  * @property string $password_hash
  * @property string $password_reset_token
  * @property string $email
@@ -100,7 +101,30 @@ class User extends ActiveRecord implements IdentityInterface
             'status' => self::STATUS_ACTIVE,
         ]);
     }
+
+    public static function findByEmailResetToken($token)
+    {
+        if (!static::isEmailResetTokenValid($token)) {
+            return null;
+        }
+        return static::findOne([
+            'email_reset_token' => $token,
+            'status' => self::STATUS_ACTIVE,
+        ]);
+    }
+
+
     public static function isPasswordResetTokenValid($token)
+    {
+        if (empty($token)) {
+            return false;
+        }
+        $timestamp = (int) substr($token, strrpos($token, '_') + 1);
+        $expire = Yii::$app->params['user.passwordResetTokenExpire'];
+        return $timestamp + $expire >= time();
+    }
+
+    public static function isEmailResetTokenValid($token)
     {
         if (empty($token)) {
             return false;
@@ -206,6 +230,11 @@ class User extends ActiveRecord implements IdentityInterface
         $this->password_reset_token = Yii::$app->security->generateRandomString() . '_' . time();
     }
 
+    public function generateEmailResetToken()
+    {
+        $this->email_reset_token = Yii::$app->security->generateRandomString() . '_' . time();
+    }
+
     public function generateAuthKey()
     {
         $this->auth_key = Yii::$app->security->generateRandomString();
@@ -214,6 +243,11 @@ class User extends ActiveRecord implements IdentityInterface
     public function removePasswordResetToken()
     {
         $this->password_reset_token = null;
+    }
+
+    public function removeEmailResetToken()
+    {
+        $this->email_reset_token = null;
     }
 
     public function isRemoved()
