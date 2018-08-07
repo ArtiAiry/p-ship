@@ -19,10 +19,9 @@ Use yii\helpers\Url;
         <a class="navbar-brand brand-logo-mini" href="<?=Yii::$app->homeUrl ?>"><img src="/images/partnership-mini.png" alt="logo"/></a>
     </div>
     <div class="navbar-menu-wrapper d-flex align-items-center">
-<!--        <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>-->
         <ul class="navbar-nav navbar-nav-right">
             <li class="nav-item d-lg-block">
-                <a class="nav-link" href="<?= Url::toRoute(['/settings/edit']);?>">
+                <a class="nav-link" href="<?= Url::toRoute(['/settings']);?>">
                     <i class="mdi mdi-settings" data-toggle="tooltip" data-placement="top"  title="<?= Yii::t('app','Settings') ?>"></i>
                 </a>
             </li>
