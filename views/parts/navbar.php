@@ -16,7 +16,7 @@ Use yii\helpers\Url;
 
     <div class="text-center navbar-brand-wrapper d-flex align-items-top justify-content-center">
         <a class="navbar-brand brand-logo" href="<?=Yii::$app->homeUrl ?>"><img src="/images/partnership.png" alt="logo"/></a>
-        <a class="navbar-brand brand-logo-mini" href="<?=Yii::$app->homeUrl ?>"><img src="/images/partnership-mini-(2).png" alt="logo"/></a>
+        <a class="navbar-brand brand-logo-mini" href="<?=Yii::$app->homeUrl ?>"><img src="/images/partnership-mini.png" alt="logo"/></a>
     </div>
     <div class="navbar-menu-wrapper d-flex align-items-center">
 <!--        <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>-->
