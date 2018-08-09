@@ -7,6 +7,7 @@ use app\assets\PublicAsset;
 use app\widgets\Alert;
 use app\widgets\CustomBreadcrumbs;
 use yii\helpers\Html;
+use yii\helpers\Url;
 
 PublicAsset::register($this);
 ?>
@@ -29,6 +30,7 @@ PublicAsset::register($this);
     <?php $this->beginBody() ?>
 
 
+
         <div class="container-scroller">
             <?= $this->render('//parts/navbar')?>
 
@@ -37,6 +39,18 @@ PublicAsset::register($this);
                 <?= $this->render('//parts/sidebar')?>
             <div class="main-panel">
                 <div class="content-wrapper">
+                    <?php
+
+
+                    echo '<p> Предыдущий экшен' . " " . Url::previous() . '</p>';
+
+                        Url::remember();
+
+                    echo '<p> Нынешний экшен' . " " . Url::current() .  '</p>';
+
+
+                    //              var_dump(Yii::$app->request->referrer);
+                    ?>
                 <?= CustomBreadcrumbs::widget([
                     'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
                 ]) ?>

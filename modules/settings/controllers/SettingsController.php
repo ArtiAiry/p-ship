@@ -17,12 +17,29 @@ use app\modules\settings\Module;
 use app\modules\wallet\models\Wallet;
 use Yii;
 use yii\base\InvalidParamException;
+use yii\filters\AccessControl;
 use yii\web\BadRequestHttpException;
 use yii\web\Controller;
 
 class SettingsController extends Controller
 {
 
+    public function behaviors()
+    {
+        return [
+            'access' => [
+                'class' => AccessControl::className(),
+                'only' => ['wallet','change-password','change-email','password','email'],
+                'rules' => [
+                    [
+                        'actions' => ['wallet','change-password','change-email','password','email'],
+                        'allow' => true,
+                        'roles' => ['@'],
+                    ],
+                ],
+            ],
+        ];
+    }
 
     public function actionWallet()
     {

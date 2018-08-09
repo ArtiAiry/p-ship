@@ -4,6 +4,7 @@ namespace app\modules\wallet\controllers;
 
 use Yii;
 use app\modules\wallet\models\WalletType;
+use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -25,7 +26,19 @@ class TypeController extends Controller
                     'delete' => ['POST'],
                 ],
             ],
+            'access' => [
+                'class' => AccessControl::className(),
+                'only' => ['index','view','create','update','delete'],
+                'rules' => [
+                    [
+                        'actions' => ['index','view','create','update','delete'],
+                        'allow' => true,
+                        'roles' => ['admin'],
+                    ],
+                ],
+            ],
         ];
+
     }
 
     /**

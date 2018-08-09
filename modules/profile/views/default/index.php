@@ -26,7 +26,7 @@ $this->params['breadcrumbs'][] = $this->title;
                         <td><?= Module::t('profile','Telegram')?></td>
                         <td><?= Module::t('profile','Status')?></td>
                         <td><?= Module::t('profile','Whatsapp')?></td>
-                        <!--                <td>Role</td>-->
+                                        <td>Role</td>
                         <td><?= Module::t('profile','Actions')?></td>
                     </tr>
                     </thead>
@@ -40,10 +40,10 @@ $this->params['breadcrumbs'][] = $this->title;
                             <td><label class="badge badge-primary"><?= $profile->telegram ?></label></td>
                             <td><?= $profile->user->getStatusName() ?></td>
                             <td><?= $profile->whatsapp ?></td>
-                            <!--                        <td>--><?//= $profile->user->getRole() ?><!--</td>-->
+                            <td><?= $profile->user->getRoleName() ?></td>
                             <td>
                                 <button value="<?= Url::toRoute(['/profile/view','id'=>$profile->id]);?>" data-toggle="tooltip" title="<?= Module::t('profile','View')?>" aria-label="View" class="btn btn-outline-dark btn-rounded btn-xs view-modal-click"><span class="fa fa-eye"></span></button>
-                                <a href="<?= Url::toRoute(['/settings/edit','id'=>$profile->id]);?>" data-toggle="tooltip"  title="<?= Module::t('profile','Update')?>" aria-label="Update" class="btn btn-outline-dark btn-rounded btn-xs update-modal-click"><span class="fa fa-pencil" ></span></a>
+                                <a href="<?= Url::toRoute(['/profile/edit','id'=>$profile->id]);?>" data-toggle="tooltip"  title="<?= Module::t('profile','Update')?>" aria-label="Update" class="btn btn-outline-dark btn-rounded btn-xs update-modal-click"><span class="fa fa-pencil" ></span></a>
                                 <a href="<?= Url::toRoute(['/profile/delete','id'=>$profile->id]);?>" data-toggle="tooltip"  title="<?= Module::t('profile','Delete')?>" aria-label="Delete" data-confirm="<?= Module::t('profile','Are you sure you want to delete this item?') ?>" class="btn btn-outline-dark btn-rounded btn-xs" data-method="post"><span class="fa fa-trash"></span></a>
                             </td>
                         </tr>

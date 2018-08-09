@@ -69,4 +69,9 @@ class Product extends ActiveRecord
         return $this->isRemoved;
     }
 
+    public function getBuildUrl()
+    {
+        return "www.partnership.io/?aff=" . Yii::$app->user->id . "&p=" . $this->id;
+    }
+
 }

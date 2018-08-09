@@ -31,7 +31,6 @@ return [
     'Made By'=>'Сделано: ',
     'All rights reserved.'=>'Все права защищены.',
 
-
     //footer
 
     'Home'=>'На главную',
@@ -123,6 +122,7 @@ return [
 
     //reset pw
 
+    'Back to previous page'=>'Вернуться на предыдущую страницу',
     'Change Password'=>'Смена Пароля',
     'There is no user with such email.'=>'Пользователя с такой почтой не существует.',
     'Request Reset Password'=>'Сброс Пароля',

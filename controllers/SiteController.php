@@ -5,6 +5,7 @@ namespace app\controllers;
 use app\models\form\ContactForm;
 use Yii;
 use yii\base\InvalidParamException;
+use yii\helpers\Url;
 use yii\web\BadRequestHttpException;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
@@ -25,15 +26,10 @@ class SiteController extends Controller
         return [
             'access' => [
                 'class' => AccessControl::className(),
-                'only' => ['logout', 'signup'],
+                'only' => ['about', 'contact','index'],
                 'rules' => [
                     [
-                        'actions' => ['signup'],
-                        'allow' => true,
-                        'roles' => ['?'],
-                    ],
-                    [
-                        'actions' => ['logout'],
+                        'actions' => ['about', 'contact','index'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
@@ -75,6 +71,24 @@ class SiteController extends Controller
             return $this->redirect('/auth/login');
         }else{
             return $this->render('index');
+        }
+    }
+
+    public function actionCustomError()
+    {
+
+        $exception = Yii::$app->errorHandler->exception;
+        if ($exception !== null) {
+            $statusCode = $exception->statusCode;
+            $name = $exception->getName();
+            $message = $exception->getMessage();
+            $this->layout = false;
+            return $this->render('custom-error', [
+                'exception' => $exception,
+                'statusCode' => $statusCode,
+                'name' => $name,
+                'message' => $message
+            ]);
         }
     }
 

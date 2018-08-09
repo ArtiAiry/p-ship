@@ -12,6 +12,8 @@ namespace app\controllers;
 
 use app\models\form\PasswordResetRequestForm;
 use Yii;
+use yii\filters\AccessControl;
+use yii\filters\VerbFilter;
 use yii\web\Controller;
 use app\models\form\ResetPasswordForm;
 use app\models\form\LoginForm;
@@ -20,6 +22,35 @@ use yii\web\BadRequestHttpException;
 
 class AuthController extends Controller
 {
+    public function behaviors()
+    {
+        return [
+            'access' => [
+                'class' => AccessControl::className(),
+                'only' => ['login', 'reset', 'change', 'logout'],
+                'rules' => [
+                    [
+                        'actions' => ['login', 'reset', 'change'],
+                        'allow' => true,
+                        'roles' => ['?'],
+                    ],
+                    [
+                        'actions' => ['logout'],
+                        'allow' => true,
+                        'roles' => ['@'],
+                    ],
+                ],
+            ],
+            'verbs' => [
+                'class' => VerbFilter::className(),
+                'actions' => [
+                    'logout' => ['post'],
+                ],
+            ],
+        ];
+    }
+
+
     public function actionLogin()
     {
         if (!Yii::$app->user->isGuest) {

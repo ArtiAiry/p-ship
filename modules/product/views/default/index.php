@@ -40,20 +40,15 @@ digitv\bootstrap\widgets\Modal::end();
                     <div class="zoom">
                         <img class="card-img-top" src="<?= $product->logo_url ?>" alt="Card image cap">
                     </div>
-                    <div class="card-body">
+                    <div class="card-body h-center">
 
                         <h3 class="card-title">
                              <?= $product->name ?>
                         </h3>
-                        <p class="card-text"><?= $product->description ?></p>
-                        <ul class="list-group list-group-flush">
-
-                            <li class="list-group-item"><?= Module::t('product','Price: ')?><?= $product->price ?></li>
-                            <li class="list-group-item">
+                        <p class="card-text"><?= $product->description ?>
+                        <p class="card-text"><?= $product->price ?> <span class="currency-mark"><i class="mdi mdi-currency-rub"></i></span></p>
+                        <p class="card-text"><a href="<?= $product->getBuildUrl(); ?>"><badge class="badge badge-primary"><?= $product->getBuildUrl(); ?></badge></a> <a class="btn btn-outline-primary btn-xs mt-1 mb-1" data-clipboard-text="<?= $product->getBuildUrl(); ?>">Копировать</a></p>
                                 <a href="<?= $product->banner_url ?>" class="btn btn-primary" download="banners.rar"><?= Module::t('product','Banner\'s link')?></a>
-                            </li>
-                        </ul>
-
                     </div>
                 </div>
             </div>

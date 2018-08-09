@@ -275,7 +275,7 @@ class User extends ActiveRecord implements IdentityInterface
 
     public function getRoleName()
     {
-        $roles = Yii::$app->authManager->getRolesByUser(Yii::$app->user->getId());
+        $roles = Yii::$app->authManager->getRolesByUser($this->id);
         foreach ($roles as $role){
             echo $role->description;
         }

@@ -371,3 +371,25 @@ li#example_next a.page-link {
 .text-xs-center {
     text-align: center;
 }
+
+a.btn-outline-primary.btn-xs{
+    color: #1991EB;
+}
+
+a.btn-outline-primary.btn-xs:hover{
+    color: #ffffff;
+}
+
+
+.currency-mark{
+    background: #1991EB;
+    border-radius: 100%;
+    color: #ffffff;
+    width: 1rem;
+    height: 1rem;
+    text-align: center;
+}
+
+.currency-mark i.mdi.mdi-currency-rub:before {
+    width: 20px;
+}
