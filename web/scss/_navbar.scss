@@ -1,6 +1,6 @@
 /* Navbar */
 .navbar {
-  font-family: $type-1;
+  font-family: $type-2;
   background: $blue-teal-gradient;
   transition: background $action-transition-duration $action-transition-timing-function;
   -webkit-transition: background $action-transition-duration $action-transition-timing-function;
@@ -99,6 +99,7 @@
           i {
             font-size: $navbar-icon-font-size;
             vertical-align: middle;
+            margin-left: 2px;
           }
 
           &.nav-btn {
@@ -261,16 +262,18 @@
 
         .nav-item {
           margin: 0;
+          font-weight: bold;
 
           .nav-link {
             height: $navbar-height;
-            font-size: $default-font-size;
+            font-size: $custom-font-size;
             padding: 16px 25px;
             @include display-flex;
 
             i {
               margin-right: 10px;
               font-size: inherit;
+              margin-left: 2px;
 
               .rtl & {
                 margin-right: 0;

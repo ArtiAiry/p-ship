@@ -14199,7 +14199,7 @@ input:focus {
 
 /* Navbar */
 .navbar {
-  font-family: "Poppins", sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   background: linear-gradient(88deg, #318be3, #04befe);
   transition: background 0.25s ease;
   -webkit-transition: background 0.25s ease;
@@ -14271,7 +14271,8 @@ input:focus {
               margin-right: 0.5rem; } }
           .navbar .navbar-menu-wrapper .navbar-nav .nav-item .nav-link i {
             font-size: 1.25rem;
-            vertical-align: middle; }
+            vertical-align: middle;
+            margin-left: 2px; }
           .navbar .navbar-menu-wrapper .navbar-nav .nav-item .nav-link.nav-btn .btn {
             background: rgba(255, 255, 255, 0.1);
             padding: 0.75rem 1rem;
@@ -14372,16 +14373,18 @@ input:focus {
         height: 58px;
         padding-left: 2%; }
         .navbar .navbar-menu-wrapper .navbar-nav.header-links .nav-item {
-          margin: 0; }
+          margin: 0;
+          font-weight: bold; }
           .navbar .navbar-menu-wrapper .navbar-nav.header-links .nav-item .nav-link {
             height: 58px;
-            font-size: 0.875rem;
+            font-size: 1.05rem;
             padding: 16px 25px;
             display: -webkit-flex;
             display: flex; }
             .navbar .navbar-menu-wrapper .navbar-nav.header-links .nav-item .nav-link i {
               margin-right: 10px;
-              font-size: inherit; }
+              font-size: inherit;
+              margin-left: 2px; }
               .rtl .navbar .navbar-menu-wrapper .navbar-nav.header-links .nav-item .nav-link i {
                 margin-right: 0;
                 margin-left: 10px; }

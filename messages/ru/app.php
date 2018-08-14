@@ -30,6 +30,8 @@ return [
     'Copyright'=>'',
     'Made By'=>'Сделано: ',
     'All rights reserved.'=>'Все права защищены.',
+    'Your Balance: '=>'Ваш Баланс: ',
+    'Payed / Summary'=>'Оплачено / Суммарно',
 
     //footer
 

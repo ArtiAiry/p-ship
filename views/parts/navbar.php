@@ -5,10 +5,13 @@
  * Date: 16.10.2017
  * Time: 16:15
  */
-use digitv\bootstrap\Html;
-use digitv\bootstrap\widgets\Nav;
-use digitv\bootstrap\widgets\NavBar;
+use app\modules\leads\models\ClicksLeads;
+use app\modules\payout\models\Payout;
 Use yii\helpers\Url;
+
+
+$payout = new Payout();
+$sumLead = new ClicksLeads();
 ?>
 
 <!-- START HEADER -->
@@ -25,12 +28,8 @@ Use yii\helpers\Url;
     <div class="navbar-menu-wrapper d-flex align-items-center">
         <ul class="navbar-nav navbar-nav-left header-links d-none d-md-flex">
             <li class="nav-item">
-                <a href="#" class="nav-link">4000<span class="currency-mark-light ml-1"><i class="mdi mdi-currency-rub"></i></span>
+                <a class="nav-link balance"><?= Yii::t('app','Your Balance: ') ?> <?= $payout->getSuccessPayoutSummary(); ?> /  <?= $sumLead->getTotalLeadSummary(); ?> <span class="currency-mark-light ml-1"><i class="mdi mdi-currency-rub"  data-toggle="tooltip" data-placement="top"  title="<?= Yii::t('app','Payed / Summary') ?>"></i></span>
                 </a>
-            </li>
-            <li class="nav-item">
-                <a href="#" class="nav-link">
-                    <i class="mdi mdi-bookmark-plus-outline"></i>Score</a>
             </li>
         </ul>
         <ul class="navbar-nav navbar-nav-right">
