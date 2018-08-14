@@ -21,6 +21,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     <thead>
                     <tr>
                         <td><?= Module::t('profile','ID')?></td>
+                        <td><?= Module::t('profile','Username')?></td>
                         <td><?= Module::t('profile','Affliante\'s name')?></td>
                         <td><?= Module::t('profile','Email')?></td>
                         <td><?= Module::t('profile','Telegram')?></td>
@@ -32,9 +33,9 @@ $this->params['breadcrumbs'][] = $this->title;
                     </thead>
                     <tbody>
                     <?php foreach($profiles as $profile):?>
-                        <!--                --><?php //if($profile->user->getRole() == 'teacher'): ?>
                         <tr>
                             <td><?= $profile->id ?></td>
+                            <td><?= $profile->user->username ?></td>
                             <td><?= $profile->first_name . " " . $profile->last_name ?></td>
                             <td><?= $profile->user->email ?></td>
                             <td><label class="badge badge-primary"><?= $profile->telegram ?></label></td>
@@ -47,7 +48,6 @@ $this->params['breadcrumbs'][] = $this->title;
                                 <a href="<?= Url::toRoute(['/profile/delete','id'=>$profile->id]);?>" data-toggle="tooltip"  title="<?= Module::t('profile','Delete')?>" aria-label="Delete" data-confirm="<?= Module::t('profile','Are you sure you want to delete this item?') ?>" class="btn btn-outline-dark btn-rounded btn-xs" data-method="post"><span class="fa fa-trash"></span></a>
                             </td>
                         </tr>
-                        <!--                --><?php //endif; ?>
                     <?php endforeach; ?>
                     </tbody>
                 </table>

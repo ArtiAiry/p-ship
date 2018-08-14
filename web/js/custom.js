@@ -87,6 +87,15 @@ $(document).ready(function() {
             ],
             pageLength: 10,
             dom: 'Bfrtip',
+            fnDrawCallback: function () {
+                $('.view-modal-click').click(function () {
+                    $('#view-modal')
+                        .modal('show')
+                        .find('#viewModalContent')
+                        .load($(this).attr('value'));
+                });
+
+            },
             buttons: [
                 // {
                 //     extend: 'copy', className: 'copyButton'
