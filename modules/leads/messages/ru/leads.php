@@ -27,6 +27,8 @@ return [
     'Lead\'s View'=>'Просмотр лида',
     'Affiliate'=>'Аффлиат',
     'Source'=>'Источник',
+    'Lead was successfully edited.'=>'Лид был успешно отредактирован.',
+    'Lead was successfully created.'=>'Лид был успешно создан.',
 
 
     //batch delete

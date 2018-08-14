@@ -15,17 +15,17 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($profile, 'first_name')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($profile, 'first_name')->textInput(['maxlength' => true, 'placeholder' => Module::t('profile','Enter First Name')]) ?>
 
-    <?= $form->field($profile, 'last_name')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($profile, 'last_name')->textInput(['maxlength' => true, 'placeholder' => Module::t('profile','Enter Last Name')]) ?>
 
-    <?= $form->field($profile, 'skype')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($profile, 'skype')->textInput(['maxlength' => true, 'placeholder' => Module::t('profile','Enter Your Skype')]) ?>
 
-    <?= $form->field($profile, 'phone')->textInput() ?>
+    <?= $form->field($profile, 'phone')->textInput(['placeholder' => Module::t('profile','Enter Your Phone Number')]) ?>
 
-    <?= $form->field($profile, 'whatsapp')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($profile, 'whatsapp')->textInput(['maxlength' => true, 'placeholder' => Module::t('profile','Enter Your WhatsApp')]) ?>
 
-    <?= $form->field($profile, 'telegram')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($profile, 'telegram')->textInput(['maxlength' => true, 'placeholder' => Module::t('profile','Enter Your Telegram, example: @example or phone number')]) ?>
 
     <div class="form-group">
         <?= Html::submitButton(Module::t('profile','Save'), ['class' => 'btn btn-primary']) ?>

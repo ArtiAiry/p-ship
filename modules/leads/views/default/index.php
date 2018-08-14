@@ -49,12 +49,12 @@ Modal::end();
                     <td><?= Module::t('leads','Created At')?></td>
                     <td><?= Module::t('leads','User Device')?></td>
                     <td><?= Module::t('leads','User OS')?></td>
-                    <td><?= Module::t('leads','Affiliate')?></td>
                     <td><?= Module::t('leads','Source')?></td>
                     <td><?= Module::t('leads','Product')?></td>
                     <td><?= Module::t('leads','Status')?></td>
                     <td><?= Module::t('leads','Price')?></td>
                     <?php if($profile->user->getRole() == 'admin'): ?>
+                    <td><?= Module::t('leads','Affiliate')?></td>
                     <td><?= Module::t('leads','Actions')?></td>
                     <?php endif; ?>
                 </tr>
@@ -69,13 +69,14 @@ Modal::end();
                         <td><?= Yii::$app->formatter->asDate($lead->created_at) . " " . Yii::$app->formatter->asTime($lead->created_at)?></td>
                         <td><?= $lead->user_device ?></td>
                         <td><?= $lead->user_os ?></td>
-                        <td><?= $lead->user->username ?></td>
+
                         <td><?= $lead->source  ?></td>
                         <td><?= $lead->product->name ?></td>
                         <td><?= $lead->leadsStatus->name ?></td>
                         <td><?= $lead->price ?></td>
                         <!--                        <td>--><?//= $profile->user->getRole() ?><!--</td>-->
                         <?php if($profile->user->getRole() == 'admin'): ?>
+                        <td><?= $lead->user->username ?></td>
                         <td>
                             <button id="view-button" value="<?= Url::toRoute(['/leads/view','id'=>$lead->id]);?>" data-toggle="tooltip" title="<?= Module::t('leads','View')?>" aria-label="View" class="btn btn-outline-dark btn-rounded btn-xs view-modal-click"><span class="fa fa-eye"></span></button>
                             <a href="<?= Url::toRoute(['/leads/update','id'=>$lead->id]);?>" data-toggle="tooltip"  title="<?= Module::t('leads','Update')?>" aria-label="Update" class="btn btn-outline-dark btn-rounded btn-xs update-modal-click"><span class="fa fa-pencil" ></span></a>

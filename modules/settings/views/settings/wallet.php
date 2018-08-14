@@ -29,20 +29,17 @@ $this->params['breadcrumbs'][] = Module::t('wallet','Update');
 
                 <?= $form->field($wallet, 'wallet_type_id')->dropDownList(ArrayHelper::map(WalletType::find()->all(), 'id', 'name'),['prompt'=> Module::t('wallet','Choose a Main Wallet')]); ?>
 
-                <?= $form->field($wallet, 'yandex_money')->textInput(['maxlength' => true]) ?>
+                <?= $form->field($wallet, 'yandex_money')->textInput(['maxlength' => true,'placeholder'=>Module::t('wallet','Enter Yandex.Money\'s requisites')]) ?>
 
-                <?= $form->field($wallet, 'qiwi')->textInput(['maxlength' => true]) ?>
+                <?= $form->field($wallet, 'qiwi')->textInput(['maxlength' => true,'placeholder'=>Module::t('wallet','Enter Qiwi\'s requisites')]) ?>
 
-                <?= $form->field($wallet, 'webmoney_wmr')->textInput(['maxlength' => true]) ?>
+                <?= $form->field($wallet, 'webmoney_wmr')->textInput(['maxlength' => true,'placeholder'=>Module::t('wallet','Enter WebMoney\'s requisites')]) ?>
 
-                <?= $form->field($wallet, 'paypal_eur')->textInput(['maxlength' => true]) ?>
+                <?= $form->field($wallet, 'paypal_eur')->textInput(['maxlength' => true,'placeholder'=>Module::t('wallet','Enter PayPal\'s requisites')]) ?>
 
-                <?= $form->field($wallet, 'sberbank_rub')->textInput(['maxlength' => true]) ?>
+                <?= $form->field($wallet, 'sberbank_rub')->textInput(['maxlength' => true,'placeholder'=>Module::t('wallet','Enter Sberbank\'s requisites')]) ?>
 
-                <?= $form->field($wallet, 'pb_uah')->textInput(['maxlength' => true]) ?>
-
-                <?= $form->field($wallet, 'user_id')->dropDownList(ArrayHelper::map(User::find()->all(), 'id', 'username'),['prompt'=> Module::t('wallet','Choose User')]); ?>
-
+                <?= $form->field($wallet, 'pb_uah')->textInput(['maxlength' => true,'placeholder'=>Module::t('wallet','Enter PrivatBank\'s requisites')]) ?>
 
                 <div class="form-group">
                     <?= Html::submitButton(Module::t('wallet','Save'), ['class' => 'btn btn-primary']) ?>

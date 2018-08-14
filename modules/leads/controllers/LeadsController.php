@@ -2,6 +2,7 @@
 
 namespace app\modules\leads\controllers;
 
+use app\modules\leads\Module;
 use Yii;
 use app\modules\leads\models\ClicksLeads;
 use yii\filters\AccessControl;
@@ -56,7 +57,7 @@ class LeadsController extends Controller
         $model = new ClicksLeads();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            Yii::$app->session->setFlash('success', 'Lead created.');
+            Yii::$app->session->setFlash('success', 'Lead was successfully created.');
             return $this->redirect(['/leads']);
 
         } else {
@@ -77,7 +78,7 @@ class LeadsController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            Yii::$app->session->setFlash('success', 'Lead edited.');
+            Yii::$app->session->setFlash('success', 'Lead was successfully edited.');
             return $this->redirect(['/leads']);
         } else {
             return $this->render('update', [
@@ -119,7 +120,7 @@ class LeadsController extends Controller
         if (($model = ClicksLeads::findOne($id)) !== null) {
             return $model;
         } else {
-            throw new NotFoundHttpException('The requested page does not exist.');
+            throw new NotFoundHttpException(Module::t('leads','The requested page does not exist.'));
         }
     }
 }

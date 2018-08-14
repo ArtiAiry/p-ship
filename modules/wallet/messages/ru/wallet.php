@@ -59,5 +59,14 @@ return [
     'Choose a Form' => 'Выберите тип формы',
     'Choose a Lead Status' => 'Выберите статус лида',
 
+    //placeholders
+
+    'Enter Yandex.Money\'s requisites'=>'Введите реквизиты Яндекс.Кошелька',
+    'Enter Qiwi\'s requisites'=>'Введите реквизиты Qiwi',
+    'Enter WebMoney\'s requisites'=>'Введите реквизиты WebMoney',
+    'Enter PayPal\'s requisites'=>'Введите реквизиты PayPal',
+    'Enter Sberbank\'s requisites'=>'Введите реквизиты Сбербанка',
+    'Enter PrivatBank\'s requisites'=>'Введите реквизиты ПриватБанка',
+
 
 ];

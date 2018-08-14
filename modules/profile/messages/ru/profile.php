@@ -41,9 +41,15 @@ return [
     'Save' => 'Сохранить',
 
 
-    //prompts
+    //placeholder
 
     'Choose a Main Wallet'=>'Выберите основной кошелек',
+    'Enter First Name'=>'Введите имя',
+    'Enter Last Name'=>'Введите фамилию',
+    'Enter Your Skype'=>'Введите Ваш логин скайпа',
+    'Enter Your Phone Number'=>'Введите Ваш номер телефона',
+    'Enter Your WhatsApp'=>'Введите Ваш WhatsApp',
+    'Enter Your Telegram, example: @example or phone number'=>'Введите Ваш телеграм, пример: @example, либо номер телефона'
 
 
 ];

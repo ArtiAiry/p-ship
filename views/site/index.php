@@ -9,7 +9,7 @@ $this->title = 'Partnership';
 ?>
 <div class="site-index">
 
-    <div class="grid-margin stretch-card">
+    <div class="grid-margin stretch-card" id="welcome-component">
         <div class="card bg-dark text-white">
             <img class="card-img" src="/images/main-menu/site-bg-wide.png" alt="Card image">
             <div class="card-img-overlay h-100 d-flex flex-column justify-content-end main">

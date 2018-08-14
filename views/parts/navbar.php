@@ -21,7 +21,18 @@ Use yii\helpers\Url;
         <a class="navbar-brand brand-logo" href="<?=Yii::$app->homeUrl ?>"><img src="/images/partnership.png" alt="logo"/></a>
         <a class="navbar-brand brand-logo-mini" href="<?=Yii::$app->homeUrl ?>"><img src="/images/partnership-mini.png" alt="logo"/></a>
     </div>
+
     <div class="navbar-menu-wrapper d-flex align-items-center">
+        <ul class="navbar-nav navbar-nav-left header-links d-none d-md-flex">
+            <li class="nav-item">
+                <a href="#" class="nav-link">4000<span class="currency-mark-light ml-1"><i class="mdi mdi-currency-rub"></i></span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link">
+                    <i class="mdi mdi-bookmark-plus-outline"></i>Score</a>
+            </li>
+        </ul>
         <ul class="navbar-nav navbar-nav-right">
             <li class="nav-item d-lg-block">
                 <a class="nav-link" href="<?= Url::toRoute(['/settings']);?>">
