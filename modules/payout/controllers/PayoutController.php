@@ -2,6 +2,7 @@
 
 namespace app\modules\payout\controllers;
 
+use app\modules\payout\Module;
 use Yii;
 use app\modules\payout\models\Payout;
 use app\modules\payout\models\PayoutSearch;
@@ -63,7 +64,7 @@ class PayoutController extends Controller
         $model = new Payout();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            Yii::$app->session->setFlash('success', 'Payout created.');
+            Yii::$app->session->setFlash('success', Module::t('payout','Payout was successfully created.'));
             return $this->redirect(['/payout']);
 
         } else {
@@ -84,7 +85,8 @@ class PayoutController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+            Yii::$app->session->setFlash('success', Module::t('payout','Payout was successfully updated.'));
+            return $this->redirect(['/payout']);
         } else {
             return $this->render('update', [
                 'model' => $model,
@@ -125,7 +127,7 @@ class PayoutController extends Controller
         if (($model = Payout::findOne($id)) !== null) {
             return $model;
         } else {
-            throw new NotFoundHttpException('The requested page does not exist.');
+            throw new NotFoundHttpException(Module::t('payout','The requested page does not exist.'));
         }
     }
 }

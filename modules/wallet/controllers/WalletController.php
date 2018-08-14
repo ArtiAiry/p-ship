@@ -2,6 +2,7 @@
 
 namespace app\modules\wallet\controllers;
 
+use app\modules\wallet\Module;
 use Yii;
 use app\modules\wallet\models\Wallet;
 use yii\filters\AccessControl;
@@ -62,7 +63,7 @@ class WalletController extends Controller
         $model = new Wallet();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            Yii::$app->session->setFlash('success', 'Product created.');
+            Yii::$app->session->setFlash('success', Module::t('wallet','Wallet was successfully created.'));
             return $this->redirect(['/wallet']);
 
         } else {
@@ -83,7 +84,8 @@ class WalletController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+            Yii::$app->session->setFlash('success', Module::t('wallet','Wallet was successfully updated.'));
+            return $this->redirect(['/wallet']);
         } else {
             return $this->render('update', [
                 'model' => $model,
@@ -125,7 +127,7 @@ class WalletController extends Controller
         if (($model = Wallet::findOne($id)) !== null) {
             return $model;
         } else {
-            throw new NotFoundHttpException('The requested page does not exist.');
+            throw new NotFoundHttpException(Module::t('payout','The requested page does not exist.'));
         }
     }
 }

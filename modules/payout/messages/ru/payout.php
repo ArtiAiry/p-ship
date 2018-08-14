@@ -35,6 +35,9 @@ return [
     'Add Payout'=> 'Добавить выплату',
     'Adding a Payout'=>'Добавление выплаты',
     'View Payout'=>'Просмотр выплаты',
+    'Payout was successfully created.'=>'Выплата была успешно создана.',
+    'Payout was successfully updated.'=>'Выплата была успешно обновлена.',
+    'The requested page does not exist.'=>'Запрашиваемая страница не существует.',
 
     //prompts
 
@@ -43,6 +46,8 @@ return [
     'Not Set'=>'Не указано',
     'Choose Payout Status'=>'Выберите cтатус',
     'Are you sure you want to delete this item?' => 'Вы действительно хотите удалить выбранный элемент?',
+
+
 
 
 

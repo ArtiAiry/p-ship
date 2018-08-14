@@ -64,7 +64,7 @@ class ClicksLeads extends ActiveRecord
             [['count_lead', 'count_status_unknown', 'count_status_rejected', 'count_status_approved', 'count_status_sold', 'sum_lead_sold_summary'], 'integer'],
             [['ip', 'user_device', 'user_os', 'source'], 'string', 'max' => 64],
             [['product_id'], 'exist', 'skipOnError' => true, 'targetClass' => Product::className(), 'targetAttribute' => ['product_id' => 'id']],
-            [['user_id'], 'exist', 'skipOnError' => true, 'targetClass' => Product::className(), 'targetAttribute' => ['user_id' => 'id']],
+            [['user_id'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['user_id' => 'id']],
             [['leads_status_id'], 'exist', 'skipOnError' => true, 'targetClass' => LeadsStatus::className(), 'targetAttribute' => ['leads_status_id' => 'id']],
         ];
     }

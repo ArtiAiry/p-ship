@@ -39,6 +39,9 @@ return [
     'Delete Selected' => 'Удалить выделенное',
     'Are you sure you want to delete this item?' => 'Вы действительно хотите удалить этот элемент?',
     'Are you sure you want to delete selected items?' => 'Вы действительно хотите удалить выбранные элементы?',
+    'Wallet was successfully created.'=>'Кошелек был успешно создана.',
+    'Wallet was successfully updated.'=>'Кошелек был успешно обновлен.',
+    'The requested page does not exist.'=>'Запрашиваемая страница не существует.',
 
 
     //other

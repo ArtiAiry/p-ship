@@ -57,7 +57,7 @@ class LeadsController extends Controller
         $model = new ClicksLeads();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            Yii::$app->session->setFlash('success', 'Lead was successfully created.');
+            Yii::$app->session->setFlash('success', Module::t('leads','Lead was successfully created.'));
             return $this->redirect(['/leads']);
 
         } else {
@@ -78,7 +78,7 @@ class LeadsController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            Yii::$app->session->setFlash('success', 'Lead was successfully edited.');
+            Yii::$app->session->setFlash('success', Module::t('leads','Lead was successfully edited.'));
             return $this->redirect(['/leads']);
         } else {
             return $this->render('update', [
@@ -97,7 +97,7 @@ class LeadsController extends Controller
     {
         $this->findModel($id)->delete();
 
-        return $this->redirect(['index']);
+        return $this->redirect(['/leads']);
     }
 
 

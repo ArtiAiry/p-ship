@@ -29,6 +29,7 @@ return [
     'Source'=>'Источник',
     'Lead was successfully edited.'=>'Лид был успешно отредактирован.',
     'Lead was successfully created.'=>'Лид был успешно создан.',
+    'The requested page does not exist.'=>'Запрашиваемая страница не существует.',
 
 
     //batch delete
