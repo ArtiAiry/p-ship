@@ -98,9 +98,12 @@ class Payout extends ActiveRecord
     }
 
 
-    public function getSuccessPayoutSummary() {
+    public function getSuccessPayoutSummary($id) {
 
-        $query = (new Query())->from('payout')->where(['user_id'=>Yii::$app->user->id, 'payout_status_id'=>1,'isRemoved'=>1]);
+        $query = (new Query())->from('payout')->where([
+            'payout.user_id'=>$id,
+            'payout.payout_status_id'=>1,
+            'payout.isRemoved'=>1]);
         $sum = $query->sum('payout_sum_rub');
 
         if($sum == 0){
@@ -110,16 +113,6 @@ class Payout extends ActiveRecord
         }
     }
 
-    public function getTotalPayoutSummary() {
-
-        $query = (new Query())->from('payout')->where(['user_id'=>Yii::$app->user->id]);
-        $sum = $query->sum('payout_sum_rub');
-        if($sum == 0){
-            echo 0;
-        }else{
-            echo $sum;
-        }
-    }
 
     public function getCurrencyList ()
     {

@@ -28,9 +28,9 @@ $this->params['breadcrumbs'][] = Module::t('settings', 'Profile\'s Settings');
                         <div class="float-right">
                             <p class="card-text text-right"><?= Module::t('settings', 'Total Revenue') ?></p>
                             <div class="fluid-container">
-                                <h4 class="card-title font-weight-bold text-right mb-0"><?= $payout->getSuccessPayoutSummary(); ?>
+                                <h4 class="card-title font-weight-bold text-right mb-0"><?= $payout->getSuccessPayoutSummary(Yii::$app->user->id); ?>
                                     /
-                                    <?= $sumLead->getTotalLeadSummary(); ?> <i class="mdi mdi-currency-rub"></i> </h4>
+                                    <?= $sumLead->getTotalLeadSummary(Yii::$app->user->id); ?> <i class="mdi mdi-currency-rub"></i> </h4>
                             </div>
                         </div>
                     </div>

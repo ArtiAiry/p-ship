@@ -96,9 +96,9 @@ class ProfileController extends Controller
         $payout = new Payout();
         $user = User::findOne($id);
         $profile = Profile::findOne($id);
-//        $sources = Source::find()->orderBy('id asc')->where(['user_id'=>Yii::$app->user->id])->all();
-        $wallet = Wallet::findOne(Yii::$app->user->id);
-        $lead = ClicksLeads::findOne(Yii::$app->user->id);
+        $leads = ClicksLeads::find()->orderBy('id asc')->where(['user_id' => $id])->all();
+        $wallet = Wallet::findOne($id);
+        $sumLead = new ClicksLeads();
 
         if (!isset($profile)) {
             throw new NotFoundHttpException("Профиль пользователя не найден.");
@@ -119,8 +119,9 @@ class ProfileController extends Controller
             'profile' => $profile,
             'wallet' => $wallet,
             'payout' => $payout,
-//            'sources' => $sources,
-            'lead' => $lead,
+            'sumLead' => $sumLead,
+            'leads' => $leads,
+
         ]);
     }
 

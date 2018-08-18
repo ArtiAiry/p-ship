@@ -135,6 +135,24 @@ class ClicksLeads extends ActiveRecord
         return $this->isRemoved;
     }
 
+    public function getTotalLeadSummary($id)
+    {
+        $query = (new Query())
+            ->from('clicks_leads')
+            ->where([
+                'clicks_leads.user_id'=>$id,
+                'clicks_leads.leads_status_id'=>4,
+                'clicks_leads.isRemoved'=> 1
+            ]);
+        $sum = $query->sum('price');
+
+        if($sum == 0){
+            echo 0;
+        }else{
+            echo $sum;
+        }
+    }
+
     public static function getLeadsCountDemo()
     {
 
@@ -275,22 +293,6 @@ class ClicksLeads extends ActiveRecord
 
 
 
-    public function getTotalLeadSummary()
-    {
-        $query = (new Query())
-            ->from('clicks_leads')
-            ->where([
-                'clicks_leads.user_id'=>Yii::$app->user->id,
-                'clicks_leads.leads_status_id'=>4,
-                'clicks_leads.isRemoved'=> 1
-            ]);
-        $sum = $query->sum('price');
 
-        if($sum == 0){
-            echo 0;
-        }else{
-            echo $sum;
-        }
-    }
 
 }

@@ -28,7 +28,7 @@ $sumLead = new ClicksLeads();
     <div class="navbar-menu-wrapper d-flex align-items-center">
         <ul class="navbar-nav navbar-nav-left header-links d-none d-md-flex">
             <li class="nav-item">
-                <a class="nav-link balance"><?= Yii::t('app','Your Balance: ') ?> <?= $payout->getSuccessPayoutSummary(); ?> /  <?= $sumLead->getTotalLeadSummary(); ?> <span class="currency-mark-light ml-1"><i class="mdi mdi-currency-rub"  data-toggle="tooltip" data-placement="top"  title="<?= Yii::t('app','Payed / Summary') ?>"></i></span>
+                <a class="nav-link balance"><?= Yii::t('app','Your Balance: ') ?> <?= $payout->getSuccessPayoutSummary(Yii::$app->user->id); ?> /  <?= $sumLead->getTotalLeadSummary(Yii::$app->user->id); ?> <span class="currency-mark-light ml-1"><i class="mdi mdi-currency-rub"  data-toggle="tooltip" data-placement="top"  title="<?= Yii::t('app','Payed / Summary') ?>"></i></span>
                 </a>
             </li>
         </ul>
