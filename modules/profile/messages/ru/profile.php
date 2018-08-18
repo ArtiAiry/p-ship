@@ -22,6 +22,7 @@ return [
     'Viewing a Profile'=>'Просмотр профиля',
     'First Name'=>'Имя',
     'Last Name'=>'Фамилия',
+    'Role'=>'Роль',
 
     //batch delete
 
@@ -49,7 +50,38 @@ return [
     'Enter Your Skype'=>'Введите Ваш логин скайпа',
     'Enter Your Phone Number'=>'Введите Ваш номер телефона',
     'Enter Your WhatsApp'=>'Введите Ваш WhatsApp',
-    'Enter Your Telegram, example: @example or phone number'=>'Введите Ваш телеграм, пример: @example, либо номер телефона'
+    'Enter Your Telegram, example: @example or phone number'=>'Введите Ваш телеграм, пример: @example, либо номер телефона',
+
+    //edit admin profile
+
+    'Leads' => 'Лиды аффлиата',
+    'Edit Profile:' => 'Редактировать профиль:',
+    'Total Revenue' => 'Общий доход аффлиата',
+    'Only payed transactions' => 'Только оплаченные транзакции',
+    'Main Wallet' => 'Главный кошелек аффлиата',
+    'Priority Wallet' => 'Приоритетный кошелек',
+    'Wallet Settings' => 'Настройки кошелька аффлиата',
+    'Here you can change wallet\'s settings' => 'Настройки кошелька аффлиата',
+    'Password Settings' => 'Настройки пароля',
+    'Access Control' => 'Настройки доступа',
+    'Reset Password' => 'Сменить пароль',
+
+
+    'Reset Email' => 'Сменить почту',
+    'Profile\'s settings successfully saved.' => 'Настройки профиля были успешно сохранены.',
+    'Wallet\'s settings successfully saved.' => 'Настройки кошелька были успешно сохранены.',
+    'Error in saving Profile\'s settings.' => 'Ошибка в сохранении настроек профиля.',
+    'Error in saving Wallet\'s settings.' => 'Ошибка в сохранении настроек кошелька.',
+    'User\'s Profile is not found.' => 'Профиль пользователя не найден.',
+    'Profile\'s Settings' => 'Настройки профиля',
+    'Source' => 'Источник',
+    'Product' => 'Продукт',
+
+    //actions
+
+    'View Full Table' => 'Просмотреть подробную таблицу',
+    'Reset' => 'Сменить',
+    'Edit' => 'Редактировать',
 
 
 ];

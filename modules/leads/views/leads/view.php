@@ -36,7 +36,6 @@ $this->params['breadcrumbs'][] = $this->title;
             'product.name',
             'leadsStatus.name',
             'price',
-            'isSold',
             'created_at',
         ],
     ]) ?>

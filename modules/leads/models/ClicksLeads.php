@@ -24,7 +24,6 @@ use yii\db\Query;
  * @property integer $user_id
  * @property integer $leads_status_id
  * @property integer $price
- * @property integer $isSold
  * @property string $created_at
  * @property integer $isRemoved
  *
@@ -151,19 +150,6 @@ class ClicksLeads extends ActiveRecord
         }else{
             echo $sum;
         }
-    }
-
-    public static function getLeadsCountDemo()
-    {
-
-        return self::find()->select(['*',
-            'count_lead' => 'COUNT(*)',
-            'count_status_unknown' => 'COUNT(CASE WHEN leads_status_id = 1 THEN 1 ELSE NULL END)',
-            'count_status_rejected' => 'COUNT(CASE WHEN leads_status_id = 2 THEN 1 ELSE NULL END)',
-            'count_status_approved' => 'COUNT(CASE WHEN leads_status_id = 3 THEN 1 ELSE NULL END)',
-            'count_status_sold' => 'COUNT(CASE WHEN leads_status_id = 4 THEN 1 ELSE NULL END)',
-            'sum_lead_sold_summary' => 'SUM(CASE WHEN leads_status_id = 4 THEN price ELSE 0 END)',
-        ])->groupBy('source')->all();
     }
 
 

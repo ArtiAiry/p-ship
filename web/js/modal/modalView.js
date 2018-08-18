@@ -1,5 +1,5 @@
 $(function () {
-    $('.view-modal-click').on('click',function () {
+    $('#demo-table').on('click','.view-modal-click',function () {
         $('#view-modal')
             .modal('show')
             .find('#viewModalContent')
@@ -7,9 +7,17 @@ $(function () {
     });
 });
 
+$(function () {
+    $('#min-table').on('click','.view-modal-click',function () {
+        $('#view-modal')
+            .modal('show')
+            .find('#viewModalContent')
+            .load($(this).attr('value'));
+    });
+});
 
 $(function () {
-    $('#demo-table').on('click','.view-modal-click',function () {
+    $('#extended-table').on('click','.view-modal-click',function () {
         $('#view-modal')
             .modal('show')
             .find('#viewModalContent')

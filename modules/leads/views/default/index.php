@@ -46,6 +46,7 @@ Modal::end();
                 <thead>
                 <tr>
                     <td><?= Module::t('leads','ID')?></td>
+                    <td><?= Module::t('leads','CRM ID')?></td>
                     <td><?= Module::t('leads','Created At')?></td>
                     <td><?= Module::t('leads','User Device')?></td>
                     <td><?= Module::t('leads','User OS')?></td>
@@ -65,6 +66,7 @@ Modal::end();
                     <!--                --><?php //if($profile->user->getRole() == 'teacher'): ?>
                     <tr>
                         <td><?= $lead->id ?></td>
+                        <td><?= $lead->crm_id ?></td>
 <!--                        <td>06.0--><?//= $lead->id ?><!--.18</td>-->
                         <td><?= Yii::$app->formatter->asDate($lead->created_at) . " " . Yii::$app->formatter->asTime($lead->created_at)?></td>
                         <td><?= $lead->user_device ?></td>
@@ -78,7 +80,7 @@ Modal::end();
                         <?php if($profile->user->getRole() == 'admin'): ?>
                         <td><?= $lead->user->username ?></td>
                         <td>
-                            <button id="view-button" value="<?= Url::toRoute(['/leads/view','id'=>$lead->id]);?>" data-toggle="tooltip" title="<?= Module::t('leads','View')?>" aria-label="View" class="btn btn-outline-dark btn-rounded btn-xs view-modal-click"><span class="fa fa-eye"></span></button>
+                            <button value="<?= Url::toRoute(['/leads/view','id'=>$lead->id]);?>" data-toggle="tooltip" title="<?= Module::t('leads','View')?>" aria-label="View" class="btn btn-outline-dark btn-rounded btn-xs view-modal-click"><span class="fa fa-eye"></span></button>
                             <a href="<?= Url::toRoute(['/leads/update','id'=>$lead->id]);?>" data-toggle="tooltip"  title="<?= Module::t('leads','Update')?>" aria-label="Update" class="btn btn-outline-dark btn-rounded btn-xs update-modal-click"><span class="fa fa-pencil" ></span></a>
                             <a href="<?= Url::toRoute(['/leads/remove','id'=>$lead->id]);?>" data-toggle="tooltip"  title="<?= Module::t('leads','Delete')?>" aria-label="Delete" data-confirm="<?= Module::t('leads','Are you sure you want to delete this item?')?>" class="btn btn-outline-dark btn-rounded btn-xs" data-method="post"><span class="fa fa-trash"></span></a>
                         </td>

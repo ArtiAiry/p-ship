@@ -27,7 +27,7 @@ $this->params['breadcrumbs'][] = $this->title;
                         <td><?= Module::t('profile','Telegram')?></td>
                         <td><?= Module::t('profile','Status')?></td>
                         <td><?= Module::t('profile','Whatsapp')?></td>
-                                        <td>Role</td>
+                        <td><?= Module::t('profile','Role')?></td>
                         <td><?= Module::t('profile','Actions')?></td>
                     </tr>
                     </thead>

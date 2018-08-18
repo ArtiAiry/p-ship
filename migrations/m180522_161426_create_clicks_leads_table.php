@@ -23,7 +23,6 @@ class m180522_161426_create_clicks_leads_table extends Migration
             'product_id' => $this->integer(),
             'leads_status_id' => $this->integer()->defaultValue(1),
             'price' => $this->integer(),
-            'isSold' => "TINYINT (1) default 1",
             'created_at' => "timestamp NOT NULL DEFAULT current_timestamp",
             'isRemoved'=> "TINYINT (1) default 1",
 

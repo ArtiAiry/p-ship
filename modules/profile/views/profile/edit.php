@@ -1,6 +1,6 @@
 <?php
 
-use app\modules\settings\Module;
+use app\modules\profile\Module;
 use digitv\bootstrap\widgets\Modal;
 use yii\helpers\Html;
 use yii\helpers\Url;
@@ -12,10 +12,10 @@ use yii\helpers\Url;
 /* @var $user app\models\User */
 
 
-$this->title = Module::t('settings','Edit Profile:') . ' ' . $profile->user->username;
-$this->params['breadcrumbs'][] = ['label' => Module::t('settings','Profiles'), 'url' => ['/profile']];
+$this->title = Module::t('profile','Edit Profile:') . ' ' . $profile->user->username;
+$this->params['breadcrumbs'][] = ['label' => Module::t('profile','Profiles'), 'url' => ['/profile']];
 $this->params['breadcrumbs'][] = ['label' => $profile->id, 'url' => ['view', 'id' => $profile->id]];
-$this->params['breadcrumbs'][] = Module::t('settings','Edit');
+$this->params['breadcrumbs'][] = Module::t('profile','Edit');
 
 
 
@@ -32,7 +32,7 @@ $this->params['breadcrumbs'][] = Module::t('settings','Edit');
                             <i class="mdi mdi-coins text-primary icon-lg"></i>
                         </div>
                         <div class="float-right">
-                            <p class="card-text text-right"><?= Module::t('settings', 'Total Revenue') ?></p>
+                            <p class="card-text text-right"><?= Module::t('profile', 'Total Revenue') ?></p>
                             <div class="fluid-container">
                                 <h4 class="card-title font-weight-bold text-right mb-0"><?= $payout->getSuccessPayoutSummary($profile->id); ?>
                                     /
@@ -42,7 +42,7 @@ $this->params['breadcrumbs'][] = Module::t('settings','Edit');
                     </div>
                     <p class="text-muted mt-3">
                         <i class="mdi mdi-information mr-1"
-                           aria-hidden="true"></i> <?= Module::t('settings', 'Only payed transactions') ?>
+                           aria-hidden="true"></i> <?= Module::t('profile', 'Only payed transactions') ?>
                     </p>
                 </div>
             </div>
@@ -55,7 +55,7 @@ $this->params['breadcrumbs'][] = Module::t('settings','Edit');
                             <i class="mdi mdi-wallet-membership text-primary icon-lg"></i>
                         </div>
                         <div class="float-right">
-                            <p class="card-text text-right"><?= Module::t('settings', 'Main Wallet') ?></p>
+                            <p class="card-text text-right"><?= Module::t('profile', 'Main Wallet') ?></p>
                             <div class="fluid-container">
                                 <h4 class="card-title font-weight-bold text-right mb-0"><?= $wallet->getMainWallet(); ?></h4>
                             </div>
@@ -63,7 +63,7 @@ $this->params['breadcrumbs'][] = Module::t('settings','Edit');
                     </div>
                     <p class="text-muted mt-3">
                         <i class="mdi mdi-information mr-1"
-                           aria-hidden="true"></i> <?= Module::t('settings', 'Priority Wallet') ?>
+                           aria-hidden="true"></i> <?= Module::t('profile', 'Priority Wallet') ?>
                     </p>
                 </div>
             </div>
@@ -76,18 +76,18 @@ $this->params['breadcrumbs'][] = Module::t('settings','Edit');
                             <i class="mdi mdi-wallet text-primary icon-lg"></i>
                         </div>
                         <div class="float-right">
-                            <p class="card-text text-right"><?= Module::t('settings', 'Wallet Settings') ?></p>
+                            <p class="card-text text-right"><?= Module::t('profile', 'Wallet Settings') ?></p>
                             <div class="fluid-container">
                                 <h4 class="card-title font-weight-bold text-right mb-0"><a
                                         href="<?= Url::to(['/settings/wallet']) ?>"
-                                        class="btn btn-outline-primary btn-rounded btn-xs update-modal-click"><?= Module::t('settings', 'Update') ?></a>
+                                        class="btn btn-outline-primary btn-rounded btn-xs update-modal-click"><?= Module::t('profile', 'Update') ?></a>
                                 </h4>
                             </div>
                         </div>
                     </div>
                     <p class="text-muted mt-3">
                         <i class="mdi mdi-information mr-1"
-                           aria-hidden="true"></i> <?= Module::t('settings', 'Here you can change wallet\'s settings') ?>
+                           aria-hidden="true"></i> <?= Module::t('profile', 'Here you can change wallet\'s settings') ?>
                     </p>
                 </div>
             </div>
@@ -100,22 +100,22 @@ $this->params['breadcrumbs'][] = Module::t('settings','Edit');
                             <i class="mdi mdi-lock-question text-primary icon-lg"></i>
                         </div>
                         <div class="float-right">
-                            <p class="card-text text-right"><?= Module::t('settings', 'Access Control') ?></p>
+                            <p class="card-text text-right"><?= Module::t('profile', 'Access Control') ?></p>
                             <div class="fluid-container">
                                 <h4 class="card-title font-weight-bold text-right mb-0">
                                     <a
                                         href="<?= Url::to(['/settings/email']) ?>"
-                                        class="btn btn-outline-primary btn-rounded btn-xs update-modal-click"><?= Module::t('settings', 'Reset Email') ?></a>
+                                        class="btn btn-outline-primary btn-rounded btn-xs update-modal-click"><?= Module::t('profile', 'Reset Email') ?></a>
                                     <a
                                         href="<?= Url::to(['/settings/password']) ?>"
-                                        class="btn btn-outline-primary btn-rounded btn-xs update-modal-click"><?= Module::t('settings', 'Reset Password') ?></a>
+                                        class="btn btn-outline-primary btn-rounded btn-xs update-modal-click"><?= Module::t('profile', 'Reset Password') ?></a>
                                 </h4>
                             </div>
                         </div>
                     </div>
                     <p class="text-muted mt-3">
                         <i class="mdi mdi-information mr-1"
-                           aria-hidden="true"></i><?= Module::t('settings', 'Reset Password') ?>
+                           aria-hidden="true"></i><?= Module::t('profile', 'Reset Password') ?>
                     </p>
                 </div>
             </div>
@@ -138,18 +138,18 @@ $this->params['breadcrumbs'][] = Module::t('settings','Edit');
         <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 grid-margin stretch-card">
             <div class="card">
                 <div class="card-body">
-                    <h3 class="card-title mb-4"><?= Module::t('settings', 'Leads') ?> <a
+                    <h3 class="card-title mb-4"><?= Module::t('profile', 'Leads') ?> <a
                             href="<?= Url::to(['/leads']) ?>"
-                            class="btn btn-outline-primary btn-xs"><?= Module::t('settings', 'View Full Table') ?></a>
+                            class="btn btn-outline-primary btn-xs"><?= Module::t('profile', 'View Full Table') ?></a>
                     </h3>
                     <table class="table table-hover table-bordered dt-responsive nowrap" style="width:100%"
                            id="portable">
                         <thead>
                         <tr>
-                            <th><?= Module::t('settings', 'ID') ?></th>
-                            <th><?= Module::t('settings', 'Source') ?></th>
-                            <th><?= Module::t('settings', 'Product') ?></th>
-                            <th><?= Module::t('settings', 'Actions') ?></th>
+                            <th><?= Module::t('profile', 'ID') ?></th>
+                            <th><?= Module::t('profile', 'Source') ?></th>
+                            <th><?= Module::t('profile', 'Product') ?></th>
+                            <th><?= Module::t('profile', 'Actions') ?></th>
 
                         </tr>
                         </thead>
@@ -161,17 +161,17 @@ $this->params['breadcrumbs'][] = Module::t('settings','Edit');
                                 <td><?= $lead->product->name ?></td>
                                 <td>
                                         <button value="<?= Url::toRoute(['/leads/view', 'id' => $lead->id]); ?>"
-                                                data-toggle="tooltip" title="<?= Module::t('settings', 'View') ?>"
+                                                data-toggle="tooltip" title="<?= Module::t('profile', 'View') ?>"
                                                 aria-label="View"
                                                 class="btn btn-outline-dark btn-rounded btn-xs view-modal-click"><span
                                                 class="fa fa-eye"></span></button>
                                         <a href="<?= Url::toRoute(['/leads/update', 'id' => $lead->id]); ?>"
-                                           data-toggle="tooltip" title="<?= Module::t('settings', 'Update') ?>"
+                                           data-toggle="tooltip" title="<?= Module::t('profile', 'Update') ?>"
                                            aria-label="Update"
                                            class="btn btn-outline-dark btn-rounded btn-xs update-modal-click"><span
                                                 class="fa fa-pencil"></span></a>
                                         <a href="<?= Url::toRoute(['/leads/delete', 'id' => $lead->id]); ?>"
-                                           data-toggle="tooltip" title="<?= Module::t('settings', 'Delete') ?>"
+                                           data-toggle="tooltip" title="<?= Module::t('profile', 'Delete') ?>"
                                            aria-label="Delete" data-confirm="Are you sure you want to delete this item?"
                                            class="btn btn-outline-dark btn-rounded btn-xs" data-method="post"><span
                                                 class="fa fa-trash"></span></a>
@@ -187,7 +187,7 @@ $this->params['breadcrumbs'][] = Module::t('settings','Edit');
 
 <?php
 Modal::begin([
-    'header' => '<h4>'. Module::t('settings','View Source') .'</h4>',
+    'header' => '<h4>'. Module::t('profile','View Source') .'</h4>',
     'id' => 'view-modal',
     'size' => 'modal-md',
 ]);
