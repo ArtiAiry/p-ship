@@ -2,7 +2,7 @@
 
 return [
 
-    'Welcome'=>'Добро пожаловать',
+    'Welcome'=>'Приветствуем',
     'This is a start point for our further partnership. We hope, that this program will be comfortable for you.'=>'Это - стартовая точка для нашего дальнейшего партнерства. Мы надеемся, что эта программа будет удобна для Вас.',
     'Products'=>'Продукты',
     'Statistics'=>'Статистика',

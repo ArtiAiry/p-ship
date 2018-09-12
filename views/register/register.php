@@ -32,6 +32,8 @@ $this->params['breadcrumbs'][] = $this->title;
 
 <body>
 <?php $this->beginBody() ?>
+
+
 <div class="container-scroller">
     <div class="container-fluid page-body-wrapper full-page-wrapper">
         <div class="content-wrapper d-flex align-items-center auth register-full-bg">
@@ -75,9 +77,15 @@ $this->params['breadcrumbs'][] = $this->title;
 <!--                                        <label class="form-check-label">-->
 <!--                                            <input type="checkbox" class="form-check-input">-->
 <!--                                            --><?//= Yii::t('app','I accept terms and conditions') ?>
-                                        <?= $form->field($model, 'agreement')->checkbox() ?>
-<!--                                            --><?//= Html::activeCheckbox($model, 'agreement') ?>
-<!--                                        </label>-->
+                                        <?= $form->field($model, 'agreement')->checkbox()->label('Я принимаю условия '
+                                            . '<a target="_blank" href="https://profituz.com/rules" class="auth-link text-black" data-toggle="tooltip" data-placement="bottom"  title="'
+                                            . Yii::t('app','Read')
+                                            . '">'
+                                            . '<span class="font-weight-medium">'
+                                            . "соглашения."
+                                            . '</span>'
+                                            . "</a>"
+                                        ) ?>
                                     </div>
                                 </div>
                                 <div class="mt-2 text-center">
@@ -96,7 +104,6 @@ $this->params['breadcrumbs'][] = $this->title;
     </div>
     <!-- page-body-wrapper ends -->
 </div>
-
 <!-- container-scroller -->
 <!-- plugins:js -->
 <?php $this->endBody() ?>

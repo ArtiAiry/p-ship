@@ -24,7 +24,7 @@ echo "<div id='modalContent1' class='card'></div>";
 digitv\bootstrap\widgets\Modal::end();
 ?>
 
-<h1 class="h-center"><?= Html::encode($this->title)?>
+<h1 class="h-center mb-4"><?= Html::encode($this->title)?>
     <?php if($profile->user->getRole() == 'admin'): ?>
     <button value="<?= Url::to(['/product/create']) ?>" class="btn btn-outline-primary" id="modalButton1" data-toggle="tooltip" data-placement="bottom"  title="<?=  Module::t('product','Add Product') ?>">
         <?= Module::t('product','Create')?>

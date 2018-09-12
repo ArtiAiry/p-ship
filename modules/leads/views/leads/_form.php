@@ -17,6 +17,8 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
+    <?= $form->field($model, 'crm_id')->textInput(['maxlength' => true]) ?>
+
     <?= $form->field($model, 'user_device')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'user_os')->textInput(['maxlength' => true]) ?>

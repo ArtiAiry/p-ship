@@ -20,6 +20,7 @@ use yii\db\Query;
  * @property string $user_device
  * @property string $user_os
  * @property integer $source
+ * @property integer $crm_id
  * @property integer $product_id
  * @property integer $user_id
  * @property integer $leads_status_id
@@ -58,7 +59,7 @@ class ClicksLeads extends ActiveRecord
     public function rules()
     {
         return [
-            [['product_id', 'leads_status_id', 'price', 'user_id'], 'integer'],
+            [['product_id', 'leads_status_id', 'price', 'user_id', 'crm_id'], 'integer'],
             [['created_at', 'date'], 'safe'],
             [['count_lead', 'count_status_unknown', 'count_status_rejected', 'count_status_approved', 'count_status_sold', 'sum_lead_sold_summary'], 'integer'],
             [['ip', 'user_device', 'user_os', 'source'], 'string', 'max' => 64],
@@ -75,6 +76,7 @@ class ClicksLeads extends ActiveRecord
     {
         return [
             'id' => Module::t('leads', 'ID'),
+            'crm_id' => Module::t('leads', 'CRM ID'),
             'ip' => Module::t('leads', 'Ip'),
             'user_device' => Module::t('leads', 'User Device'),
             'user_os' => Module::t('leads', 'User OS'),

@@ -114,6 +114,7 @@ return [
     'Active'=>'Активный',
     'Not Confirmed'=>'Не потвержден',
     'Deleted'=>'Удален',
+    'Read'=>'Читать',
 
     //contact
 

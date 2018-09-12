@@ -5,7 +5,7 @@ return [
 
     'Leads, Group by Product'=>'Лиды, сгруппированные по продуктам',
     'Product'=>'Продукт',
-    'Amount of Leads'=>'Количество Лидов',
+    'Amount of Leads'=>'Всего',
     'Unknown'=>'Неизвестно',
     'Rejected'=>'Отклонено',
     'Approved'=>'Подтверждено',

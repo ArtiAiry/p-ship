@@ -419,3 +419,8 @@ a.btn-outline-primary.btn-xs:hover{
 .balance {
     width:400px;
 }
+
+.sub-naming {
+    font-size: 13px;
+    color: grey;
+}

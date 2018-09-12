@@ -14,9 +14,9 @@ $this->params['breadcrumbs'][] = $this->title;
 
 <div class="card fade-out">
     <div class="card-body">
-        <h1>
-            <?= Html::encode($this->title)?>
-        </h1>
+        <h3 class="mb-2 ml-3">
+            Статистика лидов <p class="sub-naming">(сгруппированные по источникам)</p>
+        </h3>
             <table id="extended-table" class="table table-hover table-bordered dt-responsive nowrap" style="width:100%">
                 <thead>
                 <tr>
