@@ -7,8 +7,7 @@ use yii\helpers\Html;
 /* @var $model app\modules\product\models\Product */
 
 $this->title = Module::t('product','Update Product: ') . $model->name;
-$this->params['breadcrumbs'][] = ['label' => Module::t('product','Products'), 'url' => ['index']];
-$this->params['breadcrumbs'][] = ['label' => $model->name, 'url' => ['view', 'id' => $model->id]];
+$this->params['breadcrumbs'][] = ['label' => Module::t('product','Products'), 'url' => ['/product']];
 $this->params['breadcrumbs'][] = Module::t('product','Update');
 ?>
 <div class="product-update">

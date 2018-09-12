@@ -6,7 +6,7 @@ return [
     //buttons
 
     'Create Product' => 'Создать продукт',
-    'Update Product: ' => 'Редактировать статус ',
+    'Update Product: ' => 'Редактировать продукт ',
 
 
     //grid
@@ -37,6 +37,7 @@ return [
     //prompts
 
     'Are you sure you want to delete this item?' => 'Вы действительно хотите удалить выбранный элемент?',
+    'Product was successfully updated.' => 'Продукт был успешно отредактирован.',
 
 
 

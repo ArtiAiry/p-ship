@@ -49,6 +49,9 @@ digitv\bootstrap\widgets\Modal::end();
                         <p class="card-text"><?= $product->price ?> <span class="currency-mark"><i class="mdi mdi-currency-rub"></i></span></p>
                         <p class="card-text"><a href="<?= $product->getBuildUrl(); ?>"><badge class="badge badge-primary"><?= $product->getBuildUrl(); ?></badge></a> <a class="btn btn-outline-primary btn-xs mt-1 mb-1" data-clipboard-text="<?= $product->getBuildUrl(); ?>">Копировать</a></p>
                                 <a href="<?= $product->banner_url ?>" class="btn btn-primary" download="banners.rar"><?= Module::t('product','Banner\'s link')?></a>
+            <?php if($profile->user->getRole() == 'admin'): ?>
+                                <a href="<?= Url::toRoute(['/product/update','id'=>$product->id]);?>" data-toggle="tooltip"  title="<?= Module::t('product','Update')?>" aria-label="Update" class="btn btn-outline-primary btn-md mt-1 mb-1"><span class="fa fa-pencil" ></span></a>
+            <?php endif; ?>
                     </div>
                 </div>
             </div>

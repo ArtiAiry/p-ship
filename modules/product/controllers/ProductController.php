@@ -2,6 +2,7 @@
 
 namespace app\modules\product\controllers;
 
+use app\modules\product\Module;
 use app\modules\profile\models\Profile;
 use Yii;
 use app\modules\product\models\Product;
@@ -90,19 +91,12 @@ class ProductController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+            Yii::$app->session->setFlash('success', Module::t('product','Product was successfully updated.'));
+            return $this->redirect(['/product']);
         } else {
-            if (Yii::$app->request->isAjax) {
-
-            return $this->renderAjax('update', [
-                'model' => $model,
-            ]);
-
-            } else {
                 return $this->render('update', [
                     'model' => $model,
                 ]);
-            }
         }
     }
 
