@@ -15,7 +15,7 @@ $this->title = 'Profituz';
             <div class="card-img-overlay h-100 d-flex flex-column justify-content-end main">
                 <h5 class="card-title"><?= Yii::t('start', 'Welcome') ?>, <?= Yii::$app->user->identity->username ?>!</h5>
                 <p class="card-text"><?= Yii::t('start', 'This is a start point for our further partnership. We hope, that this program will be comfortable for you.') ?></p>
-                <p class="card-text">"Partnership" team.</p>
+                <p class="card-text">Команда "Profituz".</p>
             </div>
         </div>
     </div>

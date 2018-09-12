@@ -24,7 +24,8 @@ class LoginForm extends Model
     {
         return [
             // email and password are both required
-            [['login', 'password_hash'], 'required'],
+            [['login'], 'required', 'message'=>Yii::t('app','Login cannot be blank.')],
+            [['password_hash'],'required', 'message'=>Yii::t('app','Password cannot be blank.')],
             // rememberMe must be a boolean value
             ['rememberMe', 'boolean'],
             // password is validated by validatePassword()

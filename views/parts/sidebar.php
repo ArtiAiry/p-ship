@@ -24,7 +24,7 @@ digitv\bootstrap\widgets\Modal::end();
             <div class="nav-link">
                 <div class="profile-image"> <img src="/images/faces/manager-bg.png" alt="image"/> <span class="online-status online"></span> </div>
                 <div class="profile-name">
-                    <p class="name">Profituz.manager</p>
+                    <p class="name">Андрей Максимов</p>
                     <p class="designation">Менеджер</p>
                     <button value="<?= Url::to(['/contact']) ?>" class="badge badge-primary mx-auto mt-3" id="modalButton" data-toggle="tooltip" data-placement="bottom"  title="<?= Yii::t('app','Ask Manager') ?>"><?= Yii::t('app','Ask...') ?></button>
                 </div>

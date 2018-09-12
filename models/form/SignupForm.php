@@ -27,7 +27,10 @@ class SignupForm extends Model
     public function rules()
     {
         return [
-            [['username','email','password_hash','repeat_password'],'required'],
+            [['username'],'required', 'message'=>Yii::t('app','Login cannot be blank.')],
+            [['email'],'required', 'message'=>Yii::t('app','Email cannot be blank.')],
+            [['password_hash'],'required', 'message'=>Yii::t('app','Password cannot be blank.')],
+            [['repeat_password'],'required', 'message'=>Yii::t('app','Repeat password cannot be blank.')],
             [['username'], 'string', 'min'=> 4, 'max'=> 255],
             ['username', 'match', 'pattern' => '/^[a-z]\w*$/i'],
             [['email'], 'unique', 'targetClass'=>'app\models\User', 'targetAttribute'=>'email', 'message'=>Yii::t('app','This email has been already token.')],

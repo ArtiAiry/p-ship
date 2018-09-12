@@ -39,8 +39,6 @@ $this->params['breadcrumbs'][] = $this->title;
                 <div class="col-lg-4 mx-auto">
                     <div class="auth-form-light text-left p-5">
                         <h2><?= Yii::t('app','Sign Up')?></h2>
-                        <h4 class="font-weight-light"><?= Yii::t('app','Hello! let\'s get started')?></h4>
-
                                 <?php $form = ActiveForm::begin([
                                                     'id' => 'signup-form',
                                                     'layout' => 'horizontal',
@@ -83,7 +81,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                     </div>
                                 </div>
                                 <div class="mt-2 text-center">
-                                    <a href="<?= \yii\helpers\Url::to(['/auth/login']) ?>" class="auth-link text-black"><?= Yii::t('app','Already have an account?') ?><span class="font-weight-medium"><?= Yii::t('app','Sign In') ?></span></a>
+                                    <a href="<?= \yii\helpers\Url::to(['/auth/login']) ?>" class="auth-link text-black"><?= Yii::t('app','Already have an account?') ?> <span class="font-weight-medium"><?= Yii::t('app','Sign In') ?></span></a>
                                 </div>
 				   <div class="mt-3">
                                     <?= Html::submitButton(Yii::t('app','Register'), ['class' => 'btn btn-block btn-primary btn-lg font-weight-medium', 'name' => 'login-button']) ?>

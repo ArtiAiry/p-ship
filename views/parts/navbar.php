@@ -24,6 +24,7 @@ $sumLead = new ClicksLeads();
         <a class="navbar-brand brand-logo" href="<?=Yii::$app->homeUrl ?>"><img src="/images/profituz.png" style="
     width: 125px;
     height: 40px;
+    margin-bottom: 5px;
 " alt="logo"/></a>
         <a class="navbar-brand brand-logo-mini" href="<?=Yii::$app->homeUrl ?>"><img src="/images/profituz-mini.png" alt="logo"/></a>
     </div>

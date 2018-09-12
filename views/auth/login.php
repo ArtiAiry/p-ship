@@ -35,7 +35,6 @@ $this->params['breadcrumbs'][] = $this->title;
                 <div class="col-lg-4 mx-auto">
                     <div class="auth-form-dark text-left p-5">
                         <h2><?= Yii::t('app','Log in') ?></h2>
-                        <h4 class="font-weight-light"><?= Yii::t('app','Hello! let\'s get started') ?></h4>
                         <?php $form = ActiveForm::begin([
                                 'id' => 'login-form',
                                 'layout' => 'horizontal',

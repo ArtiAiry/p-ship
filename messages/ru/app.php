@@ -20,7 +20,7 @@ return [
     'By Date'=>'По дате',
     'Ask Manager'=>'Задать вопрос менеджеру',
     'Contact Us'=>'Свяжитесь с нами',
-    'Ask...'=>'Спросить...',
+    'Ask...'=>'Написать менеджеру',
 
     //navbar
 
@@ -55,8 +55,8 @@ return [
     'Error'=>'Ошибка',
     'Already have an account?'=>'Уже есть аккаунт?',
     'I accept terms and conditions'=>'Я принимаю условия соглашения',
-    'Enter Username or Email'=>'Введите Логин или Почту',
-    'Enter Password'=>'Введите Пароль',
+    'Enter Username or Email'=>'Введите логин или почту',
+    'Enter Password'=>'Введите пароль',
     'Enter Email'=>'Введите почту',
     'Password'=>'Пароль',
     'Your Username'=>'Ваш логин',
@@ -103,6 +103,10 @@ return [
     'Your account has been suspended.'=>'Ваш аккаунт заблокирован.',
     'Your account is not confirmed.'=>'Ваш аккаунт не подтвежден.',
     'Wrong Email confirm token.'=>'Неправильный токен подтверждения почты.',
+    'Login cannot be blank.'=>'Заполните логин.',
+    'Email cannot be blank.'=>'Заполните почту.',
+    'Password cannot be blank.'=>'Заполните пароль.',
+    'Repeat password cannot be blank.'=>'Заполните пароль.',
 
 
     //status
@@ -113,7 +117,7 @@ return [
 
     //contact
 
-    'If you have business inquiries or other questions, please fill out the following form to contact us. Thank you.'=>'Если у вас возникли деловые вопросы или др., пожалуйста, заполните следующую форму, чтобы связаться с нами. Спасибо.',
+    'If you have business inquiries or other questions, please fill out the following form to contact us. Thank you.'=>'Если у вас возник вопрос, пожалуйста, заполните следующую форму. Менеджер ответит Вам на email.',
     'Your Name'=>'Ваше имя',
     'Send'=>'Отправить',
     'Subject'=>'Тема',
@@ -121,6 +125,7 @@ return [
     'Verification Code'=>'Код верификации',
     'Thank you for contacting us. We will respond to you as soon as possible.'=>'Благодарим Вас за обращение к нам. Мы ответим вам как можно скорее.',
     'There was an error sending email.'=>'Возникла ошибка при отправки сообщения.',
+
 
     //reset pw
 
