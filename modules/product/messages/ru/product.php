@@ -20,7 +20,7 @@ return [
     'Price'=>'Цена',
     'Description'=>'Описане',
     'Product\'s Name'=> 'Имя продукта',
-    'Banner\'s link'=> 'Скачать баннера',
+    'Banner\'s link'=> 'скачать баннера',
     'Product created.' => 'Продукт создан.',
 
 

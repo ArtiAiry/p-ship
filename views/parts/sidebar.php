@@ -26,7 +26,7 @@ digitv\bootstrap\widgets\Modal::end();
                 <div class="profile-name">
                     <p class="name">Андрей Максимов</p>
                     <p class="designation">Менеджер</p>
-                    <button value="<?= Url::to(['/contact']) ?>" class="badge badge-primary mx-auto mt-3" id="modalButton" data-toggle="tooltip" data-placement="bottom"  title="<?= Yii::t('app','Ask Manager') ?>"><?= Yii::t('app','Ask...') ?></button>
+                    <button value="<?= Url::to(['/contact']) ?>" class="badge badge-primary mx-auto mt-3" id="modalButton" data-toggle="tooltip" data-placement="bottom" style="cursor:  pointer;" title="<?= Yii::t('app','Ask Manager') ?>"><?= Yii::t('app','Ask...') ?></button>
                 </div>
             </div>
         </li>

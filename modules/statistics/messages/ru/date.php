@@ -9,6 +9,6 @@ return [
     'Rejected'=>'Отклонено',
     'Approved'=>'Подтверждено',
     'Sold'=>'Продажа',
-    'Summary'=>'Сумма (в руб.)',
+    'Summary'=>'Сумма (RUB)',
 
 ];
