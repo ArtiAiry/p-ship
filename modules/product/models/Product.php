@@ -14,6 +14,7 @@ use yii\db\ActiveRecord;
  * @property string $description
  * @property integer $price
  * @property string $banner_url
+ * @property string $site_url
  * @property string $logo_url
  * @property string $created_at
  */
@@ -36,7 +37,7 @@ class Product extends ActiveRecord
         return [
             [['price'], 'integer'],
             [['created_at'], 'safe'],
-            [['name', 'banner_url', 'logo_url', 'description'], 'string', 'max' => 255],
+            [['name', 'banner_url', 'logo_url', 'site_url' ,'description'], 'string', 'max' => 255],
         ];
     }
 
@@ -51,6 +52,7 @@ class Product extends ActiveRecord
             'description' => Module::t('product','Description'),
             'price' => Module::t('product','Price'),
             'banner_url' => Module::t('product','Banner\'s Url'),
+            'site_url' => Module::t('product','Site\'s Url'),
             'logo_url' => Module::t('product','Logo\'s Url'),
             'created_at' => Module::t('product','Created At'),
         ];
@@ -71,7 +73,7 @@ class Product extends ActiveRecord
 
     public function getBuildUrl()
     {
-        return "www.partnership.io/?aff=" . Yii::$app->user->id . "&p=" . $this->id;
+        return $this->site_url . "/?aff=" . Yii::$app->user->id . "&p=" . $this->id;
     }
 
 }

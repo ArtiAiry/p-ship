@@ -32,7 +32,7 @@ class AuthController extends Controller
                     [
                         'actions' => ['login', 'reset', 'change'],
                         'allow' => true,
-                        'roles' => ['?'],
+                        'roles' => ['?','admin','affiliate'],
                     ],
                     [
                         'actions' => ['logout'],
@@ -56,6 +56,7 @@ class AuthController extends Controller
         if (!Yii::$app->user->isGuest) {
             return $this->goHome();
         }
+
         $this->layout = false;
 
         $model = new LoginForm();
@@ -80,6 +81,10 @@ class AuthController extends Controller
     public function actionReset()
     {
 
+        if (!Yii::$app->user->isGuest) {
+            return $this->goHome();
+        }
+
         $this->layout = false;
 
         $model = new PasswordResetRequestForm();
@@ -101,6 +106,11 @@ class AuthController extends Controller
     
     public function actionChange($token)
     {
+
+        if (!Yii::$app->user->isGuest) {
+            return $this->goHome();
+        }
+
         $this->layout = false;
 
         try {

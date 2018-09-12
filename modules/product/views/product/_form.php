@@ -21,7 +21,11 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'banner_url')->textInput(['maxlength' => true]) ?>
 
+    <?= $form->field($model, 'site_url')->textInput(['maxlength' => true]) ?>
+
     <?= $form->field($model, 'logo_url')->textInput(['maxlength' => true]) ?>
+
+
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? Module::t('product','Create') : Module::t('product','Update'), ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>

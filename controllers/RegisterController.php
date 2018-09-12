@@ -11,14 +11,36 @@ namespace app\controllers;
 use app\models\form\EmailConfirmForm;
 use Yii;
 use yii\base\InvalidParamException;
+use yii\filters\AccessControl;
 use yii\web\BadRequestHttpException;
 use yii\web\Controller;
 use app\models\form\SignupForm;
 
 class RegisterController extends Controller
 {
+    public function behaviors()
+    {
+        return [
+            'access' => [
+                'class' => AccessControl::className(),
+                'only' => ['index', 'email-confirm'],
+                'rules' => [
+                    [
+                        'actions' => ['index', 'email-confirm'],
+                        'allow' => true,
+                        'roles' => ['?','admin','affiliate'],
+                    ],
+                ],
+            ],
+        ];
+    }
+
     public function actionIndex()
     {
+        if (!Yii::$app->user->isGuest) {
+            return $this->goHome();
+        }
+
         $this->layout = false;
 
         $model = new SignupForm();
@@ -39,6 +61,9 @@ class RegisterController extends Controller
 
     public function actionEmailConfirm($token)
     {
+        if (!Yii::$app->user->isGuest) {
+            return $this->goHome();
+        }
 
         $this->layout = false;
 

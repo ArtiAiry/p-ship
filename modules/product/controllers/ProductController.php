@@ -66,7 +66,7 @@ class ProductController extends Controller
         $profile = Profile::findOne(Yii::$app->user->id);
         if($profile->user->getRole() == 'admin'){
             if ($model->load(Yii::$app->request->post()) && $model->save()) {
-                Yii::$app->session->setFlash('success', 'Product created.');
+                Yii::$app->session->setFlash('success', Module::t('product','Product created.'));
                 return $this->redirect(['/product']);
             } else {
                 return $this->renderAjax('create', [

@@ -15,11 +15,13 @@ return [
     'Product Name'=>'Имя продукта',
     'Price: '=>'Цена: ',
     'Banner\'s Url'=>'URL баннера',
+    'Site\'s Url'=>'URL сайта',
     'Logo\'s Url'=>'URL логотипа',
     'Price'=>'Цена',
     'Description'=>'Описане',
     'Product\'s Name'=> 'Имя продукта',
     'Banner\'s link'=> 'Ссылка на баннеры',
+    'Product created.' => 'Продукт создан.',
 
 
     //other
