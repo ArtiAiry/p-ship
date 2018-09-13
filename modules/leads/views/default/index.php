@@ -31,7 +31,7 @@ Modal::end();
     <span></span> <b class="caret"></b>
 </badge>
 
-<p></p>
+<p class="mt-2">Даты в формате: <b>месяц / день / год</b></p>
 
 <div class="card fade-out">
     <div class="card-body">
@@ -67,7 +67,6 @@ Modal::end();
                     <tr>
 <!--                        <td>--><?//= $lead->id ?><!--</td>-->
                         <td><?= $lead->crm_id ?></td>
-<!--                        <td>06.0--><?//= $lead->id ?><!--.18</td>-->
                         <td><?= Yii::$app->formatter->asDate($lead->created_at) . " " . Yii::$app->formatter->asTime($lead->created_at)?></td>
                         <td><?= $lead->user_device ?></td>
                         <td><?= $lead->user_os ?></td>
@@ -76,7 +75,6 @@ Modal::end();
                         <td><?= $lead->product->name ?></td>
                         <td><?= $lead->leadsStatus->name ?></td>
                         <td><?= $lead->price ?></td>
-                        <!--                        <td>--><?//= $profile->user->getRole() ?><!--</td>-->
                         <?php if($profile->user->getRole() == 'admin'): ?>
                         <td><?= $lead->user->username ?></td>
                         <td>
@@ -92,17 +90,6 @@ Modal::end();
             </table>
     </div>
 </div>
-
-
-
-<!--<div id="reportrange" class="btn btn-success btn-lg">-->
-<!---->
-<!--    <span></span> <b class="caret"></b>-->
-<!--</div>-->
-<!--<hr>-->
-<!--<br>-->
-<!--<table id="example" class="table table-striped" cellspacing="0" width="100%"></table>-->
-<!---->
 
 <?php
 Modal::begin([

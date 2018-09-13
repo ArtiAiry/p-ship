@@ -291,8 +291,8 @@ li#example_next a.page-link {
 
 .owl-theme .owl-nav [class*='owl-'] {
     background: #4c4c4c;
-    padding-bottom: 10px;
-    padding-top: 10px;
+    padding-bottom: 6px;
+    padding-top: 4px;
     padding-left: 14px;
     padding-right: 14px;
 

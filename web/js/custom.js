@@ -215,7 +215,7 @@ $('.owl-carousel').owlCarousel({
     nav: true,
     navElement: 'btn-btn primary btn-lg',
     // dotsContainer: '#custom-dot',
-    navText:['предыдущий', 'следующий'],
+    navText:['назад', 'далее'],
     // navText:['previous', 'next'],
     responsive:{
         0:{
