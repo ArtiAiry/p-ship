@@ -8,7 +8,7 @@ use yii\helpers\Url;
 
 /* @var $this yii\web\View */
 
-$this->title = Module::t('goods','Leads, Group by Product');
+$this->title = Module::t('goods','Statistics');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 
@@ -22,7 +22,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 <tr>
                     <td><?= Module::t('goods','Product') ?></td>
                     <td><?= Module::t('goods','Amount of Leads') ?></td>
-                    <td><?= Module::t('goods','Unknown') ?></td>
+                    <td><?= Module::t('goods','Processing') ?></td>
                     <td><?= Module::t('goods','Rejected') ?></td>
                     <td><?= Module::t('goods','Approved') ?></td>
                     <td><?= Module::t('goods','Sold') ?></td>

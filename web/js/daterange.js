@@ -68,7 +68,7 @@ $(document).ready(function() {
             function(settings, data, dataIndex) {
                 var min = start;
                 var max = end;
-                var startDate = new Date(data[1]);
+                var startDate = new Date(data[0]);
 
                 if (min == null && max == null) {
                     return true;

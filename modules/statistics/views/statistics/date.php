@@ -8,7 +8,7 @@ use yii\helpers\Url;
 
 /* @var $this yii\web\View */
 
-$this->title = Module::t('date','Leads, Group by Date');
+$this->title = Module::t('date', 'Statistics');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 
@@ -18,13 +18,12 @@ $this->params['breadcrumbs'][] = $this->title;
             Статистика лидов <p class="sub-naming">(сгруппированные по дате создания)</p>
         </h3>
         </h1>
-<!--        <div class="table-responsive">-->
             <table id="extended-table" class="table table-hover table-bordered dt-responsive nowrap" style="width:100%">
                 <thead>
                 <tr>
                     <td><?= Module::t('date','Date') ?></td>
                     <td><?= Module::t('date','Amount of Leads') ?></td>
-                    <td><?= Module::t('date','Unknown') ?></td>
+                    <td><?= Module::t('date','Processing') ?></td>
                     <td><?= Module::t('date','Rejected') ?></td>
                     <td><?= Module::t('date','Approved') ?></td>
                     <td><?= Module::t('date','Sold') ?></td>
@@ -33,7 +32,6 @@ $this->params['breadcrumbs'][] = $this->title;
                 </thead>
                 <tbody>
                 <?php foreach($leads as $lead):?>
-                    <!--                --><?php //if($profile->user->getRole() == 'teacher'): ?>
                     <tr>
                         <td><?= $lead->date ?></td>
                         <td><?= $lead->count_lead ?> </td>
@@ -42,10 +40,7 @@ $this->params['breadcrumbs'][] = $this->title;
                         <td><?= $lead->count_status_approved ?> </td>
                         <td><?= $lead->count_status_sold ?> </td>
                         <td><?= $lead->sum_lead_sold_summary ?></td>
-                        <!--                            <td>--><?//= $profile->whatsapp ?><!--</td>-->
-                        <!--                        <td>--><?//= $profile->user->getRole() ?><!--</td>-->
                     </tr>
-                    <!--                --><?php //endif; ?>
                 <?php endforeach; ?>
                 </tbody>
             </table>

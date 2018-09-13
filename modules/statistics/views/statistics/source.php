@@ -8,7 +8,7 @@ use yii\helpers\Url;
 
 /* @var $this yii\web\View */
 
-$this->title = Module::t('source','Leads, Group by Source');
+$this->title = Module::t('source','Statistics');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 
@@ -22,7 +22,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 <tr>
                     <td><?= Module::t('source','Source') ?></td>
                     <td><?= Module::t('source','Amount of Leads') ?></td>
-                    <td><?= Module::t('source','Unknown') ?></td>
+                    <td><?= Module::t('source','Processing') ?></td>
                     <td><?= Module::t('source','Rejected') ?></td>
                     <td><?= Module::t('source','Approved') ?></td>
                     <td><?= Module::t('source','Sold') ?></td>
@@ -31,7 +31,6 @@ $this->params['breadcrumbs'][] = $this->title;
                 </thead>
                 <tbody>
                 <?php foreach($leads as $lead):?>
-                    <!--                --><?php //if($profile->user->getRole() == 'teacher'): ?>
                     <tr>
                         <td><?= $lead->source ?></td>
                         <td><?= $lead->count_lead ?> </td>
@@ -40,10 +39,7 @@ $this->params['breadcrumbs'][] = $this->title;
                         <td><?= $lead->count_status_approved ?> </td>
                         <td><?= $lead->count_status_sold ?> </td>
                         <td><?= $lead->sum_lead_sold_summary ?></td>
-                        <!--                            <td>--><?//= $profile->whatsapp ?><!--</td>-->
-                        <!--                        <td>--><?//= $profile->user->getRole() ?><!--</td>-->
                     </tr>
-                    <!--                --><?php //endif; ?>
                 <?php endforeach; ?>
                 </tbody>
             </table>

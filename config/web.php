@@ -72,11 +72,10 @@ $config = [
                 ],
             ],
         ],
-//       'formatter' => [
-//           'defaultTimeZone' => 'Europe/Moscow',
-//           'dateFormat' => 'MM.dd.yyyy',
-//           'locale' => 'ru-RU',
-//       ],
+        'formatter' => [
+            'defaultTimeZone' => 'Europe/Moscow',
+            'dateFormat' => 'MM.dd.yyyy',
+        ],
 
 
         'db' => $db,

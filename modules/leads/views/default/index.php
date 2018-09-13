@@ -45,9 +45,10 @@ Modal::end();
         <table id="demo-table" class="table table-hover table-bordered dt-responsive nowrap" style="width:100%">
                 <thead>
                 <tr>
-<!--                    <td>--><?//= Module::t('leads','ID')?><!--</td>-->
-                    <td><?= Module::t('leads','CRM ID')?></td>
                     <td><?= Module::t('leads','Created At')?> <i class="mdi mdi-help-circle-outline" data-toggle="tooltip" data-placement="top"  title="Отображение, сортировка и вывод дат происходит по мм/дд/гггг."></i</td>
+                    <?php if($profile->user->getRole() == 'admin'): ?>
+                        <td><?= Module::t('leads','CRM ID')?></td>
+                    <?php endif; ?>
                     <td><?= Module::t('leads','User Device')?></td>
                     <td><?= Module::t('leads','User OS')?></td>
                     <td><?= Module::t('leads','Source')?></td>
@@ -63,11 +64,11 @@ Modal::end();
                 <tbody>
                 <?php foreach($leads as $lead):?>
                     <?php if($lead->isRemoved() == 1): ?>
-                    <!--                --><?php //if($profile->user->getRole() == 'teacher'): ?>
                     <tr>
-<!--                        <td>--><?//= $lead->id ?><!--</td>-->
-                        <td><?= $lead->crm_id ?></td>
                         <td><?= Yii::$app->formatter->asDate($lead->created_at) . " " . Yii::$app->formatter->asTime($lead->created_at)?></td>
+                        <?php if($profile->user->getRole() == 'admin'): ?>
+                        <td><?= $lead->crm_id ?></td>
+                        <?php endif; ?>
                         <td><?= $lead->user_device ?></td>
                         <td><?= $lead->user_os ?></td>
 
