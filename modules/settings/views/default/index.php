@@ -74,7 +74,7 @@ $this->params['breadcrumbs'][] = Module::t('settings', 'Profile\'s Settings');
                             <div class="fluid-container">
                                 <h4 class="card-title font-weight-bold text-right mb-0"><a
                                         href="<?= Url::to(['/settings/wallet']) ?>"
-                                        class="btn btn-outline-primary btn-rounded btn-xs update-modal-click"><?= Module::t('settings', 'Update') ?></a>
+                                        class="btn btn-outline-primary btn-rounded btn-xs update-modal-click"><?= Module::t('settings', 'Edit') ?></a>
                                 </h4>
                             </div>
                         </div>

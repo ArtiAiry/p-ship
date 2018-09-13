@@ -58,9 +58,9 @@ class Wallet extends ActiveRecord
             'wallet_type_id' => Module::t('wallet','Main Wallet'),
             'yandex_money' => Module::t('wallet','Yandex Money'),
             'qiwi' => Module::t('wallet','Qiwi'),
-            'webmoney_wmr' =>  Module::t('wallet','Webmoney Wmr'),
-            'paypal_eur' =>  Module::t('wallet','Paypal Eur'),
-            'sberbank_rub' => Module::t('wallet','Sberbank Rub'),
+            'webmoney_wmr' =>  Module::t('wallet','Webmoney WMR'),
+            'paypal_eur' =>  Module::t('wallet','Paypal EUR'),
+            'sberbank_rub' => Module::t('wallet','Sberbank RUB'),
             'pb_uah' => Module::t('wallet','Privat UAH'),
             'user_id' => Module::t('wallet','Username'),
         ];

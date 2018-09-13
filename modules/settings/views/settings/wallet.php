@@ -14,7 +14,7 @@ use yii\jui\AutoComplete;
 
 
 $this->title = Module::t('wallet','Edit Wallet');
-$this->params['breadcrumbs'][] = Module::t('wallet','Update');
+$this->params['breadcrumbs'][] = Module::t('wallet','Edit');
 
 ?>
 <div class="col-md-6 d-flex align-items-stretch grid-margin">
@@ -27,7 +27,7 @@ $this->params['breadcrumbs'][] = Module::t('wallet','Update');
 
                 <?php $form = ActiveForm::begin(); ?>
 
-                <?= $form->field($wallet, 'wallet_type_id')->dropDownList(ArrayHelper::map(WalletType::find()->all(), 'id', 'name'),['prompt'=> Module::t('wallet','Choose a Main Wallet')]); ?>
+                <?= $form->field($wallet, 'wallet_type_id')->dropDownList(ArrayHelper::map(WalletType::find()->all(), 'id', 'name'),['prompt'=> Module::t('wallet','Choose a Wallet')])->label(Module::t('wallet','Choose your main wallet in order to send payouts')); ?>
 
                 <?= $form->field($wallet, 'yandex_money')->textInput(['maxlength' => true,'placeholder'=>Module::t('wallet','Enter Yandex.Money\'s requisites')]) ?>
 

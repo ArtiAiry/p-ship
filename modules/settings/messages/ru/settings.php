@@ -13,10 +13,10 @@ return [
     'Here you can change wallet\'s settings' => 'Настройки кошелька',
     'Password Settings' => 'Настройки пароля',
     'Access Control' => 'Настройки доступа',
-    'Reset Password' => 'Сменить пароль',
 
 
-    'Reset Email' => 'Сменить почту',
+    'Reset Password' => 'сменить пароль',
+    'Reset Email' => 'сменить почту',
     'Profile\'s settings successfully saved.' => 'Настройки профиля были успешно сохранены.',
     'Wallet\'s settings successfully saved.' => 'Настройки кошелька были успешно сохранены.',
     'Error in saving Profile\'s settings.' => 'Ошибка в сохранении настроек профиля.',
@@ -24,7 +24,7 @@ return [
     'User\'s Profile is not found.' => 'Профиль пользователя не найден.',
     'Profile\'s Settings' => 'Настройки профиля',
     'Source' => 'Источник',
-    'Save' => 'Сохранить',
+    'Save' => 'сохранить',
     'Product' => 'Продукт',
     'Actions' => 'Действия',
 
@@ -53,11 +53,11 @@ return [
 
     //actions
 
-    'View Full Table' => 'Просмотреть подробную таблицу',
-    'View' => 'Просмотреть',
-    'Reset' => 'Сменить',
-    'Update' => 'Обновить',
-    'Delete' => 'Удалить',
-    'Edit' => 'Редактировать',
+    'View Full Table' => 'просмотреть подробную таблицу',
+    'View' => 'просмотреть',
+    'Reset' => 'сменить',
+    'Update' => 'обновить',
+    'Delete' => 'удалить',
+    'Edit' => 'редактировать',
 
 ];
