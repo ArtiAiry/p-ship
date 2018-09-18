@@ -20,6 +20,8 @@ class m180522_161426_create_clicks_leads_table extends Migration
             'user_os' => $this->string(64),
             'user_id' => $this->integer(),
             'source' => $this->string(64),
+            'country' => $this->string(255),
+            'city' => $this->string(255),
             'product_id' => $this->integer(),
             'leads_status_id' => $this->integer()->defaultValue(1),
             'price' => $this->integer(),

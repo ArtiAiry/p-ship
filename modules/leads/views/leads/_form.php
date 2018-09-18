@@ -27,6 +27,10 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'source')->textInput(['maxlength' => true]);  ?>
 
+    <?= $form->field($model, 'country')->textInput(['maxlength' => true]);  ?>
+
+    <?= $form->field($model, 'city')->textInput(['maxlength' => true]);  ?>
+
     <?= $form->field($model, 'product_id')->dropDownList(ArrayHelper::map(Product::find()->all(), 'id', 'name'),['prompt'=>Module::t('leads','Choose Product')]); ?>
 
     <?= $form->field($model, 'leads_status_id')->dropDownList(ArrayHelper::map(LeadsStatus::find()->all(), 'id', 'name'),['prompt'=>Module::t('leads','Choose Lead\'s Status')]); ?>

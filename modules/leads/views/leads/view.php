@@ -26,18 +26,41 @@ $this->params['breadcrumbs'][] = $this->title;
         ]) ?>
     </p>
 
+    <?php if($profile->user->getRole() == 'admin'): ?>
+
     <?= DetailView::widget([
         'model' => $model,
         'attributes' => [
-            'id',
+            'crm_id',
             'user_device',
             'user_os',
             'source',
+            'country',
+            'city',
             'product.name',
             'leadsStatus.name',
             'price',
             'created_at',
         ],
     ]) ?>
+
+    <?php else: ?>
+
+        <?= DetailView::widget([
+            'model' => $model,
+            'attributes' => [
+                'user_device',
+                'user_os',
+                'source',
+                'country',
+                'city',
+                'product.name',
+                'leadsStatus.name',
+                'price',
+                'created_at',
+            ],
+        ]) ?>
+
+    <?php endif; ?>
 
 </div>

@@ -21,6 +21,8 @@ use yii\db\Query;
  * @property string $user_os
  * @property integer $source
  * @property integer $crm_id
+ * @property string $country
+ * @property string $city
  * @property integer $product_id
  * @property integer $user_id
  * @property integer $leads_status_id
@@ -63,6 +65,7 @@ class ClicksLeads extends ActiveRecord
             [['created_at', 'date'], 'safe'],
             [['count_lead', 'count_status_unknown', 'count_status_rejected', 'count_status_approved', 'count_status_sold', 'sum_lead_sold_summary'], 'integer'],
             [['ip', 'user_device', 'user_os', 'source'], 'string', 'max' => 64],
+            [['country', 'city'], 'string', 'max' => 255],
             [['product_id'], 'exist', 'skipOnError' => true, 'targetClass' => Product::className(), 'targetAttribute' => ['product_id' => 'id']],
             [['user_id'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['user_id' => 'id']],
             [['leads_status_id'], 'exist', 'skipOnError' => true, 'targetClass' => LeadsStatus::className(), 'targetAttribute' => ['leads_status_id' => 'id']],
@@ -81,6 +84,8 @@ class ClicksLeads extends ActiveRecord
             'user_device' => Module::t('leads', 'User Device'),
             'user_os' => Module::t('leads', 'User OS'),
             'user_id' => Module::t('leads', 'Affiliate'),
+            'country' => Module::t('leads','Country'),
+            'city' => Module::t('leads','City'),
             'product_id' => Module::t('leads', 'Product'),
             'leads_status_id' => Module::t('leads', 'Status'),
             'price' => Module::t('leads', 'Price'),

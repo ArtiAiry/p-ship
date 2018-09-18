@@ -3,6 +3,7 @@
 namespace app\modules\leads\controllers;
 
 use app\modules\leads\Module;
+use app\modules\profile\models\Profile;
 use Yii;
 use app\modules\leads\models\ClicksLeads;
 use yii\filters\AccessControl;
@@ -42,8 +43,12 @@ class LeadsController extends Controller
      */
     public function actionView($id)
     {
+
+        $profile = Profile::findOne(Yii::$app->user->id);
+
         return $this->renderAjax('view', [
             'model' => $this->findModel($id),
+            'profile' => $profile,
         ]);
     }
 

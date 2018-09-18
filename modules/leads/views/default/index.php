@@ -52,6 +52,8 @@ Modal::end();
                     <td><?= Module::t('leads','User Device')?></td>
                     <td><?= Module::t('leads','User OS')?></td>
                     <td><?= Module::t('leads','Source')?></td>
+                    <td><?= Module::t('leads','Country')?></td>
+                    <td><?= Module::t('leads','City')?></td>
                     <td><?= Module::t('leads','Product')?></td>
                     <td><?= Module::t('leads','Status')?></td>
                     <td><?= Module::t('leads','Price')?></td>
@@ -71,8 +73,9 @@ Modal::end();
                         <?php endif; ?>
                         <td><?= $lead->user_device ?></td>
                         <td><?= $lead->user_os ?></td>
-
                         <td><?= $lead->source  ?></td>
+                        <td><?= $lead->country  ?></td>
+                        <td><?= $lead->city  ?></td>
                         <td><?= $lead->product->name ?></td>
                         <td><?= $lead->leadsStatus->name ?></td>
                         <td><?= $lead->price ?></td>
