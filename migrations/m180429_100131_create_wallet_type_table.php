@@ -1,0 +1,29 @@
+<?php
+
+use yii\db\Migration;
+
+/**
+ * Handles the creation of table `wallet_type`.
+ */
+class m180429_100131_create_wallet_type_table extends Migration
+{
+    /**
+     * {@inheritdoc}
+     */
+    public function safeUp()
+    {
+        $this->createTable('{{%wallet_type}}', [
+            'id' => 'pk',
+            'name' => $this->string(255)->notNull(),
+            'isRemoved' => "TINYINT (1) default 1",
+        ]);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function safeDown()
+    {
+        $this->dropTable('{{%wallet_type}}');
+    }
+}
