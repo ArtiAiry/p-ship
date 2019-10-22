@@ -23,6 +23,7 @@ class m190819_171322_create_condition_table extends Migration
             'priority' =>$this->integer()->unsigned()->notNull()->defaultValue(0),
             'created_at' => $this->timestamp()->notNull()->defaultExpression('CURRENT_TIMESTAMP'),
             'updated_at' => $this->timestamp()->notNull()->defaultExpression('CURRENT_TIMESTAMP'),
+            'isRemoved' => "TINYINT (1) default 1",
         ]);
 
         $this->createIndex(

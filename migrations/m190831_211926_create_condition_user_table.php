@@ -20,6 +20,7 @@ class m190831_211926_create_condition_user_table extends Migration
             'user_condition_created_at' => $this->timestamp()->notNull()->defaultExpression('CURRENT_TIMESTAMP'),
             'created_at' => $this->timestamp()->notNull()->defaultExpression('CURRENT_TIMESTAMP'),
             'updated_at' => $this->timestamp()->notNull()->defaultExpression('CURRENT_TIMESTAMP'),
+            'isRemoved'=> "TINYINT (1) default 1",
         ]);
 
         $this->createIndex(

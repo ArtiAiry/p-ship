@@ -18,6 +18,7 @@ class m190825_078339_create_company_table extends Migration
             'info' => $this->text(),
             'created_at' => $this->timestamp()->notNull()->defaultExpression('CURRENT_TIMESTAMP'),
             'updated_at' => $this->timestamp()->notNull()->defaultExpression('CURRENT_TIMESTAMP'),
+            'isRemoved' => "TINYINT (1) default 1",
         ]);
     }
 

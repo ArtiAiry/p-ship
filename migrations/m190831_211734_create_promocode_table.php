@@ -19,6 +19,7 @@ class m190831_211734_create_promocode_table extends Migration
             'description' => $this->text(),
             'created_at' => $this->timestamp()->notNull()->defaultExpression('CURRENT_TIMESTAMP'),
             'updated_at' => $this->timestamp()->notNull()->defaultExpression('CURRENT_TIMESTAMP'),
+            'isRemoved' => "TINYINT (1) default 1",
         ]);
 
         $this->createIndex(
