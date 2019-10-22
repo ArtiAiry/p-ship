@@ -116,7 +116,7 @@ class CompanyController extends Controller
     {
         $this->findModel($id)->removeCompany();
 
-        return $this->redirect(['index']);
+        return $this->redirect(['/company']);
 
 
     }

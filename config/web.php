@@ -121,6 +121,11 @@ $config = [
                 '<module:settings>/<action:\w+>/<id:\d+>' => '<module>/settings/<action>',
                 '<module:settings>/<action>' => '<module>/settings/<action>',
 
+                //company
+                '<module:company>/<action:\w+>/<id:\d+>' => '<module>/company/<action>',
+                '<module:company>/<action:\w+>' => '<module>/company/<action>',
+
+
 
             ],
         ],
@@ -167,6 +172,9 @@ $config = [
         'settings' => [
             'class' => 'app\modules\settings\Module',
         ],
+        'company' => [
+            'class' => 'app\modules\company\Module',
+        ]
     ],
     'params' => $params,
 ];
