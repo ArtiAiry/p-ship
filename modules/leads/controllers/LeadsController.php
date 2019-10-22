@@ -133,7 +133,7 @@ class LeadsController extends Controller
     public function actionSandbox()
     {
 
-        Yii::$app->response->format = Response::FORMAT_JSON;
+//        Yii::$app->response->format = Response::FORMAT_JSON;
         $profile = Profile::findOne(Yii::$app->user->id);
 
 

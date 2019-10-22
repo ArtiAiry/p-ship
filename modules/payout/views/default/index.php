@@ -19,6 +19,9 @@ $this->params['breadcrumbs'][] = $this->title;
                <?= Module::t('payout','Create') ?>
             </button>
         </h1>
+        <div>
+            <input class="switch-box" type="checkbox" id="switch-checkbox"> <span></span>
+        </div>
         <?php if(!empty($payouts)): ?>
             <table id="min-table" class="table table-hover table-bordered dt-responsive nowrap" style="width:100%">
                 <thead>
@@ -30,16 +33,14 @@ $this->params['breadcrumbs'][] = $this->title;
                     <td><?= Module::t('payout','Payout Currency')?></td>
                     <td><?= Module::t('payout','Payout Summary (RUB)')?></td>
                     <td><?= Module::t('payout','Payout Status')?></td>
-                    <td><?= Module::t('payout','Comment')?></td>
-                    <td><?= Module::t('payout','Created At')?></td>
-                    <!--                <td>Role</td>-->
+                    <td class="switch-toggler"><?= Module::t('payout','Comment')?></td>
+                    <td class="switch-toggler"><?= Module::t('payout','Created At')?></td>
                     <td><?= Module::t('payout','Actions')?></td>
                 </tr>
                 </thead>
                 <tbody>
                 <?php foreach($payouts as $payout):?>
                     <?php if($payout->isRemoved() == 1): ?>
-                    <!--                --><?php //if($profile->user->getRole() == 'teacher'): ?>
                     <tr>
                         <td><?= $payout->id ?></td>
                         <td><?= $payout->walletType->name ?></td>
@@ -48,9 +49,8 @@ $this->params['breadcrumbs'][] = $this->title;
                         <td><?= $payout->getCurrencyName(); ?></td>
                         <td><?= $payout->payout_sum_rub ?></td>
                         <td><?= $payout->payoutStatus->name ?></td>
-                        <td><?= $payout->comment ?></td>
-                        <td><?= $payout->created_at ?></td>
-                        <!--                        <td>--><?//= $profile->user->getRole() ?><!--</td>-->
+                        <td class="switch-toggler"><?= $payout->comment ?></td>
+                        <td class="switch-toggler"><?= $payout->created_at ?></td>
                         <td>
                             <button value="<?= Url::toRoute(['/payout/view','id'=>$payout->id]);?>" data-toggle="tooltip" title="<?= Module::t('payout','View')?>" aria-label="View" class="btn btn-outline-dark btn-rounded btn-xs view-modal-click"><span class="fa fa-eye"></span></button>
                             <a href="<?= Url::toRoute(['/payout/update','id'=>$payout->id]);?>" data-toggle="tooltip" title="<?= Module::t('payout','Update')?>" aria-label="Update" class="btn btn-outline-dark btn-rounded btn-xs update-modal-click"><span class="fa fa-pencil" ></span></a>

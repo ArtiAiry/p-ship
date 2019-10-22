@@ -13,6 +13,7 @@ return [
     'Payouts'=>'Выплаты',
     'Payments'=>'Оплаты',
     'Comments'=>'Комментарии',
+    'Companies'=>'Компании',
     'Events'=>'События',
     'Statistics'=>'Статистика',
     'By Products'=>'По продуктам',

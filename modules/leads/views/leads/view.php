@@ -8,7 +8,7 @@ use yii\widgets\DetailView;
 /* @var $model app\modules\leads\models\ClicksLeads */
 
 $this->title = $model->id;
-$this->params['breadcrumbs'][] = ['label' => Module::t('leads','Leads'), 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => Module::t('leads','Leads'), 'url' => ['/leads']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="clicks-leads-view">

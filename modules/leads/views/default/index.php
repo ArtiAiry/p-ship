@@ -22,8 +22,6 @@ Modal::begin([
 ]);
 echo "<div id='modalContent1' class='card'></div>";
 Modal::end();
-
-
 ?>
 
 <badge id="leadsreportrange" class="btn btn-outline-primary">
@@ -91,14 +89,14 @@ Modal::end();
                     <?php endif; ?>
                 <?php endforeach; ?>
                 </tbody>
-            </table>
+        </table>
     </div>
 </div>
 
 <?php
 Modal::begin([
     'header' => '<h4>'. Module::t('leads','Lead\'s View') .'</h4>',
-    'id' => 'modal2',
+    'id' => 'view-modal',
     'size' => 'modal-md',
 ]);
 echo "<div id='viewModalContent'></div>";

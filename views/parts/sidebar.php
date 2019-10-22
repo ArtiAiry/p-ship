@@ -42,11 +42,12 @@ digitv\bootstrap\widgets\Modal::end();
             </div>
         </li>
         <li class="nav-item"><a class="nav-link" href="<?= Url::to(['/leads']); ?>"><i class="mdi mdi-chart-areaspline menu-icon"></i><span class="menu-title"><?= Yii::t('app','Leads') ?></span></a></li>
+        <li class="nav-item"><a class="nav-link" href="<?= Url::to(['/company']); ?>"><i class="mdi mdi-library-books menu-icon"></i><span class="menu-title"><?= Yii::t('app','Companies') ?></span></a></li>
         <li class="nav-item"><a class="nav-link" href="<?= Url::to(['/product']); ?>"><i class="mdi mdi-library-books menu-icon"></i><span class="menu-title"><?= Yii::t('app','Products') ?></span></a></li>
         <li class="nav-item"><a class="nav-link" href="<?= Url::to(['/profile']); ?>"><i class="mdi mdi-face-profile menu-icon"></i><span class="menu-title"><?= Yii::t('app','Profiles') ?></span></a></li>
         <li class="nav-item"><a class="nav-link" href="<?= Url::to(['/wallet']); ?>"><i class="mdi mdi-wallet menu-icon"></i><span class="menu-title"><?= Yii::t('app','Wallets') ?></span></a></li>
         <li class="nav-item"><a class="nav-link" href="<?= Url::to(['/payout']); ?>"><i class="mdi mdi-credit-card menu-icon"></i><span class="menu-title"><?= Yii::t('app','Payouts') ?></span></a></li>
-            <li class="nav-item"><a class="nav-link" href="<?= Url::to(['/settings']); ?>"><i class="mdi mdi-settings-outline menu-icon"></i><span class="menu-title"><?= Yii::t('app','Settings') ?></span></a></li>
+        <li class="nav-item"><a class="nav-link" href="<?= Url::to(['/settings']); ?>"><i class="mdi mdi-settings-outline menu-icon"></i><span class="menu-title"><?= Yii::t('app','Settings') ?></span></a></li>
         <?php elseif ($profile->user->getRole() == 'affiliate'): ?>
             <li class="nav-item">
                 <a class="nav-link" data-toggle="collapse" href="#general-pages" aria-expanded="false" aria-controls="general-pages"><i class="mdi mdi-poll menu-icon"></i><span class="menu-title"><?= Yii::t('app','Statistics') ?></span><i class="menu-arrow"></i></a>
