@@ -1,81 +1,9 @@
 $(function () {
-    $('[data-toggle="tooltip"]').tooltip()
+    $('[data-toggle="tooltip"]').tooltip();
 });
 
-// $(document).ready(function(){
-//     $.fn.dataTable.ext.search.push(
-//         function (settings, data, dataIndex) {
-//             var min = $('#min').datepicker("getDate");
-//             var max = $('#max').datepicker("getDate");
-//
-//             var startDate = new Date(data[9]);
-//             if (min == null && max == null) { return true; }
-//             if (min == null && startDate <= max) { return true;}
-//             if(max == null && startDate >= min) {return true;}
-//             if (startDate <= max && startDate >= min) { return true; }
-//             return false;
-//         }
-//     );
-//
-//
-//     $("#min").datepicker({
-//         onSelect: function () {
-//             table.draw();
-//         },
-//         changeMonth: true,
-//         changeYear: true
-//     });
-//
-//     $("#max").datepicker({
-//         onSelect: function () {
-//             table.draw();
-//         },
-//         changeMonth: true,
-//         changeYear: true
-//     });
-//
-//
-//     var table = $('#extended-table').DataTable(
-//         {
-//
-//             columnDefs: [
-//                 {
-//                     className: "dt-center", targets: "_all"
-//                 }
-//             ],
-//             pageLength: 10,
-//             dom: 'Bfrtip',
-//             buttons: [
-//                 // {
-//                 //     extend: 'copy', className: 'copyButton'
-//                 // },
-//                 // {
-//                 //     extend: 'csv', className: 'csvButton'
-//                 // },
-//                 {
-//                     extend: 'excel', className: 'excelButton'
-//                 },
-//                 {
-//                     extend: 'pdf', className: 'pdfButton'
-//                 },
-//                 // {
-//                 //     extend: 'print', className: 'printButton'
-//                 // }
-//             ],
-//             language: {
-//                 "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Russian.json"
-//             }
-//         }
-//     );
-//
-//     // Event listener to the two range filtering inputs to redraw on input
-//     $('#min, #max').change(function () {
-//         table.draw();
-//     });
-// });
-
 $(document).ready(function() {
-    var table = $('#extended-table').DataTable(
+    var table = $("#extended-table").DataTable(
         {
 
             responsive: true,
@@ -85,7 +13,7 @@ $(document).ready(function() {
                 }
             ],
             pageLength: 10,
-            dom: 'Bfrtip',
+            dom: "Bfrtip",
             buttons: [
                 // {
                 //     extend: 'copy', className: 'copyButton'
@@ -94,11 +22,11 @@ $(document).ready(function() {
                 //     extend: 'csv', className: 'csvButton'
                 // },
                 {
-                    extend: 'excel', className: 'excelButton'
+                    extend: "excel", className: "excelButton"
                 },
                 {
-                    extend: 'pdf', className: 'pdfButton'
-                },
+                    extend: "pdf", className: "pdfButton"
+                }
                 // {
                 //     extend: 'print', className: 'printButton'
                 // }
@@ -113,23 +41,22 @@ $(document).ready(function() {
                 infoFiltered: "(Отфильтровано с _MAX_ записей)",
                 paginate: {
                     next: ">",
-                    previous: "<",
-                },
-                // url: "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Russian.json",
-            },
+                    previous: "<"
+                }
+            }
         }
     );
-    // new $.fn.dataTable.FixedHeader( table );
 });
 
 $(document).ready(function() {
-    var table = $('#min-table').DataTable(
+    var table = $("#min-table").DataTable(
         {
             responsive: true,
             columnDefs: [
                 {
                     className: "dt-center", targets: "_all"
-                }
+
+                },
             ],
             pageLength: 10,
             language: {
@@ -142,10 +69,10 @@ $(document).ready(function() {
                 infoFiltered: "(Отфильтровано с _MAX_ записей)",
                 paginate: {
                     next: ">",
-                    previous: "<",
-                },
+                    previous: "<"
+                }
                 // url: "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Russian.json",
-            },
+            }
         }
     );
     // new $.fn.dataTable.FixedHeader( table );
@@ -153,7 +80,7 @@ $(document).ready(function() {
 
 
 $(document).ready(function() {
-    var table = $('#portable').DataTable(
+    var table = $("#portable").DataTable(
         {
             responsive: true,
             columnDefs: [
@@ -174,13 +101,11 @@ $(document).ready(function() {
                 infoFiltered: "(Отфильтровано с _MAX_ записей)",
                 paginate: {
                     next: ">",
-                    previous: "<",
-                },
-                // url: "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Russian.json",
-            },
+                    previous: "<"
+                }
+            }
         }
     );
-    // new $.fn.dataTable.FixedHeader( table );
 });
 
 
@@ -188,11 +113,11 @@ $(document).ready(function() {
 
 $(document).ready(function(){
 
-    $('.card.custom').hover(
+    $(".card.custom").hover(
         // trigger when mouse hover
         function(){
             $(this).animate({
-                marginTop: "-=1%",
+                marginTop: "-=1%"
             },200);
         },
 
@@ -207,77 +132,58 @@ $(document).ready(function(){
 
 //carousel
 
-$('.owl-carousel').owlCarousel({
+$(".owl-carousel").owlCarousel({
     loop:true,
     margin:10,
 
     responsiveClass:true,
     nav: true,
-    navElement: 'btn-btn primary btn-lg',
-    // dotsContainer: '#custom-dot',
-    navText:['назад', 'далее'],
-    // navText:['previous', 'next'],
+    navElement: "btn-btn primary btn-lg",
+    navText:["назад", "далее"],
     responsive:{
         0:{
-            items:1,
+            items:1
             // nav:true
         },
         750:{
-            items:3,
+            items:3
             // nav:false
         },
         1300:{
             items:4,
-            // nav:true,
-            loop:false,
-
-            // mouseDrag:true
-            // autoplay:true
+            loop:false
         }
     }
-})
+});
 
-var owl = $('.owl-carousel');
+var owl = $(".owl-carousel");
 owl.owlCarousel();
 // Go to the next item
-$('.nxtBtn').click(function() {
-    owl.trigger('next.owl.carousel');
-})
+$(".nxtBtn").click(function() {
+    owl.trigger("next.owl.carousel");
+});
 // Go to the previous item
-$('.prvBtn').click(function() {
+$(".prvBtn").click(function() {
     // With optional speed parameter
     // Parameters has to be in square bracket '[]'
-    owl.trigger('prev.owl.carousel', [300]);
-})
-
-//clipboard
-
-// var clip = new ClipboardJS('.btn.btn-outline-primary.btn-xs');
-//
-// clip.on('success', function(e) {
-//     alert('success');
-//     e.clearSelection();
-// });
-//
-// clip.on("error", function() {
-//     document.body.insertAdjacentHTML('beforeend', '<div>that didn\'t work.</div>');
-// });
+    owl.trigger("prev.owl.carousel", [300]);
+});
 
 
-$('.btn.btn-outline-primary.btn-xs').tooltip({
-    trigger: 'click',
-    placement: 'top'
+$(".btn.btn-outline-primary.btn-xs").tooltip({
+    trigger: "click",
+    placement: "top"
 });
 
 function setTooltip(btn, message) {
-    $(btn).tooltip('hide')
-        .attr('data-original-title', message)
-        .tooltip('show');
+    $(btn).tooltip("hide")
+        .attr("data-original-title", message)
+        .tooltip("show");
 }
 
 function hideTooltip(btn) {
     setTimeout(function() {
-        $(btn).tooltip('hide');
+        $(btn).tooltip("hide");
     }, 1000);
 }
 
@@ -286,16 +192,27 @@ function hideTooltip(btn) {
 
 $.fn.modal.Constructor.prototype._enforceFocus = function() {};
 
-var clipboard = new ClipboardJS('.btn.btn-outline-primary.btn-xs');
+var clipboard = new ClipboardJS(".btn.btn-outline-primary.btn-xs");
 
-clipboard.on('success', function(e) {
-    setTooltip(e.trigger, 'Copied!');
+clipboard.on("success", function(e) {
+    setTooltip(e.trigger, "Copied!");
     hideTooltip(e.trigger);
 });
 
-clipboard.on('error', function(e) {
-    setTooltip(e.trigger, 'Failed!');
+clipboard.on("error", function(e) {
+    setTooltip(e.trigger, "Failed!");
     hideTooltip(e.trigger);
 });
 
-// var min = $('#min').datepicker("getDate");
+// Switch-box
+
+$(document).ready(function () {
+    $("#switch-checkbox").change(function () {
+        if (!this.checked)
+        //  ^
+            $(".switch-toggler").fadeOut("slow").hide();
+        else
+            $(".switch-toggler").fadeIn("slow");
+
+    });
+});
