@@ -6,6 +6,7 @@ use app\modules\company\Module;
 use app\modules\product\models\Product;
 use Yii;
 use yii\db\ActiveRecord;
+use yii\db\Query;
 
 /**
  * This is the model class for table "company".
@@ -78,5 +79,22 @@ class Company extends ActiveRecord
     public function isRemoved()
     {
         return $this->isRemoved;
+    }
+
+    public function getCompanyProductsCount($id)
+    {
+        $query = (new Query())
+            ->from('product')
+            ->where([
+                'product.company_id'=>$id,
+
+            ]);
+        $count = $query->count('product.company_id');
+
+        if($count == 0){
+            echo 0;
+        }else{
+            echo $count;
+        }
     }
 }

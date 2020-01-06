@@ -7,7 +7,7 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model app\modules\company\models\Company */
 
-$this->title = Module::t('company','Create Company');
+$this->title = Module::t('company','Create a Company');
 $this->params['breadcrumbs'][] = ['label' => Module::t('company','Companies'), 'url' => ['/company']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
