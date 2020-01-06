@@ -32,8 +32,6 @@ $this->params['breadcrumbs'][] = $this->title;
             'id',
             'name',
             'price',
-            'banner_url:url',
-            'logo_url:url',
             'created_at',
         ],
     ]) ?>

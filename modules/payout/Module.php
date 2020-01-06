@@ -1,6 +1,7 @@
 <?php
 
 namespace app\modules\payout;
+
 use Yii;
 
 /**

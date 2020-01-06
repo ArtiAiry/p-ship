@@ -2,6 +2,7 @@
 
 namespace app\modules\product\controllers;
 
+use app\modules\company\models\Company;
 use app\modules\product\models\Product;
 use app\modules\profile\models\Profile;
 use Yii;
@@ -37,12 +38,11 @@ class DefaultController extends Controller
      */
     public function actionIndex()
     {
-
-        $products = Product::find()->orderBy('id asc')->all();
+        $companies = Company::find()->orderBy('id asc')->all();
         $profile = Profile::findOne(Yii::$app->user->id);
 
         return $this->render('index',[
-            'products' => $products,
+            'companies' => $companies,
             'profile' => $profile,
         ]);
     }

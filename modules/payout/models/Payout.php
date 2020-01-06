@@ -98,7 +98,7 @@ class Payout extends ActiveRecord
     }
 
 
-    public function getSuccessPayoutSummary($id) {
+    public static function getSuccessPayoutSummary($id) {
 
         $query = (new Query())->from('payout')->where([
             'payout.user_id'=>$id,

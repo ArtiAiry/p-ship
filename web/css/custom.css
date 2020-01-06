@@ -468,3 +468,7 @@ input:checked[type="checkbox"].switch-box:before
 .switch-toggler {
     display: none;
 }
+
+a.btn.btn-primary.download-banner{
+    color: #ffffff;
+}

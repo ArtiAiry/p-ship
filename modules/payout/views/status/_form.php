@@ -14,9 +14,6 @@ use yii\widgets\ActiveForm;
     <?php $form = ActiveForm::begin(); ?>
 
     <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
-
-<!--    --><?//= $form->field($model, 'isRemoved')->hiddenInput() ?>
-
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? Module::t('status','Create') : Module::t('status','Update'), ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
     </div>

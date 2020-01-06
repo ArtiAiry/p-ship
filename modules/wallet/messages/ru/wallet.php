@@ -1,9 +1,9 @@
 <?php
 
-
 return [
 
     //buttons
+
     'Create Wallet' => 'Создать кошелек',
     'Create Form' => 'Создать форму',
     'Create Landing' => 'Создать Лэндинг',
@@ -32,7 +32,6 @@ return [
     'Add Wallet' => 'Добавить кошелек',
     'Viewing a Wallet' => 'Просмотр кошелька',
 
-
     //batch delete
 
     'You need to select at least one item.' => 'Вам нужно выбрать хотя бы один элемент.',
@@ -42,7 +41,6 @@ return [
     'Wallet was successfully created.'=>'Кошелек был успешно создана.',
     'Wallet was successfully updated.'=>'Кошелек был успешно обновлен.',
     'The requested page does not exist.'=>'Запрашиваемая страница не существует.',
-
 
     //other
 
@@ -54,7 +52,6 @@ return [
     'Edit' => 'Редактировать',
     'Save' => 'Сохранить',
     'Add a lead' => 'Добавить лида',
-
 
     //prompts
 
@@ -73,6 +70,5 @@ return [
     'Enter PayPal\'s requisites'=>'Введите реквизиты PayPal',
     'Enter Sberbank\'s requisites'=>'Введите реквизиты Сбербанка',
     'Enter PrivatBank\'s requisites'=>'Введите реквизиты ПриватБанка',
-
 
 ];

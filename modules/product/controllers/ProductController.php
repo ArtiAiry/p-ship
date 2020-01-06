@@ -31,16 +31,27 @@ class ProductController extends Controller
             ],
             'access' => [
                 'class' => AccessControl::className(),
-                'only' => ['create','update','view','delete'],
+                'only' => ['create', 'update', 'view', 'delete'],
                 'rules' => [
                     [
                         'allow' => true,
-                        'actions' => ['create','update','view','delete'],
+                        'actions' => ['create', 'update', 'view', 'delete'],
                         'roles' => ['manageProducts'],
                     ],
-                    ],
                 ],
+            ],
         ];
+    }
+
+    public function actionCompany($name)
+    {
+        $profile = Profile::findOne(Yii::$app->user->id);
+
+        return $this->render('company', [
+            'heading' => $name,
+            'profile' => $profile,
+            'products' => Product::getCompanyProducts($name)
+        ]);
     }
 
     /**
@@ -48,9 +59,10 @@ class ProductController extends Controller
      * @param integer $id
      * @return mixed
      */
+
     public function actionView($id)
     {
-        return $this->render('view', [
+        return $this->renderAjax('view', [
             'model' => $this->findModel($id),
         ]);
     }
@@ -60,20 +72,21 @@ class ProductController extends Controller
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
+
     public function actionCreate()
     {
         $model = new Product();
         $profile = Profile::findOne(Yii::$app->user->id);
-        if($profile->user->getRole() == 'admin'){
+        if ($profile->user->getRole() == 'admin') {
             if ($model->load(Yii::$app->request->post()) && $model->save()) {
-                Yii::$app->session->setFlash('success', Module::t('product','Product created.'));
+                Yii::$app->session->setFlash('success', Module::t('product', 'Product created.'));
                 return $this->redirect(['/product']);
             } else {
                 return $this->renderAjax('create', [
-                'model' => $model,
+                    'model' => $model,
                 ]);
             }
-        }else{
+        } else {
             return $this->render('create', [
                 'model' => $model,
             ]);
@@ -86,18 +99,34 @@ class ProductController extends Controller
      * @param integer $id
      * @return mixed
      */
+
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            Yii::$app->session->setFlash('success', Module::t('product','Product was successfully updated.'));
+            Yii::$app->session->setFlash('success', Module::t('product', 'Product was successfully updated.'));
             return $this->redirect(['/product']);
         } else {
-                return $this->render('update', [
-                    'model' => $model,
-                ]);
+            return $this->render('update', [
+                'model' => $model,
+            ]);
         }
+    }
+
+    /**
+     * Displays a single Product model's video.
+     * If update is successful, the browser will be redirected to the 'view' page.
+     * @param string $name
+     * @return mixed
+     */
+
+    public function actionVideo($id)
+    {
+        return $this->render('video', [
+            'model' => $this->findModel($id),
+        ]);
+
     }
 
     /**
@@ -106,6 +135,7 @@ class ProductController extends Controller
      * @param integer $id
      * @return mixed
      */
+
     public function actionDelete($id)
     {
         $this->findModel($id)->delete();
@@ -120,6 +150,7 @@ class ProductController extends Controller
      * @return Product the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
+
     protected function findModel($id)
     {
         if (($model = Product::findOne($id)) !== null) {

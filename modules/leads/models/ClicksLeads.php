@@ -141,7 +141,7 @@ class ClicksLeads extends ActiveRecord
         return $this->isRemoved;
     }
 
-    public function getTotalLeadSummary($id)
+    public static function getTotalLeadSummary($id)
     {
         $query = (new Query())
             ->from('clicks_leads')

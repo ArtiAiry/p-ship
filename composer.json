@@ -17,7 +17,8 @@
         "digitv/yii2bootstrap4": "^1.0@dev",
         "yiisoft/yii2-jui": "^2.0@dev",
         "ext-json": "*",
-        "himiklab/yii2-recaptcha-widget": "*"
+        "himiklab/yii2-recaptcha-widget": "*",
+        "wadeshuler/yii2-jwplayer": "dev-master"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.0.0",

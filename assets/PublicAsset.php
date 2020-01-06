@@ -29,12 +29,15 @@ class PublicAsset extends AssetBundle
 
         'css/owl.carousel.css',
         'css/owl.theme.default.css',
-
+        '//vjs.zencdn.net/7.3.0/video-js.min.css',
         'css/style.css',
 
         'css/custom.css',
 
         'https://app.dineandgift.com/plugins/daterangepicker/daterangepicker.css',
+
+        //cdn video.js
+        '//vjs.zencdn.net/5.4.6/video-js.min.css'
 
     ];
     public $js = [
@@ -44,7 +47,6 @@ class PublicAsset extends AssetBundle
         'http://code.jquery.com/ui/1.11.0/jquery-ui.js',
         'https://cdn.jsdelivr.net/momentjs/latest/moment.min.js',
         'https://cdnjs.cloudflare.com/ajax/libs/bootstrap-daterangepicker/2.1.27/daterangepicker.js',
-
 
         'js/chart.js',
         'js/maps.js',
@@ -60,10 +62,8 @@ class PublicAsset extends AssetBundle
         'https://cdn.datatables.net/plug-ins/1.10.20/sorting/datetime-moment.js',
 //        'https://cdn.datatables.net/plug-ins/1.10.20/sorting/date-eu.js',
 
-
         'js/dates/daterangeLeads.js',
         'js/dates/daterangeDates.js',
-
 
         'js/owl.carousel.js',
         'js/clipboard.js',
@@ -75,8 +75,10 @@ class PublicAsset extends AssetBundle
 
         'js/modal/modalView.js',
         'js/modal/modalUpdate.js',
+        'js/modal/modalMedia.js',
 
-
+        //cdn video.js
+        '//vjs.zencdn.net/5.4.6/video.min.js'
 
     ];
     public $depends = [

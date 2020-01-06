@@ -5,13 +5,13 @@ $db = require __DIR__ . '/db.php';
 Yii::setAlias('@tests', dirname(__DIR__) . '/tests');
 $config = [
     'id' => 'basic',
-    'name'=>'Profituz',
-    'language'=>'ru',
+    'name' => 'Profituz',
+    'language' => 'ru',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'aliases' => [
         '@bower' => '@vendor/bower-asset',
-        '@npm'   => '@vendor/npm-asset',
+        '@npm' => '@vendor/npm-asset',
     ],
     'components' => [
         'reCaptcha' => [
@@ -51,11 +51,11 @@ $config = [
                 'password' => 'g9RVTol5N',
                 'port' => '25',
                 'encryption' => 'tls',
-                'streamOptions'=>[
-                    'ssl'=>[
-                        'verify_peer'=>false,
-                        'verify_peer_name'=>false,
-                        'allow_self_signed'=>true
+                'streamOptions' => [
+                    'ssl' => [
+                        'verify_peer' => false,
+                        'verify_peer_name' => false,
+                        'allow_self_signed' => true
                     ],
                 ],
             ],
@@ -72,12 +72,12 @@ $config = [
                 ],
             ],
         ],
-       'formatter' => [
-           'defaultTimeZone' => 'Europe/Moscow',
-           'dateFormat' => 'dd/MM/yyyy',
-           'datetimeFormat' => 'dd/MM/yyyy HH:mm:ss',
-           'timeFormat' => 'HH:mm:ss'
-       ],
+        'formatter' => [
+            'defaultTimeZone' => 'Europe/Moscow',
+            'dateFormat' => 'dd/MM/yyyy',
+            'datetimeFormat' => 'dd/MM/yyyy HH:mm:ss',
+            'timeFormat' => 'HH:mm:ss'
+        ],
 
 
         'db' => $db,
@@ -98,6 +98,16 @@ $config = [
                 '<module:profile>/<action:\w+>' => '<module>/profile/<action>',
 
                 //product
+
+//                'product/<action:update|remove|create|delete|edit>'=>'product/<action>',
+//                'product/<name:[\w_\/-]+>/<id:[\d]+>'=>'product/company/video',
+//                'product'=>'product/default/index',
+//                '/product/<name>'=>'product/company',
+
+
+//                '<module:product>/<action:product>/<name>' => '<module>/product/company/<name>',
+//                '<module:product>/<action:\w+>/<name>' => '<module>/product/company',
+                '<module:product>/<action:\w+>/<name>' => '<module>/product/<action>',
                 '<module:product>/<action:\w+>/<id:\d+>' => '<module>/product/<action>',
                 '<module:product>/<action:\w+>' => '<module>/product/<action>',
 
@@ -126,6 +136,11 @@ $config = [
                 '<module:company>/<action:\w+>' => '<module>/company/<action>',
 
 
+//                //company-products
+//                [
+//                    'pattern'=>'<url/product:\w+>',
+//                    'route' => 'product/company',
+//                ],
 
             ],
         ],
@@ -142,7 +157,7 @@ $config = [
                 ],
             ],
         ],
-        'authManager'  => [
+        'authManager' => [
             'class' => 'yii\rbac\DbManager',
         ],
     ],
@@ -161,7 +176,7 @@ $config = [
             'class' => 'app\modules\product\Module',
         ],
         'source' => [
-                'class' => 'app\modules\source\Module',
+            'class' => 'app\modules\source\Module',
         ],
         'leads' => [
             'class' => 'app\modules\leads\Module',
@@ -174,7 +189,14 @@ $config = [
         ],
         'company' => [
             'class' => 'app\modules\company\Module',
-        ]
+        ],
+        'sandbox' => [
+            'class' => 'app\modules\sandbox\Module',
+        ],
+        'media' => [
+            'class' => 'app\modules\media\Module',
+        ],
+
     ],
     'params' => $params,
 ];
@@ -185,7 +207,7 @@ if (YII_ENV_DEV) {
     $config['modules']['debug'] = [
         'class' => 'yii\debug\Module',
         // uncomment the following to add your IP if you are not connecting from localhost.
-      'allowedIPs' => ['127.0.0.1','::1'],
+        'allowedIPs' => ['127.0.0.1', '::1'],
     ];
 
     $config['bootstrap'][] = 'gii';
@@ -196,7 +218,7 @@ if (YII_ENV_DEV) {
                 'class' => 'elisdn\gii\fixture\Generator',
             ],
         ],
-        'allowedIPs' => ['127.0.0.1','::1'],
+        'allowedIPs' => ['127.0.0.1', '::1'],
     ];
 }
 

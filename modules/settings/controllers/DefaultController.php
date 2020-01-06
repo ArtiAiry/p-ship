@@ -49,17 +49,14 @@ class DefaultController extends Controller
 
     public function actionIndex()
     {
-        $payout = new Payout();
         $user = User::find()->where(['id' => Yii::$app->user->id])->one();
         $profile = Profile::find()->where(['id' => Yii::$app->user->id])->one();
         $wallet = Wallet::findOne(Yii::$app->user->id);
         $leads = ClicksLeads::find()->orderBy('id asc')->where(['user_id' => Yii::$app->user->id])->all();
-        $sumLead = new ClicksLeads();
-
 
         if ($profile->load(Yii::$app->request->post()) && $profile->save(false)) {
 
-            Yii::$app->session->setFlash('success', Module::t('settings','Profile\'s settings successfully saved.'));
+            Yii::$app->session->setFlash('success', Module::t('settings', 'Profile\'s settings successfully saved.'));
             return $this->redirect(['/settings']);
         }
 
@@ -68,9 +65,8 @@ class DefaultController extends Controller
             'user' => $user,
             'profile' => $profile,
             'wallet' => $wallet,
-            'payout' => $payout,
             'leads' => $leads,
-            'sumLead' => $sumLead,
+
         ]);
     }
 }

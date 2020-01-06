@@ -2,7 +2,7 @@ $(function () {
     $('[data-toggle="tooltip"]').tooltip();
 });
 
-$(document).ready(function() {
+$(document).ready(function () {
     var table = $("#extended-table").DataTable(
         {
 
@@ -48,7 +48,7 @@ $(document).ready(function() {
     );
 });
 
-$(document).ready(function() {
+$(document).ready(function () {
     var table = $("#min-table").DataTable(
         {
             responsive: true,
@@ -79,7 +79,7 @@ $(document).ready(function() {
 });
 
 
-$(document).ready(function() {
+$(document).ready(function () {
     var table = $("#portable").DataTable(
         {
             responsive: true,
@@ -109,23 +109,21 @@ $(document).ready(function() {
 });
 
 
-
-
-$(document).ready(function(){
+$(document).ready(function () {
 
     $(".card.custom").hover(
         // trigger when mouse hover
-        function(){
+        function () {
             $(this).animate({
                 marginTop: "-=1%"
-            },200);
+            }, 200);
         },
 
         // trigger when mouse out
-        function(){
+        function () {
             $(this).animate({
                 marginTop: "0%"
-            },200);
+            }, 200);
         }
     );
 });
@@ -133,25 +131,25 @@ $(document).ready(function(){
 //carousel
 
 $(".owl-carousel").owlCarousel({
-    loop:true,
-    margin:10,
+    loop: true,
+    margin: 10,
 
-    responsiveClass:true,
+    responsiveClass: true,
     nav: true,
     navElement: "btn-btn primary btn-lg",
-    navText:["назад", "далее"],
-    responsive:{
-        0:{
-            items:1
+    navText: ["назад", "далее"],
+    responsive: {
+        0: {
+            items: 1
             // nav:true
         },
-        750:{
-            items:3
+        750: {
+            items: 3
             // nav:false
         },
-        1300:{
-            items:4,
-            loop:false
+        1300: {
+            items: 4,
+            loop: false
         }
     }
 });
@@ -159,11 +157,11 @@ $(".owl-carousel").owlCarousel({
 var owl = $(".owl-carousel");
 owl.owlCarousel();
 // Go to the next item
-$(".nxtBtn").click(function() {
+$(".nxtBtn").click(function () {
     owl.trigger("next.owl.carousel");
 });
 // Go to the previous item
-$(".prvBtn").click(function() {
+$(".prvBtn").click(function () {
     // With optional speed parameter
     // Parameters has to be in square bracket '[]'
     owl.trigger("prev.owl.carousel", [300]);
@@ -182,7 +180,7 @@ function setTooltip(btn, message) {
 }
 
 function hideTooltip(btn) {
-    setTimeout(function() {
+    setTimeout(function () {
         $(btn).tooltip("hide");
     }, 1000);
 }
@@ -190,17 +188,18 @@ function hideTooltip(btn) {
 
 // Clipboard
 
-$.fn.modal.Constructor.prototype._enforceFocus = function() {};
+$.fn.modal.Constructor.prototype._enforceFocus = function () {
+};
 
 var clipboard = new ClipboardJS(".btn.btn-outline-primary.btn-xs");
 
-clipboard.on("success", function(e) {
-    setTooltip(e.trigger, "Copied!");
+clipboard.on("success", function (e) {
+    setTooltip(e.trigger, "Скопировано!");
     hideTooltip(e.trigger);
 });
 
-clipboard.on("error", function(e) {
-    setTooltip(e.trigger, "Failed!");
+clipboard.on("error", function (e) {
+    setTooltip(e.trigger, "Провалено!");
     hideTooltip(e.trigger);
 });
 

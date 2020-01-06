@@ -11,27 +11,27 @@ return [
 
     //grid
 
-    'Add Lead'=>'Добавить лида',
-    'Adding a Lead'=>'Добавление лида',
-    'Leads'=>'Лиды',
+    'Add Lead' => 'Добавить лида',
+    'Adding a Lead' => 'Добавление лида',
+    'Leads' => 'Лиды',
     'Create Time' => 'Дата создания',
     'Client' => 'Клиент',
-    'User Device'=>'Девайс',
-    'User OS'=>'ОC',
-    'User'=>'Пользователь',
-    'Product'=>'Продукт',
-    'Status'=>'Статус',
-    'Country'=>'Страна',
-    'City'=>'Город',
-    'Price'=>'Цена',
-    'Is Sold'=>'Продажа',
-    'Created At'=>'Дата создания',
-    'Lead\'s View'=>'Просмотр лида',
-    'Affiliate'=>'Аффлиат',
-    'Source'=>'Источник',
-    'Lead was successfully edited.'=>'Лид был успешно отредактирован.',
-    'Lead was successfully created.'=>'Лид был успешно создан.',
-    'The requested page does not exist.'=>'Запрашиваемая страница не существует.',
+    'User Device' => 'Девайс',
+    'User OS' => 'ОC',
+    'User' => 'Пользователь',
+    'Product' => 'Продукт',
+    'Status' => 'Статус',
+    'Country' => 'Страна',
+    'City' => 'Город',
+    'Price' => 'Цена',
+    'Is Sold' => 'Продажа',
+    'Created At' => 'Дата создания',
+    'Lead\'s View' => 'Просмотр лида',
+    'Affiliate' => 'Аффлиат',
+    'Source' => 'Источник',
+    'Lead was successfully edited.' => 'Лид был успешно отредактирован.',
+    'Lead was successfully created.' => 'Лид был успешно создан.',
+    'The requested page does not exist.' => 'Запрашиваемая страница не существует.',
 
 
     //batch delete
@@ -47,15 +47,15 @@ return [
     'Create' => 'Создать',
     'Update' => 'Обновить',
     'Delete' => 'Удалить',
-    'View'=> 'Просмотр',
-    'Add a lead'=> 'Добавить лида',
+    'View' => 'Просмотр',
+    'Add a lead' => 'Добавить лида',
 
 
     //prompts
 
-    'Choose User'=>'Выберите аффлианта',
-    'Choose Product'=>'Выберите продукт',
-    'Choose Lead\'s Status'=>'Выберите статус лида',
+    'Choose User' => 'Выберите аффлианта',
+    'Choose Product' => 'Выберите продукт',
+    'Choose Lead\'s Status' => 'Выберите статус лида',
 
 
 ];

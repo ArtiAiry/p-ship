@@ -9,8 +9,6 @@ use app\modules\leads\models\ClicksLeads;
 use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
-use yii\filters\VerbFilter;
-use yii\web\Response;
 
 /**
  * LeadsController implements the CRUD actions for ClicksLeads model.
